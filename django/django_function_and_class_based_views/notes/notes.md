@@ -7,7 +7,6 @@
 ## Links and such:
 * `python .\manage.py runserver`
 * http://localhost:8000/
-* http://localhost:8000/the-app/index
 * http://localhost:8000/admin
 
 ## Process:
@@ -97,7 +96,7 @@
     * `python .\manage.py runserver`
     * http://localhost:8000/
 
-1. Create the app ``:
+1. Create the app `the_app`:
     * `python .\manage.py startapp the_app`
         * Sample output:
             ```
@@ -181,9 +180,9 @@
         ]
         ```
     * We added a `path()` object with following arguments to `urlpatterns` list:
-        * `index/` url route.
-        * `views.index` view function.
-        * `name='index'` kwarg for view name.
+        * `index/` is the `route` argument.
+        * `views.index` is the `view` argument.
+        * `name='index'` is the `name` argument.
     * Relevent links:
         * [`django.urls`](https://docs.djangoproject.com/en/4.0/ref/urls/)
         * [`path()`](https://docs.djangoproject.com/en/4.0/ref/urls/#path)
@@ -228,7 +227,7 @@
 1. Create `superuser`:
     * `python .\manage.py createsuperuser`
 
-1. Test `admin` and `the_app` endpoints:
+1. Test `admin/` and `the_app/index/` endpoints:
     * `python .\manage.py runserver`
     * http://localhost:8000/the-app/index/
     * http://localhost:8000/admin/
@@ -296,13 +295,13 @@
     ```
 
 1. Thought I might need to add the trailing `/` to route for `function-view`.
-    * Modify ``:
+    * Modify `the_app/urls.py`:
         ```
-    urlpatterns = [
-        ...
-        path('function-view/', views.function_view, name='function_view'),
-        ...
-    ]
+        urlpatterns = [
+            ...
+            path('function-view/', views.function_view, name='function_view'),
+            ...
+        ]
         ```
 
 1. Test development server:
@@ -338,7 +337,7 @@
 
 1. `function-view/` view found but still failed since it didn't return an `HttpResponse` object.
 
-1. Modify `the_app/views.py`:
+1. Modify `the_app/views.py` to have it return an `HttpResponse` object:
     ```
     def function_view(request):
         """
@@ -351,7 +350,7 @@
         return render(request, 'the_app/the_app_template.html', context)
     ```
 
-1. `function_view` view functions.
+1. `function_view` view works as expected.
 
 1. Create a class-based view in `the_app/views.py`:
     ```
@@ -383,14 +382,7 @@
     * http://localhost:8000/the-app/function-view/
     * http://localhost:8000/the-app/class-view/
 
-1. `class-view` view functions.
-
-1. Test development server:
-    * `python .\manage.py runserver`
-    * http://localhost:8000/admin/
-    * http://localhost:8000/the-app/index/
-    * http://localhost:8000/the-app/function-view/
-    * http://localhost:8000/the-app/class-view/
+1. `class-view` view works as expected.
 
 1. Create class-based template view `ClassTemplateView` in `the_app/views.py`:
     ```
@@ -529,7 +521,7 @@
     Server time:	Mon, 22 Aug 2022 01:10:55 +0000
     ```
 
-1. Try adding `the_app/` to `` in ``:
+1. Try adding `the_app/` to `template_name` in `urlpatterns`:
     ```
     urlpatterns = [
         ...
@@ -602,7 +594,7 @@
     * http://localhost:8000/the-app/class-view/
     * http://localhost:8000/the-app/class-template-view/
 
-1. Create a `ListView` view `ClassListView` in `the_app/views.py`:
+1. Create a `ListView` view called `ClassListView` in `the_app/views.py`:
     ```
     class ClassListView(generic.ListView):
         model = StringValue
@@ -651,4 +643,150 @@
             - [deleted]         django-function-and-class-based-views-comments
             PS C:\Users\Bruce\Programming\examples\django\django_function_and_class_based_views>
             ```
+
+1. Have virtual environment issues with multiple django projects in same repository. Will try creating a repo-wide `pipenv`.
+
+1. Remove `Pipfile` and `Pipfile.lock` from `examples\django\django_function_and_class_based_views`:
+    * New directory contents:
+        ```
+        PS C:\Users\Bruce\Programming\examples\django\django_function_and_class_based_views> Get-ChildItem 
+
+            Directory: C:\Users\Bruce\Programming\examples\django\django_function_and_class_based_views
+
+        Mode                 LastWriteTime         Length Name
+        ----                 -------------         ------ ----
+        d----          2022-08-22    07:35                local_things
+        d----          2022-08-22    07:35                notes
+        d----          2022-08-22    07:35                the_app
+        d----          2022-08-22    07:35                the_project
+        -a---          2022-08-21    20:31         135168 db.sqlite3
+        -a---          2022-08-21    22:52            689 manage.py
+
+        PS C:\Users\Bruce\Programming\examples\django\django_function_and_class_based_views>
+        ```
+
+1. Delete the `django_function_and_class_based_views-KMseypp5` virtual environment.
+
+1. Search repo for `Pipfile`:
+    * `Get-ChildItem -Recurse -Filter 'Pipfile*'`
+        ```
+        PS C:\Users\Bruce\Programming\examples> Get-ChildItem -Recurse -Filter 'Pipfile*'
+        PS C:\Users\Bruce\Programming\examples>
+        ```
+
+1. No results show, so let's search for something we know is in the repo so we can see if we are using proper command:
+    * `Get-ChildItem -Recurse -Filter 'the_app_template*'`
+        ```
+        PS C:\Users\Bruce\Programming\examples> Get-ChildItem -Recurse -Filter 'the_app_template*'
+
+            Directory: C:\Users\Bruce\Programming\examples\django\django_function_and_class_based_views\the_app\templates\the_app
+
+        Mode                 LastWriteTime         Length Name
+        ----                 -------------         ------ ----
+        -a---          2022-08-21    22:57            195 the_app_template.html
+
+        PS C:\Users\Bruce\Programming\examples>
+        ```
+
+1. It seems the search command worked. Now, create `pipenv` in root of repo:
+    * `pipenv install django==4.0`
+        ```
+        ...
+        Locking Failed!
+        ...
+        requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+        ...
+        ```
+
+1. `Locking Failed!` so try again:
+    * `pipenv install django==4.0`
+        ```
+        PS C:\Users\Bruce\Programming\examples> pipenv install django==4.0
+        Installing django==4.0...
+        [====] Installing django...
+        Installation Succeeded
+        Pipfile.lock not found, creating...
+        Locking [dev-packages] dependencies...
+        Locking [packages] dependencies...
+        Locking...Building requirements...
+        Resolving dependencies...
+        Success!
+        Updated Pipfile.lock (036cf0)!
+        Installing dependencies from Pipfile.lock (036cf0)...
+        ================================ 0/0 - 00:00:00
+        To activate this project's virtualenv, run pipenv shell.
+        Alternatively, run a command inside the virtualenv with pipenv run.
+        PS C:\Users\Bruce\Programming\examples>
+        ```
+
+1. Activate virtual environment:
+    * `pipenv shell`
+        ```
+        PS C:\Users\Bruce\Programming\examples> pipenv shell
+        Launching subshell in virtual environment...
+        PowerShell 7.2.5
+        Copyright (c) Microsoft Corporation.
+
+        https://aka.ms/powershell
+        Type 'help' to get help.
+
+        PS C:\Users\Bruce\Programming\examples>
+        ```
+
+1. Verify `pipenv` Python interpreter:
+    * `Get-Command python | fl *`
+        ```
+        PS C:\Users\Bruce\Programming\examples> Get-Command python | fl *
+
+        HelpUri            : 
+        FileVersionInfo    : File:             C:\Users\Bruce\.virtualenvs\examples-yqA5vS_k\Scripts\python.exe
+                            InternalName:     Python Launcher
+                            OriginalFilename: py.exe
+                            FileVersion:      3.10.6
+                            FileDescription:  Python
+                            Product:          Python
+                            ProductVersion:   3.10.6
+                            Debug:            False
+                            Patched:          False
+                            PreRelease:       False
+                            PrivateBuild:     False
+                            SpecialBuild:     False
+                            Language:         Language Neutral
+
+        Path               : C:\Users\Bruce\.virtualenvs\examples-yqA5vS_k\Scripts\python.exe
+        Extension          : .exe
+        Definition         : C:\Users\Bruce\.virtualenvs\examples-yqA5vS_k\Scripts\python.exe
+        Source             : C:\Users\Bruce\.virtualenvs\examples-yqA5vS_k\Scripts\python.exe
+        Version            : 3.10.6150.1013
+        Visibility         : Public
+        OutputType         : {System.String}
+        Name               : python.exe
+        CommandType        : Application
+        ModuleName         : 
+        Module             : 
+        RemotingCapability : PowerShell
+        Parameters         : 
+        ParameterSets      : 
+
+
+        PS C:\Users\Bruce\Programming\examples>
+        ```
+
+1. Confirm `pip list`:
+    * `pip list`
+        ```
+        PS C:\Users\Bruce\Programming\examples> pip list
+        Package    Version
+        ---------- -------
+        asgiref    3.5.2
+        Django     4.0
+        pip        22.2.2
+        setuptools 63.2.0
+        sqlparse   0.4.2
+        tzdata     2022.2
+        wheel      0.37.1
+        PS C:\Users\Bruce\Programming\examples>
+        ```
+
+1. Set Python interpreter to workspace level so I don't have to use `pipenv shell` each time I start vscode.
 
