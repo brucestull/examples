@@ -210,8 +210,8 @@
     * The string `response_string` displays in internet browser.
 
 1. Investigate some properties of the `request` object:
-    * [`request.__dict__`](./request___dict__.md)
-    * [`request.environ.keys()`](./request_environ_keys_m.md)
+    * `request.__dict__`
+    * `request.environ.keys()`
 
 1. Perform `migrate`:
     * `python .\manage.py migrate`
