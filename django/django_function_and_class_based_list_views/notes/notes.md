@@ -1,13 +1,26 @@
 # Notes
 
 ## Resources:
-* https://docs.djangoproject.com/en/4.0/intro/tutorial01/
-* https://github.com/PdxCodeGuild/class_otter/blob/main/3%20Django/docs/Django%20Project%20Setup.md
+* [Writing your first Django app, part 1 - djangoproject.com](https://docs.djangoproject.com/en/4.0/intro/tutorial01/)
+* [How to start a Django project  (PDXCG Style)](https://github.com/PdxCodeGuild/class_otter/blob/main/3%20Django/docs/Django%20Project%20Setup.md)
+* [Django General Index](https://docs.djangoproject.com/en/4.0/genindex/)
+* [Django Module Index](https://docs.djangoproject.com/en/4.0/py-modindex/)
+* [Django - w3schools](https://www.w3schools.com/django/)
+* [Django - MDN](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django)
+* Links for [inherited](https://www.w3schools.com/python/python_inheritance.asp) views:
+    * [Built-in class-based views API](https://docs.djangoproject.com/en/4.0/ref/class-based-views/)
+    * [`View`](https://docs.djangoproject.com/en/4.0/ref/class-based-views/base/#view)
+    * [`TemplateView`](https://docs.djangoproject.com/en/4.0/ref/class-based-views/base/#templateview)
+    * [`ListView`](https://docs.djangoproject.com/en/4.0/ref/class-based-views/generic-display/#listview)
 
-## Links and such:
+## Development server links and such:
 * `python .\manage.py runserver`
-* http://localhost:8000/
-* http://localhost:8000/admin
+* http://localhost:8000/admin/
+* http://localhost:8000/the-app/index/
+* http://localhost:8000/the-app/function-view/
+* http://localhost:8000/the-app/class-view/
+* http://localhost:8000/the-app/class-template-view/
+* http://localhost:8000/the-app/class-list-view/
 
 ## Process:
 
@@ -602,7 +615,7 @@
         template_name = 'the_app/the_app_template.html'
     ```
     * Resource:
-        * [`ListView`](https://docs.djangoproject.com/en/3.2/ref/class-based-views/generic-display/#listview)
+        * [`ListView`](https://docs.djangoproject.com/en/4.0/ref/class-based-views/generic-display/#listview)
 
 1. Add `path()` for `ClassListView` in `urlpatterns` in `the_app/urls.py`:
     ```
@@ -789,4 +802,6 @@
         ```
 
 1. Set Python interpreter to workspace level so I don't have to use `pipenv shell` each time I start vscode.
+
+
 
