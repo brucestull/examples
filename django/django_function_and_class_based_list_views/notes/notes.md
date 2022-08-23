@@ -154,7 +154,7 @@
             PS C:\Users\Bruce\Programming\examples\django\django_function_and_class_based_views>
             ```
 
-1. Add the application config for our app `'the_app.apps.TheAppConfig'` to `INSTALLED_APPS` list in `the_project/settings.py`:
+1. Add the application config for our app `'the_app.apps.TheAppConfig'` to `INSTALLED_APPS` list in [`the_project\settings.py`](../the_project/settings.py):
     ```
     INSTALLED_APPS = [
         ...
@@ -168,7 +168,7 @@
         * [`INSTALLED_APPS`](https://docs.djangoproject.com/en/4.0/ref/settings/#installed-apps)
 
 1. Create a basic view which returns an `HttpResponse` for testing:
-    * Add an `index` view function to `the_app\views.py`:
+    * Add an `index` view function to [`the_app\views.py`](../the_app/views.py):
         ```
         from django.http import HttpResponse
 
@@ -182,7 +182,7 @@
         * [`def`](https://www.w3schools.com/python/python_functions.asp)
 
 1. Create a URL route `index` for the `index` view:
-    * Create `the_app\urls.py` and add following contents:
+    * Create [`the_app\urls.py`](../the_app/urls.py) and add following contents:
         ```
         from django.urls import path
         from . import views
@@ -201,7 +201,7 @@
         * [`path()`](https://docs.djangoproject.com/en/4.0/ref/urls/#path)
         * [URL namespaces and included URLconfs](https://docs.djangoproject.com/en/4.1/topics/http/urls/#url-namespaces-and-included-urlconfs) to test out if `app_name_in_html` will work.
 
-1. Modify `the_project\urls.py` as follows:
+1. Modify [`the_project\urls.py`](../the_project/urls.py) as follows:
     * Add import for `include()` from `django.urls`.
     * Add `path()` constructor with arguments to `urlpatterns` list.
         * `the-app/` url route.
@@ -246,7 +246,7 @@
     * http://localhost:8000/admin/
 
 
-1. Model doesn't show in `admin` view. Need to add the model to `the_app\admin.py`:
+1. Model doesn't show in `admin` view. Need to add the model to [`the_app\admin.py`](../the_app/admin.py):
     ```
     from django.contrib import admin
     from .models import StringValue
@@ -265,7 +265,7 @@
     * `python .\manage.py makemigrations`
     * `python .\manage.py migrate`
 
-1. Create a function-based view `function_view` in `the_app/views.py`. We will temporarily just print the `QueryDict` info to console:
+1. Create a function-based view `function_view` in [`the_app\views.py`](../the_app/views.py). We will temporarily just print the `QueryDict` info to console:
     ```
     def function_view(request):
         """
@@ -277,7 +277,7 @@
         pass
     ```
 
-1. Add `path()` for `function-view` to `the_app/urls.py`:
+1. Add `path()` for `function-view` to [`the_app\urls.py`](../the_app/urls.py):
     ```
     urlpatterns = [
         ...
@@ -308,7 +308,7 @@
     ```
 
 1. Thought I might need to add the trailing `/` to route for `function-view`.
-    * Modify `the_app/urls.py`:
+    * Modify [`the_app\urls.py`](../the_app/urls.py):
         ```
         urlpatterns = [
             ...
@@ -350,7 +350,7 @@
 
 1. `function-view/` view found but still failed since it didn't return an `HttpResponse` object.
 
-1. Modify `the_app/views.py` to have it return an `HttpResponse` object:
+1. Modify [`the_app\views.py`](../the_app/views.py) to have it return an `HttpResponse` object:
     ```
     def function_view(request):
         """
@@ -365,7 +365,7 @@
 
 1. `function_view` view works as expected.
 
-1. Create a class-based view in `the_app/views.py`:
+1. Create a class-based view in [`the_app\views.py`](../the_app/views.py):
     ```
     class ClassView(View):
         """
@@ -379,7 +379,7 @@
             return render(request, 'the_app/the_app_template.html', context)
     ```
 
-1. Add `path()` for `ClassView` to `urlpatterns` in `the_app/urls.py`:
+1. Add `path()` for `ClassView` to `urlpatterns` in [`the_app\urls.py`](../the_app/urls.py):
     ```
     urlpatterns = [
         ...
@@ -397,7 +397,7 @@
 
 1. `class-view` view works as expected.
 
-1. Create class-based template view `ClassTemplateView` in `the_app/views.py`:
+1. Create class-based template view `ClassTemplateView` in [`the_app\views.py`](../the_app/views.py):
     ```
     class ClassTemplateView(TemplateView):
         template_name = 'the_app_template.html'
@@ -407,7 +407,7 @@
             return context
     ```
 
-1. Add `path()` for `ClassTemplateView` to `urlpatterns` in `the_app/urls.py`:
+1. Add `path()` for `ClassTemplateView` to `urlpatterns` in [`the_app\urls.py`](../the_app/urls.py):
     ```
     urlpatterns = [
         ...
@@ -484,7 +484,7 @@
     Server time:	Mon, 22 Aug 2022 01:04:41 +0000
     ```
 
-1. Try adding `template_name='the_app_template.html'` to `path(TemplateView.as_view())` in `urlpatterns` in `the_app/urls.py` and removing `template_name` from `ClassTemplateView` in `the_app/views.py`:
+1. Try adding `template_name='the_app_template.html'` to `path(TemplateView.as_view())` in `urlpatterns` in [`the_app\urls.py`](../the_app/urls.py) and removing `template_name` from `ClassTemplateView` in [`the_app\views.py`](../the_app/views.py):
     ```
     urlpatterns = [
         ...
@@ -545,7 +545,7 @@
 
 1. `class-template-view` view fails with blank screen. So context not set up properly, maybe.
 
-1. Maybe forgot `()` on `super` in `context` part of `ClassTemplateView` in `the_app/views.py`:
+1. Maybe forgot `()` on `super` in `context` part of `ClassTemplateView` in [`the_app\views.py`](../the_app/views.py):
     ```
     class ClassTemplateView(TemplateView):
             ...
@@ -553,7 +553,7 @@
             ...
     ```
 
-1. Add `()` on `super` in `context` part of `ClassTemplateView` in `the_app/views.py`:
+1. Add `()` on `super` in `context` part of `ClassTemplateView` in [`the_app\views.py`](../the_app/views.py):
     ```
     class ClassTemplateView(TemplateView):
             ...
@@ -569,7 +569,7 @@
     * http://localhost:8000/the-app/class-view/
     * http://localhost:8000/the-app/class-template-view/
 
-1. `class-template-view` view fails. Had incorrect `TemplateView.as_view()` in `urlpatterns` in `the_app/urls.py`:
+1. `class-template-view` view fails. Had incorrect `TemplateView.as_view()` in `urlpatterns` in [`the_app\urls.py`](../the_app/urls.py):
     ```
     urlpatterns = [
         ...
@@ -582,7 +582,7 @@
     ]
     ```
 
-1. Change `TemplateView.as_view` to `views.ClassTemplateView.as_view` in `urlpatterns` in `the_app/urls.py`:
+1. Change `TemplateView.as_view` to `views.ClassTemplateView.as_view` in `urlpatterns` in [`the_app\urls.py`](../the_app/urls.py):
     ```
     urlpatterns = [
         ...
@@ -607,7 +607,7 @@
     * http://localhost:8000/the-app/class-view/
     * http://localhost:8000/the-app/class-template-view/
 
-1. Create a `ListView` view called `ClassListView` in `the_app/views.py`:
+1. Create a `ListView` view called `ClassListView` in [`the_app\views.py`](../the_app/views.py):
     ```
     class ClassListView(generic.ListView):
         model = StringValue
@@ -617,7 +617,7 @@
     * Resource:
         * [`ListView`](https://docs.djangoproject.com/en/4.0/ref/class-based-views/generic-display/#listview)
 
-1. Add `path()` for `ClassListView` in `urlpatterns` in `the_app/urls.py`:
+1. Add `path()` for `ClassListView` in `urlpatterns` in [`the_app\urls.py`](../the_app/urls.py):
     ```
     urlpatterns = [
         ...
