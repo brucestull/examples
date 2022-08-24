@@ -1,4 +1,4 @@
-# Notes
+# Django Function and Class-Based List Views
 
 ## Resources:
 * [Writing your first Django app, part 1 - djangoproject.com](https://docs.djangoproject.com/en/4.0/intro/tutorial01/)
