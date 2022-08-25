@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import ListView
-
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView
 from .models import NoChoices, YesChoices
 
 
@@ -36,3 +36,12 @@ class YesChoicesListView(ListView):
     #         context_object_name = `object_list`
     """
 
+
+class YesChoicesCreateView(CreateView):
+    model = YesChoices
+    fields = ['name', 'the_specific_choice']
+
+
+class NoChoicesCreateView(CreateView):
+    model = NoChoices
+    fields = ['name']

@@ -4,6 +4,8 @@
 ## Resources:
 
 ### Related Concepts:
+* [`on_delete=models.SET_NULL` - Requires `null=True`](https://docs.djangoproject.com/en/4.0/ref/models/fields/#django.db.models.SET_NULL)
+* [`on_delete=models.SET_DEFAULT` - Requires `default=<SOME_VALUE>`](https://docs.djangoproject.com/en/4.0/ref/models/fields/#django.db.models.SET_DEFAULT)
 * [django.db.models.fields - choices](https://docs.djangoproject.com/en/4.0/ref/models/fields/#choices)
 * [Generic views of objects - (`model`, `object_list`)](https://docs.djangoproject.com/en/4.1/topics/class-based-views/generic-display/#generic-views-of-objects)
 * [django.db.models.fields - Model field reference](https://docs.djangoproject.com/en/4.0/ref/models/fields/)

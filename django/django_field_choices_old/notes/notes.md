@@ -7,6 +7,8 @@
 * http://localhost:8000/the-app/
 * http://localhost:8000/the-app/no-choices/
 * http://localhost:8000/the-app/yes-choices/
+* http://localhost:8000/the-app/no-choices/new/
+* http://localhost:8000/the-app/yes-choices/new/
 
 
 ## Process:
