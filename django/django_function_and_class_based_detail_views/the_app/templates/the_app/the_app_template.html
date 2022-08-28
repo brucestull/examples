@@ -1,0 +1,13 @@
+<h1>the_app_template</h1>
+{% for a_thing in the_string_things %}
+<p>{{ a_thing }}</p>
+{% endfor %}
+
+{% comment %}
+    'ListView' provides a context variable 'object_list' automatically.
+{% endcomment %}
+<h1>object_list</h1>
+<a href='https://docs.djangoproject.com/en/4.0/ref/class-based-views/generic-display/#listview' target="_blank">ListView</a>
+{% for a_thing in object_list %}
+<p>{{ a_thing }}</p>
+{% endfor %}
