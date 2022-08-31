@@ -141,7 +141,7 @@
 1. Examine directory contents:
     * `tree /f /a`
 
-1. Note presense of `Pipfile` and `Pipfile.lock` above.
+1. Note presence of `Pipfile` and `Pipfile.lock` above.
 
 1. Activate the virtual environment by using `pipenv shell`:
     * `pipenv shell`
