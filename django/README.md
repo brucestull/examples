@@ -13,7 +13,7 @@
 
 ### Specific Concepts:
 * [django.db.models.fields - Model field reference](https://docs.djangoproject.com/en/4.0/ref/models/fields/)
-* [Generic views of objects - (`model`, `object_list`)](https://docs.djangoproject.com/en/4.1/topics/class-based-views/generic-display/#generic-views-of-objects)
+* [Generic views of objects - (`model`, `object_list`)](https://docs.djangoproject.com/en/4.0/topics/class-based-views/generic-display/#generic-views-of-objects)
 * [django.db.models.fields - choices](https://docs.djangoproject.com/en/4.0/ref/models/fields/#choices)
 
 ### Tutorials:

@@ -199,7 +199,7 @@
     * Relevent links:
         * [`django.urls`](https://docs.djangoproject.com/en/4.0/ref/urls/)
         * [`path()`](https://docs.djangoproject.com/en/4.0/ref/urls/#path)
-        * [URL namespaces and included URLconfs](https://docs.djangoproject.com/en/4.1/topics/http/urls/#url-namespaces-and-included-urlconfs) to test out if `app_name_in_html` will work.
+        * [URL namespaces and included URLconfs](https://docs.djangoproject.com/en/4.0/topics/http/urls/#url-namespaces-and-included-urlconfs) to test out if `app_name_in_html` will work.
 
 1. Modify [`the_project\urls.py`](../the_project/urls.py) as follows:
     * Add import for `include()` from `django.urls`.
