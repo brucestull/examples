@@ -1,17 +1,15 @@
 # Django Fields Choices
 
+## Links:
+* Repository [`README.md`](../../../README.md)
+
 ## Meaning of tags on steps:
 * **ACTION: **  - A step that is performing some functional task.
 * **INFO: **    - A step that is providing information.
 
 ## Commands we will use:
 
-
-## Process (SHORT):
-
-1. Start in directory which is the root of the Django project.
-
-## Process (LONG):
+## Process:
 
 1. Start in directory which is the root of the Django project.
 
