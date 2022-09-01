@@ -241,14 +241,14 @@
 
 ### Create `index` page:
 
-1. Create [the_app/urls.py](../the_app/urls.py) and add URL route for the `index` view to it:
+1. Create [the_app/urls.py](../the_app/urls.py) and add URL route for the `index_view` view to it:
     * Import `path` from `django.urls`.
     * Add our `app_name`, `the_app`.
     * Add `path()` to `urlpatterns`.
 
-1. Add view function `index` to [`the_app/views.py`](../the_app/views.py):
+1. Add view function `index_view` to [`the_app/views.py`](../the_app/views.py):
     * Import `HttpResponse` from `django.http`.
-    * Add function-based view `index`.
+    * Add function-based view `index_view`.
         <details>
         <summary>Sample edit</summary>
 
@@ -257,10 +257,16 @@
             ...
 
             ...
-            def index(request):
+            def index_view(request):
                 the_return_string = 'Goodbuy, World! Enjoy the sail!'
                 return HttpResponse(the_return_string)
             ...
         </details>
 
-
+1. Test development server to ensure our view function is working:
+    * Server address:
+        * http://localhost:8000/
+    * route:
+        * `the-app/index/`
+    * View function:
+        * `index`
