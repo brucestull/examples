@@ -196,3 +196,16 @@
             PS C:\Users\Bruce\Programming\examples\django\list_first>
         </details>
 
+1. Edit [`settings.py`](../the_project/settings.py):
+    * Add the `AppConfig` for `the_app` to `INSTALLED_APPS`:
+    * `AppConfig` for `the_app` is found in [`apps.py`](../the_app/apps.py)
+        <details>
+        <summary>Sample modification</summary>
+
+            INSTALLED_APPS = [
+                ...
+                'the_app.apps.TheAppConfig',
+                ...
+            ]
+        </details>
+
