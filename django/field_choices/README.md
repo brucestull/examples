@@ -1,6 +1,9 @@
 # Django Fields Choices
 * Django example using `django.db.models.fields` `choices`.
 
+## Links:
+* Examples repository [`README.md`](../../README.md)
+
 ## Resources:
 
 ### Related Concepts:
