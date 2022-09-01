@@ -1,6 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
+from .models import AwesomeCat
 
 def index_view(request):
-    the_return_string = 'Goodbuy, World! Enjoy the sail!'
-    return HttpResponse(the_return_string)
+    """
+    Simple `index_view` method that renders the `AwesomeCat` list template.
+    """
+    awesome_cat_objects = AwesomeCat.objects.all()
+    print(awesome_cat_objects)
+    context = {
+        'view_to_template_objects': awesome_cat_objects
+    }
+    return render(request, 'the_app/index_template.html', context)
+    

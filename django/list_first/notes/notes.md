@@ -296,6 +296,191 @@
 1. **INFO:** Verify internet browser displays `the_return_string` in [`the_app/views.py`](../the_app/views.py):
     * `Goodbuy, World! Enjoy the sail!`
 
-1. Our app URL route `the-app/index-url/` now calls the view function `index_view` which returns an `HttpResponse`. We can proceed to build our model and modify view function to return data from the database rather than returning a `HttpResponse` which contains a hard-coded string.
+1. **INFO:** Our app URL route `the-app/index-url/` now calls the view function `index_view` which returns an `HttpResponse`. We can proceed to build our model and modify view function to return data from the database rather than returning a `HttpResponse` which contains a hard-coded string.
+
+### Display database contents on an `index` page:
+
+1. **INFO:** We will use the same URL path `the-app/index-url/` which calls the function-based view function `index_view`. But, first, we need to create a model and database to provide information to display on the index page.
+
+1. **ACTION:** Create model `AwesomeCat` in [`the_app/models.py`](../the_app/models.py):
+    * Current model will only have one attribute.
+    * Import [`models`](https://docs.djangoproject.com/en/4.0/topics/db/models/) from `django.db`.
+    * Create Python `class` `AwesomeCat`.
+    * Add `name` attribute to `AwesomeCat`.
+    * The `name` attribute is a [`models.CharField`](https://docs.djangoproject.com/en/4.0/ref/models/fields/#charfield) object.
+
+        <details>
+        <summary>Sample edit</summary>
+
+            from django.db import models
+
+            class AwesomeCat(models.Model):
+                name = models.CharField(max_length=50)
+
+                def __str__(thine_fuzzy_self):
+                    return f"{thine_fuzzy_self.id} : {thine_fuzzy_self.name}"
+        </details>
+
+1. **ACTION:** Make migrations for our models:
+    * `python .\manage.py makemigrations`
+        <details>
+        <summary>Sample output</summary>
+
+            PS C:\Users\Bruce\Programming\examples\django\list_first> python .\manage.py makemigrations
+            Migrations for 'the_app':
+              the_app\migrations\0001_initial.py
+                - Create model AwesomeCat
+            PS C:\Users\Bruce\Programming\examples\django\list_first>
+        </details>
+
+1. **ACTION:** Perform `migrate`:
+    * `python .\manage.py migrate`
+        <details>
+        <summary>Sample output</summary>
+
+            PS C:\Users\Bruce\Programming\examples\django\list_first> python .\manage.py migrate
+            Operations to perform:
+              Apply all migrations: admin, auth, contenttypes, sessions, the_app
+            Running migrations:
+              Applying contenttypes.0001_initial... OK
+              Applying auth.0001_initial... OK
+              Applying admin.0001_initial... OK
+              Applying admin.0002_logentry_remove_auto_add... OK
+              Applying admin.0003_logentry_add_action_flag_choices... OK
+              Applying contenttypes.0002_remove_content_type_name... OK
+              Applying auth.0002_alter_permission_name_max_length... OK
+              Applying auth.0003_alter_user_email_max_length... OK
+              Applying auth.0004_alter_user_username_opts... OK
+              Applying auth.0005_alter_user_last_login_null... OK
+              Applying auth.0006_require_contenttypes_0002... OK
+              Applying auth.0007_alter_validators_add_error_messages... OK
+              Applying auth.0008_alter_user_username_max_length... OK
+              Applying auth.0009_alter_user_last_name_max_length... OK
+              Applying auth.0010_alter_group_name_max_length... OK
+              Applying auth.0011_update_proxy_permissions... OK
+              Applying auth.0012_alter_user_first_name_max_length... OK
+              Applying sessions.0001_initial... OK
+              Applying the_app.0001_initial... OK
+            PS C:\Users\Bruce\Programming\examples\django\list_first>
+        </details>
+
+1. **ACTION:** Create a superuser:
+    * `python .\manage.py createsuperuser`
+        <details>
+        <summary>Sample output</summary>
+
+            PS C:\Users\Bruce\Programming\examples\django\list_first> python .\manage.py createsuperuser
+            Username (leave blank to use 'bruce'): admin
+            Email address: admin@email.app
+            Password:
+            Password (again):
+            This password is too common.
+            Bypass password validation and create user anyway? [y/N]: y
+            Superuser created successfully.
+            PS C:\Users\Bruce\Programming\examples\django\list_first>
+        </details>
+
+1. **INFO:** Start development server to test django admin integration:
+    * `python .\manage.py runserver`
+
+1. **INFO:** Open internet browser to Django admin interface:
+    * http://localhost:8000/admin
+
+1. **INFO:** Django admin interface functions but we forgot to add the model to [`the_app/admin.py`](../the_app/admin.py).
+
+1. **ACTION:** Add model `AwesomeCat` as argument to `admin.site.register()` in [`the_app/admin.py`](../the_app/admin.py):
+    * Import `admin` from `django.db`.
+    * Import `AwesomeCat` from `.models`.
+    * Add `admin.site.register(AwesomeCat)`
+    <details>
+    <summary>Sample edit</summary>
+
+        from django.contrib import admin
+        from .models import AwesomeCat
 
 
+        admin.site.register(AwesomeCat)
+    </details>
+
+1. **INFO:** Open internet browser to Django admin interface:
+    * http://localhost:8000/admin
+
+1. **ACTION:** Add a couple `AwesomeCat`s to the database.
+    * The only attribute in the database is the `name` of the model `AwesomeCat`.
+
+1. **INFO:** We now have a couple items in the database so we can create a Django view function that will display the model values from the database.
+
+1. **ACTION:** Add a line to the `index_view` function in [`the_app/views.py`](../the_app/views.py) that gets the `AwesomeCat` model values from the database and prints them to console:
+    <details>
+    <summary>Sample edit</summary>
+
+        from .models import AwesomeCat
+
+        def index_view(request):
+
+            awesome_cat_objects = AwesomeCat.objects.all()
+            print(awesome_cat_objects)
+            
+            the_return_string = 'Goodbuy, World! Enjoy the sail!'
+            return HttpResponse(the_return_string)
+    </details>
+
+1. **ACTION:** Open internet browser to our app URL and check the output of the view function in console:
+    * http://localhost:8000/the-app/index-url/
+        <details>
+        <summary>Sample console output</summary>
+
+            <QuerySet [<AwesomeCat: 1 : Dezzi>, <AwesomeCat: 2 : Bunbun>]>
+        </details>
+
+1. **INFO:** Notes about the above output:
+    * We have a `QuerySet` object that is a list-like object, and that `QuerySet` contains all the `AwesomeCat` objects.
+
+1. **INFO:** We now have a `QuerySet` object that contains all the `AwesomeCat` objects. We can now pass this `QuerySet` object as part of a context object dictionary to the `render` function.
+
+1. **ACTION:** Edit the `index_view` function in [`the-app/views.py`](../the_app/views.py) to pass the `QuerySet` object to the `render` function:
+    * Import `render` from `django.shortcuts`.
+    * Import `reverse` from `django.urls`.
+    * Edit `index_view`.
+
+        <details>
+        <summary>Sample current `the-app/views.py` contents</summary>
+
+            from django.shortcuts import render
+
+            from .models import AwesomeCat
+
+            def index_view(request):
+                """
+                Simple `index_view` method that renders the `AwesomeCat` list template.
+                """
+                awesome_cat_objects = AwesomeCat.objects.all()
+                print(awesome_cat_objects)
+                context = {
+                    'view_to_template_objects': awesome_cat_objects
+                }
+                return render(request, 'the_app/index_template.html', context)
+        </details>
+
+1. **INFO:** Start development server:
+    * `python .\manage.py runserver`
+
+1. **INFO:** Open internet browser to application URL:
+    * http://localhost:8000/the-app/index-url/
+
+1. **INFO:** Sample webpage content:
+    * `<QuerySet [<AwesomeCat: 1 : Dezzi>, <AwesomeCat: 2 : Bunbun>]>`
+
+1. **INFO:** We now have the `QuerySet` object which contains the `AwesomeCat` objects displayed in the web page.
+
+1. **INFO:** Let's see if we can get the `AwesomeCat` objects from the `QuerySet` object.
+
+1. Edit the Django template `the_app/index_template.html` to use a Django template engine for loop to iterate over the list of `AwesomeCat` objects (`view_to_template_objects`). We will display the `name` attribute and the `id` attribute of each `AwesomeCat` object (`cat_object`):
+
+    <details>
+    <summary>Sample edit</summary>
+
+        {% for cat_object in view_to_template_objects %}
+        {{ cat_object.name }} : {{ cat_object.id}}
+        {% endfor %}
+    </details>
