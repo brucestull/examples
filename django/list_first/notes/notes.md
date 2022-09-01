@@ -31,7 +31,7 @@
 
 ### Create Django skeleton:
 
-1. Start in the directory which will contain our Django project:
+1. **ACTION:** Start in the directory which will contain our Django project:
     * Sample directory location:
         * `C:\Users\Bruce\Programming\examples\django\list_first`
 1. **ACTION:** Create `pipenv` virtual environment:
@@ -241,7 +241,7 @@
 
 ### Return an `HttpResponse` from request to `the-app/index-url/`:
 
-1. **ACTION:** Create [the_app/urls.py](../the_app/urls.py) and add URL route for the `index_view` view to it:
+1. **ACTION:** Create [`the_app/urls.py`](../the_app/urls.py) and add URL route for the `index_view` view to it:
     * Import `path` from `django.urls`.
     * Import `views` from `.`.
     * Add our `app_name`, `the_app`.
@@ -296,6 +296,6 @@
 1. **INFO:** Verify internet browser displays `the_return_string` in [`the_app/views.py`](../the_app/views.py):
     * `Goodbuy, World! Enjoy the sail!`
 
-1. Our app URL route `the-app/index-url/` now calls the view function `index_view` which returns an `HttpResponse`. We can now proceed to build our model and modify view function to return data from the database rather than returning a `HttpResponse` which contains a hard-coded string.
+1. Our app URL route `the-app/index-url/` now calls the view function `index_view` which returns an `HttpResponse`. We can proceed to build our model and modify view function to return data from the database rather than returning a `HttpResponse` which contains a hard-coded string.
 
 
