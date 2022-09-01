@@ -28,6 +28,9 @@
 * "**INFO:**" tags are providing info and not necessarily functional or code changes.
 
 ## Process:
+
+### Create Django skeleton:
+
 1. Start in the directory which will contain our Django project:
     * Sample directory location:
         * `C:\Users\Bruce\Programming\examples\django\list_first`
@@ -196,11 +199,11 @@
             PS C:\Users\Bruce\Programming\examples\django\list_first>
         </details>
 
-1. Edit [`settings.py`](../the_project/settings.py):
-    * Add the `AppConfig` for `the_app` to `INSTALLED_APPS`:
-    * `AppConfig` for `the_app` is found in [`apps.py`](../the_app/apps.py)
+1. **ACTION:** Edit [`settings.py`](../the_project/settings.py):
+    * Add the [`AppConfig`](https://docs.djangoproject.com/en/4.0/ref/applications/#django.apps.AppConfig) for `the_app` to `INSTALLED_APPS`:
+    * `AppConfig` for `the_app` is found in [`the_app/apps.py`](../the_app/apps.py)
         <details>
-        <summary>Sample modification</summary>
+        <summary>Sample edit</summary>
 
             INSTALLED_APPS = [
                 ...
@@ -208,4 +211,56 @@
                 ...
             ]
         </details>
+
+### Add URL route for the app:
+1. **ACTION:** Add entry to `urlpatterns` list in [`the_project/urls.py`](../the_project/urls.py) for `the_app`:
+    * Import `include` from [`django.urls`](https://docs.djangoproject.com/en/4.0/ref/urls/).
+    * Confirm we have import `path` from [`django.urls`](https://docs.djangoproject.com/en/4.0/ref/urls/).
+    * Add `path()` with following arguments:
+        * route:
+            * `the-app`
+        * view:
+            * `include('the_app.urls')`
+
+        <details>
+        <summary>Sample edit</summary>
+
+            ...
+            from django.urls import path, include
+            ...
+
+            ...
+            urlpatterns = [
+                ...
+                path('the-app/', include('the_app.urls')),
+                ...
+            ]
+            ...
+        </details>
+
+
+### Create `index` page:
+
+1. Create [the_app/urls.py](../the_app/urls.py) and add URL route for the `index` view to it:
+    * Import `path` from `django.urls`.
+    * Add our `app_name`, `the_app`.
+    * Add `path()` to `urlpatterns`.
+
+1. Add view function `index` to [`the_app/views.py`](../the_app/views.py):
+    * Import `HttpResponse` from `django.http`.
+    * Add function-based view `index`.
+        <details>
+        <summary>Sample edit</summary>
+
+            ...
+            from django.http import HttpResponse
+            ...
+
+            ...
+            def index(request):
+                the_return_string = 'Goodbuy, World! Enjoy the sail!'
+                return HttpResponse(the_return_string)
+            ...
+        </details>
+
 
