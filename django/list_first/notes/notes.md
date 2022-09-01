@@ -239,14 +239,33 @@
         </details>
 
 
-### Create `index` page:
+### Return an `HttpResponse` from request to `the-app/index-url/`:
 
-1. Create [the_app/urls.py](../the_app/urls.py) and add URL route for the `index_view` view to it:
+1. **ACTION:** Create [the_app/urls.py](../the_app/urls.py) and add URL route for the `index_view` view to it:
     * Import `path` from `django.urls`.
+    * Import `views` from `.`.
     * Add our `app_name`, `the_app`.
-    * Add `path()` to `urlpatterns`.
+    * Add `path()` to `urlpatterns` with following arguments:
+        * route:
+            * `'index-url/'`
+        * view:
+            * `views.index_view`
+        * name:
+            * `name='index_url_name'`
 
-1. Add view function `index_view` to [`the_app/views.py`](../the_app/views.py):
+        <details>
+        <summary>Sample edit</summary>
+
+            from django.urls import path
+            from . import views
+
+            app_name = 'the_app'
+            urlpatterns = [
+                path('index-url/', views.index_view, name='index_url_name')
+            ]
+        </details>
+
+1. **ACTION:** Create view function `index_view` in [`the_app/views.py`](../the_app/views.py):
     * Import `HttpResponse` from `django.http`.
     * Add function-based view `index_view`.
         <details>
@@ -263,10 +282,20 @@
             ...
         </details>
 
-1. Test development server to ensure our view function is working:
+1. **INFO:** Test development server to ensure our view function is working:
+    * `python .\manage.py runserver`
+
+1. **INFO:** Open internet browser to application URL:
     * Server address:
         * http://localhost:8000/
-    * route:
-        * `the-app/index/`
-    * View function:
-        * `index`
+    * URL route to index view:
+        * `the-app/index-url/`
+    * So the browser URL we use is:
+        * http://localhost:8000/the-app/index-url/
+
+1. **INFO:** Verify internet browser displays `the_return_string` in [`the_app/views.py`](../the_app/views.py):
+    * `Goodbuy, World! Enjoy the sail!`
+
+1. Our app URL route `the-app/index-url/` now calls the view function `index_view` which returns an `HttpResponse`. We can now proceed to build our model and modify view function to return data from the database rather than returning a `HttpResponse` which contains a hard-coded string.
+
+
