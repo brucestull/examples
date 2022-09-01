@@ -13,16 +13,24 @@
     * `django-admin startproject the_project .`
     * `tree /f /a`
     * `python .\manage.py runserver`
+    * `python .\manage.py startapp the_app`
     * `python .\manage.py createsuperuser`
 
+* Development server web links:
+    * http://localhost:8000/
+    * http://localhost:8000/admin/
+
 ## Resources:
-* **TODO**: LINK_TO_PIPENV_DOCUMENTATION
+* **TODO**: LINK_TO_PIPENV_EXAMPLE_DOCUMENTATION
 
 ## Tag meanings for this guide:
 * "**ACTION:**" tags are performing code or environment changes.
 * "**INFO:**" tags are providing info and not necessarily functional or code changes.
 
 ## Process:
+1. Start in the directory which will contain our Django project:
+    * Sample directory location:
+        * `C:\Users\Bruce\Programming\examples\django\list_first`
 1. **ACTION:** Create `pipenv` virtual environment:
     * `pipenv install django==4.0`
         <details>
@@ -129,3 +137,62 @@
         </details>
 
 1. **INFO:** Note new directory [`the_project`](../the_project/)
+
+1. **INFO:** Test development server:
+    * `python .\manage.py runserver`
+    * Development server can be stopped by using Ctrl+C in terminal.
+
+1. **INFO:** Open internet browser to development server address:
+    * http://localhost:8000/
+
+1. **INFO:** Verify the Django Green Rocket is visible and the following text shows:
+    * `The install worked successfully! Congratulations!`
+
+1. **ACTION:** Create Django application:
+    * `python .\manage.py startapp the_app`
+        <details>
+        <summary>Sample output</summary>
+
+            PS C:\Users\Bruce\Programming\examples\django\list_first> python .\manage.py startapp the_app
+            PS C:\Users\Bruce\Programming\examples\django\list_first>
+        </details>
+
+1. **INFO:** Examine directory structure:
+    * `tree /f /a`
+        <details>
+        <summary>Sample output</summary>
+
+            PS C:\Users\Bruce\Programming\examples\django\list_first> tree /f /a
+            Folder PATH listing for volume OS
+            Volume serial number is CC00-DD12
+            C:.
+            |   db.sqlite3
+            |   manage.py
+            |   Pipfile
+            |   Pipfile.lock
+            |   README.md
+            |
+            +---notes
+            |       notes.md
+            |
+            +---the_app
+            |   |   admin.py
+            |   |   apps.py
+            |   |   models.py
+            |   |   tests.py
+            |   |   views.py
+            |   |   __init__.py
+            |   |
+            |   \---migrations
+            |           __init__.py
+            |
+            \---the_project
+                    asgi.py
+                    settings.py
+                    urls.py
+                    wsgi.py
+                    __init__.py
+
+            PS C:\Users\Bruce\Programming\examples\django\list_first>
+        </details>
+
