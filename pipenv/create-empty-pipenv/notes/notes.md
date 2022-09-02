@@ -20,6 +20,10 @@
 * "**ACTION:**" tags are performing code or environment changes.
 * "**INFO:**" tags are providing info and not necessarily functional or code changes.
 
+## Useful commands:
+* `pipenv --venv`
+    * Prints the environment location for the `Pipfile` and `Pipfile.lock` in the current directory.
+
 ## Process:
 
 1. **INFO:** Use `pip list` to list globally installed python packages and verify `pip` is installed so we can use it to install `pipenv`:
