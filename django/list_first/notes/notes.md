@@ -6,7 +6,7 @@
 ## Project Links and Commands:
 * [Issue Link #20](https://github.com/brucestull/examples/issues/20)
 
-* Commands:
+* Useful commands:
     * `pipenv install django==4.0`
     * `pipenv shell`
     * `pip list`
@@ -503,6 +503,9 @@
 
 1. We now have a Django list view displaying on a webpage. Let's start to build out a create view so the end user can add `AwesomeCat` objects using the application GUI we create rather than the Django Admin Interface.
 
+### **NOTE**: The list view is completed.
+* The user can add their own functionality to the list view or continue the guide below to add a create view.
+
 ### Build out a create view for our application
 * For this exercise we will add the `form` which is used for user input to our current `the-app/index_template.html` template. There are other solutions to this but we will leave those to other guides.
 * In the below steps we will do the following:
@@ -524,20 +527,127 @@
             <form></form>
         ```
 
-1. Add an `action` attribute to the `form` element tag.
+1. Add an `action` attribute to the `form` element tag:
     * This attribute will use a Django url template tag to generate the URL for us so we don't have to hard-code the URL.
         * `the_app` is our app name specified by `app_name = 'the_app'` in the urls configuration [`the_app/urls.py`](../the_app/urls.py)
-        * `index_url_name` is the url name specified by `name='index_url_name'` in the `path` list item in `urlpatterns` variable located in [`the_app\urls.py`](../the_app/urls.py)
+        * `create` is the url name we will specify by `name='create'` in the `path` list item in the `urlpatterns` variable located in [`the_app\urls.py`](../the_app/urls.py)
     * Sample current implementation:
         ```
-            <form action="{% url 'the_app:index_url_name"></form>
+            <form action="{% url 'the_app:create_url_name"></form>
         ```
 
-1. Add a `method` attribute to the `form` element tag.
+1. Add a `method` attribute to the `form` element tag:
     * We will use a `post` method since it had the many features needed when writing to a database or creating new entries.
     * Reference:
         * [HTML \<form\> method Attribute - w3schools.com](https://www.w3schools.com/tags/att_form_method.asp)
     * Sample current implementation:
         ```
             <form action="{% url 'the_app:create' %}" method="post">
+        ```
+
+1. Add a [`{% csrf_token %}`](https://docs.djangoproject.com/en/4.1/howto/csrf/#how-to-use-django-s-csrf-protection) template tag to the `form` element:
+    * Sample current implementation:
+        ```
+            <form action="{% url 'the_app:create' %}" method="post">
+                {% csrf_token %}
+            </form>
+        ```
+
+1. Add an HTML `input` element (for user text input) to the `form` element:
+    * Sample current implementation:
+        ```
+            <form action="{% url 'the_app:create' %}" method="post">
+                {% csrf_token %}
+                <input/>
+            </form>
+        ```
+
+1. Add a `type` attribute `text` to the user text `input` element tag:
+    * Sample current implementation:
+        ```
+            <form action="{% url 'the_app:create' %}" method="post">
+                {% csrf_token %}
+                <input type="text"/>
+            </form>
+        ```
+
+1. Add a `name` attribute `text_the_user_provided` to the user text `input` element tag:
+    * Sample current implementation:
+        ```
+            <form action="{% url 'the_app:create' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="text_the_user_provided"/>
+            </form>
+        ```
+
+1. Add an HTML `input` element (for the submit button) to the `form` element:
+    * Sample current implementation:
+        ```
+            <form action="{% url 'the_app:create' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="text_the_user_provided"/>
+                <input/>
+            </form>
+        ```
+
+1. Add a `type` attribute `submit` to the submit button `input` element tag:
+    * Sample current implementation:
+        ```
+            <form action="{% url 'the_app:create' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="text_the_user_provided"/>
+                <input type="submit"/>
+            </form>
+        ```
+
+1. Add a `value` attribute `Send input box text to view function?` to the submit button `input` element tag:
+    * Sample current implementation:
+        ```
+            <form action="{% url 'the_app:create' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="text_the_user_provided"/>
+                <input type="submit" value="Send input box text to view function?"/>
+            </form>
+        ```
+
+1. We have the `form` set up in the `the_app/index_template.html` template. We can now set up a url path in [`the_app/urls.py`](../the_app/urls.py) which will be used by the `form`s `action` attribute.
+
+1. Add a `path`, which will return a `URLPattern` for the create view, to `urlpatterns` in [`the_app/urls.py`](../the_app/urls.py):
+    * We will use the following concepts:
+        * Use Django [`path`](https://docs.djangoproject.com/en/4.0/ref/urls/#path) function to add a `URLPattern` to the `urlpatterns` variable in [`the_app/urls.py`](../the_app/urls.py)
+            * Ensure we still have the import of `views` from `.`.
+            * Django [`path`](https://docs.djangoproject.com/en/4.0/ref/urls/#path) arguments we will use:
+                * route:
+                    * `'create/'`
+                * view:
+                    * `views.create`
+                * name:
+                    * `name='create'`
+    * The `path` function we are going to add, with arguments:
+        * `path('create/', views.create, name='create')`
+    * Sample current [`the_app/urls.py`](../the_app/urls.py) implementation:
+        ```
+            from django.urls import path
+
+            from . import views
+
+
+            app_name = 'the_app'
+            urlpatterns = [
+                path('index-url/', views.index_view, name='index_url_name'),
+                path('create/', views.create, name='create'),
+            ]
+        ```
+
+1. We now have the `URLPattern` set up. We can now add the view function `create` to [`the_app/views.py`](../the_app/views.py)
+
+1. Since we are using only one template, we need to design the `create` view function so that it renders the [`the_app/index_template.html`](../the_app/templates/the_app/index_template.html) template.
+
+1. Add a `create` view function to [`the_app/views.py`](../the_app/views.py):
+    * We will initially just render a string on the webpage to ensure our view function is getting called by the `URLPattern` we created for the `create` view in the `urlpatterns` of [`the_app\urls.py`](../the_app/urls.py)
+    * Concepts used here:
+        * Import of [`HTTPResponse`](https://docs.djangoproject.com/en/4.0/ref/request-response/#httpresponse-objects) from `django.http`.
+    * Sample current implementation:
+        ```
+
         ```
