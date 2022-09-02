@@ -19,13 +19,14 @@
 * Development server web links:
     * http://localhost:8000/
     * http://localhost:8000/admin/
+    * http://localhost:8000/the-app/index-url/
 
 ## Resources:
 * **TODO**: LINK_TO_PIPENV_EXAMPLE_DOCUMENTATION
 
 ## Tag meanings for this guide:
 * "**ACTION:**" tags are performing code or environment changes.
-* "**INFO:**" tags are providing info and not necessarily functional or code changes.
+* "**INFO:**" tags are providing info or testing and not necessarily functional or code changes.
 
 ## Process:
 
@@ -475,7 +476,7 @@
 
 1. **INFO:** Let's see if we can get the `AwesomeCat` objects from the `QuerySet` object.
 
-1. Edit the Django template `the_app/index_template.html` to use a Django template engine for loop to iterate over the list of `AwesomeCat` objects (`view_to_template_objects`). We will display the `name` attribute and the `id` attribute of each `AwesomeCat` object (`cat_object`):
+1. **ACTION:** Edit the Django template [`the_app/index_template.html`](../the_app/templates/the_app/index_template.html) to use a Django template engine for loop to iterate over the list of `AwesomeCat` objects (`view_to_template_objects`). We will display the `name` attribute and the `id` attribute of each `AwesomeCat` object (`cat_object`):
 
     <details>
     <summary>Sample edit</summary>
@@ -484,3 +485,22 @@
         {{ cat_object.name }} : {{ cat_object.id}}
         {% endfor %}
     </details>
+
+1. **INFO:** Start development server and test webpage:
+    1. `python .\manage.py runserver`
+    1. http://localhost:8000/the-app/index-url/
+        <details>
+        <summary>Sample webpage contents</summary>
+
+            Dezzi : 1 Bunbun : 2
+        </details>
+
+1. **INFO:** Notes about the above output:
+    * After the edits we made to [`the_app/index_template.html`](../the_app/templates/the_app/index_template.html) we now see a couple things:
+        * We no longer see `QuerySet` object and the `AwesomeCat` object displayed as objects.
+        * We see the actual `id` and `name` attributes of the `AwesomeCat` objects.
+        * The attributes of both `AwesomeCat` objects show on the same line since we aren't using any HTML elements to cause a line break between the first and last `AwesomeCat` object.
+
+1. We now have a Django list view displaying on a webpage. Let's start to build out a create view so the end user can add `AwesomeCat` objects using the application GUI we create rather than the Django Admin Interface.
+
+### Build out a create view for our application
