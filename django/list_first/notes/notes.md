@@ -504,3 +504,40 @@
 1. We now have a Django list view displaying on a webpage. Let's start to build out a create view so the end user can add `AwesomeCat` objects using the application GUI we create rather than the Django Admin Interface.
 
 ### Build out a create view for our application
+* For this exercise we will add the `form` which is used for user input to our current `the-app/index_template.html` template. There are other solutions to this but we will leave those to other guides.
+* In the below steps we will do the following:
+    1. Add a `form` element to the template.
+        1. Add a `action` attribute to the `form` element tag.
+            1. This `action` attribute will use a [{% url 'app:url_name' %}](https://docs.djangoproject.com/en/4.0/ref/templates/builtins/#url) Django template tag.
+        1. Add a `method` attribute to the `form` element tag.
+        1. Add a [`{% csrf_token %}`](https://docs.djangoproject.com/en/4.1/howto/csrf/#how-to-use-django-s-csrf-protection) template tag to the `form` element.
+        1. Add an HTML `input` element (for user text input) to the `form` element.
+            1. Add a `type` attribute to the user text `input` element tag.
+            1. Add a `name` attribute to the user text `input` element tag.
+        1. Add an HTML `input` element (for the submit button) to the `form` element.
+            1. Add a `type` attribute to the submit button `input` element tag.
+            1. Add a `value` attribute to the submit button `input` element tag.
+
+1. Add `form` element to `the_app/index_template.html`:
+    * Sample current implementation:
+        ```
+            <form></form>
+        ```
+
+1. Add an `action` attribute to the `form` element tag.
+    * This attribute will use a Django url template tag to generate the URL for us so we don't have to hard-code the URL.
+        * `the_app` is our app name specified by `app_name = 'the_app'` in the urls configuration [`the_app/urls.py`](../the_app/urls.py)
+        * `index_url_name` is the url name specified by `name='index_url_name'` in the `path` list item in `urlpatterns` variable located in [`the_app\urls.py`](../the_app/urls.py)
+    * Sample current implementation:
+        ```
+            <form action="{% url 'the_app:index_url_name"></form>
+        ```
+
+1. Add a `method` attribute to the `form` element tag.
+    * We will use a `post` method since it had the many features needed when writing to a database or creating new entries.
+    * Reference:
+        * [HTML \<form\> method Attribute - w3schools.com](https://www.w3schools.com/tags/att_form_method.asp)
+    * Sample current implementation:
+        ```
+            <form action="{% url 'the_app:create' %}" method="post">
+        ```

@@ -1,3 +1,9 @@
+<form action="{% url 'the_app:create' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="test_the_user_provided"/>
+    <input type="submit" value="Send input box text to view function." />
+</form>
+
 {% for cat_object in view_to_template_objects %}
 {{ cat_object.name }} : {{ cat_object.id}}
 {% endfor %}
