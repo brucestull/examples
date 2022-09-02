@@ -4,3 +4,6 @@
 * After the list view is created, other views (create, edit, etc) can be created.
 
 ## Resources:
+
+## Django List-First Guide links:
+* [`notes.md`](./notes/notes.md)
