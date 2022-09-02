@@ -140,11 +140,27 @@
 
 1. **INFO:**" Use `tree /f /a` to examine directory contents:
     * `tree /f /a`
+        <details>
+        <summary>Sample output</summary>
+
+            PS C:\Users\Bruce\Programming\examples\pipenv\create-empty-pipenv> tree /f /a
+            Folder PATH listing for volume OS
+            Volume serial number is CC00-DD12
+            C:.
+            |   Pipfile
+            |   Pipfile.lock
+            |   README.md
+            |   
+            \---notes
+                    notes.md
+                    
+            PS C:\Users\Bruce\Programming\examples\pipenv\create-empty-pipenv>
+        </details>
 
 1. Note presense of `Pipfile` and `Pipfile.lock` above.
     * `Pipfile` is one `pipenv` configuration file for the project.
         * This configuration file is located inside the same directory as the project code.
-        * The actual virtual environment files and packages are in a different directory noted above. Usually, in Windows, the parent directory of the virutal environment is `C:\Users\Bruce\.virtualenvs\`.
+        * The actual virtual environment files and packages are in a different directory noted above. Usually, in Windows, the parent directory of the virtual environment is `C:\Users\Bruce\.virtualenvs\`.
     * [`Pipfile.lock`](https://pipenv.pypa.io/en/latest/basics/#pipenv-lock) is one other `pipenv`  configuration file for the project.
 
 1. **ACTION:** Activate the virtual environment by using `pipenv shell`:
@@ -194,7 +210,7 @@
 1. The `pipenv` virtual environment has been created for the project. You can add your code for your specific project and then run the code using the packages within the virtual environment.
 
 1. We will now use `pipenv install $PACKAGE_NAME` whenever we want to install another python package `$PACKAGE_NAME` in our virtual environment.
-    * It is advised to run the `pipenv` commands while current directory is the same directory as `Pipfile` and `Pipfile.lock`.
+    * It is advised to run the `pipenv` commands from the same directory as `Pipfile` and `Pipfile.lock`. This should probably be the project directory.
     * The commands may work in other directories but the author of this document hasen't tested that yet.
 
 1. Whenever we open a new terminal and we want to use the virtual environment:
