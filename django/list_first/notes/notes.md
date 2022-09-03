@@ -6,21 +6,6 @@
 ## Project Links and Commands:
 * [Issue Link #20](https://github.com/brucestull/examples/issues/20)
 
-* Useful commands:
-    * `pipenv install django==4.0`
-    * `pipenv shell`
-    * `pip list`
-    * `django-admin startproject the_project .`
-    * `tree /f /a`
-    * `python .\manage.py runserver`
-    * `python .\manage.py startapp the_app`
-    * `python .\manage.py createsuperuser`
-
-* Development server web links:
-    * http://localhost:8000/
-    * http://localhost:8000/admin/
-    * http://localhost:8000/the-app/index-url/
-
 ## Resources:
 * **TODO**: LINK_TO_PIPENV_EXAMPLE_DOCUMENTATION
 
@@ -501,13 +486,13 @@
         * We see the actual `id` and `name` attributes of the `AwesomeCat` objects.
         * The attributes of both `AwesomeCat` objects show on the same line since we aren't using any HTML elements to cause a line break between the first and last `AwesomeCat` object.
 
-1. We now have a Django list view displaying on a webpage. Let's start to build out a create view so the end user can add `AwesomeCat` objects using the application GUI we create rather than the Django Admin Interface.
+1. **INFO:** We now have a Django list view displaying on a webpage. Let's start to build out a create view so the end user can add `AwesomeCat` objects using the application GUI we create rather than the Django Admin Interface.
 
 ### **NOTE**: The list view is completed.
 * The user can add their own functionality to the list view or continue the guide below to add a create view.
 
 ### Build out a create view for our application
-* For this exercise we will add the `form` which is used for user input to our current `the-app/index_template.html` template. There are other solutions to this but we will leave those to other guides.
+* **INFO:** For this exercise we will add the `form` which is used for user input to our current `the-app/index_template.html` template. There are other solutions to this but we will leave those to other guides.
 * In the below steps we will do the following:
     1. Add a `form` element to the template.
         1. Add a `action` attribute to the `form` element tag.
@@ -521,13 +506,13 @@
             1. Add a `type` attribute to the submit button `input` element tag.
             1. Add a `value` attribute to the submit button `input` element tag.
 
-1. Add `form` element to `the_app/index_template.html`:
+1. **ACTION:** Add `form` element to `the_app/index_template.html`:
     * Sample current implementation:
         ```
             <form></form>
         ```
 
-1. Add an `action` attribute to the `form` element tag:
+1. **ACTION:** Add an `action` attribute to the `form` element tag:
     * This attribute will use a Django url template tag to generate the URL for us so we don't have to hard-code the URL.
         * `the_app` is our app name specified by `app_name = 'the_app'` in the urls configuration [`the_app/urls.py`](../the_app/urls.py)
         * `create` is the url name we will specify by `name='create'` in the `path` list item in the `urlpatterns` variable located in [`the_app\urls.py`](../the_app/urls.py)
@@ -536,7 +521,7 @@
             <form action="{% url 'the_app:create_url_name"></form>
         ```
 
-1. Add a `method` attribute to the `form` element tag:
+1. **ACTION:** Add a `method` attribute to the `form` element tag:
     * We will use a `post` method since it had the many features needed when writing to a database or creating new entries.
     * Reference:
         * [HTML \<form\> method Attribute - w3schools.com](https://www.w3schools.com/tags/att_form_method.asp)
@@ -545,7 +530,7 @@
             <form action="{% url 'the_app:create' %}" method="post">
         ```
 
-1. Add a [`{% csrf_token %}`](https://docs.djangoproject.com/en/4.1/howto/csrf/#how-to-use-django-s-csrf-protection) template tag to the `form` element:
+1. **ACTION:** Add a [`{% csrf_token %}`](https://docs.djangoproject.com/en/4.1/howto/csrf/#how-to-use-django-s-csrf-protection) template tag to the `form` element:
     * Sample current implementation:
         ```
             <form action="{% url 'the_app:create' %}" method="post">
@@ -553,7 +538,7 @@
             </form>
         ```
 
-1. Add an HTML `input` element (for user text input) to the `form` element:
+1. **ACTION:** Add an HTML `input` element (for user text input) to the `form` element:
     * Sample current implementation:
         ```
             <form action="{% url 'the_app:create' %}" method="post">
@@ -562,7 +547,7 @@
             </form>
         ```
 
-1. Add a `type` attribute `text` to the user text `input` element tag:
+1. **ACTION:** Add a `type` attribute `text` to the user text `input` element tag:
     * Sample current implementation:
         ```
             <form action="{% url 'the_app:create' %}" method="post">
@@ -571,7 +556,7 @@
             </form>
         ```
 
-1. Add a `name` attribute `text_the_user_provided` to the user text `input` element tag:
+1. **ACTION:** Add a `name` attribute `text_the_user_provided` to the user text `input` element tag:
     * Sample current implementation:
         ```
             <form action="{% url 'the_app:create' %}" method="post">
@@ -580,7 +565,7 @@
             </form>
         ```
 
-1. Add an HTML `input` element (for the submit button) to the `form` element:
+1. **ACTION:** Add an HTML `input` element (for the submit button) to the `form` element:
     * Sample current implementation:
         ```
             <form action="{% url 'the_app:create' %}" method="post">
@@ -590,7 +575,7 @@
             </form>
         ```
 
-1. Add a `type` attribute `submit` to the submit button `input` element tag:
+1. **ACTION:** Add a `type` attribute `submit` to the submit button `input` element tag:
     * Sample current implementation:
         ```
             <form action="{% url 'the_app:create' %}" method="post">
@@ -600,7 +585,7 @@
             </form>
         ```
 
-1. Add a `value` attribute `Send input box text to view function?` to the submit button `input` element tag:
+1. **ACTION:** Add a `value` attribute `Send input box text to view function?` to the submit button `input` element tag:
     * Sample current implementation:
         ```
             <form action="{% url 'the_app:create' %}" method="post">
@@ -610,9 +595,9 @@
             </form>
         ```
 
-1. We have the `form` set up in the `the_app/index_template.html` template. We can now set up a url path in [`the_app/urls.py`](../the_app/urls.py) which will be used by the `form`s `action` attribute.
+1. **INFO:** We have the `form` set up in the `the_app/index_template.html` template. We can now set up a url path in [`the_app/urls.py`](../the_app/urls.py) which will be used by the `form`'s `action` attribute.
 
-1. Add a `path`, which will return a `URLPattern` for the create view, to `urlpatterns` in [`the_app/urls.py`](../the_app/urls.py):
+1. **ACTION:** Add a `path`, which will return a `URLPattern` for the create view, to `urlpatterns` in [`the_app/urls.py`](../the_app/urls.py):
     * We will use the following concepts:
         * Use Django [`path`](https://docs.djangoproject.com/en/4.0/ref/urls/#path) function to add a `URLPattern` to the `urlpatterns` variable in [`the_app/urls.py`](../the_app/urls.py)
             * Ensure we still have the import of `views` from `.`.
@@ -639,15 +624,98 @@
             ]
         ```
 
-1. We now have the `URLPattern` set up. We can now add the view function `create` to [`the_app/views.py`](../the_app/views.py)
+1. **INFO:** We now have the `URLPattern` set up. We can now add the view function `create` to [`the_app/views.py`](../the_app/views.py)
 
-1. Since we are using only one template, we need to design the `create` view function so that it renders the [`the_app/index_template.html`](../the_app/templates/the_app/index_template.html) template.
+1. **INFO:** Since we are using only one template, we need to design the `create` view function so that it renders the [`the_app/index_template.html`](../the_app/templates/the_app/index_template.html) template.
 
-1. Add a `create` view function to [`the_app/views.py`](../the_app/views.py):
+1. **ACTION:** Add a `create` view function to [`the_app/views.py`](../the_app/views.py):
     * We will initially just render a string on the webpage to ensure our view function is getting called by the `URLPattern` we created for the `create` view in the `urlpatterns` of [`the_app\urls.py`](../the_app/urls.py)
     * Concepts used here:
         * Import of [`HTTPResponse`](https://docs.djangoproject.com/en/4.0/ref/request-response/#httpresponse-objects) from `django.http`.
     * Sample current implementation:
         ```
+            from django.http import HttpResponse
 
+            def create(request):
+                console_string = "Create view, ACTIVATED! ...CONSOLE!"
+                print(console_string)
+                web_response_string = "Create view, ACTIVATED! ...BROWSER!"
+                return HttpResponse(web_response_string)
         ```
+
+1. **INFO:** Our `create` view is now functioning with hard-coded values. We will now figure out how to get the information from the `request` object.
+    * I think the `request` object we usually get passed into our view functions, in Django development server, is a `WSGIRequest` which is a type of [`HTTPRequest`](https://docs.djangoproject.com/en/4.0/ref/request-response/#django.http.HttpRequest).
+    * The `request` object will contain values passed from the `form` element in [`the_app/index_template.html`](../the_app/templates/the_app/index_template.html)
+        * These values will be passed through the request object with the keys specified by `name` attribute in the `form` element tag.
+
+1. **ACTION:** But, first, we will check the dunder string and the `type` of the `request` object.
+    * Add two print statements to the `create` view function.
+        * Sample current implementation:
+            ```
+                def create(request):
+                    ...
+                    print('request: ', request)
+                    print('type(request): ', type(request))
+                    ...
+                    return HttpResponse(web_response_string)
+            ```
+
+1. **INFO:** Start the development server and go to the URL which will take us to THE_PLACE_WE_GO.
+    1. `python .\manage.py runserver`
+    1. http://localhost:8000/the-app/index-url/
+
+1. **INFO:** Click the `Send input box text to view function?` button without anything provided in the text box.
+    * Relavent sample console output:
+        ```
+            request: <WSGIRequest: POST '/the-app/create/'>
+            type(request): <class 'django.core.handlers.wsgi.WSGIRequest'>
+        ```
+
+1. **ACTION:** There is a specific part of the `request` object which we are interested in. That part is the `request.POST`.
+    * Change the two print statements we created above to print `request.POST` instead of `request`.
+        * Sample current implementation:
+            ```
+                def create(request):
+                    ...
+                    print('request.POST: ', request.POST)
+                    print('type(request.POST): ', type(request.POST))
+                    ...
+                    return HttpResponse(web_response_string)
+            ```
+
+1. **INFO:** Start the development server and go to the URL which will take us to THE_PLACE_WE_GO.
+    1. `python .\manage.py runserver`
+    1. http://localhost:8000/the-app/index-url/
+
+1. **INFO:** Click the `Send input box text to view function?` button without anything provided in the text box.
+    * Relavent sample console output:
+        ```
+            request.POST:  <QueryDict: {
+                'csrfmiddlewaretoken': ['kndozbWMqCwp4f6DWMwz7t91yKCLf1Smy2Bf1UaEFZ8cxowrDJiNQMvEFMGn9kuW'],
+                'text_the_user_provided': ['']
+            }>
+            type(request.POST):  <class 'django.http.request.QueryDict'>
+        ```
+
+1. Comment out print statements except the following. It is the one we are going to focus on:
+    * `print('request.POST: ', request.POST)`
+
+1. **INFO:** Start the development server and go to the URL which will take us to THE_PLACE_WE_GO.
+    1. `python .\manage.py runserver`
+    1. http://localhost:8000/the-app/index-url/
+
+1. **INFO:** Let's now add some text to the text box and click the `Send input box text to view function?` button.
+
+1. Enter some text into the text box and click the `Send input box text to view function?` button:
+    * Sample text: `Butter the cat`
+
+1. Sample console output:
+    ```
+        request.POST:  <QueryDict: {
+            'csrfmiddlewaretoken': ['tGop19JieHBTYPaVHLrl3npn9OCC2t7lHlMgtSXat4dGrYAJoIdzMGL0gQGeWMJV'],
+            'text_the_user_provided': ['Butter the cat']
+        }>
+    ```
+
+1. Let's look again at [`the_app/index_template.html`](../the_app/templates/the_app/index_template.html) and note some things:
+    * 

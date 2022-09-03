@@ -17,7 +17,13 @@ def index_view(request):
 
 
 def create(request):
+
+    # print('type(request): ', type(request))
+    # print('request: ', request)
+    # print('type(request.POST): ', type(request.POST))
+    print('request.POST: ', request.POST)
+
     console_string = "Create view, ACTIVATED! ...CONSOLE!"
-    print(console_string)
+    # print(console_string)
     web_response_string = "Create view, ACTIVATED! ...BROWSER!"
     return HttpResponse(web_response_string)
