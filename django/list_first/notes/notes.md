@@ -19,24 +19,24 @@
 
 1. **ACTION:** Start in the directory which will contain our Django project:
     * Sample directory location:
-        * `C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation`
+        * `C:\Users\Bruce\Programming\examples\django\list_create_views`
 1. **ACTION:** Create `pipenv` virtual environment:
     * `pipenv install django==4.0`
         <details>
         <summary>Sample output</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation> pipenv install django==4.0
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views> pipenv install django==4.0
             Creating a virtualenv for this project...
-            Pipfile: C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation\Pipfile
+            Pipfile: C:\Users\Bruce\Programming\examples\django\list_create_views\Pipfile
             Using C:/Users/Bruce/AppData/Local/Programs/Python/Python310/python.exe (3.10.6) to create virtualenv...
             [   =] Creating virtual environment...created virtual environment CPython3.10.6.final.0-64 in 429ms
-            creator CPython3Windows(dest=C:\Users\Bruce\.virtualenvs\list_and_create_view_extended_explanation-KAifsCX6, clear=False, no_vcs_ignore=False, global=False)
+            creator CPython3Windows(dest=C:\Users\Bruce\.virtualenvs\list_create_views-KAifsCX6, clear=False, no_vcs_ignore=False, global=False)
             seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=C:\Users\Bruce\AppData\Local\pypa\virtualenv)
                 added seed packages: pip==22.2.2, setuptools==63.4.3, wheel==0.37.1
             activators BashActivator,BatchActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
 
             Successfully created virtual environment!
-            Virtualenv location: C:\Users\Bruce\.virtualenvs\list_and_create_view_extended_explanation-KAifsCX6
+            Virtualenv location: C:\Users\Bruce\.virtualenvs\list_create_views-KAifsCX6
             Creating a Pipfile for this project...
             Installing django==4.0...
             Adding django to Pipfile's [packages]...
@@ -52,7 +52,7 @@
             ================================ 0/0 - 00:00:00
             To activate this project's virtualenv, run pipenv shell.
             Alternatively, run a command inside the virtualenv with pipenv run.
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation>
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views>
         </details>
 
 1. **ACTION:** Activate `pipenv` virtual environment:
@@ -60,7 +60,7 @@
         <details>
         <summary>Sample output</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation> pipenv shell
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views> pipenv shell
             Launching subshell in virtual environment...
             PowerShell 7.2.6
             Copyright (c) Microsoft Corporation.
@@ -68,7 +68,7 @@
             https://aka.ms/powershell
             Type 'help' to get help.
 
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation>
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views>
         </details>
 
 1. **INFO:** Verify we have Django installed:
@@ -76,7 +76,7 @@
         <details>
         <summary>Sample output</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation> pip list
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views> pip list
             Package    Version
             ---------- -------
             asgiref    3.5.2
@@ -86,7 +86,7 @@
             sqlparse   0.4.2
             tzdata     2022.2
             wheel      0.37.1
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation>
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views>
         </details>
 
 1. **ACTION:** Create Django project:
@@ -94,8 +94,8 @@
         <details>
         <summary>Sample output</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation> django-admin startproject the_project .
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation>
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views> django-admin startproject the_project .
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views>
         </details>
 
 1. **INFO:** Examine directory structure:
@@ -103,7 +103,7 @@
         <details>
         <summary>Sample output</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation> tree /f /a
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views> tree /f /a
             Folder PATH listing for volume OS
             Volume serial number is CC00-DD12
             C:.
@@ -122,7 +122,7 @@
                     wsgi.py
                     __init__.py
 
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation>
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views>
         </details>
 
 1. **INFO:** Note new directory [`the_project`](../the_project/)
@@ -142,8 +142,8 @@
         <details>
         <summary>Sample output</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation> python .\manage.py startapp the_app
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation>
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views> python .\manage.py startapp the_app
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views>
         </details>
 
 1. **INFO:** Examine directory structure:
@@ -151,7 +151,7 @@
         <details>
         <summary>Sample output</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation> tree /f /a
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views> tree /f /a
             Folder PATH listing for volume OS
             Volume serial number is CC00-DD12
             C:.
@@ -182,7 +182,7 @@
                     wsgi.py
                     __init__.py
 
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation>
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views>
         </details>
 
 1. **ACTION:** Edit [`settings.py`](../the_project/settings.py):
@@ -312,11 +312,11 @@
         <details>
         <summary>Sample output</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation> python .\manage.py makemigrations
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views> python .\manage.py makemigrations
             Migrations for 'the_app':
               the_app\migrations\0001_initial.py
                 - Create model AwesomeCat
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation>
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views>
         </details>
 
 1. **ACTION:** Perform `migrate`:
@@ -324,7 +324,7 @@
         <details>
         <summary>Sample output</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation> python .\manage.py migrate
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views> python .\manage.py migrate
             Operations to perform:
               Apply all migrations: admin, auth, contenttypes, sessions, the_app
             Running migrations:
@@ -347,7 +347,7 @@
               Applying auth.0012_alter_user_first_name_max_length... OK
               Applying sessions.0001_initial... OK
               Applying the_app.0001_initial... OK
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation>
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views>
         </details>
 
 1. **ACTION:** Create a superuser:
@@ -355,7 +355,7 @@
         <details>
         <summary>Sample output</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation> python .\manage.py createsuperuser
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views> python .\manage.py createsuperuser
             Username (leave blank to use 'bruce'): admin
             Email address: admin@email.app
             Password:
@@ -363,7 +363,7 @@
             This password is too common.
             Bypass password validation and create user anyway? [y/N]: y
             Superuser created successfully.
-            PS C:\Users\Bruce\Programming\examples\django\list_and_create_view_extended_explanation>
+            PS C:\Users\Bruce\Programming\examples\django\list_create_views>
         </details>
 
 1. **INFO:** Start development server to test django admin integration:
