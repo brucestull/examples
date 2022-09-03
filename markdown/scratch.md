@@ -28,6 +28,15 @@ CONTENT
 
 <details>
 <summary>Sample edit:</summary>
+<<<<<<< Updated upstream
+=======
+
+CONTENT
+</details>
+
+<details>
+<summary>Sample browser display contents:</summary>
+>>>>>>> Stashed changes
 
 CONTENT
 </details>
