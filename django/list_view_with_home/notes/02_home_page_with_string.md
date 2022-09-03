@@ -16,9 +16,9 @@
         from django.urls import include
 
         urlpatterns = [
-            ...
+            #...
             path('the-app/', include('the_app.urls')),
-            ...
+            #...
         ]
     </details>
 
@@ -73,4 +73,7 @@
     * Sample text:
         * `Goodbuy, World! Enjoy the sail!`
 
-1. Proceed to [Add Model and Display List View](./03_add_model_functionality.md)
+1. Proceed to [Add Model Functionality](./03_add_model_functionality.md)
+
+## Navigation links:
+* Back to [Create Basic Django Application](./01_create_basic_django_application.md)
