@@ -6,12 +6,12 @@
 * User has functional `pipenv` installation.
 * User is familiar with terminal and shell commands.
 
+## Resources:
+* [Django Quick Start Guide (PDXCG Style)](https://github.com/PdxCodeGuild/class_otter/blob/main/3%20Django/docs/Django%20Project%20Setup.md)
+
 ## Tag meanings for this guide:
 * "**ACTION:**" tags are performing code or environment changes.
 * "**INFO:**" tags are providing info or testing and not necessarily functional or code changes.
-
-## Resources:
-* [Django Quick Start Guide (PDXCG Style)](https://github.com/PdxCodeGuild/class_otter/blob/main/3%20Django/docs/Django%20Project%20Setup.md)
 
 ## Process:
 1. **ACTION:** Start in the project root directory:
@@ -21,7 +21,7 @@
 1. **ACTION:** Create a `pipenv` virtual environment for the application and install Django 4.0:
     * `pipenv install django==4.0`
         <details>
-        <summary>Sample output</summary>
+        <summary>Sample output:</summary>
 
             PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> pipenv install django==4.0
             Creating a virtualenv for this project...
@@ -56,7 +56,7 @@
 1. **ACTION:** Activate this project's virtual environment:
     * `pipenv shell`
         <details>
-        <summary>Sample output</summary>
+        <summary>Sample output:</summary>
 
             PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> pipenv shell
             Launching subshell in virtual environment...
@@ -72,7 +72,7 @@
 1. **ACTION:** Create a new Django project (site root):
     * `django-admin startproject the_project .`
         <details>
-        <summary>Sample output</summary>
+        <summary>Sample output:</summary>
 
             PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> django-admin startproject the_project .
             PS C:\Users\Bruce\Programming\examples\django\list_view_with_home>
@@ -81,7 +81,7 @@
 1. **INFO:** Examine directory structure:
     * `tree /f /a`
         <details>
-        <summary>Sample output</summary>
+        <summary>Sample output:</summary>
 
             PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> tree /f /a
             Folder PATH listing for volume OS
@@ -108,7 +108,7 @@
 1. **ACTION:** Start the development server:
     * `python .\manage.py runserver`
         <details>
-        <summary>Sample output</summary>
+        <summary>Sample output:</summary>
 
             PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> python .\manage.py runserver
             Watching for file changes with StatReloader
@@ -135,7 +135,7 @@
 1. **ACTION:** Add a Django application to the project:
     * `python .\manage.py startapp the_app`
         <details>
-        <summary>Sample output</summary>
+        <summary>Sample output:</summary>
 
             PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> python .\manage.py startapp the_app
             PS C:\Users\Bruce\Programming\examples\django\list_view_with_home>
@@ -144,7 +144,7 @@
 1. **INFO:** Examine directory structure:
     * `tree /f /a`
         <details>
-        <summary>Sample output</summary>
+        <summary>Sample output:</summary>
 
             PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> tree /f /a
             Folder PATH listing for volume OS
@@ -182,7 +182,7 @@
 
 1. **ACTION:** Add the new application's configuration `TheAppConfig` in [`the_app/apps.py`](../the_app/apps.py) to `INSTALLED_APPS` in [`the_project/settings.py`](../the_project/settings.py)
     <details>
-    <summary>Sample edit</summary>
+    <summary>Sample <code>the_project/settings.py</code> contents:</summary>
 
         INSTALLED_APPS = [
             ...

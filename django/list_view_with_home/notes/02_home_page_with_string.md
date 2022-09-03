@@ -11,7 +11,7 @@
 ## Process:
 1. **ACTION:** Add a `urlpattern` for the app `the_app` to `urlpatterns` in [`the_project/urls.py`](../the_project/urls.py):
     <details>
-    <summary>Relavent code change</summary>
+    <summary>Sample <code>the_project/urls.py</code> contents:</summary>
 
         from django.urls import include
 
@@ -34,7 +34,7 @@
             * We will create this view function in the next step.
         * name: `'home'`
             <details>
-            <summary>Sample <code>the_app/urls.py</code> contents</summary>
+            <summary>Sample <code>the_app/urls.py</code> contents:</summary>
 
                 from django.urls import path
 
@@ -50,7 +50,7 @@
     * Add import of [`HttpResponse`](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpResponse) from `django.http`
     * Add view function `home` to [`the_app/views.py`](../the_app/views.py)
             <details>
-            <summary>Sample <code>the_app/views.py</code> contents</summary>
+            <summary>Sample <code>the_app/views.py</code> contents:</summary>
 
                 from django.http import HttpResponse
 
@@ -73,4 +73,4 @@
     * Sample text:
         * `Goodbuy, World! Enjoy the sail!`
 
-1. Proceed to [Add Model and Display List View](./03_model_and_list_view.md)
+1. Proceed to [Add Model and Display List View](./03_add_model_functionality.md)
