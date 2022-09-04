@@ -15,7 +15,7 @@
             * Our `template_name` if we use a non-standard one.
 
 ## Notes:
-* [Django Function and Class-Based List Views](./notes/notes.md)
+* [Notes - Django Function and Class-Based List Views](./notes/notes.md)
 
 ## Examples' Links:
 * [Examples](../../README.md)

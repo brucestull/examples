@@ -8,6 +8,8 @@ Examples of various coding languages and markup languages.
 
 ### Django:
 * [Examples of Five (5) Different Types of Django Views](./django/function_and_class_based_list_views/README.md)
+* [Create `pipenv` virtual environment for a Django project](./django/pipenv_setup/README.md)
+* [Create Django Project with List View First](./django/list_create_views/README.md)
 
 ### Pipenv:
 
