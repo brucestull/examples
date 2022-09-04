@@ -124,7 +124,7 @@
 
 1. Create a couple new `AwesomeCat` objects in Django Admin Interface.
 
-1. Proceed to [`Add List View`](./04_add_list_view.md).
+1. Proceed to [Add List View](./04_add_list_view.md).
 
 ## Navigation links:
 * Back to [Home Page with String](./02_home_page_with_string.md)
