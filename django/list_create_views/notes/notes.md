@@ -3,9 +3,12 @@
     1. Might expand this later to use `if request.method==POST` and `if request.method==GET` somewhere.
     1. For now, create a simple template with a list as a `home` or `list` page.
 
-
 ## Resources:
 * **TODO**: LINK_TO_PIPENV_EXAMPLE_DOCUMENTATION
+
+## Repository Links:
+* [Examples Repository](../../../README.md)
+* [Create Django Project with List View First - `README.me`](../README.md)
 
 ## Tag meanings for this guide:
 * "**ACTION:**" tags are performing code or environment changes.

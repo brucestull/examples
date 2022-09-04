@@ -9,6 +9,10 @@
 ## Resources:
 * [Django Quick Start Guide (PDXCG Style)](https://github.com/PdxCodeGuild/class_otter/blob/main/3%20Django/docs/Django%20Project%20Setup.md)
 
+## Repository Links:
+* [Examples Repository](../../../README.md)
+* [List View with Home - `README.me`](../README.md)
+
 ## Tag meanings for this guide:
 * "**ACTION:**" tags are performing code or environment changes.
 * "**INFO:**" tags are providing info or testing and not necessarily functional or code changes.

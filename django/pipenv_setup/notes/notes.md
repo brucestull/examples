@@ -8,7 +8,8 @@
 * [Why use `pipenv`?](https://pipenv.pypa.io/en/latest/#pipenv-features)
 
 ## Repository Links:
-* 
+* [Examples Repository](../../../README.md)
+* [Create `pipenv` virtual environment for a Django project - `README.me`](../README.md)
 
 ## Things user should know how to do before doing this activity:
 * **TODO:** 

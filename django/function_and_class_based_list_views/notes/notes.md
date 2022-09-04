@@ -13,6 +13,10 @@
     * [`TemplateView`](https://docs.djangoproject.com/en/4.0/ref/class-based-views/base/#templateview)
     * [`ListView`](https://docs.djangoproject.com/en/4.0/ref/class-based-views/generic-display/#listview)
 
+## Repository Links:
+* [Examples Repository](../../../README.md)
+* [Example of Five (5) Different Types of Django Views - `README.me`](../README.md)
+
 ## Development server links and such:
 * `python .\manage.py runserver`
 * http://localhost:8000/admin/
