@@ -6,3 +6,4 @@
 
 ## Code Examples Repository links:
 * [Code Examples Repository](../../README.md)
+* [Django Code Examples](../README.md)
