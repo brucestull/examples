@@ -20,10 +20,6 @@
 
 
 
-
-    * `tree /f /a`
-    * `python .\manage.py createsuperuser`
-
 * Development server web links:
     * http://localhost:8000/
     * http://localhost:8000/admin/

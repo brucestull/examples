@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = "==4.0"
 docutils = "==0.19"
+djangorestframework = "==3.13.1"
 
 [dev-packages]
 

@@ -374,6 +374,7 @@
 
                 PS C:\Users\Bruce\Programming\examples\django\rest_basic>
             </details>
+        * `pipenv install docutils==0.19`
             <details>
             <summary>Sample output (with succuessful install):</summary>
 
@@ -401,7 +402,7 @@
 
 1. **INFO:** Check that `DOCUMENTATION` link functions properly.
 
-1. Continue to [Using Serializers](./02_serializers.md)
+1. Continue to [Using Serializers](./02_create_the_api.md)
 
 ## Links:
 * [Examples Repository](../../../README.md)
