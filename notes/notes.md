@@ -5,7 +5,7 @@
 * `git stash show`
 * `git stash pop`
 
-## Examples:
+## Code Examples:
 
 ### Goal: Stash changes to `notes.md` and add those changes to branch `main`.
 

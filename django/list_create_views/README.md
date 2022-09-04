@@ -8,5 +8,5 @@
 ## Notes:
 * [Notes - Create Django Project with List View First](./notes/notes.md)
 
-## Examples' Links:
-* [Examples](../../README.md)
+## Code Examples Repository links:
+* [Code Examples Repository](../../README.md)

@@ -5,5 +5,5 @@
 ## Notes:
 * [Notes - Create `pipenv` Virtual Environment for a Django Project](./notes/notes.md)
 
-## Examples' Links:
-* [Examples](../../README.md)
+## Code Examples Repository links:
+* [Code Examples Repository](../../README.md)

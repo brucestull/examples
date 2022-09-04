@@ -17,5 +17,5 @@
 ## Notes:
 * [Notes - Django Function and Class-Based List Views](./notes/notes.md)
 
-## Examples' Links:
-* [Examples](../../README.md)
+## Code Examples Repository links:
+* [Code Examples Repository](../../README.md)

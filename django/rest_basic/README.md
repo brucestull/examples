@@ -13,5 +13,5 @@
 * [Notes - Setup](./notes/01_setup.md)
 * [Notes - Create the API](./notes/02_create_the_api.md)
 
-## Examples' Links:
-* [Examples](../../README.md)
+## Code Examples Repository links:
+* [Code Examples Repository](../../README.md)
