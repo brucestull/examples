@@ -1,4 +1,10 @@
-# Django Documentation
+# Django Code Examples
+
+* [Examples of Five (5) Different Types of Django Views](./function_and_class_based_list_views/README.md)
+* [Create `pipenv` virtual environment for a Django project](./pipenv_setup/README.md)
+* [Create Django Project with List View First](./list_create_views/README.md)
+* [List View with Home](./list_view_with_home/README.md)
+* [Django REST - Basic](./rest_basic/README.md)
 
 ## Resources:
 
