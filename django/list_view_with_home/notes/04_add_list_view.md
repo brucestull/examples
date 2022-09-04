@@ -126,7 +126,5 @@
 
 1. We now have a List View on display. The user can now add styling to their preferences.
 
-1. See INSERT_LINK_HERE_FOR_CREATE_VIEW
-
 ## Navigation links:
 * Back to [Add Model Functionality](./03_add_model_functionality.md)
