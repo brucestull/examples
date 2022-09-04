@@ -444,7 +444,7 @@
                 awesome_cat_objects = AwesomeCat.objects.all()
                 print(awesome_cat_objects)
                 context = {
-                    'view_to_template_objects': awesome_cat_objects
+                    'view_to_template_object': awesome_cat_objects
                 }
                 return render(request, 'the_app/index_template.html', context)
         </details>
@@ -462,12 +462,12 @@
 
 1. **INFO:** Let's see if we can get the `AwesomeCat` objects from the `QuerySet` object.
 
-1. **ACTION:** Edit the Django template [`the_app/index_template.html`](../the_app/templates/the_app/index_template.html) to use a Django template engine for loop to iterate over the list of `AwesomeCat` objects (`view_to_template_objects`). We will display the `name` attribute and the `id` attribute of each `AwesomeCat` object (`cat_object`):
+1. **ACTION:** Edit the Django template [`the_app/index_template.html`](../the_app/templates/the_app/index_template.html) to use a Django template engine for loop to iterate over the list of `AwesomeCat` objects (`view_to_template_object`). We will display the `name` attribute and the `id` attribute of each `AwesomeCat` object (`cat_object`):
 
     <details>
     <summary>Sample edit</summary>
 
-        {% for cat_object in view_to_template_objects %}
+        {% for cat_object in view_to_template_object %}
         {{ cat_object.name }} : {{ cat_object.id}}
         {% endfor %}
     </details>

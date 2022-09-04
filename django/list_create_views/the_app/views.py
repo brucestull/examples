@@ -11,7 +11,7 @@ def index_view(request):
     awesome_cat_objects = AwesomeCat.objects.all()
     print(awesome_cat_objects)
     context = {
-        'view_to_template_objects': awesome_cat_objects
+        'view_to_template_object': awesome_cat_objects
     }
     return render(request, 'the_app/index_template.html', context)
 
