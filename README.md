@@ -11,6 +11,7 @@ Examples of various coding languages and markup languages.
 * [Create `pipenv` virtual environment for a Django project](./django/pipenv_setup/README.md)
 * [Create Django Project with List View First](./django/list_create_views/README.md)
 * [List View with Home](./django/list_view_with_home/README.md)
+* [Django REST - Basic](./django/rest_basic/README.md)
 
 ### Pipenv:
 
