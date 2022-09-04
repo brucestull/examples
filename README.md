@@ -1,8 +1,19 @@
-# examples
+# Examples
 Examples of various coding languages and markup languages.
 
 ## Links:
 * brucestull's GitHub [Project Board](https://github.com/users/brucestull/projects/6)
+
+## Examples:
+
+### Django:
+* [Examples of Five (5) Different Types of Django Views](./django/function_and_class_based_list_views/README.md)
+
+### Pipenv:
+
+### Markdown:
+
+
 
 ## In-progress example branches:
 * [Field Choices Example](https://github.com/brucestull/examples/tree/4-document-how-choices-works-in-django/django/field_choices)
