@@ -163,3 +163,6 @@
     * http://localhost:8000/the-api/v1/users-api-url/2/
     * http://localhost:8000/the-api/v1/groups-api-url/
 
+1. API functions. But breaks if a `Group` is added to the database.
+
+1. Will test further.
