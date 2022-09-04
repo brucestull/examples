@@ -13,11 +13,11 @@
 * "**INFO:**" tags are providing info or testing and not necessarily functional or code changes.
 
 ## Process:
-1. Start inside project directory:
+1. **ACTION:** Start inside project directory:
     * Sample directory location:
         * `C:\Users\Bruce\Programming\examples\django\rest_basic`
 
-1. Create a new `pipenv` virtual environment:
+1. **ACTION:** Create a new `pipenv` virtual environment:
     * `pipenv install django==4.0`
         <details>
         <summary>Sample output:</summary>
@@ -52,7 +52,7 @@
             PS C:\Users\Bruce\Programming\examples\django\rest_basic>
         </details>
 
-1. Activate the `pipenv` virtual environment:
+1. **ACTION:** Activate the `pipenv` virtual environment:
     * `pipenv shell`
         <details>
         <summary>Sample output:</summary>
@@ -68,7 +68,7 @@
             PS C:\Users\Bruce\Programming\examples\django\rest_basic>
         </details>
 
-1. Check installed packages:
+1. **INFO:** Check installed packages:
     * `pip list`
         <details>
         <summary>Sample output:</summary>
@@ -86,7 +86,7 @@
             PS C:\Users\Bruce\Programming\examples\django\rest_basic>
         </details>
 
-1. Examine directory structure:
+1. **INFO:** Examine directory structure:
     * `tree /f /a`
         <details>
         <summary>Sample output:</summary>
@@ -106,7 +106,7 @@
             PS C:\Users\Bruce\Programming\examples\django\rest_basic>
         </details>
 
-1. Create a Django "Project":
+1. **ACTION:** Create a Django "Project":
     * `django-admin startproject the_project .`
         <details>
         <summary>Sample output:</summary>
@@ -115,7 +115,7 @@
             PS C:\Users\Bruce\Programming\examples\django\rest_basic>
         </details>
 
-1. Examine directory structure:
+1. **INFO:** Examine directory structure:
     * `tree /f /a`
         <details>
         <summary>Sample output:</summary>
@@ -143,7 +143,7 @@
             PS C:\Users\Bruce\Programming\examples\django\rest_basic>
         </details>
 
-1. Test development server:
+1. **INFO:** Test development server:
     * `python .\manage.py runserver`
         <details>
         <summary>Sample output:</summary>
@@ -162,17 +162,17 @@
             Quit the server with CTRL-BREAK.
         </details>
 
-1. Open internet browser to server root:
+1. **INFO:** Open internet browser to server root:
     * http://localhost:8000/
 
-1. Verify Django Green Rocket and success text:
+1. **INFO:** Verify Django Green Rocket and success text:
     * Sample success text:
         * `The install worked successfully! Congratulations!`
 
-1. Stop the development server:
+1. **INFO:** The development server can be stopped by using:
     * \<Ctrl+C\>
 
-1. Create Django app:
+1. **ACTION:** Create Django app:
     * `python .\manage.py startapp the_api`
         <details>
         <summary>Sample output:</summary>
@@ -181,7 +181,7 @@
             PS C:\Users\Bruce\Programming\examples\django\rest_basic>
         </details>
 
-1. Perform migrations:
+1. **ACTION:** Perform migrations:
     * `python .\manage.py migrate`
         <details>
         <summary>Sample output:</summary>
@@ -211,7 +211,7 @@
             PS C:\Users\Bruce\Programming\examples\django\rest_basic>
         </details>
 
-1. Create a superuser:
+1. **ACTION:** Create a superuser:
     * `python manage.py createsuperuser --email admin@email.app --username admin`
         <details>
         <summary>Sample output:</summary>
@@ -225,7 +225,7 @@
             PS C:\Users\Bruce\Programming\examples\django\rest_basic>
         </details>
 
-1. Start development server and test Django Admin Interface:
+1. **INFO:** Start development server and test Django Admin Interface:
     * `python .\manage.py runserver`
     * http://localhost:8000/admin/
         <details>
@@ -258,7 +258,7 @@
             [04/Sep/2022 09:04:34] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0
         </details>
 
-1. Add implementation of [The Django admin documentation generator](https://docs.djangoproject.com/en/4.1/ref/contrib/admin/admindocs/):
+1. **ACTION:** Add implementation of [The Django admin documentation generator](https://docs.djangoproject.com/en/4.1/ref/contrib/admin/admindocs/):
     1. Add `django.contrib.admindocs` to `INSTALLED_APPS` in [`the_project/settings.py`](../the_project/settings.py).
     1. Add the following to [`the_project/urls.py`](../the_project/urls.py):
         1. Import for `include` from `django.urls`.
@@ -393,13 +393,17 @@
                 PS C:\Users\Bruce\Programming\examples\django\rest_basic>
             </details>
 
-1. Start development server and test Django Admin Interface:
+1. **INFO:** Start development server and test Django Admin Interface:
     * `python .\manage.py runserver`
 
-1. Open interpreter browser to server admin interface URL (login if necessary):
+1. **INFO:** Open interpreter browser to server admin interface URL (login if necessary):
     * http://localhost:8000/admin/
 
-1. Check that `DOCUMENTATION` link functions properly.
+1. **INFO:** Check that `DOCUMENTATION` link functions properly.
 
+1. Continue to [Using Serializers](./02_serializers.md)
 
+## Links:
+* [Examples Repository](../../../README.md)
+* [Django REST - Basic - `README.me`](../README.md)
 
