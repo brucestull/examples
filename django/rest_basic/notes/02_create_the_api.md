@@ -7,8 +7,11 @@
 ## Development server links and such:
 * `python .\manage.py runserver`
 * http://localhost:8000/admin/
-* http://localhost:8000/users/
-* http://localhost:8000/groups/
+* http://localhost:8000/the-api/v1/
+* http://localhost:8000/the-api/v1/users-api-url/
+* http://localhost:8000/the-api/v1/users-api-url/1/
+* http://localhost:8000/the-api/v1/users-api-url/2/
+* http://localhost:8000/the-api/v1/groups-api-url/
 
 ## Tag meanings for this guide:
 * "**ACTION:**" tags are performing code or environment changes.
@@ -97,30 +100,37 @@
 
     </details>
 
+1. Add routes for the API to `urlpatterns` in [`the_project/urls.py`](../the_project/urls.py):
+    <details>
+    <summary>Sample <code></code> implementation:</summary>
+
+        urlpatterns = [
+            #...
+            path('api/v1/', include('the_api.urls')),
+            path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+            #...
+
+        ]
+    </details>
+
 1. **ACTION:** Create [`the_api/urls.py`](../the_api/urls.py) and add the following implementation:
     <details>
     <summary>Sample <code>the_api/urls.p</code> implementation:</summary>
 
         from django.urls import include, path
         from rest_framework import routers
-
-        from the_api import views
-
+        
+        from . import views
+        
+        
         router = routers.DefaultRouter()
-        router.register(r'users', views.UserViewSet)
-        router.register(r'groups', views.GroupViewSet)
-
-        urlpatterns = [
-            path(
-                '',
-                include(router.urls)
-            ),
-            path(
-                'api-auth/',
-                include('rest_framework.urls',
-                namespace='rest_framework')
-            ),
+        router.register(r'users-api-url', views.UserViewSet, basename='users_url_namespace')
+        router.register('groups-api-url', views.GroupViewSet, basename='groups_url_namespace')
+        
+        urlpatterns = router.urls + [
+        
         ]
+
     </details>
 
 1. **ACTION:** Add the following to [`the_project/settings.py`](../the_project/settings.py):
@@ -146,9 +156,10 @@
 1. Start development server:
     * `python .\manage.py runserver`
 
-1. Open internet browser to Django REST Browsable API Interface:
-    * http://localhost:8000/api/v1/users/
-    * http://localhost:8000/api/v1/users/1/
-    * http://localhost:8000/api/v1/users/2/
-    * http://localhost:8000/api/v1/groups/
+1. Open internet browser to test Django REST Browsable API Interface:
+    * http://localhost:8000/the-api/v1/
+    * http://localhost:8000/the-api/v1/users-api-url/
+    * http://localhost:8000/the-api/v1/users-api-url/1/
+    * http://localhost:8000/the-api/v1/users-api-url/2/
+    * http://localhost:8000/the-api/v1/groups-api-url/
 

@@ -5,8 +5,8 @@ from . import views
 
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet, basename='users')
-router.register(r'groups', views.GroupViewSet, basename='groups')
+router.register(r'users-api-url', views.UserViewSet, basename='users_url_namespace')
+router.register('groups-api-url', views.GroupViewSet, basename='groups_url_namespace')
 
 urlpatterns = router.urls + [
 
