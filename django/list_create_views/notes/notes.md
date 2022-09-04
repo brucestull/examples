@@ -708,13 +708,13 @@
 1. **INFO:** Let's now add some text to the text box and click the `Send input box text to view function?` button.
 
 1. Enter some text into the text box and click the `Send input box text to view function?` button:
-    * Sample text: `Butter the cat`
+    * Sample text: `Super Kat!`
 
 1. Sample console output:
     ```
         request.POST:  <QueryDict: {
             'csrfmiddlewaretoken': ['tGop19JieHBTYPaVHLrl3npn9OCC2t7lHlMgtSXat4dGrYAJoIdzMGL0gQGeWMJV'],
-            'text_the_user_provided': ['Butter the cat']
+            'text_the_user_provided': ['Super Kat!']
         }>
     ```
 
