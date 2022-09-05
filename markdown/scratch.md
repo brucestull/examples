@@ -39,6 +39,12 @@ CONTENT
 </details>
 
 <details>
+<summary>Sample <code></code> contents:</summary>
+
+CONTENT
+</details>
+
+<details>
 <summary>Sample <code></code> implementation:</summary>
 
 CONTENT
