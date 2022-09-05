@@ -8,6 +8,8 @@
 ## Code Examples Repository links:
 * [Code Examples Repository](../README.md)
 
+## **IMPORTANT**
+* These example repositories have the Django [`SECRET_KEY`](https://docs.djangoproject.com/en/4.0/ref/settings/#secret-key) revealed in `settings.py`. It is important in actual production projects to not push the actual `SECRET_KEY` to remote public repositories. There are ways to set this up which are beyond the scope of this document. One example, though, is used in [`settings`](https://github.com/brucestull/DjangoCustomUserStarter/tree/main/my_current_project/settings) directory which is part of [brucestull's DjangoCustomUserStarter](https://github.com/brucestull/DjangoCustomUserStarter)
 
 ## Resources:
 
