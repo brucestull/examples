@@ -13,16 +13,15 @@
 </details>
 
 
-<details open>
-<summary>HTML/CSS/Flask:</summary>
-  CONTENT
-</details>
-
-
 <details>
 <summary>Sample output:</summary>
 
 CONTENT
+</details>
+
+<details open>
+<summary>HTML/CSS/Flask:</summary>
+  CONTENT
 </details>
 
 
@@ -45,7 +44,19 @@ CONTENT
 </details>
 
 <details>
-<summary>Sample <code></code> implementation:</summary>
+<summary>Sample current <code></code> contents:</summary>
+
+CONTENT
+</details>
+
+<details>
+<summary>Sample <code></code> addition:</summary>
+
+CONTENT
+</details>
+
+<details>
+<summary><code></code></summary>
 
 CONTENT
 </details>
