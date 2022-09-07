@@ -15,10 +15,13 @@
 * User has functioning `pip` installation.
 * User has functioning `<OTHER_PACKAGE_OR_PROGRAM>` installation.
 
+## Repository Links:
+* [Examples Repository](../../../README.md)
+
 ## Tag meanings for this guide:
 
 * "**ACTION:**" tags are performing code or environment changes.
-* "**INFO:**" tags are providing info and not necessarily functional or code changes.
+* "**INFO:** tags are providing info and not necessarily functional or code changes.
 
 ## Useful commands:
 * `pipenv --venv`
@@ -62,7 +65,7 @@
         </details>
     * There might be quite a few python packages listed here. That is okay. When we create the virtual environment, there will be mininal packages in it and we will control which packages are installed in it.
 
-1. Install `pipenv` using `pip install --user pipenv`:
+1. **ACTION:** Install `pipenv` using `pip install --user pipenv`:
     * `pip install --user pipenv`
         <details>
         <summary>Sample output</summary>
@@ -132,7 +135,7 @@
             PS C:\Users\Bruce\Programming\examples\pipenv\create-empty-pipenv>
         </details>
 
-1. Some notes about the above "Sample output":
+1. **INFO:** Some notes about the above "Sample output":
     * The line with `Virtualenv location` indicates the location of the actual location:
         * Sample line output:
             ```
@@ -142,7 +145,7 @@
         * The name of the directory `create-empty-pipenv-Xeso9zoU` is constructed by taking the directory name where the `pipenv install` command is executed and then adding a dash followed by a unique string `Xeso9zoU`.
         * The directory `create-empty-pipenv-Xeso9zoU` is the directory which contains all of the virtual environment's packages.
 
-1. **INFO:**" Use `tree /f /a` to examine directory contents:
+1. **INFO:** Use `tree /f /a` to examine directory contents:
     * `tree /f /a`
         <details>
         <summary>Sample output</summary>
@@ -161,7 +164,7 @@
             PS C:\Users\Bruce\Programming\examples\pipenv\create-empty-pipenv>
         </details>
 
-1. Note presense of `Pipfile` and `Pipfile.lock` above.
+1. **INFO:** Note presense of `Pipfile` and `Pipfile.lock` above.
     * `Pipfile` is one `pipenv` configuration file for the project.
         * This configuration file is located inside the same directory as the project code.
         * The actual virtual environment files and packages are in a different directory noted above. Usually, in Windows, the parent directory of the virtual environment is `C:\Users\Bruce\.virtualenvs\`.
@@ -194,7 +197,7 @@
 
 1. ADD_SOME_EXPLANATION_OR_DESCRIPTION_HERE
 
-1. **INFO:**" List the Python packages which are installed in the virtual environment by using `pip list`:
+1. **INFO:** List the Python packages which are installed in the virtual environment by using `pip list`:
     * `pip list`
         <details>
         <summary>Sample output</summary>
@@ -208,15 +211,15 @@
             PS C:\Users\Bruce\Programming\examples\pipenv\create-empty-pipenv>
         </details>     
 
-1. Notes about the above `pip list` output:
+1. **INFO:** Notes about the above `pip list` output:
     * There can be significantly fewer python packages installed in the virtual environment than those globally installed. This is expected. The reason we use a virtual environment is to ensure we only install the packages we need for the project.
 
-1. The `pipenv` virtual environment has been created for the project. You can add your code for your specific project and then run the code using the packages within the virtual environment.
+1. **INFO:** The `pipenv` virtual environment has been created for the project. You can add your code for your specific project and then run the code using the packages within the virtual environment.
 
-1. We will now use `pipenv install $PACKAGE_NAME` whenever we want to install another python package `$PACKAGE_NAME` in our virtual environment.
+1. **INFO:** We will now use `pipenv install $PACKAGE_NAME` whenever we want to install another python package `$PACKAGE_NAME` in our virtual environment.
     * It is advised to run the `pipenv` commands from the same directory as `Pipfile` and `Pipfile.lock`. This should probably be the project directory.
     * The commands may work in other directories but the author of this document hasen't tested that yet.
 
-1. Whenever we open a new terminal and we want to use the virtual environment:
+1. **INFO:** Whenever we open a new terminal and we want to use the virtual environment:
     1. Change directory into the directory which contains `Pipfile` and `Pipfile.lock`.
     1. Use `pipenv shell` to activate the virtual environment.

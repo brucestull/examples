@@ -1,4 +1,10 @@
 # Create `pipenv` virtual environment for a Django project
+* Create `pipenv` virtual environment.
+* Create a Django project starter.
 
-## Links:
-* `examples` repository [`README.md`](../../README.md)
+## Notes:
+* [Notes - Create `pipenv` Virtual Environment for a Django Project](./notes/notes.md)
+
+## Code Examples Repository links:
+* [Code Examples Repository](../../README.md)
+* [Django Code Examples](../README.md)

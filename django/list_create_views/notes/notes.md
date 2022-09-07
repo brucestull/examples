@@ -1,13 +1,14 @@
 # Create Django Project with List View First
-* The intent is to show that it can be useful for create the Django List View first so user can see the models presented on the page and then add links to the other pages, templates, and views.
+* The intent is to show that it can be useful to create the Django List View first so user can see the models presented on the page and then add links to the other pages, templates, and views.
     1. Might expand this later to use `if request.method==POST` and `if request.method==GET` somewhere.
     1. For now, create a simple template with a list as a `home` or `list` page.
 
-## Project Links and Commands:
-* [Issue Link #20](https://github.com/brucestull/examples/issues/20)
-
 ## Resources:
 * **TODO**: LINK_TO_PIPENV_EXAMPLE_DOCUMENTATION
+
+## Repository Links:
+* [Examples Repository](../../../README.md)
+* [Create Django Project with List View First - `README.me`](../README.md)
 
 ## Tag meanings for this guide:
 * "**ACTION:**" tags are performing code or environment changes.
@@ -443,7 +444,7 @@
                 awesome_cat_objects = AwesomeCat.objects.all()
                 print(awesome_cat_objects)
                 context = {
-                    'view_to_template_objects': awesome_cat_objects
+                    'view_to_template_object': awesome_cat_objects
                 }
                 return render(request, 'the_app/index_template.html', context)
         </details>
@@ -461,12 +462,12 @@
 
 1. **INFO:** Let's see if we can get the `AwesomeCat` objects from the `QuerySet` object.
 
-1. **ACTION:** Edit the Django template [`the_app/index_template.html`](../the_app/templates/the_app/index_template.html) to use a Django template engine for loop to iterate over the list of `AwesomeCat` objects (`view_to_template_objects`). We will display the `name` attribute and the `id` attribute of each `AwesomeCat` object (`cat_object`):
+1. **ACTION:** Edit the Django template [`the_app/index_template.html`](../the_app/templates/the_app/index_template.html) to use a Django template engine for loop to iterate over the list of `AwesomeCat` objects (`view_to_template_object`). We will display the `name` attribute and the `id` attribute of each `AwesomeCat` object (`cat_object`):
 
     <details>
     <summary>Sample edit</summary>
 
-        {% for cat_object in view_to_template_objects %}
+        {% for cat_object in view_to_template_object %}
         {{ cat_object.name }} : {{ cat_object.id}}
         {% endfor %}
     </details>
@@ -707,13 +708,13 @@
 1. **INFO:** Let's now add some text to the text box and click the `Send input box text to view function?` button.
 
 1. Enter some text into the text box and click the `Send input box text to view function?` button:
-    * Sample text: `Butter the cat`
+    * Sample text: `Super Kat!`
 
 1. Sample console output:
     ```
         request.POST:  <QueryDict: {
             'csrfmiddlewaretoken': ['tGop19JieHBTYPaVHLrl3npn9OCC2t7lHlMgtSXat4dGrYAJoIdzMGL0gQGeWMJV'],
-            'text_the_user_provided': ['Butter the cat']
+            'text_the_user_provided': ['Super Kat!']
         }>
     ```
 

@@ -1,4 +1,4 @@
-# Notes
+# Create `pipenv` Virtual Environment for a Django Project
 
 ## Resources:
 * [Pipenv: Python Development Workflow for Humans - pypi.org](https://pypi.org/project/pipenv/)
@@ -6,6 +6,10 @@
 * [Pipenv: A Guide to the New Python Packaging Tool - realpython.com](https://realpython.com/pipenv-guide/)
 * [Pipenv: Python Dev Workflow for Humans - pipenv.pypa.io](https://pipenv.pypa.io/en/latest/)
 * [Why use `pipenv`?](https://pipenv.pypa.io/en/latest/#pipenv-features)
+
+## Repository Links:
+* [Examples Repository](../../../README.md)
+* [Create `pipenv` virtual environment for a Django project - `README.me`](../README.md)
 
 ## Things user should know how to do before doing this activity:
 * **TODO:** 
