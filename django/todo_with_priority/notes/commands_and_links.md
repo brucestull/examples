@@ -11,4 +11,7 @@
 
 * Development server web links:
     * http://localhost:8000/
+    * http://localhost:8000/the-app/
     * http://localhost:8000/admin/
+    * http://localhost:8000/admin/the_app/priority/
+    * http://localhost:8000/admin/the_app/todo/
