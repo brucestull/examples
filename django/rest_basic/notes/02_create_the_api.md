@@ -1,7 +1,7 @@
 # Create the API
 
 ## Repository Links:
-* [Examples Repository](../../../README.md)
+* [Code Examples Repository](../../../README.md)
 * [Django REST - Basic - `README.me`](../README.md)
 
 ## Development server links and such:
