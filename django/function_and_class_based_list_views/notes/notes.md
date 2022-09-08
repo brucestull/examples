@@ -751,9 +751,9 @@
         ```
 
 1. Verify `pipenv` Python interpreter:
-    * `Get-Command python | fl *`
+    * `Get-Command python | Format-List *`
         ```
-        PS C:\Users\Bruce\Programming\examples> Get-Command python | fl *
+        PS C:\Users\Bruce\Programming\examples> Get-Command python | Format-List *
 
         HelpUri            : 
         FileVersionInfo    : File:             C:\Users\Bruce\.virtualenvs\examples-yqA5vS_k\Scripts\python.exe
