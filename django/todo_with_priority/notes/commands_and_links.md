@@ -6,6 +6,8 @@
     * `django-admin startproject the_project .`
     * `tree /f /a`
     * `python .\manage.py runserver`
+    * `python .\manage.py makemigrations`
+    * `python .\manage.py migrate`
     * `python .\manage.py createsuperuser`
     * `python manage.py createsuperuser --email admin@email.app --username admin`
 
