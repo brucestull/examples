@@ -5,6 +5,7 @@
 * [Create Django Project with List View First](./list_create_views/README.md)
 * [List View with Home](./list_view_with_home/README.md)
 * [Django REST - Basic](./rest_basic/README.md)
+* [Demonstrate `reverse()` Method](./reverse/README.md)
 
 ## Code Examples Repository links:
 * [Code Examples Repository](../README.md)
