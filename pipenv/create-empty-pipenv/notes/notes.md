@@ -15,7 +15,7 @@
 * User has functioning `pip` installation.
 * User has functioning `<OTHER_PACKAGE_OR_PROGRAM>` installation.
 
-## Repository Links:
+## Code Examples Repository links:
 * [Examples Repository](../../../README.md)
 
 ## Tag meanings for this guide:

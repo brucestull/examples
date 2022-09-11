@@ -1,6 +1,6 @@
 # Project Setup
 
-## Repository Links:
+## Code Examples Repository links:
 * [Examples Repository](../../../README.md)
 * [Django REST - Basic - `README.me`](../README.md)
 

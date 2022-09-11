@@ -13,7 +13,7 @@
     * [`TemplateView`](https://docs.djangoproject.com/en/4.0/ref/class-based-views/base/#templateview)
     * [`ListView`](https://docs.djangoproject.com/en/4.0/ref/class-based-views/generic-display/#listview)
 
-## Repository Links:
+## Code Examples Repository links:
 * [Examples Repository](../../../README.md)
 * [Example of Five (5) Different Types of Django Views - `README.me`](../README.md)
 

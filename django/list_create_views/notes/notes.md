@@ -6,7 +6,7 @@
 ## Resources:
 * **TODO**: LINK_TO_PIPENV_EXAMPLE_DOCUMENTATION
 
-## Repository Links:
+## Code Examples Repository links:
 * [Examples Repository](../../../README.md)
 * [Create Django Project with List View First - `README.me`](../README.md)
 

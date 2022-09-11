@@ -9,7 +9,7 @@
 ## Resources:
 * [Django Quick Start Guide (PDXCG Style)](https://github.com/PdxCodeGuild/class_otter/blob/main/3%20Django/docs/Django%20Project%20Setup.md)
 
-## Repository Links:
+## Code Examples Repository links:
 * [Examples Repository](../../../README.md)
 * [List View with Home - `README.me`](../README.md)
 
