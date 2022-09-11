@@ -14,6 +14,7 @@ Examples of various coding languages and markup languages.
     * [Create Django Project with List View First](./django/list_create_views/README.md)
     * [List View with Home](./django/list_view_with_home/README.md)
     * [Django REST - Basic](./django/rest_basic/README.md)
+    * [Demonstrate `reverse()` Method](./django/reverse/README.md)
 
 ### Pipenv:   
 * [Pipenv Examples](./pipenv/)
