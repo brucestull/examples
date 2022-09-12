@@ -282,7 +282,7 @@
         </details>
     * INSERT_IMAGE_HERE
     * The new `User` (`NotAnotherAdmin`) is being created but there is no password being set by `form.save()`.
-        * Maybe the form needs a field of `password` instead of the one of the `password1` and `password2` fields since that is the field name used in `django.contrib.auth.models.User`
+        * Maybe the form needs a field of `password` instead of the one of the `password1` and `password2` fields since that is the field name used in [`django.contrib.auth.models.User`](https://docs.djangoproject.com/en/4.1/ref/contrib/auth/#user-model).
 
 
 ## Summary:
