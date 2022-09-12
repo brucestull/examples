@@ -13,9 +13,7 @@
 * "**ACTION:**" tags are performing code or environment changes.
 * "**INFO:**" tags are providing info or testing and not necessarily functional or code changes.
 
-## Process:
-1. We are starting with the code from [Django Starter](../../django-starter/README.md).
 
-1. Start in the directory which contains the code from [Django Starter](../../django-starter/README.md).
+1. Proceed to [Create a New `pipenv` Virtual Environment for the Project](./01_create_virtual_environment.md)
 
 
