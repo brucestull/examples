@@ -245,6 +245,19 @@
                     AttributeError: 'AnonymousUser' object has no attribute '_meta'
                     [12/Sep/2022 10:03:23] "POST /accounts/register/ HTTP/1.1" 500 76821
                 </details>
+        * Note these lines from above output:
+            <details>
+            <summary>Sample output:</summary>
+
+                ...
+                User.objects.all() after authenticate():  <QuerySet [<User: admin>, <User: NotAnAdmin>]>
+                user:  None
+                User.objects.all() after form.save():  <QuerySet [<User: admin>, <User: NotAnAdmin>, <User: NotAnotherAdmin>]>
+                the_form:  NotAnotherAdmin
+                type(the_form):  <class 'django.contrib.auth.models.User'>
+                ...
+            </details>
+
 
 
     
