@@ -261,11 +261,11 @@
                 type(the_form):  <class 'django.contrib.auth.models.User'>
                 ...
             </details>
-            * Observations:
-                * `authenticate(username=username, password=raw_password, email=email):  None`
-                    * `authenticate(username=username, password=raw_password, email=email)` is returning `None` since the new `User` (`NotAnotherAdmin`) has not been created yet.
-                * `User.objects.all() after form.save():  <QuerySet [<User: admin>, <User: NotAnAdmin>, <User: NotAnotherAdmin>]>`
-                    * The `form.save()` is the part which actually creates a new `User` (`NotAnotherAdmin`).
+        * Observations:
+            * `authenticate(username=username, password=raw_password, email=email):  None`
+                * `authenticate(username=username, password=raw_password, email=email)` is returning `None` since the new `User` (`NotAnotherAdmin`) has not been created yet.
+            * `User.objects.all() after form.save():  <QuerySet [<User: admin>, <User: NotAnAdmin>, <User: NotAnotherAdmin>]>`
+                * The `form.save()` is the part which actually creates a new `User` (`NotAnotherAdmin`).
 
 1. Open Django Admin Interface and check status of new `User` (`NotAnotherAdmin`):
     * http://localhost:8000/admin/auth/user/
