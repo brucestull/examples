@@ -11,7 +11,7 @@
 * [`django.contrib.auth.models.User`](https://docs.djangoproject.com/en/4.1/ref/contrib/auth/#user-model)
 
 ## Official process:
-1. Add `print()` executions for troubleshooting:
+1. Add `print()` executions for troubleshooting (SUCCESS):
     <details>
     <summary>Sample <code>register</code> view function in <code>users\views.py</code> contents:</summary>
 
@@ -45,7 +45,7 @@
             return render(request, 'registration/register.html', {'form': form})
     </details>
 
-1. Check that I haven't changed the actual functionality of the code:
+1. Check that I haven't changed the actual functionality of the code (SUCCESS):
     * `git diff .\users\views.py`
         <details>
         <summary>Sample output:</summary>
@@ -94,7 +94,7 @@
             PS C:\Users\Bruce\Programming\class_HB2\code\Ronnie\user_management_w_forms>
         </details>
 
-1. Perfom migrations:
+1. Perfom migrations (SUCCESS):
     1. `python .\manage.py makemigrations users`
         <details>
         <summary>Sample output:</summary>
@@ -135,7 +135,7 @@
             PS C:\Users\Bruce\Programming\class_HB2\code\Ronnie\user_management_w_forms>
         </details>
 
-1. Create a `superuser`:
+1. Create a `superuser` (SUCCESS):
     * `python manage.py createsuperuser --email admin@email.app --username admin`
     * username: `admin`
     * password: `password`
@@ -151,7 +151,7 @@
             PS C:\Users\Bruce\Programming\class_HB2\code\Ronnie\user_management_w_forms>
         </details>
 
-1. Test Django Admin Interface:
+1. Test `add` and `delete` in Django Admin Interface (SUCCESS):
     1. `python .\manage.py runserver`
         <details>
         <summary>Sample output:</summary>
@@ -183,7 +183,7 @@
             * password: `1234test`
         * SUCCESS
 
-1. Test application login:
+1. Test application login of user created in Django Admin Interface (SUCCESS):
     1. Ensure no user is logged in.
     1. Open browser to application root:
         * http://localhost:8000/
@@ -197,10 +197,11 @@
     1. Click `Sing In` button:
         * SUCCESS
 
-1. Test user creation in the application:
+1. Test user creation in the application (Exception):
     1. Ensure no user is logged in.
     1. Open browser to application root:
         * http://localhost:8000/
+            * `Sign-In Sign-Up` is displayed.
     1. Click `Sign-Up` link:
         * SUCCESS
             * Routed to a sign up page.
@@ -220,14 +221,14 @@
                         {
                             'csrfmiddlewaretoken': ['hbZpp0Tve1KGt5rQrTqpBDSyNZqqS02TnqEzchMaAUaViZpfVcSMUJKC8heDYzTs'],
                             'username': ['NotAnotherAdmin'],
-                            'email': ['NotAnAdmin@email.app'],
+                            'email': ['NotAnotherAdmin@email.app'],
                             'password1': ['1234test'],
                             'password2': ['1234test']
                         }
                     >
                     username:  NotAnotherAdmin
                     raw_password:  1234test
-                    email:  NotAnAdmin@email.app
+                    email:  NotAnotherAdmin@email.app
                     authenticate(username=username, password=raw_password, email=email):  None
                     User.objects.all() after authenticate():  <QuerySet [<User: admin>, <User: NotAnAdmin>]>
                     user:  None
@@ -268,7 +269,7 @@
             * `User.objects.all() after form.save():  <QuerySet [<User: admin>, <User: NotAnAdmin>, <User: NotAnotherAdmin>]>`
                 * The `form.save()` is the part which actually creates a new `User` (`NotAnotherAdmin`).
 
-1. Open Django Admin Interface and check status of new `User` (`NotAnotherAdmin`):
+1. Open Django Admin Interface and check status of new `User` (`NotAnotherAdmin`) (NOTE):
     * http://localhost:8000/admin/auth/user/
     * The specific URL for the new `User` (`NotAnotherAdmin`):
         * http://localhost:8000/admin/auth/user/7/change/
@@ -283,103 +284,9 @@
         </details>
     * INSERT_IMAGE_HERE
     * The new `User` (`NotAnotherAdmin`) is being created but there is no password being set by `form.save()`.
-        * Maybe the form needs a field of `password` instead of the one of the two `password1` and `password2` fields since that is the field name used in [`django.contrib.auth.models.User`](https://docs.djangoproject.com/en/4.1/ref/contrib/auth/#user-model).
+        * ~~Maybe the form needs a field of `password` instead of the one of the two `password1` and `password2` fields since that is the field name used in [`django.contrib.auth.models.User`](https://docs.djangoproject.com/en/4.1/ref/contrib/auth/#user-model).~~
 
-1. Modify `fields` attribute of class `Meta` in `NewUserForm` of [`users/forms.py`](../users/forms.py) for testing:
-    * Change `password1` to `password`.
-        <details>
-        <summary>Sample current <code></code> partial content:</summary>
-
-            class Meta:
-                ...
-                fields = ('username', 'email', 'password', 'password2')
-                ...
-        </details>
-
-1. Check internet browser register page:
-    * http://localhost:8000/accounts/register/
-
-1. There are now two input fields labeled `password`:
-    * So need to try something different:
-        * Remove the `password1` field instead of changing it.
-
-1. Modify `fields` attribute of class `Meta` in `NewUserForm` of [`users/forms.py`](../users/forms.py) for testing:
-    * Remove `password1`:
-        <details>
-        <summary>Sample current <code></code> partial content:</summary>
-
-            class Meta:
-                ...
-                fields = ('username', 'email', 'password2')
-                ...
-        </details>
-
-1. Delete `User` `NotAnAdmin` in Django Admin Interface:
-    * http://localhost:8000/admin/auth/user/
-    * SUCCESS
-
-1. Check internet browser register page:
-    * http://localhost:8000/accounts/register/
-
-1. Add a user:
-    * Credentials:
-        * username: `NotAnotherAdmin`
-        * password: `1234test`
-
-1. Same internet browser Exception as above is presented:
-    * `AttributeError: 'AnonymousUser' object has no attribute '_meta'`
-
-1. Open Django Admin Interface and check status of new `User` (`NotAnotherAdmin`):
-    * http://localhost:8000/admin/auth/user/
-    * The specific URL for the new `User` (`NotAnotherAdmin`):
-        * http://localhost:8000/admin/auth/user/8/change/
-    * Username is set:
-        * username: `NotAnotherAdmin`
-    * Password is not set:
-        <details>
-        <summary>Sample browser display contents:</summary>
-
-            No password set.
-            Raw passwords are not stored, so there is no way to see this user’s password, but you can change the password using this form.
-        </details>
-    * INSERT_IMAGE_HERE
-    * The new `User` (`NotAnotherAdmin`) is being created but there is no password being set by `form.save()`.
-
-1. New `User` (`NotAnotherAdmin`) is still being created without password.
-
-1. Delete `User` `NotAnAdmin` in Django Admin Interface:
-    * http://localhost:8000/admin/auth/user/
-    * SUCCESS
-
-1. Modify `fields` attribute of class `Meta` in `NewUserForm` of [`users/forms.py`](../users/forms.py) for testing:
-    * Change `password2` to `password1`:
-        <details>
-        <summary>Sample current <code></code> partial content:</summary>
-
-            class Meta:
-                ...
-                fields = ('username', 'email', 'password1')
-                ...
-        </details>
-
-1. Test user creation in the application:
-    1. Ensure no user is logged in.
-    1. Open browser to application root:
-        * http://localhost:8000/
-            * `Sign-In Sign-Up` is displayed.
-    1. Click `Sign-Up` link:
-        * SUCCESS
-            * Routed to a sign up page.
-    1. Enter user credentials:
-        * Credentials:
-            * username: `NotAnotherAdmin`
-            * password: `1234test`
-
-1. Same internet browser Exception as above is presented:
-    * `AttributeError: 'AnonymousUser' object has no attribute '_meta'`
-
-1. Delete `User` `NotAnAdmin` in Django Admin Interface:
-    * http://localhost:8000/admin/auth/user/
+1. Delete `User` `NotAnotherAdmin` in Django Admin Interface, since there is no password hash:
     * SUCCESS
 
 
@@ -394,8 +301,9 @@
 * Notes:
     * `authenticate()` on line `20` returns `None` since `User` has not been created yet.
     * `form.save()` on line `21` is the code that is actually adding a user to the database.
+        * But there is no password hash being set.
 
-* Suggestions:
+* Other suggestions:
     * Suggest adding the migrations to the example code so student doesn't have to remember to run the migrations in the proper order. It would be useful for the student to only have to run `migrate`. Since this is example code to provide sample code for the student to emulate, it can be useful for the student to be able to focus on understanding the view functions rether than the migrations themselves.
         * When code is run with following migration flow, the Django Admin Interface fails when deleting a `User`:
             1. `python .\manage.py migrate`
