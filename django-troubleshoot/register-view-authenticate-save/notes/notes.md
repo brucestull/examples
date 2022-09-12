@@ -8,6 +8,7 @@
 * [ModelForm - docs.djangoproject.com](https://docs.djangoproject.com/en/4.1/topics/forms/modelforms/#modelform)
 * [save() - docs.djangoproject.com](https://docs.djangoproject.com/en/4.1/topics/forms/modelforms/#the-save-method)
 * [`authenticate()`](https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.authenticate)
+* [`django.contrib.auth.models.User`](https://docs.djangoproject.com/en/4.1/ref/contrib/auth/#user-model)
 
 ## Official process:
 1. Add `print()` executions for troubleshooting:
@@ -294,6 +295,93 @@
                 fields = ('username', 'email', 'password', 'password2')
                 ...
         </details>
+
+1. Check internet browser register page:
+    * http://localhost:8000/accounts/register/
+
+1. There are now two input fields labeled `password`:
+    * So need to try something different:
+        * Remove the `password1` field instead of changing it.
+
+1. Modify `fields` attribute of class `Meta` in `NewUserForm` of [`users/forms.py`](../users/forms.py) for testing:
+    * Remove `password1`:
+        <details>
+        <summary>Sample current <code></code> partial content:</summary>
+
+            class Meta:
+                ...
+                fields = ('username', 'email', 'password2')
+                ...
+        </details>
+
+1. Delete `User` `NotAnAdmin` in Django Admin Interface:
+    * http://localhost:8000/admin/auth/user/
+    * SUCCESS
+
+1. Check internet browser register page:
+    * http://localhost:8000/accounts/register/
+
+1. Add a user:
+    * Credentials:
+        * username: `NotAnotherAdmin`
+        * password: `1234test`
+
+1. Same internet browser Exception as above is presented:
+    * `AttributeError: 'AnonymousUser' object has no attribute '_meta'`
+
+1. Open Django Admin Interface and check status of new `User` (`NotAnotherAdmin`):
+    * http://localhost:8000/admin/auth/user/
+    * The specific URL for the new `User` (`NotAnotherAdmin`):
+        * http://localhost:8000/admin/auth/user/8/change/
+    * Username is set:
+        * username: `NotAnotherAdmin`
+    * Password is not set:
+        <details>
+        <summary>Sample browser display contents:</summary>
+
+            No password set.
+            Raw passwords are not stored, so there is no way to see this user’s password, but you can change the password using this form.
+        </details>
+    * INSERT_IMAGE_HERE
+    * The new `User` (`NotAnotherAdmin`) is being created but there is no password being set by `form.save()`.
+
+1. New `User` (`NotAnotherAdmin`) is still being created without password.
+
+1. Delete `User` `NotAnAdmin` in Django Admin Interface:
+    * http://localhost:8000/admin/auth/user/
+    * SUCCESS
+
+1. Modify `fields` attribute of class `Meta` in `NewUserForm` of [`users/forms.py`](../users/forms.py) for testing:
+    * Change `password2` to `password1`:
+        <details>
+        <summary>Sample current <code></code> partial content:</summary>
+
+            class Meta:
+                ...
+                fields = ('username', 'email', 'password1')
+                ...
+        </details>
+
+1. Test user creation in the application:
+    1. Ensure no user is logged in.
+    1. Open browser to application root:
+        * http://localhost:8000/
+            * `Sign-In Sign-Up` is displayed.
+    1. Click `Sign-Up` link:
+        * SUCCESS
+            * Routed to a sign up page.
+    1. Enter user credentials:
+        * Credentials:
+            * username: `NotAnotherAdmin`
+            * password: `1234test`
+
+1. Same internet browser Exception as above is presented:
+    * `AttributeError: 'AnonymousUser' object has no attribute '_meta'`
+
+
+
+
+
 
 
 
