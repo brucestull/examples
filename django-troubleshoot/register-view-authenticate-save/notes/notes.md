@@ -1,10 +1,13 @@
-# User Management with Forms
+# Test of User Management with Forms
 
 ## Resources:
+* [Django Docs - Module Index](https://docs.djangoproject.com/en/4.1/py-modindex/)
+* [Django Docs - General Index](https://docs.djangoproject.com/en/4.1/genindex/)
 * [`pillow` - pypi.org](https://pypi.org/project/Pillow/)
 * [`pillow` - python-pillow.org](https://python-pillow.org/)
 * [ModelForm - docs.djangoproject.com](https://docs.djangoproject.com/en/4.1/topics/forms/modelforms/#modelform)
 * [save() - docs.djangoproject.com](https://docs.djangoproject.com/en/4.1/topics/forms/modelforms/#the-save-method)
+* [`authenticate()`](https://docs.djangoproject.com/en/4.1/topics/auth/default/#django.contrib.auth.authenticate)
 
 ## Official process:
 1. Add `print()` executions for troubleshooting:
@@ -128,6 +131,124 @@
             Applying users.0001_initial... OK
             PS C:\Users\Bruce\Programming\class_HB2\code\Ronnie\user_management_w_forms>
         </details>
+
+1. Create a `superuser`:
+    * `python manage.py createsuperuser --email admin@email.app --username admin`
+    * username: `admin`
+    * password: `password`
+        <details>
+        <summary>Sample output:</summary>
+
+            PS C:\Users\Bruce\Programming\class_HB2\code\Ronnie\user_management_w_forms> python manage.py createsuperuser --email admin@email.app --username admin
+            Password:
+            Password (again):
+            This password is too common.
+            Bypass password validation and create user anyway? [y/N]: y
+            Superuser created successfully.
+            PS C:\Users\Bruce\Programming\class_HB2\code\Ronnie\user_management_w_forms>
+        </details>
+
+1. Test Django Admin Interface:
+    1. `python .\manage.py runserver`
+        <details>
+        <summary>Sample output:</summary>
+
+            PS C:\Users\Bruce\Programming\class_HB2\code\Ronnie\user_management_w_forms> python .\manage.py runserver
+            Watching for file changes with StatReloader
+            Performing system checks...
+            
+            System check identified no issues (0 silenced).
+            September 12, 2022 - 09:38:34
+            Django version 4.0, using settings 'project.settings'
+            Starting development server at http://127.0.0.1:8000/
+            Quit the server with CTRL-BREAK.
+        </details>
+    1. Open internet browser to Django Admin Interface URL:
+        * http://localhost:8000/admin/
+    1. Log in using superuser credentials provided above:
+        * SUCCESS
+    1. Add a new (non-superuser) user:
+        * Credentials:
+            * username: `NotAnAdmin`
+            * password: `1234test`
+        * SUCCESS
+    1. Delete `User` `NotAnAdmin` in Django Admin Interface:
+        * SUCCESS
+    1. Add a new (non-superuser) user (in Django Admin Interface) for login testing:
+        * Credentials:
+            * username: `NotAnAdmin`
+            * password: `1234test`
+        * SUCCESS
+
+1. Test application login:
+    1. Ensure no user is logged in.
+    1. Open browser to application root:
+        * http://localhost:8000/
+    1. Click `Sign-In` link:
+        * SUCCESS
+            * Routed to a login page.
+    1. Enter `NotAnAdmin` credentials provided above:
+        * Credentials:
+            * username: `NotAnAdmin`
+            * password: `1234test`
+    1. Click `Sing In` button:
+        * SUCCESS
+
+1. Test user creation in the application:
+    1. Ensure no user is logged in.
+    1. Open browser to application root:
+        * http://localhost:8000/
+    1. Click `Sign-Up` link:
+        * SUCCESS
+            * Routed to a sign up page.
+    1. Enter user credentials:
+        * Credentials:
+            * username: `NotAnotherAdmin`
+            * password: `1234test`
+    1. Click `Sing Up` button:
+        * Exception in browser:
+            * `Exception Value:	'AnonymousUser' object has no attribute '_meta'`
+        * AttributeError in console:
+            * `AttributeError: 'AnonymousUser' object has no attribute '_meta'`
+                <details>
+                <summary>Sample output:</summary>
+
+                    request.POST:  <QueryDict:
+                        {
+                            'csrfmiddlewaretoken': ['hbZpp0Tve1KGt5rQrTqpBDSyNZqqS02TnqEzchMaAUaViZpfVcSMUJKC8heDYzTs'],
+                            'username': ['NotAnotherAdmin'],
+                            'email': ['NotAnAdmin@email.app'],
+                            'password1': ['1234test'],
+                            'password2': ['1234test']
+                        }
+                    >
+                    username:  NotAnotherAdmin
+                    raw_password:  1234test
+                    email:  NotAnAdmin@email.app
+                    User.objects.all() after authenticate():  <QuerySet [<User: admin>, <User: NotAnAdmin>]>
+                    user:  None
+                    User.objects.all() after form.save():  <QuerySet [<User: admin>, <User: NotAnAdmin>, <User: NotAnotherAdmin>]>
+                    the_form:  NotAnotherAdmin
+                    type(the_form):  <class 'django.contrib.auth.models.User'>
+                    Internal Server Error: /accounts/register/
+                    Traceback (most recent call last):
+                    File "C:\Users\Bruce\.virtualenvs\user_management_w_forms-XHGniG9b\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+                        response = get_response(request)
+                    File "C:\Users\Bruce\.virtualenvs\user_management_w_forms-XHGniG9b\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+                        response = wrapped_callback(request, *callback_args, **callback_kwargs)
+                    File "C:\Users\Bruce\Programming\class_HB2\code\Ronnie\user_management_w_forms\users\views.py", line 33, in register
+                        login(request, user)
+                    File "C:\Users\Bruce\.virtualenvs\user_management_w_forms-XHGniG9b\lib\site-packages\django\contrib\auth\__init__.py", line 129, in login
+                        request.session[SESSION_KEY] = user._meta.pk.value_to_string(user)
+                    File "C:\Users\Bruce\.virtualenvs\user_management_w_forms-XHGniG9b\lib\site-packages\django\utils\functional.py", line 249, in inner
+                        return func(self._wrapped, *args)
+                    AttributeError: 'AnonymousUser' object has no attribute '_meta'
+                    [12/Sep/2022 10:03:23] "POST /accounts/register/ HTTP/1.1" 500 76821
+                </details>
+
+
+    
+    
 
 ## Summary:
 
