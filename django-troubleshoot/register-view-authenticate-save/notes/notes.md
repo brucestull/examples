@@ -29,6 +29,7 @@
                     print('email: ', email)
         
                     user = authenticate(username=username, password=raw_password, email=email)
+                    print('authenticate(username=username, password=raw_password, email=email): ', authenticate(username=username, password=raw_password, email=email))
                     print('User.objects.all() after authenticate(): ', User.objects.all())
                     print('user: ', user)
                     the_form = form.save()
@@ -79,6 +80,7 @@
             
                         user = authenticate(username=username, password=raw_password, email=email)
             -            form.save()
+            +            print('authenticate(username=username, password=raw_password, email=email): ', authenticate(username=username, password=raw_password, email=email))
             +            print('User.objects.all() after authenticate(): ', User.objects.all())
             +            print('user: ', user)
             +            the_form = form.save()
@@ -205,7 +207,7 @@
         * Credentials:
             * username: `NotAnotherAdmin`
             * password: `1234test`
-    1. Click `Sing Up` button:
+    1. Click `Sign Up` button:
         * Exception in browser:
             * `Exception Value:	'AnonymousUser' object has no attribute '_meta'`
         * AttributeError in console:
@@ -225,6 +227,7 @@
                     username:  NotAnotherAdmin
                     raw_password:  1234test
                     email:  NotAnAdmin@email.app
+                    authenticate(username=username, password=raw_password, email=email):  None
                     User.objects.all() after authenticate():  <QuerySet [<User: admin>, <User: NotAnAdmin>]>
                     user:  None
                     User.objects.all() after form.save():  <QuerySet [<User: admin>, <User: NotAnAdmin>, <User: NotAnotherAdmin>]>
@@ -250,6 +253,7 @@
             <summary>Sample output:</summary>
 
                 ...
+                authenticate(username=username, password=raw_password, email=email):  None
                 User.objects.all() after authenticate():  <QuerySet [<User: admin>, <User: NotAnAdmin>]>
                 user:  None
                 User.objects.all() after form.save():  <QuerySet [<User: admin>, <User: NotAnAdmin>, <User: NotAnotherAdmin>]>
@@ -257,11 +261,28 @@
                 type(the_form):  <class 'django.contrib.auth.models.User'>
                 ...
             </details>
+            * Observations:
+                * `authenticate(username=username, password=raw_password, email=email):  None`
+                    * `authenticate(username=username, password=raw_password, email=email)` is returning `None` since the new `User` (`NotAnotherAdmin`) has not been created yet.
+                * `User.objects.all() after form.save():  <QuerySet [<User: admin>, <User: NotAnAdmin>, <User: NotAnotherAdmin>]>`
+                    * The `form.save()` is the part which actually creates a new `User` (`NotAnotherAdmin`).
+
+1. Open Django Admin Interface and check status of new `User` (`NotAnotherAdmin`):
+    * http://localhost:8000/admin/auth/user/
+    * The specific URL for the new `User` (`NotAnotherAdmin`):
+        * http://localhost:8000/admin/auth/user/7/change/
+    * Username is set:
+        * username: `NotAnotherAdmin`
+    * Password is not set:
+        <details>
+        <summary>Sample browser display contents:</summary>
 
 
+            No password set.
+            Raw passwords are not stored, so there is no way to see this user’s password, but you can change the password using this form.
+        </details>
 
-    
-    
+
 
 ## Summary:
 
