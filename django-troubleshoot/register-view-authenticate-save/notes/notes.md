@@ -281,6 +281,7 @@
             No password set.
             Raw passwords are not stored, so there is no way to see this user’s password, but you can change the password using this form.
         </details>
+    * INSERT_IMAGE_HERE
 
 
 
