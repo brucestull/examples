@@ -378,6 +378,10 @@
 1. Same internet browser Exception as above is presented:
     * `AttributeError: 'AnonymousUser' object has no attribute '_meta'`
 
+1. Delete `User` `NotAnAdmin` in Django Admin Interface:
+    * http://localhost:8000/admin/auth/user/
+    * SUCCESS
+
 
 
 
