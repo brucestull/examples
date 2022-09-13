@@ -41,6 +41,10 @@
             Alternatively, run a command inside the virtualenv with pipenv run.
             PS C:\Users\Bruce\Programming\examples\django\reverse>
         </details>
+    * Note line with `Virtualenv location`:
+        * Sample line text:
+            * `Virtualenv location: C:\Users\Bruce\.virtualenvs\reverse-gikyn-XH`
+        * This is the location of the virtual environment files.
 
 1. **ACTION:** Activate the new `pipenv` virtual environment:
     * `pipenv shell`
@@ -124,7 +128,7 @@
         * The virtual environment files are located in the directory:
             * `C:\Users\Bruce\.virtualenvs\reverse-gikyn-XH\`
 
-
+1. Proceed to [02 - Specify Templates Directory](./02_specify_templates_directory.md)
 
 
 
