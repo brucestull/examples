@@ -15,52 +15,7 @@
 * "**INFO:**" tags are providing info or testing and not necessarily functional or code changes.
 
 ## Process:
-1. We are starting with the code from [Django Starter](../../django-starter/README.md).
-
-1. Start in the directory which contains the code from [Django Starter](../../django-starter/README.md):
-    * Sample directory location:
-        * `C:\Users\Bruce\Programming\examples\django\reverse\`
-
-1. Examine directory structure:
-    * `tree /f /a`
-        <details>
-        <summary>Sample output:</summary>
-
-            PS C:\Users\Bruce\Programming\examples\django\reverse> tree /f /a
-            Folder PATH listing for volume OS
-            Volume serial number is CC00-DD12
-            C:.
-            |   manage.py
-            |   Pipfile
-            |   Pipfile.lock
-            |   README.md
-            |
-            +---notes
-            |       commands_and_links.md
-            |       notes.md
-            |
-            +---the_app
-            |   |   admin.py
-            |   |   apps.py
-            |   |   models.py
-            |   |   tests.py
-            |   |   views.py
-            |   |   __init__.py
-            |   |
-            |   \---migrations
-            |           __init__.py
-            |
-            \---the_project
-                    asgi.py
-                    settings.py
-                    urls.py
-                    wsgi.py
-                    __init__.py
-
-            PS C:\Users\Bruce\Programming\examples\django\reverse>
-        </details>
-
-1. Use the provided [Pipfile](../Pipfile) to create a `pipenv` virtual environment for the project:
+1. **ACTION:** Use the provided [Pipfile](../Pipfile) to create a `pipenv` virtual environment for the project:
     * The following command will use the [Pipfile](../Pipfile) to do the following:
         * Create a `pipenv` virtual environment.
         * Install the dependencies prescribed in [Pipfile](../Pipfile) into the newly created virtual environment.
@@ -87,7 +42,7 @@
             PS C:\Users\Bruce\Programming\examples\django\reverse>
         </details>
 
-1. Activate the new `pipenv` virtual environment:
+1. **ACTION:** Activate the new `pipenv` virtual environment:
     * `pipenv shell`
         <details>
         <summary>Sample output:</summary>
@@ -103,7 +58,7 @@
             PS C:\Users\Bruce\Programming\examples\django\reverse>
         </details>
 
-1. Verify the virtual environment's installed packages:
+1. **INFO:** Verify the virtual environment's installed packages:
     * `pip list`
         <details>
         <summary>Sample output:</summary>
@@ -122,8 +77,7 @@
             PS C:\Users\Bruce\Programming\examples\django\reverse>
         </details>
 
-1. Verify our current terminal session is using the virtual environment's python interpreter:
-    * Take note of the line with `Path`.
+1. **INFO:** Verify our current terminal session is using the virtual environment's python interpreter:
     * `Get-Command python | Format-List *`
         <details>
         <summary>Sample output:</summary>
@@ -163,5 +117,17 @@
 
             PS C:\Users\Bruce\Programming\examples\django\reverse>
         </details>
+    * Take note of the line with `Path`.
+        * Sample contents:
+            * `Path : C:\Users\Bruce\.virtualenvs\reverse-gikyn-XH\Scripts\python.exe`
+        * This is the location of the python interpreter which the virtual environment uses.
+        * The virtual environment files are located in the directory:
+            * `C:\Users\Bruce\.virtualenvs\reverse-gikyn-XH\`
 
 
+
+
+
+
+## Repository Links:
+* Back to [Demonstrate `reverse()` Method](./notes.md)
