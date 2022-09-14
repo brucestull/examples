@@ -1,10 +1,10 @@
 # Django Code Examples
 * [Django Starter](./django-starter/README.md)
 * [Examples of Five (5) Different Types of Django Views](./function-and-class-based-list-views/README.md)
-* [Create `pipenv` virtual environment for a Django project](./pipenv_setup/README.md)
+* [Create `pipenv` virtual environment for a Django project](./pipenv-setup/README.md)
 * [Create Django Project with List View First](./list-create-views/README.md)
 * [List View with Home](./list-view-with-home/README.md)
-* [Django REST - Basic](./rest_basic/README.md)
+* [Django REST - Basic](./rest-basic/README.md)
 * [Demonstrate `reverse()` Method](./reverse/README.md)
 
 ## Code Examples Repository links:
