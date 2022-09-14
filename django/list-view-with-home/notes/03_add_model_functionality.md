@@ -47,11 +47,11 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> python .\manage.py makemigrations
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home> python .\manage.py makemigrations
             Migrations for 'the_app':
             the_app\migrations\0001_initial.py
                 - Create model AwesomeCat
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home>
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home>
         </details>
 
 1. **ACTION:** Perform `migrate`:
@@ -59,7 +59,7 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> python .\manage.py migrate
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home> python .\manage.py migrate
             Operations to perform:
               Apply all migrations: admin, auth, contenttypes, sessions, the_app
             Running migrations:
@@ -82,7 +82,7 @@
               Applying auth.0012_alter_user_first_name_max_length... OK
               Applying sessions.0001_initial... OK
               Applying the_app.0001_initial... OK
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home>
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home>
         </details>
 
 1. Create a superuser:
@@ -90,7 +90,7 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> python .\manage.py createsuperuser
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home> python .\manage.py createsuperuser
             Username (leave blank to use 'bruce'): admin
             Email address: admin@email.app
             Password:
@@ -98,7 +98,7 @@
             This password is too common.
             Bypass password validation and create user anyway? [y/N]: y
             Superuser created successfully.
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home>
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home>
         </details>
 
 1. Start development server:
@@ -106,7 +106,7 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> python .\manage.py runserver
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home> python .\manage.py runserver
             Watching for file changes with StatReloader
             Performing system checks...
 

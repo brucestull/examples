@@ -12,7 +12,7 @@ Examples of various coding languages and markup languages.
     * [Examples of Five (5) Different Types of Django Views](./django/function-and-class-based-list-views/README.md)
     * [Create `pipenv` virtual environment for a Django project](./django/pipenv_setup/README.md)
     * [Create Django Project with List View First](./django/list-create-views/README.md)
-    * [List View with Home](./django/list_view_with_home/README.md)
+    * [List View with Home](./django/list-view-with-home/README.md)
     * [Django REST - Basic](./django/rest_basic/README.md)
     * [Demonstrate `reverse()` Method](./django/reverse/README.md)
 
