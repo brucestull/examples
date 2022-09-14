@@ -149,6 +149,36 @@
             PS C:\Users\Bruce\Programming\examples\django\django-starter>
         </details>
 
+1. **INFO:** Examine current directory structure:
+    * `tree /f /a`
+        <details>
+        <summary>Sample output:</summary>
+
+            PS C:\Users\Bruce\Programming\examples\django\django-starter-project> tree /f /a
+            Folder PATH listing for volume OS
+            Volume serial number is CC00-DD12
+            C:.
+            |   db.sqlite3
+            |   manage.py
+            |   Pipfile
+            |   Pipfile.lock
+            |   README.md
+            |   
+            +---notes
+            |       00_create_django_starter.md
+            |       00_useful_commands_and_links.md
+            |       00_use_this_django_starter.md
+            |       
+            \---the_project
+                    asgi.py
+                    settings.py
+                    urls.py
+                    wsgi.py
+                    __init__.py
+                    
+            PS C:\Users\Bruce\Programming\examples\django\django-starter-project>
+        </details>
+
 1. **ACTION:** Start development server to test the Django Project:
     * `python .\manage.py runserver`
         <details>
