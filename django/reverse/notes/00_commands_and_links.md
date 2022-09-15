@@ -1,18 +1,28 @@
-# Commands and Links:
+# Useful Commands and Links
 
 ## Commands:
+
+### `pipenv` and `pip`:
 * `pipenv install`
 * `pipenv install django==4.0`
 * `pipenv shell`
 * `pip list`
+
+### Django:
 * `django-admin startproject the_project .`
-* `tree /f /a`
 * `python .\manage.py runserver`
 * `python .\manage.py makemigrations`
 * `python .\manage.py migrate`
 * `python .\manage.py createsuperuser`
-* `python manage.py createsuperuser --email admin@email.app --username admin`
+* `python .\manage.py createsuperuser --email admin@email.app --username admin`
 * `python .\manage.py runserver`
+
+
+### PowerShell:
+* `Get-Command python | Format-List *`
+
+### Misc:
+* `tree /f /a`
 
 ## Development server web links:
 * Server Root:

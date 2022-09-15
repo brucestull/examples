@@ -1,4 +1,4 @@
-# Create a `pipenv` Virtual Environment
+# 00 - Create a `pipenv` Virtual Environment
 
 ## Resources:
 * [Installing Pipenv - python-guide.org](https://docs.python-guide.org/dev/virtualenvs/#installing-pipenv)
@@ -6,6 +6,10 @@
 * [`pipenv` - pypi.org](https://pypi.org/project/pipenv/)
 
 ## Code Examples Repository links:
+* [Code Examples Repository - README.md](../../../README.md)
+    * [`examples/`](../../../)
+* [Django Code Examples - README.md](../../README.md)
+    * [`examples/django/`](../../)
 
 ## Tag meanings for this guide:
 * "**ACTION:**" tags are performing code or environment changes.
@@ -206,5 +210,5 @@
 
 1. **INFO:** We now have a functioning `pipenv` virtual environment. We can use it to build out our Django Project.
 
-1. Proceed to INSERT_LINK_HERE.
+1. Proceed to [01 - Create Django Project](./01_create_django_project.md).
 
