@@ -197,7 +197,7 @@
 
 1. We now have a basic Django skeleton project. We will now add a Django application.
 
-1. Proceed to 
+1. Proceed to [Create Django Application]
 
 ## Repository Links:
 * Back to [Create a `pipenv` Virtual Environment](./00_create_pipenv.md)

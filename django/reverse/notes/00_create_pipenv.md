@@ -210,5 +210,5 @@
 
 1. **INFO:** We now have a functioning `pipenv` virtual environment. We can use it to build out our Django Project.
 
-1. Proceed to [01 - Create Django Project](./01_create_django_project.md).
+1. Proceed to [Create Django Project](./01_create_django_project.md).
 
