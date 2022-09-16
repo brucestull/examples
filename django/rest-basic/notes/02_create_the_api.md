@@ -23,7 +23,7 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic> pipenv install djangorestframework==3.13.1
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic> pipenv install djangorestframework==3.13.1
             Installing djangorestframework==3.13.1...
             Adding djangorestframework to Pipfile's [packages]...
             Installation Succeeded
@@ -36,7 +36,7 @@
             Updated Pipfile.lock (fef611)!
             Installing dependencies from Pipfile.lock (fef611)...
             ================================ 0/0 - 00:00:00
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic>
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic>
         </details>
 
 1. **ACTION:** Create a new module [`the_api/serializers.py`](../the_api/serializers.py).

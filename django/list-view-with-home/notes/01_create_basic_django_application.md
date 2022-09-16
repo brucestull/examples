@@ -20,25 +20,25 @@
 ## Process:
 1. **ACTION:** Start in the project root directory:
     * Sample root directory:
-        * `C:\Users\Bruce\Programming\examples\django\list_view_with_home`
+        * `C:\Users\Bruce\Programming\examples\django\list-view-with-home`
 
 1. **ACTION:** Create a `pipenv` virtual environment for the application and install Django 4.0:
     * `pipenv install django==4.0`
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> pipenv install django==4.0
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home> pipenv install django==4.0
             Creating a virtualenv for this project...
-            Pipfile: C:\Users\Bruce\Programming\examples\django\list_view_with_home\Pipfile
+            Pipfile: C:\Users\Bruce\Programming\examples\django\list-view-with-home\Pipfile
             Using C:/Users/Bruce/AppData/Local/Programs/Python/Python310/python.exe (3.10.6) to create virtualenv...
             [==  ] Creating virtual environment...created virtual environment CPython3.10.6.final.0-64 in 2410ms
-            creator CPython3Windows(dest=C:\Users\Bruce\.virtualenvs\list_view_with_home-OkoCrdxY, clear=False, no_vcs_ignore=False, global=False)
+            creator CPython3Windows(dest=C:\Users\Bruce\.virtualenvs\list-view-with-home-OkoCrdxY, clear=False, no_vcs_ignore=False, global=False)
             seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=C:\Users\Bruce\AppData\Local\pypa\virtualenv)
                 added seed packages: pip==22.2.2, setuptools==63.4.3, wheel==0.37.1
             activators BashActivator,BatchActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
 
             Successfully created virtual environment!
-            Virtualenv location: C:\Users\Bruce\.virtualenvs\list_view_with_home-OkoCrdxY
+            Virtualenv location: C:\Users\Bruce\.virtualenvs\list-view-with-home-OkoCrdxY
             Creating a Pipfile for this project...
             Installing django==4.0...
             Adding django to Pipfile's [packages]...
@@ -54,7 +54,7 @@
             ================================ 0/0 - 00:00:00
             To activate this project's virtualenv, run pipenv shell.
             Alternatively, run a command inside the virtualenv with pipenv run.
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home>
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home>
         </details>
 
 1. **ACTION:** Activate this project's virtual environment:
@@ -62,7 +62,7 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> pipenv shell
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home> pipenv shell
             Launching subshell in virtual environment...
             PowerShell 7.2.6
             Copyright (c) Microsoft Corporation.
@@ -70,7 +70,7 @@
             https://aka.ms/powershell
             Type 'help' to get help.
 
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home>
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home>
         </details>
 
 1. **ACTION:** Create a new Django project (site root):
@@ -78,8 +78,8 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> django-admin startproject the_project .
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home>
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home> django-admin startproject the_project .
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home>
         </details>
 
 1. **INFO:** Examine directory structure:
@@ -87,7 +87,7 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> tree /f /a
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home> tree /f /a
             Folder PATH listing for volume OS
             Volume serial number is CC00-DD12
             C:.
@@ -106,7 +106,7 @@
                     wsgi.py
                     __init__.py
 
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home>
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home>
         </details>
 
 1. **ACTION:** Start the development server:
@@ -114,7 +114,7 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> python .\manage.py runserver
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home> python .\manage.py runserver
             Watching for file changes with StatReloader
             Performing system checks...
 
@@ -141,8 +141,8 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> python .\manage.py startapp the_app
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home>
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home> python .\manage.py startapp the_app
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home>
         </details>
 
 1. **INFO:** Examine directory structure:
@@ -150,7 +150,7 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home> tree /f /a
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home> tree /f /a
             Folder PATH listing for volume OS
             Volume serial number is CC00-DD12
             C:.
@@ -181,7 +181,7 @@
                     wsgi.py
                     __init__.py
 
-            PS C:\Users\Bruce\Programming\examples\django\list_view_with_home>
+            PS C:\Users\Bruce\Programming\examples\django\list-view-with-home>
         </details>
 
 1. **ACTION:** Add the new application's configuration `TheAppConfig` in [`the_app/apps.py`](../the_app/apps.py) to `INSTALLED_APPS` in [`the_project/settings.py`](../the_project/settings.py)

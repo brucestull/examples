@@ -15,25 +15,25 @@
 ## Process:
 1. **ACTION:** Start inside project directory:
     * Sample directory location:
-        * `C:\Users\Bruce\Programming\examples\django\rest_basic`
+        * `C:\Users\Bruce\Programming\examples\django\rest-basic`
 
 1. **ACTION:** Create a new `pipenv` virtual environment:
     * `pipenv install django==4.0`
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic> pipenv install django==4.0
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic> pipenv install django==4.0
             Creating a virtualenv for this project...
-            Pipfile: C:\Users\Bruce\Programming\examples\django\rest_basic\Pipfile
+            Pipfile: C:\Users\Bruce\Programming\examples\django\rest-basic\Pipfile
             Using C:/Users/Bruce/AppData/Local/Programs/Python/Python310/python.exe (3.10.6) to create virtualenv...
             [ ===] Creating virtual environment...created virtual environment CPython3.10.6.final.0-64 in 2995ms
-              creator CPython3Windows(dest=C:\Users\Bruce\.virtualenvs\rest_basic-8EvQpMVS, clear=False, no_vcs_ignore=False, global=False)
+              creator CPython3Windows(dest=C:\Users\Bruce\.virtualenvs\rest-basic-8EvQpMVS, clear=False, no_vcs_ignore=False, global=False)
               seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=C:\Users\Bruce\AppData\Local\pypa\virtualenv)
                 added seed packages: pip==22.2.2, setuptools==63.4.3, wheel==0.37.1
               activators BashActivator,BatchActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
 
             Successfully created virtual environment!
-            Virtualenv location: C:\Users\Bruce\.virtualenvs\rest_basic-8EvQpMVS
+            Virtualenv location: C:\Users\Bruce\.virtualenvs\rest-basic-8EvQpMVS
             Creating a Pipfile for this project...
             Installing django==4.0...
             Adding django to Pipfile's [packages]...
@@ -49,7 +49,7 @@
             ================================ 0/0 - 00:00:00
             To activate this project's virtualenv, run pipenv shell.
             Alternatively, run a command inside the virtualenv with pipenv run.
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic>
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic>
         </details>
 
 1. **ACTION:** Activate the `pipenv` virtual environment:
@@ -57,7 +57,7 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic> pipenv shell
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic> pipenv shell
             Launching subshell in virtual environment...
             PowerShell 7.2.6
             Copyright (c) Microsoft Corporation.
@@ -65,7 +65,7 @@
             https://aka.ms/powershell
             Type 'help' to get help.
 
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic>
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic>
         </details>
 
 1. **INFO:** Check installed packages:
@@ -73,7 +73,7 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic> pip list
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic> pip list
             Package    Version
             ---------- -------
             asgiref    3.5.2
@@ -83,7 +83,7 @@
             sqlparse   0.4.2
             tzdata     2022.2
             wheel      0.37.1
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic>
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic>
         </details>
 
 1. **INFO:** Examine directory structure:
@@ -91,7 +91,7 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic> tree /f /a
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic> tree /f /a
             Folder PATH listing for volume OS
             Volume serial number is CC00-DD12
             C:.
@@ -103,7 +103,7 @@
                     01_setup.md
                     commands_and_links.md
 
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic>
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic>
         </details>
 
 1. **ACTION:** Create a Django "Project":
@@ -111,8 +111,8 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic> django-admin startproject the_project .
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic>
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic> django-admin startproject the_project .
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic>
         </details>
 
 1. **INFO:** Examine directory structure:
@@ -120,7 +120,7 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic> tree /f /a
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic> tree /f /a
             Folder PATH listing for volume OS
             Volume serial number is CC00-DD12
             C:.
@@ -140,7 +140,7 @@
                     wsgi.py
                     __init__.py
 
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic>
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic>
         </details>
 
 1. **INFO:** Test development server:
@@ -148,7 +148,7 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic> python .\manage.py runserver
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic> python .\manage.py runserver
             Watching for file changes with StatReloader
             Performing system checks...
 
@@ -177,8 +177,8 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic> python .\manage.py startapp the_api
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic>
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic> python .\manage.py startapp the_api
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic>
         </details>
 
 1. **ACTION:** Perform migrations:
@@ -186,7 +186,7 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic> python .\manage.py migrate
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic> python .\manage.py migrate
             Operations to perform:
               Apply all migrations: admin, auth, contenttypes, sessions
             Running migrations:
@@ -208,7 +208,7 @@
               Applying auth.0011_update_proxy_permissions... OK
               Applying auth.0012_alter_user_first_name_max_length... OK
               Applying sessions.0001_initial... OK
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic>
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic>
         </details>
 
 1. **ACTION:** Create a superuser:
@@ -216,13 +216,13 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic> python manage.py createsuperuser --email admin@email.app --username admin
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic> python manage.py createsuperuser --email admin@email.app --username admin
             Password:
             Password (again):
             This password is too common.
             Bypass password validation and create user anyway? [y/N]: y
             Superuser created successfully.
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic>
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic>
         </details>
 
 1. **INFO:** Start development server and test Django Admin Interface:
@@ -231,7 +231,7 @@
         <details>
         <summary>Sample output:</summary>
 
-            PS C:\Users\Bruce\Programming\examples\django\rest_basic> python .\manage.py runserver
+            PS C:\Users\Bruce\Programming\examples\django\rest-basic> python .\manage.py runserver
             Watching for file changes with StatReloader
             Performing system checks...
 
@@ -280,7 +280,7 @@
             <details>
             <summary>Sample output (with failed install):</summary>
 
-                PS C:\Users\Bruce\Programming\examples\django\rest_basic> pipenv install docutils==0.19
+                PS C:\Users\Bruce\Programming\examples\django\rest-basic> pipenv install docutils==0.19
                 Installing docutils==0.19...
                 Adding docutils to Pipfile's [packages]...
                 Installation Succeeded
@@ -372,13 +372,13 @@
                     raise ConnectionError(err, request=request)
                 requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
 
-                PS C:\Users\Bruce\Programming\examples\django\rest_basic>
+                PS C:\Users\Bruce\Programming\examples\django\rest-basic>
             </details>
         * `pipenv install docutils==0.19`
             <details>
             <summary>Sample output (with succuessful install):</summary>
 
-                PS C:\Users\Bruce\Programming\examples\django\rest_basic> pipenv install docutils==0.19
+                PS C:\Users\Bruce\Programming\examples\django\rest-basic> pipenv install docutils==0.19
                 Installing docutils==0.19...
                 Adding docutils to Pipfile's [packages]...
                 Installation Succeeded
@@ -391,7 +391,7 @@
                 Updated Pipfile.lock (2d0928)!
                 Installing dependencies from Pipfile.lock (2d0928)...
                   ================================ 0/0 - 00:00:00
-                PS C:\Users\Bruce\Programming\examples\django\rest_basic>
+                PS C:\Users\Bruce\Programming\examples\django\rest-basic>
             </details>
 
 1. **INFO:** Start development server and test Django Admin Interface:
