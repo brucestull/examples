@@ -78,7 +78,7 @@
 
 
 ### Add Application Template:
-1. **ACTION:** Create a [`templates`](../the_app/templates/) directory.
+1. **ACTION:** Create a [`templates`](../the_app/templates/) directory in [`the_app/`](../the_app/) directory.
 1. **ACTION:** Add a template [`index.html`](../the_app/templates/index.html) to the [`templates`](../the_app/templates/) directory:
     <details>
     <summary>Sample <code>index.html</code> contents:</summary>
