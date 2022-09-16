@@ -10,6 +10,7 @@
 
 ### Django:
 * `django-admin startproject the_project .`
+* `python .\manage.py startapp the_app`
 * `python .\manage.py runserver`
 * `python .\manage.py makemigrations`
 * `python .\manage.py migrate`

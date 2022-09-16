@@ -158,16 +158,16 @@
 
             PS C:\Users\Bruce\Programming\examples\django\reverse>
         </details>
-    * Notes:
-        * The following directory and files have been added:
-            * Directory `the_project` files:
+    * The following directory and files have been added:
+        * Directory `the_project`:
+            * Files:
                 * `asgi.py`
                 * `settings.py`
                 * `urls.py`
                 * `wsgi.py`
                 * `__init__.py`
-            * Files:
-                * `manage.py`
+        * Files:
+            * `manage.py`
 
 1. **ACTION:** Start development server to test the Django skeleton project:
     * `python .\manage.py runserver`
@@ -195,9 +195,12 @@
     * Semple associated success text:
         * `The install worked successfully! Congratulations!`
 
+1. Use the following key-stroke, in the operating server terminal, to stop the development server:
+    * \<Ctrl+C\>
+
 1. We now have a basic Django skeleton project. We will now add a Django application.
 
-1. Proceed to [Create Django Application]
+1. Proceed to [Create Django Application](./02_create_django_application.md)
 
 ## Repository Links:
 * Back to [Create a `pipenv` Virtual Environment](./00_create_pipenv.md)
