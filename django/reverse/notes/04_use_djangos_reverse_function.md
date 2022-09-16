@@ -1,7 +1,8 @@
-# Use Django's `reverse` Function
+# 04 - Use Django's `reverse` Function
 * This project's directory: [`reverse/`](./../)
 
 ## Resources:
+* [`reverse()`](https://docs.djangoproject.com/en/4.1/ref/urlresolvers/#reverse)
 
 
 ## Code Examples Repository links:
@@ -17,6 +18,9 @@
 
 
 ## Process:
+1. **INFO:** Everything up until this point has been to set up a project so we can use Django's [`reverse()`](https://docs.djangoproject.com/en/4.1/ref/urlresolvers/#reverse) function.
+    * To demonstrate the `reverse()` function we will first use a Python print statement inside a new view function to display the results of the `reverse()` function.
+
 
 
 

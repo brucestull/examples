@@ -14,9 +14,11 @@
 
 ## Project links:
 * [Useful Commands and Links](./notes/00_commands_and_links.md)
+* Skip to [Use Django's `reverse` Function](./notes/04_use_djangos_reverse_function.md)
 
 ## Process:
 1. [Create a `pipenv` Virtual Environment](./notes/00_create_pipenv.md)
 1. [Create Django Project](./notes/01_create_django_project.md)
 1. [Create Django Application](./notes/02_create_django_application.md)
 1. [Create Index View](./notes/03_create_index_view.md)
+1. [Use Django's `reverse` Function](./notes/04_use_djangos_reverse_function.md)

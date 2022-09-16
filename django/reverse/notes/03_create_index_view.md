@@ -2,8 +2,13 @@
 * This project's directory: [`reverse/`](./../)
 
 ## Resources:
-* [`path()`](https://docs.djangoproject.com/en/4.1/ref/urls/#path)
-* [`include()`](https://docs.djangoproject.com/en/4.1/ref/urls/#include)
+* [django.urls](https://docs.djangoproject.com/en/4.1/ref/urlresolvers/#module-django.urls)
+    * [`path()`](https://docs.djangoproject.com/en/4.1/ref/urls/#path)
+    * [`include()`](https://docs.djangoproject.com/en/4.1/ref/urls/#include)
+* [`django.shortcuts`](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#module-django.shortcuts)
+    * [`render()`](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render)
+* [`django.http`](https://docs.djangoproject.com/en/4.1/ref/request-response/#module-django.http)
+    * [`HttpResponse`](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpResponse)
 
 
 ## Code Examples Repository links:
@@ -45,36 +50,57 @@
     </details>
 
 
-### Add Application URL Configuration File:
+### Add URL Mapping:
 1. **ACTION:** Create a application URL configuration file [`the_app/urls.py`](../the_app/urls.py):
     1. Import [`path`](https://docs.djangoproject.com/en/4.1/ref/urls/#path) from `django.urls`.
-    1. Import [`TemplateView`](https://docs.djangoproject.com/en/4.1/ref/class-based-views/base/#django.views.generic.base.TemplateView) from `django.views.generic.base`.
+    1. Import [`views`](../the_app/views.py) from `.`.
     1. Add an attribute `app_name`:
         * `app_name = 'the_app'`
     1. Add an attribute `urlpatterns`, which is a list of `urlpattern`s.
     1. Add a `path()` to the `urlpatterns` attribute:
         * This `path()` function will have the following arguments:
             * route: `''`
-            * view: `TemplateView.as_view(template_name='index.html')`
+            * view: `views.index`
+                * We will create the `index` view function in the [`views.py`](../the_app/views.py) module in the next section.
+                * This `views.index` argument is the thing which will call the `index` view function in [`views.py`](../the_app/views.py). When a user sends a request to the route `''`, the `index` view function will be called (will run the view function).
             * name: `name='index'`
 
     <details>
     <summary>Sample <code>the_app/urls.py</code> contents:</summary>
 
         from django.urls import path
-        from django.views.generic.base import TemplateView
+        from . import views
 
         app_name = 'the_app'
         urlpatterns = [
-            path('', TemplateView.as_view(template_name='index.html'), name='index'),
+            path('', views.index, name='index'),
         ]
     </details>
 
-1. **INFO:** When the user sends an HTTP request to the server root, the `urlpattern` we created above will call a view function, via the `TemplateView` class' function [`as_view()`](https://docs.djangoproject.com/en/4.1/ref/class-based-views/base/#django.views.generic.base.View.as_view), and render the [`the_app/templates/index.html`](../the_app/templates/index.html) template.
+1. **INFO:** When the user sends an HTTP request to the server root, the `urlpattern` we created above will call a view function `index` in the [`views.py`](../the_app/views.py) module, which will render the [`the_app/templates/index.html`](../the_app/templates/index.html) template.
+    * We will create the view function in the next section.
+    * **TODO:** Add explanation for how the HTTP request to the server root is handled.
 
 
-### Django will Provide the Application View Function:
-1. **INFO:** The Django class [`TemplateView`](https://docs.djangoproject.com/en/4.1/ref/class-based-views/base/#django.views.generic.base.TemplateView) and it's function [`as_view()`](https://docs.djangoproject.com/en/4.1/ref/class-based-views/base/#django.views.generic.base.View.as_view) will handle the view function for us. We don't need to create our own view function:
+### Add View Function:
+1. Add a view function `index` to [`the_app/views.py`](../the_app/views.py):
+    1. Verify import of [`render`](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render) from [`django.shortcuts`](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#module-django.shortcuts).
+    1. Add `index` view function:
+        * We will call the view function `index`.
+        * We will return whatever object is returned from the `render()` function.
+            * This returned object will be an [`HttpResponse`](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpResponse) object.
+        * We will add the following arguments to the `render()` function call:
+            * request: `request`
+            * template_name: `'index.html'`
+                * We will create the [`index.html`](../the_app/templates/index.html) template in the next section.
+    <details>
+    <summary>Sample <code>views.py</code> contents:</summary>
+
+        from django.shortcuts import render
+        
+        def index(request):
+            return render(request, 'index.html')
+    </details> 
 
 
 ### Add Application Template:
@@ -85,6 +111,33 @@
 
         <h1>Goodbuy, World! Enjoy the Sale!</h1>
     </details>
+
+### Test the Application's `index` View:
+1. Start the development server:
+    * `python .\manage.py runserver`
+        <details>
+        <summary>Sample output:</summary>
+
+            PS C:\Users\Bruce\Programming\examples\django\reverse> python .\manage.py runserver
+            Watching for file changes with StatReloader
+            Performing system checks...
+
+            System check identified no issues (0 silenced).
+
+            You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+            Run 'python manage.py migrate' to apply them.
+            September 16, 2022 - 08:10:01
+            Django version 4.0, using settings 'the_project.settings'
+            Starting development server at http://127.0.0.1:8000/
+            Quit the server with CTRL-BREAK.
+        </details>
+
+1. Open internet browser to application URL (the server root URL):
+    * http://localhost:8000/
+
+1. Verify webpage displays the string we included in [`index.html`](../the_app/templates/index.html):
+    * Sample webpage display contents:
+        * `Goodbuy, World! Enjoy the Sale!`
 
 1. **INFO:** Proceed to [Use Django's `reverse` Function](./04_use_djangos_reverse_function.md)
 
