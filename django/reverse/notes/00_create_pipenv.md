@@ -1,4 +1,5 @@
 # 00 - Create a `pipenv` Virtual Environment
+* This project's directory: [`reverse/`](./../)
 
 ## Resources:
 * [Installing Pipenv - python-guide.org](https://docs.python-guide.org/dev/virtualenvs/#installing-pipenv)

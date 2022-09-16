@@ -1,5 +1,5 @@
 # Create Index View
-
+* This project's directory: [`reverse/`](./../)
 
 ## Resources:
 * [Writing your first Django app, part 1 - docs.djangoproject.com](https://docs.djangoproject.com/en/4.0/intro/tutorial01/#writing-your-first-django-app-part-1)

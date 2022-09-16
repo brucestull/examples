@@ -1,5 +1,5 @@
 # 02 - Create Django Application
-
+* This project's directory: [`reverse/`](./../)
 
 ## Resources:
 * [Writing your first Django app, part 1 - docs.djangoproject.com](https://docs.djangoproject.com/en/4.0/intro/tutorial01/#writing-your-first-django-app-part-1)
@@ -144,8 +144,7 @@
 
 1. **INFO:** We now have a basic Django skeleton Project and Application. There is no added functionlality yet.
 
-1. **ACTION:** Proceed to LINK_TO_NEXT_PAGE
-
+1. **ACTION:** Proceed to [Create Index View](./03_create_index_view.md)
 
 ## Repository Links:
 * Back to [Create Django Project](./01_create_django_project.md)

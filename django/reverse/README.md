@@ -19,3 +19,4 @@
 1. [Create a `pipenv` Virtual Environment](./notes/00_create_pipenv.md)
 1. [Create Django Project](./notes/01_create_django_project.md)
 1. [Create Django Application](./notes/02_create_django_application.md)
+1. [Create Index View](./notes/03_create_index_view.md)
