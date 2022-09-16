@@ -113,6 +113,17 @@
         * `views.py`
         * `__init__.py`
 
+1. Add the application [`the_app`](../the_app/)'s [`AppConfig`](../the_app/apps.py) `TheAppConfig` to the `INSTALLED_APPS` attribute of the project [`the_project/settings.py`](../the_project/settings.py) file:
+    <details>
+    <summary>Sample <code>INSTALLED_APPS</code> attribute contents:</summary>
+
+        INSTALLED_APPS = [
+            #...
+            'the_app.apps.TheAppConfig',
+            #...
+        ]
+    </details>
+
 1. **ACTION:** Start development server to test the Django skeleton project:
     * `python .\manage.py runserver`
         <details>
