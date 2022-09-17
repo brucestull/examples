@@ -19,7 +19,14 @@
 
 ## Process:
 1. **INFO:** Everything up until this point has been to set up a project so we can use Django's [`reverse()`](https://docs.djangoproject.com/en/4.1/ref/urlresolvers/#reverse) function.
-    * To demonstrate the `reverse()` function we will first use a Python print statement inside a new view function to display the results of the `reverse()` function.
+    * To demonstrate the `reverse()` function we will first use a Python print statement inside the `index` view function to display the results of the `reverse()` function.
+    * The `reverse()` function is like any other Python function. We can call it and then process the returned value (object).
+    * The `reverse()` function returns a URL.
+
+1. Add a print statement of the [`reverse()`](https://docs.djangoproject.com/en/4.1/ref/urlresolvers/#reverse) function to the `index` view function in [`the_app/views.py`](../the_app/views.py):
+    * We add the following arguments to the `reverse()` function:
+        * viewname: `'the_app:index'`
+    
 
 
 
