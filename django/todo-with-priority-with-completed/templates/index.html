@@ -1,0 +1,67 @@
+<h1>Index Page</h1>
+<hr>
+
+<h2>Create a new ToDo</h2>
+<form method="post" action="{% url 'the_app:create' %}">
+    {% csrf_token %}
+    <label for="the_todo_text">Todo Text</label>
+    <input
+        type="text"
+        placeholder="Enter your ToDo"
+        name="the_todo_text"
+        id="the_todo_text"
+    />
+    <br>
+    <label for="the_priority_chosen">Priority</label>
+    <select name="the_priority_chosen" id="the_priority_chosen">
+        {% for priority in the_priorities %}
+        <option value={{ priority.id }}>{{ priority.name }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <input type="submit" value="Add ToDo" />
+</form>
+<hr>
+<hr>
+
+<h2>The ToDo List</h2>
+<ol>
+    {% for todo in the_todos %}
+    
+    <li>
+        {{ todo.text }} {{ todo.id }}
+        <form method="post" action="{% url 'the_app:complete' todo.id %}">
+            {% csrf_token %}
+            <input type="submit" value="Complete the ToDo" />
+        </form>
+        Priority: {{ todo.priority.name }}
+        <br>
+        Created Date: {{ todo.created_date }}
+    </li>
+    <br>
+    <hr>
+    
+    {% endfor %}
+</ol>
+
+<h2>The ToDone List</h2>
+<ol>
+    {% for todo in the_todones %}
+    <br>
+    <form method="post" action="{% url 'the_app:uncomplete' todo.id %}">
+        {% csrf_token %}
+        <input type="submit" value="Un-Complete the ToDo" />
+    </form>    
+    <li>
+        <s>{{ todo.text }} :  {{ todo.id }}</s>
+        <br>
+        <s>Priority: {{ todo.priority.name }}</s>
+        <br>
+        <s>Created Date: {{ todo.created_date }}</s>
+    </li>
+    <br>
+    
+    {% endfor %}
+</ol>
+
+<hr>
