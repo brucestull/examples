@@ -18,8 +18,12 @@
         * List of length M
         * Sub-lists of length N
         ```
-        the_board_state = [['X', ' ', ' ', ' '], [' ', 'X', ' ', ' '], [' ', ' ', 'X', ' '], [' ', ' ', ' ', 'X']]
-
+        the_board_state = [
+            ['X', ' ', ' ', ' '],
+            [' ', 'X', ' ', ' '],
+            [' ', ' ', 'X', ' '],
+            [' ', ' ', ' ', 'X']
+        ]
         ```
 
 1. Create a pipe constant `THE_PIPE`:
@@ -29,7 +33,7 @@
 
 1. Use list comprehension to join the elements of each of the rows (sub-lists in `the_board_state` list) to themselves:
     ```
-    the_list_of_row_strings = ['|'.join(row) for row in the_board_state]
+    token_row_list = [THE_PIPE.join(row) for row in the_board_state]
     ```
 
 1. Create a variable for the length of the same-length sub-lists:
@@ -55,12 +59,7 @@
 
 1. Add spaces (A_SPACE) between the dashes since those spaces will be occupied by pipes in the above and below rows:
     ```
-    n_length_dashes_list_with_spaces = A_SPACE.join(n_length_dashes_list)
-    ```
-
-1. Create a `the_spacer_line` string out of `n_length_dashes_list` by joining with `A_SPACE`s:
-    ```
-    the_spacer_line = A_SPACE.join(n_length_dashes_list)
+    n_length_spacer_string = A_SPACE.join(n_length_dashes_list)
     ```
 
 1. Define a line break constant `A_LINE_BREAK`:
@@ -70,12 +69,12 @@
 
 1. Build the separator line by putting line breaks `A_LINE_BREAK`s on each side of the string `the_spacer_line`:
     ```
-    the_spacer_line_with_line_breaks = A_LINE_BREAK + the_spacer_line + A_LINE_BREAK
+    n_length_spacer_string_with_line_breaks = A_LINE_BREAK + n_length_spacer_string + A_LINE_BREAK
     ```
 
-1. Create the board string `the_board_string_we_display` by joining the `the_list_of_row_strings` list with `the_spacer_line_with_line_breaks` strings:
+1. Create the board string `the_board_string_we_display` by joining the `token_row_list` list with `n_length_spacer_string_with_line_breaks` strings:
     ```
-    the_board_string_we_display = the_spacer_line_with_line_breaks.join(the_list_of_row_strings)
+    the_board_string_we_display = n_length_spacer_string_with_line_breaks.join(token_row_list)
     ```
 
 1. Sample output:
