@@ -5,6 +5,8 @@
 * https://www.w3schools.com/python/python_lists_comprehension.asp
 * https://www.w3schools.com/python/ref_func_len.asp
 
+## The Code:
+* [`join_tic_tac_toe_rows.py`](./join_tic_tac_toe_rows.py)
 ## Process:
 
 1. Note current board state:
