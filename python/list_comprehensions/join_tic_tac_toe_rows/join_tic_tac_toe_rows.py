@@ -11,7 +11,10 @@ the_board_state = [['X', ' ', ' ', ' '], [' ', 'X', ' ', ' '], [' ', ' ', 'X', '
 # List comprehensions are essentially a for loop:
     # We can loop over `the_board_state` and join the individual elements of sub-lists with pipes.
     # We now have a list of three strings.
-the_row_list = ['|'.join(row) for row in the_board_state]
+
+THE_PIPE = '|'
+
+the_row_list = [THE_PIPE.join(row) for row in the_board_state]
 # print('the_row_list: ', the_row_list)
 # the_row_list:  ['X| | ', ' |X| ', ' | |X']
 
@@ -21,20 +24,24 @@ the_row_list = ['|'.join(row) for row in the_board_state]
     # 2. Join that list with ` `.
 
 n = len(the_board_state[0])
-n_length_dashes_list = ['-' for _ in range(n) ]
+n_length_dashes_list = ['-' for _ in range(n)]
 # print('n_length_dashes_list: ', n_length_dashes_list)
 # n_length_dashes_list:  ['-', '-', '-']
 
-n_length_dashes_list_with_spaces = ' '.join(n_length_dashes_list)
+A_SPACE = ' '
+
+n_length_dashes_list_with_spaces = A_SPACE.join(n_length_dashes_list)
 # print('n_length_dashes_list_with_spaces: ', n_length_dashes_list_with_spaces)
 # n_length_dashes_list_with_spaces:  - - -
 
 # the_spacer_line = '- - -'
-the_spacer_line = ' '.join(n_length_dashes_list)
-a_line_break = '\n'
+the_spacer_line = A_SPACE.join(n_length_dashes_list)
+
+# Define a line break string:
+A_LINE_BREAK = '\n'
 
 
-the_spacer_line_with_line_breaks = a_line_break + the_spacer_line + a_line_break
+the_spacer_line_with_line_breaks = A_LINE_BREAK + the_spacer_line + A_LINE_BREAK
 
 
 the_board_string_we_display = the_spacer_line_with_line_breaks.join(the_row_list)
