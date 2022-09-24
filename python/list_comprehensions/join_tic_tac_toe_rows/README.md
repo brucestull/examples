@@ -1,4 +1,8 @@
 # Join the Rows of an N by M Tic-Tac-Toe Board
+* Render a N by M Tic-Tac-Toe board.
+* Use dashes vertically-between the the token positions.
+* Use spaces vertically-between the pipes between the tokens.
+* Use line breaks between token and spacer rows.
 
 ## Resources:
 * https://www.w3schools.com/python/python_ref_string.asp
@@ -25,17 +29,23 @@
 
 1. Use list comprehension to join the elements of each of the rows (sub-lists in `the_board_state` list) to themselves:
     ```
-    the_row_list = ['|'.join(row) for row in the_board_state]
+    the_list_of_row_strings = ['|'.join(row) for row in the_board_state]
     ```
 
 1. Create a variable for the length of the same-length sub-lists:
+    * Is there a way to more logically choose a value rather than choosing the first element?
     ```
     n = len(the_board_state[0])
     ```
 
+1. Create constant `THE_DASH` for the dash character:
+    ```
+    THE_DASH = '-'
+    ```
+
 1. Create a list of `-` (dashes). One dash for each element of the sub-lists. These will be used as spacers between the rows:
     ```
-    n_length_dashes_list = ['-' for _ in range(n)]
+    n_length_dashes_list = [THE_DASH for _ in range(n)]
     ```
 
 1. Create a constant `A_SPACE` to hold the thing which will be between the dashes:
@@ -63,9 +73,9 @@
     the_spacer_line_with_line_breaks = A_LINE_BREAK + the_spacer_line + A_LINE_BREAK
     ```
 
-1. Create the board string `the_board_string_we_display` by joining the `the_row_list` list with `the_spacer_line_with_line_breaks` strings:
+1. Create the board string `the_board_string_we_display` by joining the `the_list_of_row_strings` list with `the_spacer_line_with_line_breaks` strings:
     ```
-    the_board_string_we_display = the_spacer_line_with_line_breaks.join(the_row_list)
+    the_board_string_we_display = the_spacer_line_with_line_breaks.join(the_list_of_row_strings)
     ```
 
 1. Sample output:
