@@ -67,7 +67,7 @@
     A_LINE_BREAK = '\n'
     ```
 
-1. Build the separator line by putting line breaks `A_LINE_BREAK`s on each side of the string `the_spacer_line`:
+1. Build the separator line by putting line breaks `A_LINE_BREAK`s on each side of the string `n_length_spacer_string`:
     ```
     n_length_spacer_string_with_line_breaks = A_LINE_BREAK + n_length_spacer_string + A_LINE_BREAK
     ```
