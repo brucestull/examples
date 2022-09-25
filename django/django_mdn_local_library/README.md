@@ -1,4 +1,4 @@
-# Django Starter with CustomUser, Django Documentation Generator, DEV-PROD settings, pipenv, and Heroku Procfile.
+# Django MDN Local Library Tutorial
 
 
 * NOTE: Author is using PowerShell for this guide.
