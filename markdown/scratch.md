@@ -1,3 +1,5 @@
+Sample output:
+
 # Test drop-down
 
 <details open>

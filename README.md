@@ -8,7 +8,6 @@ Examples of various coding languages and markup languages.
 
 ### Django:
 * [Django Code Examples](./django/README.md):
-    * [Django Starter](./django/django-starter/README.md)
     * [Examples of Five (5) Different Types of Django Views](./django/function-and-class-based-list-views/README.md)
     * [Create `pipenv` virtual environment for a Django project](./django/pipenv-setup/README.md)
     * [Create Django Project with List View First](./django/list-create-views/README.md)
