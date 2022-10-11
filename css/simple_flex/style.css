@@ -1,0 +1,40 @@
+
+/* ################### Box Sizing ################### */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+/* ################################################## */
+
+/* ############# Borders for visability ############# */
+main {
+    border: .4em solid orange;
+}
+
+.flex-container-posts div {
+    border: .3em solid green;
+}
+
+.flex-container-posts div p {
+    border: .2em solid blue;
+}
+/* ################################################## */
+
+@media (min-width: 700px) {
+    .flex-container-posts {
+        display: flex;
+        flex-wrap:wrap;
+    }
+
+    .flex-container-posts div {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1100px) {
+    .flex-container-posts div {
+        width: 33%;
+    }
+}
