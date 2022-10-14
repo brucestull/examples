@@ -1,7 +1,5 @@
-from re import S
 from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
-
 
 STORAGE_LIST_OBJECT = []
 STORAGE_INDEX = 0
@@ -19,10 +17,9 @@ def index():
         )
         return redirect('/')
 
-    value_to_send_to_template = STORAGE_LIST_OBJECT[STORAGE_INDEX]
     return render_template(
         'index.html',
-        template_variable=value_to_send_to_template
+        template_variable=STORAGE_LIST_OBJECT
     )
 
 
