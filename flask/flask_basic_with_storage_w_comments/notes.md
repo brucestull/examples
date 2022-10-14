@@ -8,6 +8,11 @@
 
 ## How to Run the Application:
 
-1. `python .\app.py`
+1. Start in same directory as the application:
+    * [`examples/flask/flask_basic_with_storage_w_comments/`](./)
 
-1. http://localhost:5000/
+1. Run the Flask application [`examples/flask/flask_basic_with_storage_w_comments/app.py`](./app.py):
+    * `python .\app.py`
+
+1. Open internet browser to server root:
+    * http://localhost:5000/
