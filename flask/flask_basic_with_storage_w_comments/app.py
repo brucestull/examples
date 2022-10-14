@@ -34,7 +34,7 @@ def index():
         return redirect('/')
 
     # Else a `GET` request:
-    # Render the tEmplate with the stored value in `STORAGE_LIST_OBJECT`
+    # Render the template with the stored value in `STORAGE_LIST_OBJECT`
     # from the `POST` request:
     return render_template(
         'index.html',
