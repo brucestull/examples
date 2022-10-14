@@ -1,5 +1,7 @@
+from re import S
 from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
+
 
 # A list object to store the user-input value from `POST` request
 # to the redirected `GET` request:
@@ -32,10 +34,13 @@ def index():
         return redirect('/')
 
     # Else a `GET` request:
-    # Render the tamplate with the stored value in `STORAGE_LIST_OBJECT`:
+    # Get value from `STORAGE_LIST_OBJECT` and save to new variable:
+    value_to_send_to_template = STORAGE_LIST_OBJECT[STORAGE_INDEX]
+    
+    # Render the template with the `value_to_send_to_template` value:
     return render_template(
         'index.html',
-        template_variable=STORAGE_LIST_OBJECT
+        template_variable=value_to_send_to_template
     )
 
 
