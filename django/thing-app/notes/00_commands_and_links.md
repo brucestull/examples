@@ -65,8 +65,8 @@
 ## Development server web links:
 * Server Root:
     * http://localhost:8000/
-    * http://localhost:8000/url-fragment-to-the-app/url-fragment-for-simple-view-function
-    * http://localhost:8000/url-fragment-to-the-app/url-fragment-for-simple-view-function/
+        * http://localhost:8000/url-route-to-the-app/url-route-for-simple-view-function
+        * http://localhost:8000/url-route-to-the-app/url-route-for-simple-view-function/
 * Django REST Endpoints:
     * http://localhost:8000/api/v1/
     * http://localhost:8000/api/v1/users/
