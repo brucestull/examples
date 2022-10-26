@@ -1,3 +1,4 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+def simple_view_function(request):
+    return HttpResponse("A hard-coded string to display on webpage!")

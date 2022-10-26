@@ -62,3 +62,9 @@
         
         PS C:\Users\Bruce\Programming\examples\django\thing-app>
         ```
+
+1. Test development server:
+    1. `python .\manage.py runserver`
+    1. http://localhost:8000/
+
+1. Continue to [Create `TheThing` Model](./03_create_the_thing_model.md)

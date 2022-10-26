@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
 
 urlpatterns = [
+    path('url-fragment-to-the-app/', include('the_app.urls')),
     path('admin/', admin.site.urls),
 ]
