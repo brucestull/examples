@@ -1,0 +1,11 @@
+<h1>The Big Original Home Page</h1>
+<a href={% url 'home' %}>Home</a>
+
+<form action={% url 'to_do_app:add' %} method="post">
+    {% csrf_token %}
+    <label for="todo-input-element-id">ToDo</label>
+    <br>
+    <input type="text" id="todo-input-element-id" name="todo-from-template">
+    <br>
+    <input type="submit" value="Add the new ToDo!">
+</form>
