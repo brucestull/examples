@@ -1,5 +1,8 @@
 <h1>The Big Original Home Page</h1>
 <a href={% url 'home' %}>Home</a>
+<br>
+<a href="{% url 'home' %}admin/" target="_blank">Django Admin Interface</a>
+<br>
 
 <form action={% url 'to_do_app:add' %} method="post">
     {% csrf_token %}
