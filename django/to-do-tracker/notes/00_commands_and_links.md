@@ -62,27 +62,8 @@
 ## Development server web links:
 * Server Root:
     * http://localhost:8000/
-* Django REST Endpoints:
-    * http://localhost:8000/api/v1/
-    * http://localhost:8000/api/v1/users/
-    * http://localhost:8000/api/v1/groups/
-
-* Accounts:
-    * http://localhost:8000/accounts/signup/
-    * http://localhost:8000/accounts/login/
-    * http://localhost:8000/accounts/logout/
-    * http://localhost:8000/accounts/password_reset/
-    * http://localhost:8000/accounts/reset/Mg/set-password/
-
-* Prints:
-
-    * Filament Rolls:
-
-    * Models Home:
-
-    * User Prints Profile:
-        * http://localhost:8000/prints/user-print-profile/
-
+* App links:
+    * http://localhost:8000/to_do/
 * Django Admin:
     * http://localhost:8000/admin/
 * Django Admin Documentation:

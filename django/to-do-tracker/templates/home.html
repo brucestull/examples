@@ -1,14 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}The Big Original Home Page{% endblock %}
+
+{% block content %}
+
 <h1>The Big Original Home Page</h1>
+
+
+{% if user.is_authenticated %}
+  Hi, {{ user.username | capfirst }}!
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a> |
+  <a href="{% url 'signup' %}">Sign Up</a>
+  <br>
+{% endif %}
+
+
 <a href={% url 'home' %}>Home</a>
+<br>
+<a href={% url 'to_do_app:index' %}>ToDos</a>
 <br>
 <a href="{% url 'home' %}admin/" target="_blank">Django Admin Interface</a>
 <br>
 
-<form action={% url 'to_do_app:add' %} method="post">
-    {% csrf_token %}
-    <label for="todo-input-element-id">ToDo</label>
-    <br>
-    <input type="text" id="todo-input-element-id" name="todo-from-template">
-    <br>
-    <input type="submit" value="Add the new ToDo!">
-</form>
+<hr>
+
+{% if priorities %}
+    <h2>Add a New ToDo</h2>
+    <form action={% url 'to_do_app:add' %} method="post">
+        {% csrf_token %}
+        <label for="todo-input-element-id">ToDo</label>
+        <br>
+        <input type="text" id="todo-input-element-id" name="todo_text-from-template">
+        <br>
+        <label for="priority-input-element-id">Priority</label>
+        <br>
+        <select name="priority-id-from-template" id="priority-input-element-id">
+            {% for priority in priorities %}
+                <option value="{{ priority.id }}">{{ priority }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <input type="submit" value="Add the new ToDo!">
+    </form>
+{% else %}
+    <h2>
+        Unfortunately, we don't have any `Priority`s available.
+        See Django Admin Interface to create some then return here.
+    </h2>
+{% endif %}
+
+<hr>
+{% if todos %}
+    <h2>ToDos</h2>
+    <hr>
+
+    <h3>InComplete ToDos</h3>
+    {% for todo in todos %}
+        {% if not todo.completed %}
+            <p>
+                <form action="{% url 'to_do_app:delete' todo.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="DELETE IT... NOW!">
+                </form>
+
+                <form action="{% url 'to_do_app:toggle_complete' todo.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Complete">
+                </form>
+
+                {{ todo.created_date }} : {{ todo }}
+            </p>
+            <hr>
+        {% endif %}
+    {% endfor %}
+
+    <h3>Completed Todos</h3>
+    {% for todo in todos %}
+        {% if todo.completed %}
+            <p>
+                <form action="{% url 'to_do_app:delete' todo.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="DELETE IT... NOW!">
+                </form>
+
+                <form action="{% url 'to_do_app:toggle_complete' todo.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Reinstate the ToDo">
+                </form>
+                <del>
+                    {{ todo.created_date }} : {{ todo }}
+                </del>
+                : {{ todo.completed_date }}
+            </p>
+            <hr>
+        {% endif %}
+    {% endfor %}
+
+{% endif %}
+
+{% endblock %}
+  
