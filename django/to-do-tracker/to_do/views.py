@@ -15,12 +15,11 @@ def index(request):
     them in the `home.html` template.
     """
     current_user = request.user
-    current_todos = models.ToDo.objects.filter(person=current_user)
-    # current_todos = models.ToDo.objects.all()
-    current_priorities = models.Priority.objects.all()
+    user_current_todos = models.ToDo.objects.filter(person=current_user)
+    current_priorities_for_form = models.Priority.objects.all()
     context = {
-        'todos': current_todos,
-        'priorities': current_priorities,
+        'todos': user_current_todos,
+        'priorities': current_priorities_for_form,
     }
     return render(request, 'home.html', context)
 
@@ -78,6 +77,7 @@ def toggle_complete(request, pk):
         ###############################################################
         # Print Statements
         print('current_user: ', current_user)
+        print("Current Completion status: ", current_todo.completed)
         print("We're toggling the ToDo...: ", current_todo)
         ###############################################################
     
@@ -88,6 +88,12 @@ def toggle_complete(request, pk):
             current_todo.completed = True
             current_todo.completed_date = timezone.now()
         current_todo.save()
+
+        ###############################################################
+        # Print Statements
+        print("New Completion status: ", current_todo.completed)
+        ###############################################################
+
     return HttpResponseRedirect(reverse('to_do_app:index'))
 
 

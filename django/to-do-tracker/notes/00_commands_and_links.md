@@ -16,12 +16,6 @@
 * `pip list`
 
 ### Django:
-* `django-admin startproject the_project .`
-* `python .\manage.py startapp the_app`
-* `python .\manage.py startapp api`
-* `python .\manage.py runserver`
-* `<Ctrl+C>`
-* `python .\manage.py makemigrations users`
 * `python .\manage.py makemigrations accounts`
 * `python .\manage.py makemigrations`
 * `python .\manage.py migrate`
@@ -63,7 +57,7 @@
 * Server Root:
     * http://localhost:8000/
 * App links:
-    * http://localhost:8000/to_do/
+    * http://localhost:8000/to-dos/
 * Django Admin:
     * http://localhost:8000/admin/
 * Django Admin Documentation:
