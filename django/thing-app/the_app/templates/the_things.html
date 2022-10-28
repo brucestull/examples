@@ -1,0 +1,94 @@
+<h1>All `TheThing`s</h1>
+
+<hr>
+<hr>
+<h2>All `TheThing`s as one big object</h2>
+
+<h3>The HTML</h3>
+<pre>
+    {% verbatim  %}
+    {{ all_things_context_variable_from_view_to_template }}
+    {% endverbatim  %}
+</pre>
+
+<h3>The rendered content</h3>
+{{ all_things_context_variable_from_view_to_template }}
+
+<hr>
+<hr>
+<h2>All `TheThing`s as individual objects</h2>
+
+<h3>The HTML</h3>
+<pre>
+    {% verbatim  %}{% for thing in all_things_context_variable_from_view_to_template %}{% endverbatim  %}
+    &ltdl&gt
+        &ltdt&gtTheThing&lt/dt&gt
+        &ltdd&gt
+            {% verbatim  %}{{ thing }}{% endverbatim  %}
+        &lt/dd&gt
+    &ltdl&gt
+    {% verbatim  %}{% endfor %}{% endverbatim  %}
+</pre>
+
+<h3>The rendered content</h3>
+{% for thing in all_things_context_variable_from_view_to_template %}
+<dl>
+    <dt>TheThing</dt>
+    <dd>
+        {{ thing }}
+    </dd>
+</dl>
+{% endfor %}
+
+
+<hr>
+<hr>
+
+<h2>All `TheThing`s as individual object attributes</h2>
+
+<h3>The HTML</h3>
+<pre>
+    {% verbatim  %}{% for thing in all_things_context_variable_from_view_to_template %}{% endverbatim  %}
+    &ltdl&gt
+        &ltdt&gtTheThing&lt/dt&gt
+        &ltdd&gt
+            &ltdl&gt
+                &ltdt&gt`id`&lt/dt&gt
+                &ltdd&gt{% verbatim  %}{{ thing.id }}{% endverbatim  %}&lt/dd&gt
+                &ltdt&gt`attribute_01`&lt/dt&gt
+                &ltdd&gt{% verbatim  %}{{ thing.attribute_01 }}{% endverbatim  %}&lt/dd&gt
+                &ltdt&gt`attribute_02`&lt/dt&gt
+                &ltdd&gt{% verbatim  %}{{ thing.attribute_02 }}{% endverbatim  %}&lt/dd&gt
+            &lt/dl&gt
+        &lt/dd&gt
+    &lt/dl&gt
+    {% verbatim  %}{% endfor %}{% endverbatim  %}
+</pre>
+
+<h3>The rendered content</h3>
+{% for thing in all_things_context_variable_from_view_to_template %}
+<dl>
+    <dt>TheThing</dt>
+    <dd>
+        <dl>
+            <dt>`id`</dt>
+            <dd>{{ thing.id }}</dd>
+            <dt>`attribute_01`</dt>
+            <dd>{{ thing.attribute_01 }}</dd>
+            <dt>`attribute_02`</dt>
+            <dd>{{ thing.attribute_02 }}</dd>
+        </dl>
+    </dd>
+</dl>
+{% endfor %}
+
+<hr>
+<hr>
+
+<h2>Dunder String for `TheThing`</h2>
+<code>
+    <pre>
+    def __str__(self):
+        return self.attribute_01 + ' : ' + self.attribute_02
+    </pre>
+</code>

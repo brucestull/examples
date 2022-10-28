@@ -1,6 +1,31 @@
 # Useful Commands and Links
 
+## Development Server Web Links:
+* Server Root:
+    * http://localhost:8000/
+* Other views:
+    * http://localhost:8000/url-route-to-the-app/show-all-things-url/
+    * http://localhost:8000/url-route-to-the-app/url-route-for-simple-view-function
+    * http://localhost:8000/url-route-to-the-app/url-route-for-simple-view-function/
+
+## Django Admin Links:
+* Django Admin:
+    * http://localhost:8000/admin/
+* Django Admin Documentation:
+    * http://localhost:8000/admin/doc/
+    * http://localhost:8000/admin/doc/tags/
+    * http://localhost:8000/admin/doc/filters/
+    * http://localhost:8000/admin/doc/models/
+    * http://localhost:8000/admin/doc/models/auth.user/
+
 ## Commands:
+
+### Django:
+* `python .\manage.py makemigrations`
+* `python .\manage.py migrate`
+* `python .\manage.py createsuperuser`
+* `python .\manage.py createsuperuser --email admin@email.app --username admin`
+* `python .\manage.py test`
 
 ### `pipenv`:
 * `pipenv install`
@@ -14,20 +39,6 @@
 
 ### `pip`:
 * `pip list`
-
-### Django:
-* `django-admin startproject the_project .`
-* `python .\manage.py startapp the_app`
-* `python .\manage.py startapp api`
-* `python .\manage.py runserver`
-* `<Ctrl+C>`
-* `python .\manage.py makemigrations users`
-* `python .\manage.py makemigrations accounts`
-* `python .\manage.py makemigrations`
-* `python .\manage.py migrate`
-* `python .\manage.py createsuperuser`
-* `python .\manage.py createsuperuser --email admin@email.app --username admin`
-* `python .\manage.py test`
 
 ### Django Create `SECRET_KEY`:
 * `python manage.py shell`
@@ -53,53 +64,9 @@
 
 ## Production deployment links:
 * Dashboard:
-    * https://dashboard.heroku.com/apps
 * Server Root:
-    * https://flynnt-knapp-print-tracker.herokuapp.com/
 * Models Home:
-    * http://flynnt-knapp-print-tracker.herokuapp.com/prints/
 * Create user:
 * Django Admin:
 * Django Admin Documentation:
 
-## Development server web links:
-* Server Root:
-    * http://localhost:8000/
-        * http://localhost:8000/url-route-to-the-app/url-route-for-simple-view-function
-        * http://localhost:8000/url-route-to-the-app/url-route-for-simple-view-function/
-* Django REST Endpoints:
-    * http://localhost:8000/api/v1/
-    * http://localhost:8000/api/v1/users/
-    * http://localhost:8000/api/v1/groups/
-
-* Accounts:
-    * http://localhost:8000/accounts/signup/
-    * http://localhost:8000/accounts/login/
-    * http://localhost:8000/accounts/logout/
-    * http://localhost:8000/accounts/password_reset/
-    * http://localhost:8000/accounts/reset/Mg/set-password/
-
-* Prints:
-
-    * Filament Rolls:
-
-    * Filament Materials:
-        * http://localhost:8000/prints/filament-materials/
-
-    * Models Home:
-        * http://localhost:8000/prints/models/
-
-    * User Prints Profile:
-        * http://localhost:8000/prints/user-print-profile/
-
-* Django Admin:
-    * http://localhost:8000/admin/
-* Django Admin Documentation:
-    * http://localhost:8000/admin/doc/
-    * http://localhost:8000/admin/doc/tags/
-    * http://localhost:8000/admin/doc/filters/
-    * http://localhost:8000/admin/doc/models/
-    * http://localhost:8000/admin/doc/models/auth.user/
-
-## Repository Links:
-* Repository [`README.md`](../README.md).
