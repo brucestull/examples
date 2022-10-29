@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
     'accounts.apps.AccountsConfig',
 
-    'to_do.apps.ToDoConfig',
+    'to_dos.apps.ToDosConfig',
 ]
 
 MIDDLEWARE = [
@@ -130,5 +130,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
-LOGIN_REDIRECT_URL = "to_do_app:index"
+LOGIN_REDIRECT_URL = "to_dos_app:index"
 LOGOUT_REDIRECT_URL = "home"

@@ -20,7 +20,7 @@
 
 <a href={% url 'home' %}>Home</a>
 <br>
-<a href={% url 'to_do_app:index' %}>ToDos</a>
+<a href={% url 'to_dos_app:index' %}>ToDos</a>
 <br>
 <a href="{% url 'home' %}admin/" target="_blank">Django Admin Interface</a>
 <br>
@@ -29,7 +29,7 @@
 
 {% if priorities %}
     <h2>Add a New ToDo</h2>
-    <form action={% url 'to_do_app:add' %} method="post">
+    <form action={% url 'to_dos_app:add' %} method="post">
         {% csrf_token %}
         <label for="todo-input-element-id">ToDo</label>
         <br>
@@ -61,12 +61,12 @@
     {% for todo in todos %}
         {% if not todo.completed %}
             <p>
-                <form action="{% url 'to_do_app:delete' todo.id %}" method="post">
+                <form action="{% url 'to_dos_app:delete' todo.id %}" method="post">
                     {% csrf_token %}
                     <input type="submit" value="DELETE IT... NOW!">
                 </form>
 
-                <form action="{% url 'to_do_app:toggle_complete' todo.id %}" method="post">
+                <form action="{% url 'to_dos_app:toggle_complete' todo.id %}" method="post">
                     {% csrf_token %}
                     <input type="submit" value="Complete">
                 </form>
@@ -81,12 +81,12 @@
     {% for todo in todos %}
         {% if todo.completed %}
             <p>
-                <form action="{% url 'to_do_app:delete' todo.id %}" method="post">
+                <form action="{% url 'to_dos_app:delete' todo.id %}" method="post">
                     {% csrf_token %}
                     <input type="submit" value="DELETE IT... NOW!">
                 </form>
 
-                <form action="{% url 'to_do_app:toggle_complete' todo.id %}" method="post">
+                <form action="{% url 'to_dos_app:toggle_complete' todo.id %}" method="post">
                     {% csrf_token %}
                     <input type="submit" value="Reinstate the ToDo">
                 </form>

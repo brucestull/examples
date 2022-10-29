@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
                 ('completed', models.BooleanField(default=False)),
                 ('completed_date', models.DateTimeField(blank=True, null=True)),
                 ('person', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='todos', to=settings.AUTH_USER_MODEL)),
-                ('priority', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='to_do.priority')),
+                ('priority', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='to_dos.priority')),
             ],
         ),
     ]

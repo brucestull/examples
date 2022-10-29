@@ -63,7 +63,7 @@ def add(request):
         print('ToDo not created.')
         ###############################################################
 
-    return HttpResponseRedirect(reverse('to_do_app:index'))
+    return HttpResponseRedirect(reverse('to_dos_app:index'))
 
 
 def toggle_complete(request, pk):
@@ -94,7 +94,7 @@ def toggle_complete(request, pk):
         print("New Completion status: ", current_todo.completed)
         ###############################################################
 
-    return HttpResponseRedirect(reverse('to_do_app:index'))
+    return HttpResponseRedirect(reverse('to_dos_app:index'))
 
 
 def delete(request, pk):
@@ -111,4 +111,4 @@ def delete(request, pk):
         ###############################################################
     
         current_todo.delete()
-    return HttpResponseRedirect(reverse('to_do_app:index'))
+    return HttpResponseRedirect(reverse('to_dos_app:index'))
