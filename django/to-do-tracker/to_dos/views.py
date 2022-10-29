@@ -24,11 +24,41 @@ def index(request):
     return render(request, 'home.html', context)
 
 
-def add(request):
+def add_priority(request):
+    """
+    Create a new `Priority` object from user's input then redirect to 'to_dos_app:index'.
+    """
+    new_priority_description = request.POST.get('priority-description-from-form')
+    new_priority_level = request.POST.get('priority-level-from-form')
+
+    new_priority = models.Priority.objects.create(
+        description=new_priority_description,
+        priority_level=new_priority_level,
+    )
+
+    ###############################################################
+    # Print Statements
+    print("We're adding a priority?!")
+    the_keys = request.POST.keys()
+    print('the_keys: ', the_keys)
+    # the_keys:  dict_keys([
+    #     'csrfmiddlewaretoken',
+    #     'priority-description-from-form',
+    #     'priority-level-from-form'
+    # ])
+    print('new_priority_description: ', new_priority_description)
+    print('new_priority_level: ', new_priority_level)
+    print('new_priority: ', new_priority)
+    ###############################################################
+
+    return HttpResponseRedirect(reverse('to_dos_app:index'))
+
+
+def add_todo(request):
     """
     Create a new `ToDo` from user's description and `Priority` choice.
     """
-    new_todo_description = request.POST.get('todo_text-from-template')
+    new_todo_description = request.POST.get('todo-description-from-form')
     new_todo_user = request.user
 
     ###############################################################
@@ -37,7 +67,7 @@ def add(request):
     ###############################################################
 
     if new_todo_description != '':
-        new_todo_priority_id  = request.POST.get('priority-id-from-template')
+        new_todo_priority_id  = request.POST.get('priority-id-from-form')
         new_todo_priority = get_object_or_404(
             models.Priority,
             id=new_todo_priority_id

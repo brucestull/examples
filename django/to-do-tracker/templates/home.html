@@ -22,22 +22,36 @@
 <br>
 <a href={% url 'to_dos_app:index' %}>ToDos</a>
 <br>
-<a href="{% url 'home' %}admin/" target="_blank">Django Admin Interface</a>
+<a href="/admin/" target="_blank">Django Admin Interface</a>
 <br>
 
 <hr>
 
+<h2>Add a New Priority</h2>
+<form action={% url 'to_dos_app:add_priority' %} method="post">
+    {% csrf_token %}
+    <label for="priority-description-element-id">Priority Description</label>
+    <br>
+    <input type="text" id="priority-description-element-id" name="priority-description-from-form">
+    <br>
+    <label for="priority-level-element-id">Priority Level</label>
+    <br>
+    <input type="number" id="priority-level-element-id" name="priority-level-from-form">
+    <br>
+    <input type="submit" value="Add the new Priority, NOW!">
+</form>
+
 {% if priorities %}
     <h2>Add a New ToDo</h2>
-    <form action={% url 'to_dos_app:add' %} method="post">
+    <form action={% url 'to_dos_app:add_todo' %} method="post">
         {% csrf_token %}
         <label for="todo-input-element-id">ToDo</label>
         <br>
-        <input type="text" id="todo-input-element-id" name="todo_text-from-template">
+        <input type="text" id="todo-input-element-id" name="todo-description-from-form">
         <br>
         <label for="priority-input-element-id">Priority</label>
         <br>
-        <select name="priority-id-from-template" id="priority-input-element-id">
+        <select name="priority-id-from-form" id="priority-input-element-id">
             {% for priority in priorities %}
                 <option value="{{ priority.id }}">{{ priority }}</option>
             {% endfor %}
@@ -48,7 +62,7 @@
 {% else %}
     <h2>
         Unfortunately, we don't have any `Priority`s available.
-        See Django Admin Interface to create some then return here.
+        Add some Priorities above then you can add some ToDos.
     </h2>
 {% endif %}
 
