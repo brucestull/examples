@@ -24,74 +24,89 @@ def index(request):
     return render(request, 'home.html', context)
 
 
+@login_required
 def add_priority(request):
     """
     Create a new `Priority` object from user's input then redirect to 'to_dos_app:index'.
     """
-    new_priority_description = request.POST.get('priority-description-from-form')
-    new_priority_level = request.POST.get('priority-level-from-form')
+    if request.method == 'POST':
+        new_priority_description = request.POST.get('priority-description-from-form')
+        new_priority_level = request.POST.get('priority-level-from-form')
 
-    new_priority = models.Priority.objects.create(
-        description=new_priority_description,
-        priority_level=new_priority_level,
-    )
+        if new_priority_description != '' and new_priority_level != '':
+            new_priority = models.Priority.objects.create(
+                description=new_priority_description,
+                priority_level=new_priority_level,
+            )
 
-    ###############################################################
-    # Print Statements
-    print("We're adding a priority?!")
-    the_keys = request.POST.keys()
-    print('the_keys: ', the_keys)
-    # the_keys:  dict_keys([
-    #     'csrfmiddlewaretoken',
-    #     'priority-description-from-form',
-    #     'priority-level-from-form'
-    # ])
-    print('new_priority_description: ', new_priority_description)
-    print('new_priority_level: ', new_priority_level)
-    print('new_priority: ', new_priority)
-    ###############################################################
+            ###############################################################
+            # Print Statements
+            print("We're adding a Priority?!")
+            the_keys = request.POST.keys()
+            print('the_keys: ', the_keys)
+            # the_keys:  dict_keys([
+            #     'csrfmiddlewaretoken',
+            #     'priority-description-from-form',
+            #     'priority-level-from-form'
+            # ])
+            print('new_priority_description: ', new_priority_description)
+            print('new_priority_level: ', new_priority_level)
+            print('new_priority: ', new_priority)
+            print("New Priority created!")
+            ###############################################################
+
+        else:
+            print("No new Priority created since user provided no values in form!")
+
+    else:
+        print("No new Priority created since request is GET method!")
 
     return HttpResponseRedirect(reverse('to_dos_app:index'))
 
 
+@login_required
 def add_todo(request):
     """
     Create a new `ToDo` from user's description and `Priority` choice.
     """
-    new_todo_description = request.POST.get('todo-description-from-form')
-    new_todo_user = request.user
+    if request.method == 'POST':
+        new_todo_description = request.POST.get('todo-description-from-form')
+        new_todo_user = request.user
 
-    ###############################################################
-    # Print Statements
-    print('request.user: ', request.user)
-    ###############################################################
-
-    if new_todo_description != '':
-        new_todo_priority_id  = request.POST.get('priority-id-from-form')
-        new_todo_priority = get_object_or_404(
-            models.Priority,
-            id=new_todo_priority_id
-        )
-        new_todo = models.ToDo.objects.create(
-            description=new_todo_description,
-            priority=new_todo_priority,
-            person=new_todo_user,
-        )
-    
         ###############################################################
         # Print Statements
-        print('new_todo_description: ', f"'{new_todo_description}'")
-        print('new_todo_priority_id: ', new_todo_priority_id)
-        print('new_todo_priority: ', new_todo_priority)
-        print('New ToDo added: ', new_todo)
+        print('request.user: ', request.user)
         ###############################################################
+
+        if new_todo_description != '':
+            new_todo_priority_id  = request.POST.get('priority-id-from-form')
+            new_todo_priority = get_object_or_404(
+                models.Priority,
+                id=new_todo_priority_id
+            )
+            new_todo = models.ToDo.objects.create(
+                description=new_todo_description,
+                priority=new_todo_priority,
+                person=new_todo_user,
+            )
+
+            ###############################################################
+            # Print Statements
+            print('new_todo_description: ', f"'{new_todo_description}'")
+            print('new_todo_priority_id: ', new_todo_priority_id)
+            print('new_todo_priority: ', new_todo_priority)
+            print('New ToDo added: ', new_todo)
+            ###############################################################
+
+        else:
+
+            ###############################################################
+            # Print Statements
+            print('ToDo not created since no user input?!')
+            ###############################################################
 
     else:
-
-        ###############################################################
-        # Print Statements
-        print('ToDo not created.')
-        ###############################################################
+        print("No new ToDo created since request is GET method!")
 
     return HttpResponseRedirect(reverse('to_dos_app:index'))
 

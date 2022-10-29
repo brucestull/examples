@@ -59,6 +59,7 @@
 * App links:
     * http://localhost:8000/to-dos/
     * http://localhost:8000/to-dos/add-priority/
+    * http://localhost:8000/to-dos/add-todo/
 * Django Admin:
     * http://localhost:8000/admin/
 * Django Admin Documentation:

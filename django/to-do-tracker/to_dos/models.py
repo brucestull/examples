@@ -5,7 +5,7 @@ from config.settings import AUTH_USER_MODEL
 
 class Priority(models.Model):
     description = models.CharField(max_length=255)
-    priority_level = models.IntegerField()
+    priority_level = models.IntegerField(default=0)
     
     def __str__(self):
         return str(self.priority_level) + ' : ' + self.description
