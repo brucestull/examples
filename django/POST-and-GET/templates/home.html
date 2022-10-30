@@ -1,0 +1,58 @@
+<h1>The Project Home Page</h1>
+<hr>
+<h2>
+    Both the link and the form submit button below send HTTP requests
+    to the same URL `{% url 'the_app_name:index_view_name' %}`.
+</h2>
+<hr>
+
+<h2>Links typically send <code>GET</code> requests:</h2>
+<p>
+    <a
+        href={% url 'the_app_name:index_view_name' %}
+    >
+        Send GET request to `{% url 'the_app_name:index_view_name' %}`
+    </a>
+</p>
+<hr>
+
+<h2>Form buttons typically send <code>POST</code> requests:</h2>
+<form action={% url 'the_app_name:index_view_name' %} method="post">
+    {% csrf_token %}
+    <input type="submit" value="Send POST request to `{% url 'the_app_name:index_view_name' %}`">
+</form>
+
+
+
+
+<hr>
+<hr>
+<h2>The template contents which renders the above web page:</h2>
+
+<pre>
+
+&lth1&gtThe Project Home Page&lt/h1&gt
+&lthr&gt
+&lth2&gt
+    Both the link and the form submit button below send HTTP requests
+    to the same URL `{% verbatim  %}{% url 'the_app_name:index_view_name' %}{% endverbatim  %}`.
+&lt/h2&gt
+&lthr&gt
+
+&lth2&gtLinks typically send &ltcode&gtGET&lt/code&gt requests:&lt/h2&gt
+&ltp&gt
+    &lta
+        href={% verbatim  %}{% url 'the_app_name:index_view_name' %}{% endverbatim  %}
+    &gt
+        Send GET request to `{% verbatim  %}{% url 'the_app_name:index_view_name' %}{% endverbatim  %}`
+    &lt/a&gt
+&lt/p&gt
+&lthr&gt
+
+&lth2&gtForm buttons typically send &ltcode&gtPOST&lt/code&gt requests:&lt/h2&gt
+&ltform action={% verbatim  %}{% url 'the_app_name:index_view_name' %}{% endverbatim  %} method="post"&gt
+    {% verbatim  %}{% csrf_token %}{% endverbatim  %}
+    &ltinput type="submit" value="Send POST request to `{% url 'the_app_name:index_view_name' %}`"&gt
+&lt/form&gt
+&lthr&gt
+</pre>
