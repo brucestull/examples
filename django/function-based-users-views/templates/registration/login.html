@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<a href={% url 'the_users_app:home' %}>Go to Home</a>
+<br>
+<h1>Login</h1>
+
+<form action={% url 'the_users_app:login' %} method='post'>
+    {% csrf_token %}
+    <label for='username-input'>Username</label>
+    <br>
+    <input id='username-input' type='text' name='username_in_form' placeholder="Enter 'username' here... please">
+    <br>
+    <label for='password-input'>Password</label>
+    <br>
+    <input id='password-input' type='password' name='password_in_form' placeholder="Enter 'password' here... please">
+    <br>
+    <input type="submit" value="Login">
+
+{% endblock content %}

@@ -3,11 +3,16 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+<h1>Home</h1>
 
 {% if user.is_authenticated %}
 <p>Welcome, {{ user }}</p>
+<a href={% url 'the_users_app:login' %}>Go to Login Page Anyway, PLEASE!</a>
+<br>
 {% else %}
 <p>You're a Nobody!</p>
+<a href={% url 'the_users_app:login' %}>Go to Login Page</a>
+<br>
 {% endif %}
 
 {% endblock content %}
