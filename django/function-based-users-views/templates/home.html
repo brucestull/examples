@@ -6,12 +6,14 @@
 <h1>Home</h1>
 
 {% if user.is_authenticated %}
-<p>Welcome, {{ user }}</p>
-<a href={% url 'the_users_app:login' %}>Go to Login Page Anyway, PLEASE!</a>
+<p>Welcome, {{ user | capfirst }}</p>
+<a href={% url 'the_users_app:logout' %}>Log me OUT, PLEASE!</a>
 <br>
 {% else %}
 <p>You're a Nobody!</p>
-<a href={% url 'the_users_app:login' %}>Go to Login Page</a>
+<a href={% url 'the_users_app:login' %}>Login Page, PLEASE!</a>
+<br>
+<a href={% url 'the_users_app:signup' %}>Sigunup Page, PLEASE!</a>
 <br>
 {% endif %}
 

@@ -7,7 +7,15 @@
     <title>{% block title %}Function-Based Users Views{% endblock %}</title>
 </head>
 <body>
-    <a href="/admin/">Django Admin Interface</a>
+    <a href="/admin/" target="_blank">Django Admin Interface</a>
+    <br>
+    <a href={% url 'the_users_app:home' %}>Go to Home</a>
+    <br>
+    <a href={% url 'the_users_app:login' %}>Login Page, PLEASE!</a>
+    <br>
+    <a href={% url 'the_users_app:signup' %}>Signup Page, PLEASE!</a>
+    <br>
+    <a href={% url 'the_users_app:logout' %}>Let me OUT, PLEASE!</a>
     <br>
     {% block content %}
     {% endblock content %}

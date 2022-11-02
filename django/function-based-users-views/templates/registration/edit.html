@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Sign Up{% endblock %}
 
 {% block content %}
-<h1>Login</h1>
 
-<form action={% url 'the_users_app:login' %} method='post'>
+<h1>Sign Up</h1>
+
+{{ message }}
+<form action={% url 'the_users_app:signup' %} method='post'>
     {% csrf_token %}
     <label for='username-input'>Username</label>
     <br>
@@ -15,6 +17,10 @@
     <br>
     <input id='password-input' type='password' name='password_in_form' placeholder="Enter 'password' here... please">
     <br>
-    <input type="submit" value="Login">
+    <label for='password-confirm-input'>Password Confirm</label>
+    <br>
+    <input id='password-confirm-input' type='password' name='password_confirm_in_form' placeholder="Enter same 'password' here... please">
+    <br>
+    <input type="submit" value="Sign Me Up!">
 
 {% endblock content %}
