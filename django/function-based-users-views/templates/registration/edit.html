@@ -1,26 +1,52 @@
 {% extends 'base.html' %}
 
-{% block title %}Sign Up{% endblock %}
+{% block title %}Edit{% endblock %}
 
 {% block content %}
 
-<h1>Sign Up</h1>
+<h1>Edit</h1>
 
+{% if message %}
 {{ message }}
-<form action={% url 'the_users_app:signup' %} method='post'>
+{% endif %}
+<form action={% url 'the_users_app:edit' %} method='post'>
     {% csrf_token %}
     <label for='username-input'>Username</label>
     <br>
-    <input id='username-input' type='text' name='username_in_form' placeholder="Enter 'username' here... please">
+    <input
+        id='username-input'
+        type='text'
+        name='username_in_form'
+        placeholder="Enter 'username' here"
+        >
     <br>
-    <label for='password-input'>Password</label>
+    <label for='current-password-input'>Current Password</label>
     <br>
-    <input id='password-input' type='password' name='password_in_form' placeholder="Enter 'password' here... please">
+    <input
+        id='current-password-input'
+        type='password'
+        name='current_password_in_form'
+        placeholder="Enter current 'password' here"
+        >
     <br>
-    <label for='password-confirm-input'>Password Confirm</label>
+    <label for='new-password-input'>New Password</label>
     <br>
-    <input id='password-confirm-input' type='password' name='password_confirm_in_form' placeholder="Enter same 'password' here... please">
+    <input
+        id='new-password-input'
+        type='password'
+        name='password_in_form'
+        placeholder="Enter new 'password' here"
+        >
     <br>
-    <input type="submit" value="Sign Me Up!">
+    <label for='password-confirm-input'>New Password Confirm</label>
+    <br>
+    <input
+        id='password-confirm-input'
+        type='password'
+        name='password_confirm_in_form'
+        placeholder="Enter same new 'password' here"
+        >
+    <br>
+    <input type="submit" value="Change My Stuff!">
 
 {% endblock content %}

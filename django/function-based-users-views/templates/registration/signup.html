@@ -6,7 +6,9 @@
 
 <h1>Sign Up</h1>
 
+{% if message %}
 {{ message }}
+{% endif %}
 <form action={% url 'the_users_app:signup' %} method='post'>
     {% csrf_token %}
     <label for='username-input'>Username</label>

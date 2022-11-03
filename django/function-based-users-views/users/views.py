@@ -69,3 +69,21 @@ def logout(request):
     log_out_the_user(request)
     return HttpResponseRedirect(reverse('the_users_app:home'))
 
+
+def edit(request):
+    """
+    Function-based view to display edit `User` form on `GET` request,
+    and change `User` on `POST` request.
+    """
+    print('request.user: ', request.user)
+    if request.method == 'POST':
+        username_in_view = request.POST.get('username_in_form')
+        if request.user != username_in_view:
+            print("WOMP WOMP!!! Tricksie Hobbitses!!")
+        password_in_view = request.POST.get('password_in_form')
+        password_confirm_in_view = request.POST.get('password_confirm_in_form')
+        print('POST!!!')
+        return render(request, 'registration/edit.html')
+
+    return render(request, 'registration/edit.html')
+    
