@@ -1,6 +1,6 @@
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as log_in_the_user
 from django.contrib.auth import logout as log_out_the_user
@@ -25,6 +25,7 @@ def sign_up(request):
                 username=username_in_view,
                 password=password_in_view
             )
+            # logout(request)
             return HttpResponseRedirect(reverse('the_users_app:login'))
 
         except IntegrityError as e:
@@ -78,12 +79,21 @@ def edit(request):
     print('request.user: ', request.user)
     if request.method == 'POST':
         username_in_view = request.POST.get('username_in_form')
-        if request.user != username_in_view:
+        if username_in_view != '' and request.user.username != username_in_view:
             print("WOMP WOMP!!! Tricksie Hobbitses!!")
+            context = {
+                'message': "Editing user information that are not you is forbidden!"
+            }
+            return render(request, 'registration/edit.html', context)
+
+        current_user = get_object_or_404(User, username=username_in_view)
+        print("We got a legit USER!!!")
+        print('current_user: ', current_user)
+        
         password_in_view = request.POST.get('password_in_form')
         password_confirm_in_view = request.POST.get('password_confirm_in_form')
         print('POST!!!')
-        return render(request, 'registration/edit.html')
+        return HttpResponseRedirect(reverse('the_users_app:edit'))
 
     return render(request, 'registration/edit.html')
     
