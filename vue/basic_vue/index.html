@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Vue Thing</title>
+</head>
+<body>
+    <nav>
+
+    </nav>
+    <main id='app'>
+        <h1>{{ name }}</h1>
+
+
+        <h2>The Words</h2>
+        <ul v-for="word in words">
+            <li><a v-on:click="sayHello(word)">{{ word }}</a></li>
+            <button @click="sayHello(word)">Say Hello?</button>
+        </ul>
+
+        <h2>An Input Box</h2>
+        <input v-model="storageVariable" placeholder="Enter the value!">
+
+        <h2>Clickable Text and Button</h2>
+        <a v-on:click="sayHello()">Say Hello!</a>
+        <button @click="sayHello()">Say Hello?</button>
+
+        <h2>Checkbox</h2>
+        <input v-model="isThisChecked" type="checkbox">
+
+    </main>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- My JS -->
+    <script src="main.js"></script>
+</body>
+</html>
