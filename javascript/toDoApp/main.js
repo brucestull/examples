@@ -4,63 +4,87 @@ let textInput = document.getElementById("the-input")
 let completeListUL = document.getElementById("complete-list")
 let incompleteListUL = document.getElementById("incomplete-list")
 
-let styleButton = document.getElementById("style-button")
-
-let testDiv = document.getElementById("test-div")
-
-
-// <ul>
-// <li>string<button></button></li>
-// </ul>
-
 
 // Function to add a ToDo:
-function addToDo() {
-    console.log("We're trying to add a new item!!!")
+function addToDo(text=textInput.value) {
 
     let completeButton = document.createElement("button")
     completeButton.id = "complete-button"
     completeButton.innerText = "Complete"
     completeButton.addEventListener('click', function() {
-        // console.log("'Complete' button clicked!!")
-        console.log("Completing: ", completeButton.previousSibling)
+        console.log("Completing: ", completeButton.previousSibling.innerText)
         completeTheTodo(completeButton.previousSibling)
     })
 
-    console.log(completeButton)
+    let deleteButton = document.createElement("button")
+    deleteButton.id = "delete-button"
+    deleteButton.innerText = "Delete"
+    deleteButton.addEventListener('click', function() {
+        deleteElementAndParent(deleteButton)
+    })
 
     let newToDoLI = document.createElement("li")
-    newToDoLI.innerText = textInput.value
+    let newToDoSpan = document.createElement("span")
+    newToDoSpan.innerText = text
+
+    newToDoLI.appendChild(newToDoSpan)
     newToDoLI.appendChild(completeButton)
+    newToDoLI.appendChild(deleteButton)
 
     incompleteListUL.append(newToDoLI)
-    // textInput.value = ""
+    textInput.value = ''
     textInput.focus()
 }
 
 
+// Function to complete a ToDo:
 function completeTheTodo(toDoItem) {
-    // console.log("We're trying to complete the ITEM!")
-    console.log('The ITEM: ', toDoItem)
 
     let incompleteButton = document.createElement("button")
     incompleteButton.id = "incomplete-button"
     incompleteButton.innerText = "Incomplete"
     incompleteButton.addEventListener('click', function() {
-        // console.log("'Incomplete' button clicked!!")
-        console.log("Incompleting: ", incompleteButton.previousSibling)
+        console.log("Incompleting or Adding: ", incompleteButton.previousSibling.innerText)
+        incompleteTheTodo(incompleteButton.previousSibling)
     })
-    // console.log(incompleteButton)
 
-    // toDoItem = "Totally a New String... Not an old one."
+    let deleteButton = document.createElement("button")
+    deleteButton.id = "delete-button"
+    deleteButton.innerText = "Delete"
+    deleteButton.addEventListener('click', function() {
+        deleteElementAndParent(deleteButton)
+    })
 
     let newCompletedLI = document.createElement("li")
-    newCompletedLI.innerText = toDoItem
+    let newCompletedSpan = document.createElement("span")
+    newCompletedSpan.innerText = toDoItem.innerText
+    newStrikeThroughSpan = addSTag(newCompletedSpan)
+
+    newCompletedLI.appendChild(newStrikeThroughSpan)
     newCompletedLI.appendChild(incompleteButton)
+    newCompletedLI.appendChild(deleteButton)
 
     completeListUL.append(newCompletedLI)
 
     toDoItem.parentElement.remove()
+}
+
+function incompleteTheTodo(toDoItem) {
+    addToDo(toDoItem.innerText)
+    toDoItem.parentElement.remove()
+}
+
+
+function addSTag(element) {
+    let newSTag = document.createElement('s')
+    newSTag.appendChild(element)
+    return newSTag
+}
+
+
+function deleteElementAndParent(element) {
+    console.log("Deleting: ", element.parentElement.firstChild.innerText)
+    element.parentElement.remove()
 }
 
 
@@ -78,27 +102,6 @@ addButton.addEventListener("click", () => {
 })
 
 
-styleButton.addEventListener("click", function() {
-    console.log("We're trying to change the STYLE???")
-})
-
-// document.getElementById(id).style.property = new style
-
-
-////////////////////////////////////////
-// Create <ol> element:
-let testListOL = document.createElement('ol')
-// Create <li> element:
-let testLI = document.createElement('li')
-// Add 'innerText' to the <li> element:
-testLI.innerText = "The Stuff in the LI!"
-// Add a <button> at the end of the <li> element, right after the 'innerText':
-testLI.appendChild(document.createElement("button"))
-// Put the <li> at the end of the <ol> element:
-testListOL.appendChild(testLI)
-// Puth the <ol> element at the end of the <div> element:
-testDiv.appendChild(testListOL)
 
 
 
-//     newToDoLI.classList.add("incomplete-todo")
