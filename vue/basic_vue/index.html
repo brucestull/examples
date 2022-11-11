@@ -10,7 +10,7 @@
     <nav>
 
     </nav>
-    <main id='app'>
+    <main id='app1'>
         <h1>{{ name }}</h1>
 
 
@@ -20,12 +20,26 @@
             <button @click="sayHello(word)">Say Hello?</button>
         </ul>
 
-        <h2>An Input Box</h2>
-        <input v-model="storageVariable" placeholder="Enter the value!">
-
         <h2>Clickable Text and Button</h2>
-        <a v-on:click="sayHello()">Say Hello!</a>
-        <button @click="sayHello()">Say Hello?</button>
+        <label>Hello, Who:</label>
+        <input v-model="helloWho" placeholder="Enter the value!">
+        <a v-on:click="sayHello(helloWho)">Say Hello!</a>
+        <button @click="sayHello(helloWho)">Say Hello?</button>
+
+        <h3>An Input Box</h3>
+        <label for="input-name">Name:</label>
+        <input
+            id="input-name"
+            v-on:keyup.enter="addPerson()"
+            v-model="inputName"
+            placeholder="Enter the value!"
+            >
+        <button @click="addPerson()">Add em!</button>
+
+        <h2>Some Names</h2>
+        <ol>
+            <li v-for="name in names">Greeting, {{ name }}!</li>
+        </ol>
 
         <h2>Checkbox</h2>
         <input v-model="isThisChecked" type="checkbox">
