@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue: Task Application</title>
+</head>
+<body>
+    <nav>
+
+    </nav>
+    <main id='app1'>
+        <h1>{{ appName }}</h1>
+
+        <h2>Add a Task Here</h2>
+        <label for="task-add">New Task:</label>
+        <input
+            id="task-add"
+            v-model="taskText"
+            @keyup.enter="addTask()"
+            placeholder="New task here"
+            >
+        <button v-on:click="addTask()">
+            Add a New Task?!
+        </button>
+
+        <h2>Incomplete Tasks</h2>
+        <ol>
+            <li v-for="task in incompletedTasks">
+                <span>
+                    {{ task.description }}
+                </span>
+                <button v-on:click="toggleTask(task)">
+                    Complete That Task?
+                </button>
+                <button v-on:click="removeTask(task)">
+                    Delete Task
+                </button>
+            </li>
+        </ol>
+
+        <h2>Completed Tasks</h2>
+        <ol>
+            <li v-for="task in completedTasks">
+                <span>
+                    <s>{{ task.description }}</s>
+                </span>
+                <button v-on:click="toggleTask(task)">
+                    InComplete That Task!
+                </button>
+                <button v-on:click="removeTask(task)">
+                    Delete Task
+                </button>
+            </li>
+        </ol>
+
+
+    </main>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- My JS -->
+    <script src="main.js"></script>
+</body>
+</html>
