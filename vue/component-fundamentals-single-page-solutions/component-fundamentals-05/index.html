@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Identifier Mapping</title>
+</head>
+<body>
+    <nav>
+
+    </nav>
+    <main id='app1'>
+
+        <the-component-name
+            v-for="iteratingVariableForItem in globalVariableAttribute"
+            v-bind:prop-variable-in-component="iteratingVariableForItem"
+            v-bind:key="iteratingVariableForItem.id"
+            @do-something-big="doSomethingBigInMainMethods"
+        ></the-component-name>
+
+    </main>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- My JS -->
+    <script>
+
+        // Start server:
+        // python -m http.server 8000
+
+        Vue.component('the-component-name', {
+            props: {
+                propVariableInComponent: Object,
+            },
+            template: `
+            <div>
+            {{ propVariableInComponent.id }}
+            :
+            {{ propVariableInComponent.description }}
+            <br>
+            <button @click="$emit('do-something-big', propVariableInComponent)">Do Something, BIG!</button>
+            </div>
+            `,
+        })
+
+        const app1 = new Vue({
+            el: '#app1',
+            data: {
+            globalVariableAttribute: [
+                { id: 1, description: 'The Zeroth Thing?'       },
+                { id: 2, description: 'The Firsteth Thing!'     },
+                { id: 3, description: 'The Secondest Thing??'   },
+                { id: 4, description: 'The Thirderist Thing??'  },
+            ],
+            },
+            methods: {
+                doSomethingBigInMainMethods: function(theThing) {
+                    console.log("We're trying to do something BIG:", theThing.description)
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
