@@ -128,21 +128,34 @@
             data: {
                 ...
                 globalVariableAttribute: [
-                    { id: 1, description: 'The First Thing in the List!' },
-                    { id: 2, description: 'The SECOND Thing in the List?'},
+                    { id: 1, description: 'The First Thing in the List!'    },
+                    { id: 2, description: 'The SECOND Thing in the List?'   },
+                    { id: 3, description: 'And ANOTHER!!!'                  },
                 ],
                 ...
             },
             ...
         })
         ```
-    1. Change the prop variable type from `String` to `Object`:
+    1. Change the props variable type from `String` to `Object`:
         ```
         Vue.component('the-component-name', {
             ...
             props: {
-                propVariableInComponent: Array,
+                propVariableInComponent: Object,
             },
+            ...
+        })
+        ```
+    1. Modify the `template` of component `the-component-name` in [`main.js`](./main.js):
+        ```
+        Vue.component('the-component-name', {
+            ...
+            template: `
+            <p>
+            {{ propVariableInComponent.id }} : {{ propVariableInComponent.description }}
+            </p>
+            `
             ...
         })
         ```

@@ -9,7 +9,7 @@ Vue.component('the-component-name', {
     },
     template: `
     <p>
-    {{ propVariableInComponent }}
+    {{ propVariableInComponent.id }} : {{ propVariableInComponent.description }}
     </p>
     `
 })
@@ -19,8 +19,9 @@ const app1 = new Vue({
     data: {
         appName: 'Application Number 1!',
         globalVariableAttribute: [
-            { id: 1, description: 'The First Thing in the List!' },
-            { id: 2, description: 'The SECOND Thing in the List?'},
+            { id: 1, description: 'The First Thing in the List!'    },
+            { id: 2, description: 'The SECOND Thing in the List?'   },
+            { id: 3, description: 'And ANOTHER!!!'                  },
         ],
     },
     methods: {
