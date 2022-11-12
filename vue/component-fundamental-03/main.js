@@ -18,11 +18,11 @@ const app1 = new Vue({
         globalPropertyList: [
             {
                 id: 1,
-                descpription: 'The First Thing in the List!'
+                description: 'The First Thing in the List!'
             },
             {
                 id: 2,
-                descpription: 'The SECOND Thing in the List?'
+                description: 'The SECOND Thing in the List?'
             },
         ]
     }

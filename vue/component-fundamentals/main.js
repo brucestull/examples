@@ -5,7 +5,7 @@
 
 Vue.component('the-component-name', {
     props: {
-        propVariableInComponent: String,
+        propVariableInComponent: Object,
     },
     template: `
     <p>
@@ -18,7 +18,10 @@ const app1 = new Vue({
     el: '#app1',
     data: {
         appName: 'Application Number 1!',
-        globalVariableAttribute: 'Some global string?'
+        globalVariableAttribute: [
+            { id: 1, description: 'The First Thing in the List!' },
+            { id: 2, description: 'The SECOND Thing in the List?'},
+        ],
     },
     methods: {
 

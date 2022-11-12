@@ -87,4 +87,73 @@
     1. Summary: 
         * We now pass a global Vue model property to the component.
 
+1. Display the items in list `globalVariableAttribute` into parts in [`index.html`](./index.html):
+    1. Add a list property to `data` part of Vue model in [`main.js`](./main.js):
+        ```
+        const app1 = new Vue({
+            ...
+            data: {
+                ...
+        globalVariableAttribute: [
+            'The First Thing in the List!',
+            'The SECOND Thing in the List?',
+        ],
+                ...
+            }
+            ...
+        })
+        ```
+    1. Modify the element in the HTML [`index.html`](./index.html):
+        ```
+        <the-component-name
+            v-for="theItem in globalVariableAttribute"
+            v-bind:prop-variable-in-component="theItem"
+            v-bind:key="theItem.id"
+        ></the-component-name>
+        ```
+        * Iterate over the items in `globalVariableAttribute` and pass each one into an instance of component `the-component-name`.
+    1. Start http server if not already running:
+        * `python -m http.server 8000`
+    1. Test Vue application:
+        * http://localhost:8000/
+    1. Summary:
+        * The items in list `globalVariableAttribute` should display on webpage.
+        * There should be one component for each item in list `globalVariableAttribute`.
+
+1. Modify `globalVariableAttribute` so it is a list of objects instead of of a list of strings.
+    1. Modify `globalVariableAttribute` in [`main.js`](./main.js):
+        ```
+        const app1 = new Vue({
+            ...
+            data: {
+                ...
+                globalVariableAttribute: [
+                    { id: 1, description: 'The First Thing in the List!' },
+                    { id: 2, description: 'The SECOND Thing in the List?'},
+                ],
+                ...
+            },
+            ...
+        })
+        ```
+    1. Change the prop variable type from `String` to `Object`:
+        ```
+        Vue.component('the-component-name', {
+            ...
+            props: {
+                propVariableInComponent: Array,
+            },
+            ...
+        })
+        ```
+    1. Start http server if not already running:
+        * `python -m http.server 8000`
+    1. Test Vue application:
+        * http://localhost:8000/
+    1. Summary:
+        * We now are passing an object into each instance of the component `the-component-name`.
+        * We will not display each property of the object in each instance of the component.
+
+
+
 

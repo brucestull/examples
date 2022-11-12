@@ -14,7 +14,9 @@
         <h1>{{ appName }}</h1>
 
         <the-component-name
-            v-bind:prop-variable-in-component="globalVariableAttribute"
+            v-for="theItem in globalVariableAttribute"
+            v-bind:prop-variable-in-component="theItem"
+            v-bind:key="theItem.id"
         ></the-component-name>
 
     </main>
