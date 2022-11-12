@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Vue Thing</title>
+</head>
+<body>
+    <nav>
+
+    </nav>
+    <main id='app1'>
+        <h1>{{ name }}</h1>
+
+
+        <h2>The Words</h2>
+        <ul v-for="word in words">
+            <li><a v-on:click="sayHello(word)">{{ word }}</a></li>
+            <button @click="sayHello(word)">Say Hello?</button>
+        </ul>
+
+        <h2>Clickable Text and Button</h2>
+        <label>Hello, Who:</label>
+        <input v-model="helloWho" placeholder="Enter the value!">
+        <a v-on:click="sayHello(helloWho)">Say Hello!</a>
+        <button @click="sayHello(helloWho)">Say Hello?</button>
+
+        <h3>An Input Box</h3>
+        <label for="input-name">Name:</label>
+        <input
+            id="input-name"
+            v-on:keyup.enter="addPerson()"
+            v-model="inputName"
+            placeholder="Enter the value!"
+            >
+        <button @click="addPerson()">Add em!</button>
+
+        <h2>Some Names</h2>
+        <ol>
+            <li v-for="name in names">Greetings, {{ name }}!</li>
+        </ol>
+
+        <h2>Checkbox</h2>
+        <input v-model="isThisChecked" type="checkbox">
+
+    </main>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- My JS -->
+    <script src="main.js"></script>
+</body>
+</html>
