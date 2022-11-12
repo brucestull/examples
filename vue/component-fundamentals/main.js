@@ -4,9 +4,12 @@
 
 
 Vue.component('the-component-name', {
+    props: {
+        propVariableInComponent: String,
+    },
     template: `
     <p>
-    A paragraph string goeth here!
+    {{ propVariableInComponent }}
     </p>
     `
 })
@@ -15,6 +18,7 @@ const app1 = new Vue({
     el: '#app1',
     data: {
         appName: 'Application Number 1!',
+        globalVariableAttribute: 'Some global string?'
     },
     methods: {
 

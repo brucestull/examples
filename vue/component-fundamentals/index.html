@@ -13,7 +13,9 @@
     <main id='app1'>
         <h1>{{ appName }}</h1>
 
-        <the-component-name></the-component-name>
+        <the-component-name
+            v-bind:prop-variable-in-component="globalVariableAttribute"
+        ></the-component-name>
 
     </main>
 
