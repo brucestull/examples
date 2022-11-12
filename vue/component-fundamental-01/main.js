@@ -1,6 +1,5 @@
 // Start server:
 // python -m http.server 8000
-// Resources:
 
 Vue.component('the-lone-element', {
     template: `
