@@ -88,6 +88,11 @@
         })
 
         Vue.component('component-for-each-item-in-array', {
+            data: function() {
+                return {
+                    makingSomeChanges: false,
+                }
+            },
             props: {
                 propVariableInComponent: Object,
             },
@@ -100,29 +105,37 @@
                     :
                     {{ propVariableInComponent.theStatus }}
                 </h3>
-                <input
-                    type="checkbox"
-                    v-model="propVariableInComponent.theStatus"
+                <template
+                    v-if="makingSomeChanges"
                     >
+                    <input
+                        type="text"
+                        v-model="propVariableInComponent.description"
+                        >
+                </template>
+                <template v-else>
+                    No input element goeth here...
+                </template>
                 <button
                     @click="$emit(
                         'do-something-big',
                         propVariableInComponent
                         )"
                     >
-                    Do Something:
-                    {{ propVariableInComponent.description }}
+                    Do Something Big!
                 </button>
+                <input
+                    type="checkbox"
+                    v-model="propVariableInComponent.theStatus"
+                    >
                 <button
                     @click="$emit(
                         'toggle-the-status',
                         propVariableInComponent
                         )"
                     >
-                    Toggle
-                    {{ propVariableInComponent.description }}
-                    to
-                    {{ !propVariableInComponent.theStatus }}
+                    Toggle to
+                    {{ propVariableInComponent.theStatus ? 'FALSE' : 'TRUE' }}
                     ?
                 </button>
                 <button
@@ -131,9 +144,9 @@
                         propVariableInComponent
                         )"
                     >
-                    Rid us of 
-                    {{ propVariableInComponent.description }}
-                    ?
+                    🗶
+                    ✘
+                    ❌
                 </button>
             </div>
             `,
