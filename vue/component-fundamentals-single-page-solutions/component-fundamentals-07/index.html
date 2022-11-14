@@ -16,13 +16,26 @@
             @add-item-to-global-array="addItemAppLevelFunction"
         ></component-to-add-item>
 
+        <template v-if="globalVariableAttribute">
+            <h2>
+                The Obligatory List
+            </h2>
+        </template>
+
         <component-for-each-item-in-array
             v-for="iteratingVariableForItem in globalVariableAttribute"
             v-bind:prop-variable-in-component="iteratingVariableForItem"
             v-bind:key="iteratingVariableForItem.id"
             @do-something-big="doSomethingBigInMainMethods"
-            @toggle-the-status="toggleStatusInMainMethods"
+            @toggle-the-status="toggleStatusAppLevelFunction"
         ></component-for-each-item-in-array>
+
+        <div>
+            <h2><code>theTruthees</code></h2>
+            {{ theTruthees }}
+            <h2><code>theFalsees</code></h2>
+            {{ theFalsees }}
+        </div>
 
     </main>
 
@@ -36,14 +49,19 @@
         Vue.component('component-to-add-item', {
             data: function() {
                 return {
-                    id: 5,
+                    id: 100,
                     description: '',
                 }
             },
             template: `
             <div>
                 <h2>Gonna add something here!</h2>
-                <input type="text" placeholder="Input one here" v-model="description" @keyup.enter="addItemComponentFunction">
+                <input 
+                    type="text" 
+                    placeholder="Input one here" 
+                    v-model="description" 
+                    @keyup.enter="addItemComponentFunction"
+                    >
                 <button @click="addItemComponentFunction">Add One?</button>
             </div>
             `,
@@ -67,22 +85,29 @@
             },
             template: `
             <div>
-                <p>
+                <h3>
                     {{ propVariableInComponent.id }}
                     :
                     {{ propVariableInComponent.description }}
                     :
                     {{ propVariableInComponent.theStatus }}
-                </p>
-                <button @click="$emit('do-something-big', propVariableInComponent)">
+                </h3>
+                <button
+                    @click="$emit('do-something-big',
+                    propVariableInComponent)"
+                    >
                     Do Something:
                     {{ propVariableInComponent.description }}
                 </button>
-                <button @click="$emit('toggle-the-status', propVariableInComponent)">
-                    Toggle:
+                <button
+                    @click="$emit('toggle-the-status',
+                    propVariableInComponent)"
+                    >
+                    Toggle
                     {{ propVariableInComponent.description }}
                     to
                     {{ !propVariableInComponent.theStatus }}
+                    ?
                 </button>
             </div>
             `,
@@ -96,6 +121,7 @@
                 { id: 2, description: 'Firsteth!',     theStatus: false },
                 { id: 3, description: 'Secondest??',   theStatus: true  },
                 { id: 4, description: 'Thirderist??',  theStatus: false },
+                { id: 5, description: 'Fourtheror!',   theStatus: false },
             ],
             },
             computed: {
@@ -122,7 +148,7 @@
                     console.log('payload: ', payload)
                     this.globalVariableAttribute.push(payload)
                 },
-                toggleStatusInMainMethods: function(payload) {
+                toggleStatusAppLevelFunction: function(payload) {
                     console.log(
                         "We're toggling: ",
                         payload.description,
