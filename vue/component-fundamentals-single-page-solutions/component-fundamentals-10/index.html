@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Fundamentals 06</title>
+</head>
+<body>
+    <nav>
+
+    </nav>
+    <main id='app1'>
+
+        <component-to-add-item
+            @add-item-to-global-array="addItemAppLevelFunction"
+        ></component-to-add-item>
+
+        <template v-if="globalVariableAttribute.length">
+            <h2>
+                The Obligatory List
+            </h2>
+        </template>
+
+        <component-for-each-item-in-array
+            v-for="iteratingVariableForItem in globalVariableAttribute"
+            v-bind:prop-variable-in-component="iteratingVariableForItem"
+            v-bind:key="iteratingVariableForItem.id"
+            @do-something-big="doSomethingBigAppLevelFunction"
+            @toggle-the-status="toggleStatusAppLevelFunction"
+            @rid-us-of-this-thing="deleteItemAppLevelFunction"
+        ></component-for-each-item-in-array>
+
+        <div>
+
+            <template v-if="theTruthees.length">
+                <h2>Computed Property: <code>theTruthees</code></h2>
+                {{ theTruthees }}
+            </template>
+
+            <template v-if="theFalsees.length">
+                <h2>Computed Property: <code>theFalsees</code></h2>
+                {{ theFalsees }}
+            </template>
+
+        </div>
+
+    </main>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- My JS -->
+    <script>
+
+        // Start server:
+        // python -m http.server 8000
+        Vue.component('component-to-add-item', {
+            data: function() {
+                return {
+                    id: 100,
+                    description: '',
+                }
+            },
+            template: `
+            <div>
+                <h2>Gonna add something here!</h2>
+                <input 
+                    type="text" 
+                    placeholder="Input one here" 
+                    v-model="description" 
+                    @keyup.enter="addItemComponentFunction"
+                    >
+                <button @click="addItemComponentFunction">Add One?</button>
+            </div>
+            `,
+            methods: {
+                addItemComponentFunction: function() {
+                    console.log("Component Function: Are we adding one?")
+                    this.$emit('add-item-to-global-array', {
+                        id: this.id,
+                        description: this.description,
+                        theStatus: false,
+                    })
+                    this.id++
+                    this.description = ''
+                }
+            }
+        })
+
+        Vue.component('component-for-each-item-in-array', {
+            props: {
+                propVariableInComponent: Object,
+            },
+            template: `
+            <div>
+                <h3>
+                    {{ propVariableInComponent.id }}
+                    :
+                    {{ propVariableInComponent.description }}
+                    :
+                    {{ propVariableInComponent.theStatus }}
+                </h3>
+                <input
+                    type="checkbox"
+                    v-model="propVariableInComponent.theStatus"
+                    >
+                <button
+                    @click="$emit(
+                        'do-something-big',
+                        propVariableInComponent
+                        )"
+                    >
+                    Do Something:
+                    {{ propVariableInComponent.description }}
+                </button>
+                <button
+                    @click="$emit(
+                        'toggle-the-status',
+                        propVariableInComponent
+                        )"
+                    >
+                    Toggle
+                    {{ propVariableInComponent.description }}
+                    to
+                    {{ !propVariableInComponent.theStatus }}
+                    ?
+                </button>
+                <button
+                    @click="$emit(
+                        'rid-us-of-this-thing',
+                        propVariableInComponent
+                        )"
+                    >
+                    Rid us of 
+                    {{ propVariableInComponent.description }}
+                    ?
+                </button>
+            </div>
+            `,
+        })
+
+        const app1 = new Vue({
+            el: '#app1',
+            data: {
+            globalVariableAttribute: [
+                { id: 1, description: 'Zeroth?',       theStatus: true  },
+                { id: 2, description: 'Firsteth!',     theStatus: false },
+                { id: 3, description: 'Secondest??',   theStatus: true  },
+                { id: 4, description: 'Thirderist??',  theStatus: false },
+                { id: 5, description: 'Fourtheror!',   theStatus: false },
+            ],
+            },
+            computed: {
+                theTruthees: function() {
+                    return this.globalVariableAttribute.filter(function(item) {
+                        return item.theStatus
+                    })
+                },
+                theFalsees: function() {
+                    return this.globalVariableAttribute.filter(function(item) {
+                        return !item.theStatus
+                    })
+                },
+            },
+            methods: {
+                doSomethingBigAppLevelFunction: function(theThing) {
+                    console.log(
+                        "We're trying to do something BIG:",
+                        theThing.description
+                    )
+                },
+                addItemAppLevelFunction: function(payload) {
+                    console.log("App-Level Function: Are we adding one?")
+                    console.log('payload: ', payload)
+                    this.globalVariableAttribute.push(payload)
+                },
+                toggleStatusAppLevelFunction: function(payload) {
+                    console.log(
+                        "We're toggling: ",
+                        payload.description,
+                        " to ",
+                        (payload.theStatus ? "FALSE!" : "TRUE?")
+                    )
+                    payload.theStatus = !payload.theStatus
+                },
+                deleteItemAppLevelFunction: function(payload) {
+                    console.log(
+                        'Ridding us of: ',
+                        payload.description,
+                        payload.id
+                    )
+                    this.globalVariableAttribute.splice(
+                        this.globalVariableAttribute.indexOf(payload),
+                        1
+                    )
+                },
+            }
+        })
+
+    </script>
+</body>
+</html>
