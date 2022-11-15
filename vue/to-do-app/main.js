@@ -37,7 +37,7 @@ const app1 = new Vue({
     methods: {
         addTask: function () {
             console.log("We're adding a task: ", this.taskText)
-            let currentTasksLength = this.tasks.length
+            // let currentTasksLength = this.tasks.length
             let aTask = {
                 id: this.nextID,
                 // id: currentTasksLength + 1,
