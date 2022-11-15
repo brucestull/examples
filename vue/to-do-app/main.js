@@ -17,6 +17,8 @@ const app1 = new Vue({
         appName: "Flynnt Knapp's Awesome Task App",
         taskText: 'Totally Awesome Task',
 
+        nextID: 6,
+
         modelTask: {
             id: '',
             description: '',
@@ -37,12 +39,14 @@ const app1 = new Vue({
             console.log("We're adding a task: ", this.taskText)
             currentTasksLength = this.tasks.length
             aTask = {
-                id: currentTasksLength + 1,
+                id: this.nextID,
+                // id: currentTasksLength + 1,
                 description: this.taskText,
                 isCompleted: false,
             }
             this.tasks.push(aTask)
             this.taskText = ''
+            this.nextID++
         },
         toggleTask: function (task) {
             console.log(
