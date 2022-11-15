@@ -17,14 +17,17 @@ const app1 = new Vue({
         appName: "Flynnt Knapp's Awesome Task App",
         taskText: 'Totally Awesome Task',
 
+        // A property to store the value we will use for the next task.
         nextID: 6,
 
+        // A `modelTask` property to see how our task will look like.
         modelTask: {
             id: '',
             description: '',
             isCompleted: false,
         },
 
+        // Hard-coded list of tasks for testing and debugging purposes.
         tasks: [
             { id:  1, description: 'Scrub the Kitten',  isCompleted: false  },
             { id:  2, description: 'Grip the Vice',     isCompleted: true   },
@@ -39,13 +42,17 @@ const app1 = new Vue({
             console.log("We're adding a task: ", this.taskText)
             // let currentTasksLength = this.tasks.length
             let aTask = {
+                // Use `nextID` instead of length of `tasks`.
+                // This will prevent issues with duplicate `id`s.
                 id: this.nextID,
                 // id: currentTasksLength + 1,
                 description: this.taskText,
                 isCompleted: false,
             }
             this.tasks.push(aTask)
+            // Clear out the text box:
             this.taskText = ''
+            // Increment `nextID`:
             this.nextID++
         },
         toggleTask: function (task) {
