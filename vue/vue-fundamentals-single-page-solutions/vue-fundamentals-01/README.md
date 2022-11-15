@@ -1,4 +1,9 @@
-# Display a String on the Page
+# Pass a String to the Page
+
+## Important symbols:
+* `<main id='app1'>`
+* `{{ applicationName }}`
+* `el: '#app1',`
 
 * HTML in [`index.html`](./index.html):
     ```

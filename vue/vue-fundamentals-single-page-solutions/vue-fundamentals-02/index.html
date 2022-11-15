@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Fundamentals 02</title>
+</head>
+<body>
+    <nav>
+
+    </nav>
+
+    <!-------------------------------------------------------->
+    <!-- Our Vue application interfaces with the HTML here. -->
+    <main id='app1'>
+        <h1>{{ applicationName }}</h1>
+        <p>{{ aSimpleArray }}</p>
+    </main>
+    <!-------------------------------------------------------->
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- My JS -->
+    <script>
+
+        // Start server:
+        // python -m http.server 8000
+
+        // Vue application code goes here:
+        const app1 = new Vue({
+            el: '#app1',
+            data: {
+                applicationName: "Flynnt Knapp's Awesome Vue Fundamentals App???",
+                aSimpleArray: [
+                    'First Thing',
+                    'Second Thing',
+                    'Third Thing',
+                ]
+            },
+        })
+
+    </script>
+</body>
+</html>
