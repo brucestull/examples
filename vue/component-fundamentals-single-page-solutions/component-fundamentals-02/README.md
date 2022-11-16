@@ -33,3 +33,6 @@
     </p>
     `
     ```
+
+* Image:  
+![vue_component_basics](https://user-images.githubusercontent.com/47562501/202300640-b7fa4f91-dcd7-473b-b87a-a4360313d2ed.png)
