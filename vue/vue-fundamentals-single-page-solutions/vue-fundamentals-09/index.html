@@ -34,7 +34,19 @@
                 v-for="singleItem in anObjectArray"
                 v-bind:key="singleItem.id"
                 >
-                {{ singleItem.id }} - {{ singleItem.description }}
+                <button
+                    v-if="!singleItem.status"
+                    v-on:click="toggleItem(singleItem)"
+                    >
+                    C &check;
+                </button>
+                <button
+                    v-if="singleItem.status"
+                    v-on:click="toggleItem(singleItem)"
+                    >
+                    I &cularr;
+                </button>
+                {{ singleItem.id }} - {{ singleItem.description }} - {{ singleItem.status }}
             </li>
         </ul>
     </main>
@@ -53,11 +65,12 @@
             data: {
                 applicationName: "Flynnt Knapp's Awesome Vue Fundamentals App???",
                 anObjectArray: [
-                    { id: 1, description: 'First Thing' },
-                    { id: 2, description: 'Second Thing'},
-                    { id: 3, description: 'Third Thing' },
+                    { id: 1, description: 'First Thing',  status: true  },
+                    { id: 2, description: 'Second Thing', status: false },
+                    { id: 3, description: 'Third Thing',  status: false },
+                    { id: 4, description: 'Fourth Thing', status: true  },
                     ],
-                nextObjectID: 4,
+                nextObjectID: 5,
                 inputElementText: '',
             },
             methods: {
@@ -68,6 +81,7 @@
                         let newObject = {
                             id: this.nextObjectID,
                             description: this.inputElementText,
+                            status: false,
                         }
                         this.anObjectArray.push(newObject)
                         this.nextObjectID++
@@ -75,6 +89,10 @@
                     } else {
                         console.log("Input IS empty so we're not gonna add!")
                     }
+                },
+                toggleItem: function(payload) {
+                    console.log("Toggling: ", payload.id, payload.description, "from", payload.status)
+                    payload.status = !payload.status
                 }
             }
         })

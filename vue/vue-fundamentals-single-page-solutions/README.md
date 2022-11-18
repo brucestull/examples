@@ -8,5 +8,5 @@
 1. [Include Function to Add Hard-coded Object to the Array Object `anObjectArray`](./vue-fundamentals-06/README.md)
 1. [Add Input Element for Adding New Item](./vue-fundamentals-07/README.md)
 1. [Fix Bug Where Item With Empty `description` Can be Added](./vue-fundamentals-08/README.md)
-1. [](./vue-fundamentals-09/README.md)
+1. [Add `status` Button to Toggle the Item's `status` property](./vue-fundamentals-09/README.md)
 
