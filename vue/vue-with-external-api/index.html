@@ -36,28 +36,27 @@
         <dl v-if="Object.keys(oneRandomQuote).length">
             <dt><code>oneRandomQuote</code></dt>
             <dd>{{ oneRandomQuote }}</dd>
-            <dt><code>oneRandomQuote.id</code></dt>
-            <dd><a :href="oneRandomQuote.url" target="_blank">{{ oneRandomQuote.id }}</a></dd>
             <dt><code>oneRandomQuote.body</code></dt>
             <dd>{{ oneRandomQuote.body }}</dd>
             <dt><code>oneRandomQuote.author</code></dt>
             <dd>{{ oneRandomQuote.author }}</dd>
+            <dt><code>oneRandomQuote.id</code></dt>
+            <dd><a :href="oneRandomQuote.url" target="_blank">{{ oneRandomQuote.id }}</a></dd>
         </dl>
 
         <div v-if="randomQuotes.length">
             <h2><code>randomQuotes</code></h2>
-            <ul>
-                <li
-                    v-for="quote in randomQuotes"
-                    v-bind:key="quote.id"
-                    >
-                    <a :href="quote.url" target="_blank">{{ quote.id }}</a>
-                    --
-                    {{ quote.author }}
-                    --
-                    {{ quote.body }}
-                </li>
-            </ul>
+            <dl
+                v-for="quote in randomQuotes"
+                v-bind:key="quote.id"
+                >
+                <dt><code>quote.body</code></dt>
+                <dd>{{ quote.body }}</dd>
+                <dt><code>quote.author</code></dt>
+                <dd>{{ quote.author }}</dd>
+                <dt><code>quote.id</code></dt>
+                <dd><a :href="quote.url" target="_blank">{{ quote.id }}</a></dd>
+            </dl>
         </div>
 
     </main>
