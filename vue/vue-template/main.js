@@ -13,5 +13,16 @@ const app1 = new Vue({
     computed: {
 
     },
-
+    beforeMount: function() {
+        console.log("About to mount!")
+    },
+    mounted: function() {
+        console.log("Mounted")
+    },
+    destroyed: function() {
+        console.log("Destroyed")
+    },
+    created: function() {
+        console.log("Created")
+    },
 })
