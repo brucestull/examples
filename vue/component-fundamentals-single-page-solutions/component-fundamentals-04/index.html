@@ -14,7 +14,7 @@
 
         <the-component-name
             v-for="theItem in globalVariableAttribute"
-            v-bind:prop-variable-in-component="theItem"
+            v-bind:props-variable-in-component="theItem"
             v-bind:key="theItem.id"
         ></the-component-name>
 
@@ -30,11 +30,11 @@
 
         Vue.component('the-component-name', {
             props: {
-                propVariableInComponent: Object,
+                propsVariableInComponent: Object,
             },
             template: `
             <p>
-            {{ propVariableInComponent.id }} : {{ propVariableInComponent.description }}
+            {{ propsVariableInComponent.id }} : {{ propsVariableInComponent.description }}
             </p>
             `
         })
@@ -42,11 +42,12 @@
         const app1 = new Vue({
             el: '#app1',
             data: {
-            globalVariableAttribute: [
-                { id: 1, description: 'The first string in list'    },
-                { id: 2, description: 'The second string in list'   },
-                { id: 3, description: 'The third string in list'    },
-            ],
+                globalVariableAttribute: [
+                    { id: 1, description: 'The first string in list'    },
+                    { id: 2, description: 'The second string in list'   },
+                    { id: 3, description: 'The third string in list'    },
+                    { id: 4, description: 'The fourth string in list'   },
+                ],
             }
         })
 
