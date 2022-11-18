@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue HTML Select Element</title>
+    <title>Vue - HTML Select Element</title>
 <body>
     <nav>
 
@@ -13,7 +13,7 @@
     <main id='app1'>
         <h1>{{ name }}</h1>
 
-        <h2>The Super Important HTML Select Element</h2>
+        <h2>The Super Important HTML Select Element in Vue</h2>
         <select v-model="selectElementValue">
             <option
                 disabled
@@ -29,11 +29,16 @@
                 {{ option }}
             </option>
         </select>
+        <button
+            v-on:click="methodForButtonClick"
+            >
+            Run <code>methodForButtonClick</code>!
+        </button>
 
     </main>
 
     <div>
-        <h2>Code for the HTML Select Element</h2>
+        <h2>Markup for the HTML Select Element in Vue</h2>
         <pre>
     &ltselect v-model="selectElementValue"&gt
         &ltoption
@@ -50,6 +55,12 @@
             {{ option }}
         &lt/option&gt
     &lt/select&gt
+
+    &ltbutton
+        v-on:click="methodForButtonClick"
+        &gt
+        Run &ltcode&gtmethodForButtonClick&lt/code&gt!
+    &lt/button&gt
 
     &ltscript&gt
         const app1 = new Vue({
@@ -79,7 +90,7 @@
         const app1 = new Vue({
             el: '#app1',
             data: {
-                name: 'Vue HTML Select Element',
+                name: 'Vue - HTML Select Element',
 
                 selectElementValue: '',
                 selectElementOptions: [
@@ -89,6 +100,11 @@
                 ]
             },
             methods: {
+                methodForButtonClick: function (){
+                    console.log("Button clicked!")
+                    console.log("Running Method: methodForButtonClick")
+                    console.log("this.selectElementValue: " + this.selectElementValue)
+                }
 
             },
             computed: {
