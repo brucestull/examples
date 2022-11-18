@@ -44,17 +44,17 @@
             <dd><a :href="oneRandomQuote.url" target="_blank">{{ oneRandomQuote.id }}</a></dd>
         </dl>
 
-        <div v-if="randomQuotes.length">
-            <h2><code>randomQuotes</code></h2>
+        <div v-if="quotesArray.length">
+            <h2><code>quotesArray[N]</code></h2>
             <dl
-                v-for="quote in randomQuotes"
+                v-for="quote in quotesArray"
                 v-bind:key="quote.id"
                 >
-                <dt><code>quote.body</code></dt>
+                <dt><code>quotesArray[{{ quotesArray.indexOf(quote) }}].body</code></dt>
                 <dd>{{ quote.body }}</dd>
-                <dt><code>quote.author</code></dt>
+                <dt><code>quotesArray[{{ quotesArray.indexOf(quote) }}].author</code></dt>
                 <dd>{{ quote.author }}</dd>
-                <dt><code>quote.id</code></dt>
+                <dt><code>quotesArray[{{ quotesArray.indexOf(quote) }}].id</code></dt>
                 <dd><a :href="quote.url" target="_blank">{{ quote.id }}</a></dd>
             </dl>
         </div>
@@ -76,13 +76,13 @@
                     {id: 1, name: "FavQs-QOTD", url: "https://favqs.com/api/qotd"},
                     {id: 2, name: "jsonplaceholder", url: "https://jsonplaceholder.typicode.com/todos/"},
                 ],
-                randomQuotes: [],
+                quotesArray: [],
                 oneRandomQuote: {},
 
             },
             methods: {
                 getAndLoadOneRandomQuote: function() {
-                    this.randomQuotes = []
+                    this.quotesArray = []
                     console.log("We're trying to getAndLoadOneRandomQuote!")
 
                     axios({
@@ -102,7 +102,7 @@
                 },
                 getSeveralRandomQuotes: function() {
                     this.oneRandomQuote = {}
-                    this.randomQuotes = []
+                    this.quotesArray = []
                     console.log("We're trying to getSeveralRandomQuotes!")
                     for (let i = 0; i < 5; i++) {
                         
@@ -113,13 +113,12 @@
                         }).then((response) => {
                             let theQuote = response.data.quote
                             console.log("theQuote: ", theQuote)
-                            this.randomQuotes.push(theQuote)
+                            this.quotesArray.push(theQuote)
                         }).catch(error => {
                             console.log("error.response.data: ", error.response.data)
                         })
 
                     }
-
                 },
                 pingJsonPlaceholder: function() {
                     console.log("We're trying to pingJsonPlaceholder!")
