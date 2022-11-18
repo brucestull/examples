@@ -33,16 +33,16 @@
         </button>
         <br>
 
-        <div v-if="Object.keys(oneRandomQuote).length">
-            <h2><code>oneRandomQuote</code></h2>
-            <p>{{ oneRandomQuote }}</p>
-            <h3><code>oneRandomQuote.id</code></h3>
-            <p><a :href="oneRandomQuote.url" target="_blank">{{ oneRandomQuote.id }}</a></p>
-            <h3><code>oneRandomQuote.body</code></h3>
-            <p>{{ oneRandomQuote.body }}</p>
-            <h3><code>oneRandomQuote.author</code></h3>
-            <p>{{ oneRandomQuote.author }}</p>
-        </div>
+        <dl v-if="Object.keys(oneRandomQuote).length">
+            <dt><code>oneRandomQuote</code></dt>
+            <dd>{{ oneRandomQuote }}</dd>
+            <dt><code>oneRandomQuote.id</code></dt>
+            <dd><a :href="oneRandomQuote.url" target="_blank">{{ oneRandomQuote.id }}</a></dd>
+            <dt><code>oneRandomQuote.body</code></dt>
+            <dd>{{ oneRandomQuote.body }}</dd>
+            <dt><code>oneRandomQuote.author</code></dt>
+            <dd>{{ oneRandomQuote.author }}</dd>
+        </dl>
 
         <div v-if="randomQuotes.length">
             <h2><code>randomQuotes</code></h2>
@@ -80,7 +80,6 @@
                 randomQuotes: [],
                 oneRandomQuote: {},
 
-                oneTempQuote: {},
             },
             methods: {
                 getAndLoadOneRandomQuote: function() {
