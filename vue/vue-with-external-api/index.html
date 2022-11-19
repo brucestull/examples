@@ -13,16 +13,34 @@
     <main id='app1'>
         <h1>{{ name }}</h1>
 
+        <h2>Some Preset Button Searches:</h2>
+
         <button
-            v-on:click="getAndLoadOneRandomQuote"
-            >
-            <code>getAndLoadOneRandomQuote</code>!
+        v-on:click="getAndLoadOneRandomQuote"
+        >
+        <code>
+            <s>
+                getAndLoadOneRandomQuote
+            </s>
+        </code>!
         </button>
         <br>
         <button
             v-on:click="getSeveralRandomQuotes"
             >
             <code>getSeveralRandomQuotes</code>!
+        </button>
+        <br>
+        <button
+            v-on:click="getSeveralRandomQuotes(1)"
+            >
+            <code>getSeveralRandomQuotes(1)</code>!
+        </button>
+        <br>
+        <button
+            v-on:click="getSeveralRandomQuotes(3)"
+            >
+            <code>getSeveralRandomQuotes(3)</code>!
         </button>
         <br>
 
@@ -32,6 +50,25 @@
             jsonplaceholder!
         </button>
         <br>
+
+        <h2>The Super Important HTML Select Element in Vue</h2>
+        <select v-model="inputType">
+            <option
+                disabled
+                selected
+                value=""
+                >
+                Select an option
+            </option>
+            <option
+                v-for="option in searchTypes"
+                v-bind:value="option"
+                >
+                {{ option }}
+            </option>
+        </select>
+
+        <input v-model="inputTerm" type="text" placeholder="Search Term">
 
         <dl v-if="Object.keys(oneRandomQuote).length">
             <dt><code>oneRandomQuote</code></dt>
@@ -72,12 +109,28 @@
             el: '#app1',
             data: {
                 name: 'Vue Example with External API Call',
+
                 endPoints: [
                     {id: 1, name: "FavQs-QOTD", url: "https://favqs.com/api/qotd"},
                     {id: 2, name: "jsonplaceholder", url: "https://jsonplaceholder.typicode.com/todos/"},
                 ],
+
+                searchTypes: [
+                    'author',
+                    'keyword',
+                    'tag',
+                ],
+                
+                inputType: 'author',
+                inputTerm: 'plato',
+                
+                currentSearchType: '',
+                currentSearchTerm: '',
+                
                 quotesArray: [],
                 oneRandomQuote: {},
+
+                SEVERAL: 5,
 
             },
             methods: {
@@ -100,11 +153,22 @@
                     })
 
                 },
-                getSeveralRandomQuotes: function() {
+                getSeveralRandomQuotes: function(several) {
+                    // If `several` is not integer type, then set it to the default value.
+                    // console.log("Number.isInteger(several): ", Number.isInteger(several))
+                    if (!Number.isInteger(several)) {
+                        console.log("We NOT an integer!")
+                        several = this.SEVERAL 
+                    } else {
+                        console.log("We ARE an integer!")
+                    }
+                    // console.log("several: ", several)
+                    // console.log("Number.isInteger(several): ", Number.isInteger(several))
+                    // console.log("this.SEVERAL: ", this.SEVERAL)
                     this.oneRandomQuote = {}
                     this.quotesArray = []
-                    console.log("We're trying to getSeveralRandomQuotes!")
-                    for (let i = 0; i < 5; i++) {
+                    // console.log("We're trying to getSeveralRandomQuotes!")
+                    for (let i = 0; i < several; i++) {
                         
                         console.log("Doing loop: #", i)
                         axios({
@@ -112,13 +176,17 @@
                             url: "https://favqs.com/api/qotd",
                         }).then((response) => {
                             let theQuote = response.data.quote
-                            console.log("theQuote: ", theQuote)
+                            // console.log("theQuote: ", theQuote)
                             this.quotesArray.push(theQuote)
                         }).catch(error => {
                             console.log("error.response.data: ", error.response.data)
                         })
 
                     }
+                },
+                getPageOfQuotes: function() {
+                    console.log(`Trying to get some ${this.inputType}:${this.inputTerm} quotes!`)
+
                 },
                 pingJsonPlaceholder: function() {
                     console.log("We're trying to pingJsonPlaceholder!")
