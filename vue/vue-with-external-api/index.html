@@ -28,19 +28,19 @@
         <button
             v-on:click="getSeveralRandomQuotes"
             >
-            <code>getSeveralRandomQuotes</code>!
+            <code>v-on:click="getSeveralRandomQuotes"</code>!
         </button>
         <br>
         <button
             v-on:click="getSeveralRandomQuotes(1)"
             >
-            <code>getSeveralRandomQuotes(1)</code>!
+            <code>v-on:click="getSeveralRandomQuotes(1)"</code>!
         </button>
         <br>
         <button
             v-on:click="getSeveralRandomQuotes(3)"
             >
-            <code>getSeveralRandomQuotes(3)</code>!
+            <code>v-on:click="getSeveralRandomQuotes(3)"</code>!
         </button>
         <br>
 
@@ -82,7 +82,7 @@
         </dl>
 
         <div v-if="quotesArray.length">
-            <h2><code>quotesArray[N]</code></h2>
+            <h2><code>quotesArray.length: {{ quotesArray.length }}</code></h2>
             <dl
                 v-for="quote in quotesArray"
                 v-bind:key="quote.id"
@@ -103,6 +103,8 @@
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <!-- My JS -->
     <script>
+        // Resources:
+        // https://favqs.com/api/
         // Start server:
         // python -m http.server 8000
         const app1 = new Vue({
@@ -157,7 +159,7 @@
                     // If `several` is not integer type, then set it to the default value.
                     // console.log("Number.isInteger(several): ", Number.isInteger(several))
                     if (!Number.isInteger(several)) {
-                        console.log("We NOT an integer!")
+                        console.log("We ARE NOT an integer!")
                         several = this.SEVERAL 
                     } else {
                         console.log("We ARE an integer!")
@@ -199,7 +201,9 @@
                 },
             },
             computed: {
-
+                numberOfQuotes: function() {
+                    return this.quotesArray.length
+                },
             },
             beforeMount: function() {
                 console.log("About to mount!")
@@ -212,6 +216,7 @@
             },
             created: function() {
                 console.log("Created")
+                this.getSeveralRandomQuotes(2)
             },
         })
     </script>
