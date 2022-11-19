@@ -16,16 +16,6 @@
         <h2>Some Preset Button Searches:</h2>
 
         <button
-        v-on:click="getAndLoadOneRandomQuote"
-        >
-        <code>
-            <s>
-                getAndLoadOneRandomQuote
-            </s>
-        </code>!
-        </button>
-        <br>
-        <button
             v-on:click="getSeveralRandomQuotes"
             >
             <code>v-on:click="getSeveralRandomQuotes"</code>!
@@ -41,13 +31,6 @@
             v-on:click="getSeveralRandomQuotes(3)"
             >
             <code>v-on:click="getSeveralRandomQuotes(3)"</code>!
-        </button>
-        <br>
-
-        <button
-            v-on:click="pingJsonPlaceholder"
-            >
-            jsonplaceholder!
         </button>
         <br>
 
@@ -67,22 +50,39 @@
                 {{ option }}
             </option>
         </select>
-
-        <input v-model="inputTerm" type="text" placeholder="Search Term">
-
-        <dl v-if="Object.keys(oneRandomQuote).length">
-            <dt><code>oneRandomQuote</code></dt>
-            <dd>{{ oneRandomQuote }}</dd>
-            <dt><code>oneRandomQuote.body</code></dt>
-            <dd>{{ oneRandomQuote.body }}</dd>
-            <dt><code>oneRandomQuote.author</code></dt>
-            <dd>{{ oneRandomQuote.author }}</dd>
-            <dt><code>oneRandomQuote.id</code></dt>
-            <dd><a :href="oneRandomQuote.url" target="_blank">{{ oneRandomQuote.id }}</a></dd>
-        </dl>
+        <input
+            v-model="inputTerm"
+            v-on:keyup.enter="searchQuotes"
+            type="text"
+            placeholder="Search Term"
+            >
+        <button
+            v-on:click="searchQuotes"
+            >
+            <code>v-on:click="searchQuotes"</code>!
+        </button>
 
         <div v-if="quotesArray.length">
             <h2><code>quotesArray.length: {{ quotesArray.length }}</code></h2>
+            <p
+                v-if="Object.keys(responseData).length"
+                >
+                Page: {{ responseData.page }}
+            </p>
+            <h3 v-if="currentSearchType"><code>Search Type: {{ currentSearchType }}</code></h3>
+            <h3 v-if="currentSearchTerm"><code>Search Term: {{ currentSearchTerm }}</code></h3>
+            <button
+                v-on:click="previousPage"
+                v-if="responseData.page > 1"
+                >
+                <code>previousPage</code>
+            </button>
+            <button
+                v-on:click="nextPage"
+                v-if="!responseData.last_page && Object.keys(responseData).length"
+                >
+                <code>nextPage</code>
+            </button>
             <dl
                 v-for="quote in quotesArray"
                 v-bind:key="quote.id"
@@ -114,8 +114,8 @@
 
                 endPoints: [
                     {id: 1, name: "FavQs-QOTD", url: "https://favqs.com/api/qotd"},
-                    {id: 2, name: "jsonplaceholder", url: "https://jsonplaceholder.typicode.com/todos/"},
                 ],
+                token: `Token token="855df50978dc9afd6bf86579913c9f8b"`,
 
                 searchTypes: [
                     'author',
@@ -123,62 +123,40 @@
                     'tag',
                 ],
                 
-                inputType: 'author',
-                inputTerm: 'plato',
+                inputType: '',
+                inputTerm: '',
                 
                 currentSearchType: '',
                 currentSearchTerm: '',
                 
+                responseData: {},
                 quotesArray: [],
-                oneRandomQuote: {},
 
                 SEVERAL: 5,
-
+                nextPageNumber: 1,
+                
             },
             methods: {
-                getAndLoadOneRandomQuote: function() {
-                    this.quotesArray = []
-                    console.log("We're trying to getAndLoadOneRandomQuote!")
-
-                    axios({
-                        method: "GET",
-                        url: "https://favqs.com/api/qotd",
-                    }).then((response) => {
-                        // console.log("response: ", response)
-                        let theQuote = response.data.quote
-                        console.log("theQuote: ", theQuote)
-                        // console.log("theQuote.id: ", theQuote.id)
-                        // console.log("theQuote.body: ", theQuote.body)
-                        this.oneRandomQuote = theQuote
-                    }).catch(error => {
-                        console.log("error.response.data: ", error.response.data)
-                    })
-
-                },
                 getSeveralRandomQuotes: function(several) {
-                    // If `several` is not integer type, then set it to the default value.
-                    // console.log("Number.isInteger(several): ", Number.isInteger(several))
+                    this.nextPageNumber = 1
+                    this.responseData = {};
+                    this.currentSearchType = ''
+                    this.currentSearchTerm = ''
                     if (!Number.isInteger(several)) {
-                        console.log("We ARE NOT an integer!")
+                        console.log("Getting default `5` quotes!")
                         several = this.SEVERAL 
                     } else {
-                        console.log("We ARE an integer!")
+                        console.log("Number quotes requested: ", several)
                     }
-                    // console.log("several: ", several)
-                    // console.log("Number.isInteger(several): ", Number.isInteger(several))
-                    // console.log("this.SEVERAL: ", this.SEVERAL)
                     this.oneRandomQuote = {}
                     this.quotesArray = []
-                    // console.log("We're trying to getSeveralRandomQuotes!")
                     for (let i = 0; i < several; i++) {
                         
-                        console.log("Doing loop: #", i)
                         axios({
                             method: "GET",
                             url: "https://favqs.com/api/qotd",
                         }).then((response) => {
                             let theQuote = response.data.quote
-                            // console.log("theQuote: ", theQuote)
                             this.quotesArray.push(theQuote)
                         }).catch(error => {
                             console.log("error.response.data: ", error.response.data)
@@ -186,24 +164,52 @@
 
                     }
                 },
-                getPageOfQuotes: function() {
-                    console.log(`Trying to get some ${this.inputType}:${this.inputTerm} quotes!`)
-
-                },
-                pingJsonPlaceholder: function() {
-                    console.log("We're trying to pingJsonPlaceholder!")
+                callTheEndpoint: function() {
+                    console.log("Getting The Quotes!")
                     axios({
                         method: "GET",
-                        url: "https://jsonplaceholder.typicode.com/todos/",
+                        url: "https://favqs.com/api/quotes",
+                        headers: {
+                            Authorization: this.token
+                        },
+                        params: {
+                            type: this.currentSearchType,
+                            filter: this.currentSearchTerm,
+                            page: this.nextPageNumber
+                        },
                     }).then((response) => {
-                        console.log(response)
+                        this.responseData = response.data
+                        this.quotesArray = this.responseData.quotes
+                        this.nextPageNumber = this.responseData.page + 1
+                    }).catch(error => {
+                        console.log("error.response.data: ", error.response.data)
                     })
+                },
+                searchQuotes: function() {
+                    this.quotesArray = []
+                    this.nextPageNumber = 1
+                    if (this.inputType !== '' && this.inputTerm !== '') {
+                        this.currentSearchType = this.inputType
+                        this.currentSearchTerm = this.inputTerm
+                        this.inputType = ''
+                        this.inputTerm = ''
+                        console.log("Searching for quotes!")
+                        this.callTheEndpoint()
+                    }
+                },
+                previousPage: function() {
+                    console.log("We're trying to get the previous page!")
+                    if (this.responseData.page > 1) {
+                        this.nextPageNumber = this.responseData.page - 1
+                        this.callTheEndpoint()
+                    }
+                },
+                nextPage: function() {
+                    console.log("We're trying to get the next page!")
+                    this.callTheEndpoint()
                 },
             },
             computed: {
-                numberOfQuotes: function() {
-                    return this.quotesArray.length
-                },
             },
             beforeMount: function() {
                 console.log("About to mount!")
