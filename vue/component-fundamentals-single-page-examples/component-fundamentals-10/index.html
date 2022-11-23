@@ -35,12 +35,26 @@
 
             <template v-if="theTruthees.length">
                 <h2>Computed Property: <code>theTruthees</code></h2>
-                {{ theTruthees }}
+                <component-for-each-item-in-array
+                v-for="iteratingVariableForItem in theTruthees"
+                v-bind:prop-variable-in-component="iteratingVariableForItem"
+                v-bind:key="iteratingVariableForItem.id"
+                @do-something-big="doSomethingBigAppLevelFunction"
+                @toggle-the-status="toggleStatusAppLevelFunction"
+                @rid-us-of-this-thing="deleteItemAppLevelFunction"
+                ></component-for-each-item-in-array>
             </template>
 
             <template v-if="theFalsees.length">
                 <h2>Computed Property: <code>theFalsees</code></h2>
-                {{ theFalsees }}
+                <component-for-each-item-in-array
+                v-for="iteratingVariableForItem in theFalsees"
+                v-bind:prop-variable-in-component="iteratingVariableForItem"
+                v-bind:key="iteratingVariableForItem.id"
+                @do-something-big="doSomethingBigAppLevelFunction"
+                @toggle-the-status="toggleStatusAppLevelFunction"
+                @rid-us-of-this-thing="deleteItemAppLevelFunction"
+                ></component-for-each-item-in-array>
             </template>
 
         </div>
@@ -101,20 +115,28 @@
                 <h3>
                     {{ propVariableInComponent.id }}
                     :
-                    {{ propVariableInComponent.description }}
+
+                    <template
+                        v-if="makingSomeChanges"
+                        >
+                        <input
+                            type="text"
+                            v-model="propVariableInComponent.description"
+                            >
+                    </template>
+                    <template v-else>
+                        {{ propVariableInComponent.description }}
+                    </template>
                     :
                     {{ propVariableInComponent.theStatus }}
                 </h3>
                 <template
                     v-if="makingSomeChanges"
                     >
-                    <input
-                        type="text"
-                        v-model="propVariableInComponent.description"
-                        >
+                    <button @click="makingSomeChanges = false">Finish Edit</button>
                 </template>
                 <template v-else>
-                    No input element goeth here...
+                    <button @click="makingSomeChanges = true">Edit The Thing</button>
                 </template>
                 <button
                     @click="$emit(
