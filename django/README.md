@@ -4,7 +4,6 @@
 * [Create `pipenv` virtual environment for a Django project](./pipenv-setup/README.md)
 * [Create Django Project with List View First](./list-create-views/README.md)
 * [List View with Home](./list-view-with-home/README.md)
-* [Django REST - Basic](./rest-basic/README.md)
 * [Demonstrate `reverse()` Method](./reverse/README.md)
 
 ## Code Examples Repository links:
