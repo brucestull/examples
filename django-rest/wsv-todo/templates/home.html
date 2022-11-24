@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDos Conglomerate</title>
+</head>
+<body>
+    <nav>
+        <a href="">Home</a><br>
+        <a href="/admin/" target="_blank">Django Admin Interface</a><br>
+        <a href="/api/v1/" target="_blank">Django Browsable API</a><br>
+    </nav>
+    <main id="app">
+        <p>[[ weGottaStartSomewhere ]]</p>
+
+    </main>
+    <footer></footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            delimiters: ['[[', ']]'],
+            data: {
+                weGottaStartSomewhere: 'Goodbuy, World! Enjoy the Sail!'
+            },
+            methods: {
+
+            },
+            computed: {
+        
+            },
+            beforeCreate: function() {
+                console.log("About to Create!")
+            },
+            created: function() {
+                console.log("Created")
+            },
+            beforeMount: function() {
+                console.log("About to Mount!")
+            },
+            mounted: function() {
+                console.log("Mounted")
+            },
+            beforeUpdate: function() {
+                console.log("About to Update!")
+            },
+            updated: function() {
+                console.log("Updated")
+            },
+            beforeDestroy: function() {
+                console.log("About to Destroy!")
+            },
+            destroyed: function() {
+                console.log("Destroyed")
+            },
+        })
+    </script>
+</body>
+</html>

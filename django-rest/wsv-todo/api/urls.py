@@ -7,9 +7,8 @@ from .views import TodoViewSet
 router = DefaultRouter()
 router.register('', TodoViewSet, basename='todos')
 urlpatterns = [
-    
-] + router.urls
 
+] + router.urls
 
 
 # #### Alternate code for TodoViewSet ####
