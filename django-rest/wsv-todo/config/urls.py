@@ -21,6 +21,6 @@ urlpatterns = [
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/v1/', include('api.urls')),
+    path('api/v1/todos/', include('api.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
 ]
