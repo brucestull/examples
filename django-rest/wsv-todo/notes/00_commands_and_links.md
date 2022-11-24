@@ -7,6 +7,7 @@
     * Create a `pipenv` virtual environment for the current directory.
 * `pipenv install django==4.0`
 * `pipenv install django==4.1`
+* `pipenv install djangorestframework==3.14.0`
 * `pipenv install docutils==0.19`
 * `pipenv shell`
 * `exit`
@@ -58,6 +59,7 @@
 * Server Root:
     * http://localhost:8000/
 * App links:
+    * http://localhost:8000/api/v1/
 * Django Admin:
     * http://localhost:8000/admin/
 * Django Admin Documentation:
