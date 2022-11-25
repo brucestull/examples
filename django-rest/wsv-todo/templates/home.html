@@ -17,7 +17,13 @@
         <p>[[ weGottaStartSomewhere ]]</p>
 
         <h2>The Obligatory Big List!</h2>
-        <item-component></item-component>
+        <ul>
+            <item-component
+                v-for="todo in theTodos"
+                v-bind:prop-variable-in-component="todo"
+                v-bind:key="todo.id"
+                ></item-component>
+        </ul>
 
         <h2>Raw Items!</h2>
         <p>
@@ -34,11 +40,38 @@
         // python manage.py runserver
 
         Vue.component('item-component', {
+            delimiters: ['[[', ']]'],
+            data: function() {
+                return {
+                    editMode: false,
+                }
+            },
+            props: {
+                propVariableInComponent: Object,
+            },
             template: `
-            <div>
-                <p>The Obligatory Item in List</p>
-            </div>
+            <li>
+                <button v-on:click="editMode = !editMode">
+                    <template v-if="editMode">Save</template>
+                    <template v-else>Edit</template>
+                </button>
+                <button v-if="editMode" v-on:click="deleteItem">Delete</button>
+                <button v-if="editMode" v-on:click="updateItem">Update</button>
+                [[ propVariableInComponent.id ]]
+                :
+                [[ propVariableInComponent.title ]]
+                -
+                [[ propVariableInComponent.description ]]
+            </li>
             `,
+            methods: {
+                deleteItem: function() {
+                    console.log("Delete Item:", this.propVariableInComponent.id)
+                },
+                updateItem: function() {
+                    console.log("Update Item:", this.propVariableInComponent.id)
+                },
+            }
         })
 
         const vm = new Vue({
@@ -47,7 +80,8 @@
             data: {
                 weGottaStartSomewhere: 'Goodbuy, World! Enjoy the Sail!',
                 theTodos: [],
-                todosUrl: '/api/v1/todos/'
+                todosUrl: '/api/v1/todos/',
+                stringToPassToComponent: 'This is a string passed to the component',
             },
             methods: {
                 loadTodosGet: function() {
