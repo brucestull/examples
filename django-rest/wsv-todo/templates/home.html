@@ -60,12 +60,25 @@
                 todosCount: function() {
                     return this.theTodos.length;
                 },
-                completedTodos: function() {
+                
+                completedTodosArrow: function() {
                     return this.theTodos.filter(todo => todo.completed);
                 },
-                incompletedTodos: function() {
+                completedTodos: function() {
+                    return this.theTodos.filter(function(todo) {
+                        return todo.completed;
+                    });
+                },
+                
+                incompletedTodosArrow: function() {
                     return this.theTodos.filter(todo => !todo.completed);
                 },
+                incompletedTodos: function() {
+                    return this.theTodos.filter(function(todo) {
+                        return !todo.completed;
+                    });
+                },
+                
             },
             beforeCreate: function() {
                 console.log("About to Create!")
