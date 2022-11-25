@@ -7,14 +7,26 @@
     <title>ToDos Conglomerate</title>
 </head>
 <body>
+    {% csrf_token %}
     <nav>
         <a href="">Home</a><br>
         <a href="/admin/" target="_blank">Django Admin Interface</a><br>
-        <a href="/api/v1/todos/" target="_blank"><code>todos</code> - Django Browsable API</a><br>
-        <a href="http://localhost:8000/admin/todos/todo/" target="_blank">ToDos - Django Admin Interface</a><br>
+        <a href="/api/v1/todos/" target="_blank">
+            <code>todos</code> - Django Browsable API
+        </a><br>
+        <a
+            href="http://localhost:8000/admin/todos/todo/"
+            target="_blank"
+            >
+            ToDos - Django Admin Interface
+        </a><br>
     </nav>
     <main id="app">
-        <p>[[ weGottaStartSomewhere ]]</p>
+
+        <h2>Add Something Here?!?!?</h2>
+        <add-component
+            @add-item="addItem"
+            ></add-component>
 
         <h2>The Obligatory Big List!</h2>
         <ul>
@@ -41,12 +53,47 @@
         // Start server:
         // python manage.py runserver
 
+        Vue.component('add-component', {
+            delimiters: ['[[', ']]'],
+            data: function() {
+                return {
+                    newItem: {},
+                }
+            },
+            template:`
+                <div>
+                    <label for="title">Title</label>
+                    <input
+                        type="text"
+                        id="title"
+                        v-model="newItem.title"
+                        placeholder="Title"
+                        >
+                    <br>
+                    <label for="description">Description</label>
+                    <input
+                        type="text"
+                        id="description"
+                        v-model="newItem.description"
+                        placeholder="Description"
+                        >
+                    <button @click="addItem">Add Item</button>
+                </div>
+            `,
+            methods: {
+                addItem: function() {
+                    this.$emit('add-item', this.newItem)
+                    this.newItem = {}
+                },
+
+            },
+        })
+
         Vue.component('item-component', {
             delimiters: ['[[', ']]'],
             data: function() {
                 return {
                     editMode: false,
-                    theItem: {},
                 }
             },
             props: {
@@ -124,10 +171,18 @@
             el: '#app',
             delimiters: ['[[', ']]'],
             data: {
-                weGottaStartSomewhere: 'Goodbuy, World! Enjoy the Sail!',
                 theTodos: [],
                 todosUrl: '/api/v1/todos/',
-                stringToPassToComponent: 'This is a string passed to the component',
+
+
+                testItem: {
+                    "title": "Garble the Code",
+                    "description": "Break It!"
+                },
+                
+                testPatchItem: {
+                    "title": "No Stinking Badgers!",
+                },
             },
             methods: {
                 loadTodosGet: function() {
@@ -150,6 +205,20 @@
                     }).catch(error => {
                         console.log(error);
                     });
+                },
+                addItem: function(payload) {
+                    console.log('Add Item: ', payload.title)
+                    axios({
+                        method: 'post',
+                        url: this.todosUrl,
+                        headers: {
+                            "X-CSRFToken": this.csrf_token
+                        },
+                        data: payload,
+                    }).catch(error => {
+                        console.log(error);
+                    })
+                    this.loadTodos()
                 },
                 deleteItem: function(payload) {
                     console.log('Delete Item - in Root: ', payload.id, payload.title)
@@ -195,6 +264,7 @@
             },
             mounted: function() {
                 console.log("Mounted")
+                this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value
             },
             beforeUpdate: function() {
                 console.log("About to Update!")
