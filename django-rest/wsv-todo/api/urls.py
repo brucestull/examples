@@ -5,6 +5,7 @@ from .views import TodoViewSet
 
 
 router = DefaultRouter()
+# router.register('', TodoViewSet)
 router.register('', TodoViewSet, basename='todos')
 urlpatterns = [
 

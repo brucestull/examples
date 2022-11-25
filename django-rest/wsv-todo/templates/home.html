@@ -10,7 +10,7 @@
     <nav>
         <a href="">Home</a><br>
         <a href="/admin/" target="_blank">Django Admin Interface</a><br>
-        <a href="/api/v1/" target="_blank">Django Browsable API</a><br>
+        <a href="/api/v1/todos/" target="_blank"><code>todos</code> - Django Browsable API</a><br>
         <a href="http://localhost:8000/admin/todos/todo/" target="_blank">ToDos - Django Admin Interface</a><br>
     </nav>
     <main id="app">
@@ -21,6 +21,9 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
+        // pipenv shell
+        // Start server:
+        // python manage.py runserver
         const vm = new Vue({
             el: '#app',
             delimiters: ['[[', ']]'],
@@ -69,7 +72,7 @@
             },
             created: function() {
                 console.log("Created")
-                this.loadTodosGet();
+                this.loadTodos();
             },
             beforeMount: function() {
                 console.log("About to Mount!")
