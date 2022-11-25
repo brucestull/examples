@@ -22,6 +22,8 @@
                 v-for="todo in theTodos"
                 v-bind:prop-variable-in-component="todo"
                 v-bind:key="todo.id"
+                @delete-item="deleteItem"
+                @update-item="updateItem"
                 ></item-component>
         </ul>
 
@@ -44,6 +46,7 @@
             data: function() {
                 return {
                     editMode: false,
+                    theItem: {},
                 }
             },
             props: {
@@ -52,26 +55,69 @@
             template: `
             <li>
                 <button v-on:click="editMode = !editMode">
-                    <template v-if="editMode">Save</template>
+                    <template v-if="editMode">Done Editing</template>
                     <template v-else>Edit</template>
                 </button>
-                <button v-if="editMode" v-on:click="deleteItem">Delete</button>
-                <button v-if="editMode" v-on:click="updateItem">Update</button>
+                <button
+                    v-if="editMode"
+                    v-on:click="deleteItem(propVariableInComponent)">
+                    Delete
+                </button>
+                <button
+                    v-if="editMode"
+                    v-on:click="updateItem(propVariableInComponent)">
+                    Update
+                </button>
                 [[ propVariableInComponent.id ]]
                 :
-                [[ propVariableInComponent.title ]]
+                <template v-if="editMode">
+                    <input
+                        v-model="propVariableInComponent.title"
+                        type="text"
+                        >
+                </template>
+                <template v-else>
+                    [[ propVariableInComponent.title ]]
+                </template>
                 -
-                [[ propVariableInComponent.description ]]
+                <template v-if="editMode">
+                    <input
+                        v-model="propVariableInComponent.description"
+                        type="text"
+                        >
+                </template>
+                <template v-else>
+                    [[ propVariableInComponent.description ]]
+                </template>
             </li>
             `,
             methods: {
-                deleteItem: function() {
-                    console.log("Delete Item:", this.propVariableInComponent.id)
+                deleteItem: function(payload) {
+                    // console.log('Item: ', payload)
+                    console.log
+                    (
+                        "Delete Item - in Component:",
+                        this.propVariableInComponent.id,
+                        this.propVariableInComponent.title
+                    )
+                    this.$emit('delete-item', payload)
                 },
-                updateItem: function() {
-                    console.log("Update Item:", this.propVariableInComponent.id)
+                updateItem: function(payload) {
+                    // console.log('Item: ', payload)
+                    console.log(
+                        "Update Item - in Component:",
+                        this.propVariableInComponent.id,
+                        this.propVariableInComponent.title
+                    )
+                    this.$emit('update-item', payload)
                 },
-            }
+            },
+            mounted: function() {
+                console.log("Component 'item-component' mounted: ", this.propVariableInComponent.title)
+            },
+            updated: function() {
+                console.log("Component 'item-component' updated: ", this.propVariableInComponent.title)
+            },
         })
 
         const vm = new Vue({
@@ -104,6 +150,12 @@
                     }).catch(error => {
                         console.log(error);
                     });
+                },
+                deleteItem: function(payload) {
+                    console.log('Delete Item - in Root: ', payload.id, payload.title)
+                },
+                updateItem: function(payload) {
+                    console.log('Update Item - in Root: ', payload.id, payload.title)
                 },
 
             },
