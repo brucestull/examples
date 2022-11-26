@@ -87,15 +87,15 @@
         <h2>Simple List!</h2>
         <ul>
             <simple-item
-                v-for="item in theTodos"
-                v-bind:item-variable-in-component="item"
-                v-bind:key="item.id"
+                v-for="toDo in theToDos"
+                v-bind:to-do-item="toDo"
+                v-bind:key="toDo.id"
                 ></simple-item>
         </ul>
 
         <h2>Raw Items!</h2>
         <p>
-            [[ theTodos ]]
+            [[ theToDos ]]
         </p>
 
     </main>
@@ -109,10 +109,10 @@
 
         Vue.component('simple-item', {
             delimiters: ['[[', ']]'],
-            props: ['itemVariableInComponent'],
+            props: ['toDoItem'],
             template: `
                 <li>
-                    [[ itemVariableInComponent.id ]] - [[ itemVariableInComponent.title ]]
+                    [[ toDoItem.id ]] - [[ toDoItem.title ]]
                 </li>
             `
         })
@@ -121,7 +121,7 @@
             el: '#app',
             delimiters: ['[[', ']]'],
             data: {
-                theTodos: [],
+                theToDos: [],
                 todosUrl: '/api/v1/todos/',
 
 
@@ -140,7 +140,7 @@
                         this.todosUrl
                     ).then(response => {
                         console.log('response: ', response)
-                        this.theTodos = response.data;
+                        this.theToDos = response.data;
                     }).catch(error => {
                         console.log(error);
                     });
@@ -151,7 +151,7 @@
                         url: this.todosUrl,
                     }).then(response => {
                         console.log('response: ', response)
-                        this.theTodos = response.data;
+                        this.theToDos = response.data;
                     }).catch(error => {
                         console.log(error);
                     });
@@ -167,10 +167,10 @@
                         data: this.testItemToAdd,
                     }).then(response => {
                         console.log('response: ', response)
+                        this.loadTodos()
                     }).catch(error => {
                         console.log(error);
                     })
-                    this.loadTodos()
                 },
 
                 deleteItemById: function(payload) {
@@ -202,23 +202,23 @@
             },
             computed: {
                 todosCount: function() {
-                    return this.theTodos.length;
+                    return this.theToDos.length;
                 },
 
                 completedTodosArrow: function() {
-                    return this.theTodos.filter(todo => todo.completed);
+                    return this.theToDos.filter(todo => todo.completed);
                 },
                 completedTodos: function() {
-                    return this.theTodos.filter(function(todo) {
+                    return this.theToDos.filter(function(todo) {
                         return todo.completed;
                     });
                 },
 
                 incompletedTodosArrow: function() {
-                    return this.theTodos.filter(todo => !todo.completed);
+                    return this.theToDos.filter(todo => !todo.completed);
                 },
                 incompletedTodos: function() {
-                    return this.theTodos.filter(function(todo) {
+                    return this.theToDos.filter(function(todo) {
                         return !todo.completed;
                     });
                 },
