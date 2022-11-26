@@ -23,21 +23,16 @@
     </nav>
     <main id="app">
 
+        <h2>Root Methods:</h2>
+        <button
+            v-on:click="loadTodos"
+            >
+            <code>loadTodos()</code>
+        </button>
+
         <h2>Add Something Here?!?!?</h2>
-        <add-component
-            @add-item="addItem"
-            ></add-component>
 
         <h2>The Obligatory Big List!</h2>
-        <ul>
-            <item-component
-                v-for="todo in theTodos"
-                v-bind:prop-variable-in-component="todo"
-                v-bind:key="todo.id"
-                @delete-item="deleteItem"
-                @update-item="updateItem"
-                ></item-component>
-        </ul>
 
         <h2>Raw Items!</h2>
         <p>
@@ -52,121 +47,6 @@
         // pipenv shell
         // Start server:
         // python manage.py runserver
-
-        Vue.component('add-component', {
-            delimiters: ['[[', ']]'],
-            data: function() {
-                return {
-                    newItem: {},
-                }
-            },
-            template:`
-                <div>
-                    <label for="title">Title</label>
-                    <input
-                        type="text"
-                        id="title"
-                        v-model="newItem.title"
-                        placeholder="Title"
-                        >
-                    <br>
-                    <label for="description">Description</label>
-                    <input
-                        type="text"
-                        id="description"
-                        v-model="newItem.description"
-                        placeholder="Description"
-                        >
-                    <button @click="addItem">Add Item</button>
-                </div>
-            `,
-            methods: {
-                addItem: function() {
-                    this.$emit('add-item', this.newItem)
-                    this.newItem = {}
-                },
-
-            },
-        })
-
-        Vue.component('item-component', {
-            delimiters: ['[[', ']]'],
-            data: function() {
-                return {
-                    editMode: false,
-                }
-            },
-            props: {
-                propVariableInComponent: Object,
-            },
-            template: `
-            <li>
-                <button v-on:click="editMode = !editMode">
-                    <template v-if="editMode">Done Editing</template>
-                    <template v-else>Edit</template>
-                </button>
-                <button
-                    v-if="editMode"
-                    v-on:click="deleteItem(propVariableInComponent)">
-                    Delete
-                </button>
-                <button
-                    v-if="editMode"
-                    v-on:click="updateItem(propVariableInComponent)">
-                    Update
-                </button>
-                [[ propVariableInComponent.id ]]
-                :
-                <template v-if="editMode">
-                    <input
-                        v-model="propVariableInComponent.title"
-                        type="text"
-                        >
-                </template>
-                <template v-else>
-                    [[ propVariableInComponent.title ]]
-                </template>
-                -
-                <template v-if="editMode">
-                    <input
-                        v-model="propVariableInComponent.description"
-                        type="text"
-                        >
-                </template>
-                <template v-else>
-                    [[ propVariableInComponent.description ]]
-                </template>
-            </li>
-            `,
-            methods: {
-                deleteItem: function(payload) {
-                    // console.log('Item: ', payload)
-                    console.log
-                    (
-                        "Delete Item - in Component:",
-                        payload.id,
-                        payload.title
-                    )
-                    this.$emit('delete-item', payload)
-                },
-                updateItem: function(payload) {
-                    // console.log('Item: ', payload)
-                    console.log(
-                        "Update Item - in Component:",
-                        payload.id,
-                        payload.title
-                    )
-                    this.$emit('update-item', payload)
-                    this.editMode = false
-                },
-            },
-            mounted: function() {
-                console.log("Component 'item-component' mounted: ", this.propVariableInComponent.title)
-            },
-            updated: function() {
-                console.log("Component 'item-component' updated: ", this.propVariableInComponent.title)
-            },
-        })
 
         const vm = new Vue({
             el: '#app',
@@ -226,17 +106,6 @@
                 },
                 updateItem: function(payload) {
                     console.log('Update Item - in Root: ', payload.id, payload.title)
-                    axios({
-                        method: 'put',
-                        url: this.todosUrl + payload.id + '/',
-                        headers: {
-                            "X-CSRFToken": this.csrf_token
-                        },
-                        data: payload,
-                    }).catch(error => {
-                        console.log(error);
-                    })
-                    this.loadTodos()
                 },
             },
             computed: {
