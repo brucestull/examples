@@ -25,14 +25,73 @@
 
         <h2>Root Methods:</h2>
         <button
+            v-on:click="loadTodosGet"
+            >
+            <code>loadTodosGet()</code>
+        </button>
+        <br>
+
+        <button
             v-on:click="loadTodos"
             >
             <code>loadTodos()</code>
         </button>
+        <br>
+        
+        <button
+            v-on:click="addItem"
+            >
+            <code>addItem()</code>
+        </button>
+        <br>
+        
+        <label for="test-item-id">Test Item ID:</label>
+        <input
+            type="text"
+            id="test-item-id"
+            v-model="testItemId"
+            >
+            <button
+            v-on:click="deleteItemById(testItemId)"
+            >
+            <code>deleteItemById(testItemId)</code>
+        </button>
+        <br>
+
+        <button
+            v-on:click="deleteItemByObject"
+            >
+            <code>deleteItemByObject()</code>
+        </button>
+        <br>
+        
+        <button
+            v-on:click="deleteItem()"
+            >
+            <code>deleteItem()</code>
+        </button>
+        <br>
+        
+        <button
+            v-on:click="updateItem"
+            >
+            <code>updateItem()</code>
+        </button>
+        <br>
+        
 
         <h2>Add Something Here?!?!?</h2>
 
         <h2>The Obligatory Big List!</h2>
+
+        <h2>Simple List!</h2>
+        <ul>
+            <simple-item
+                v-for="item in theTodos"
+                v-bind:item-variable-in-component="item"
+                v-bind:key="item.id"
+                ></simple-item>
+        </ul>
 
         <h2>Raw Items!</h2>
         <p>
@@ -48,6 +107,16 @@
         // Start server:
         // python manage.py runserver
 
+        Vue.component('simple-item', {
+            delimiters: ['[[', ']]'],
+            props: ['itemVariableInComponent'],
+            template: `
+                <li>
+                    [[ itemVariableInComponent.id ]] - [[ itemVariableInComponent.title ]]
+                </li>
+            `
+        })
+
         const vm = new Vue({
             el: '#app',
             delimiters: ['[[', ']]'],
@@ -56,13 +125,13 @@
                 todosUrl: '/api/v1/todos/',
 
 
-                testItem: {
-                    "title": "Garble the Code",
-                    "description": "Break It!"
+                testItemId: "",
+                testItemToAdd: {
+                    "title": "Newly added Item?",
+                    "description": "Do we got a description?",
                 },
-                
-                testPatchItem: {
-                    "title": "No Stinking Badgers!",
+                testItemToPatch: {
+                    "title": "Item has been patched!",
                 },
             },
             methods: {
@@ -87,25 +156,48 @@
                         console.log(error);
                     });
                 },
-                addItem: function(payload) {
-                    console.log('Add Item: ', payload.title)
+                addItem: function() {
+                    console.log('Add Item: ', this.testItemToAdd)
                     axios({
                         method: 'post',
                         url: this.todosUrl,
                         headers: {
                             "X-CSRFToken": this.csrf_token
                         },
-                        data: payload,
+                        data: this.testItemToAdd,
+                    }).then(response => {
+                        console.log('response: ', response)
                     }).catch(error => {
                         console.log(error);
                     })
                     this.loadTodos()
                 },
+
+                deleteItemById: function(payload) {
+                    console.log('Delete Item By ID - in Root: ', payload)
+                    axios({
+                        method: 'delete',
+                        url: this.todosUrl + payload + '/',
+                        headers: {
+                            "X-CSRFToken": this.csrf_token
+                        },
+                    }).then(response => {
+                        console.log('Deleted Item By ID - in Root: ', payload)
+                        this.testItemId = ""
+                        this.loadTodos()
+                    }).catch(error => {
+                        console.log(error);
+                    })
+                },
+                deleteItemByObject: function(payload) {
+                    console.log('Delete Item By Object - in Root: ', payload)
+                },
+
                 deleteItem: function(payload) {
-                    console.log('Delete Item - in Root: ', payload.id, payload.title)
+                    console.log('Delete Item - in Root: ', payload)
                 },
                 updateItem: function(payload) {
-                    console.log('Update Item - in Root: ', payload.id, payload.title)
+                    console.log('Update Item - in Root: ', payload)
                 },
             },
             computed: {
