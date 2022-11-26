@@ -144,8 +144,8 @@
                     console.log
                     (
                         "Delete Item - in Component:",
-                        this.propVariableInComponent.id,
-                        this.propVariableInComponent.title
+                        payload.id,
+                        payload.title
                     )
                     this.$emit('delete-item', payload)
                 },
@@ -153,10 +153,11 @@
                     // console.log('Item: ', payload)
                     console.log(
                         "Update Item - in Component:",
-                        this.propVariableInComponent.id,
-                        this.propVariableInComponent.title
+                        payload.id,
+                        payload.title
                     )
                     this.$emit('update-item', payload)
+                    this.editMode = false
                 },
             },
             mounted: function() {
@@ -225,8 +226,18 @@
                 },
                 updateItem: function(payload) {
                     console.log('Update Item - in Root: ', payload.id, payload.title)
+                    axios({
+                        method: 'put',
+                        url: this.todosUrl + payload.id + '/',
+                        headers: {
+                            "X-CSRFToken": this.csrf_token
+                        },
+                        data: payload,
+                    }).catch(error => {
+                        console.log(error);
+                    })
+                    this.loadTodos()
                 },
-
             },
             computed: {
                 todosCount: function() {
