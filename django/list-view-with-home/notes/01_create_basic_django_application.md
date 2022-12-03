@@ -1,23 +1,28 @@
 # Create Basic Django Application
 
-## Assumptions:
+## Assumptions
+
 * User has functional `python` installation.
 * User has functional `pip` installation.
 * User has functional `pipenv` installation.
 * User is familiar with terminal and shell commands.
 
-## Resources:
+## Resources
+
 * [Django Quick Start Guide (PDXCG Style)](https://github.com/PdxCodeGuild/class_otter/blob/main/3%20Django/docs/Django%20Project%20Setup.md)
 
-## Code Examples Repository links:
+## Code Examples Repository links
+
 * [Examples Repository](../../../README.md)
 * [List View with Home - `README.me`](../README.md)
 
-## Tag meanings for this guide:
+## Tag meanings for this guide
+
 * "**ACTION:**" tags are performing code or environment changes.
 * "**INFO:**" tags are providing info or testing and not necessarily functional or code changes.
 
-## Process:
+## Process
+
 1. **ACTION:** Start in the project root directory:
     * Sample root directory:
         * `C:\Users\Bruce\Programming\examples\django\list-view-with-home`
@@ -129,7 +134,7 @@
         </details>
 
 1. **ACTION:** Open internet browser to local server root:
-    * http://localhost:8000/
+    * <http://localhost:8000/>
 
 1. **ACTION:** Verify page load:
     * Note the Django Green Rocket image and accompanying text.
@@ -197,6 +202,6 @@
 
 1. **INFO:** Test development server one more time:
     * `python .\manage.py runserver`
-    * http://localhost:8000/
+    * <http://localhost:8000/>
 
 1. Proceed to [Add Home Page with String](./02_home_page_with_string.md) to continue building the application.

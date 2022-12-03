@@ -1,6 +1,7 @@
 # Add Model Functionality
 
-## Resources:
+## Resources
+
 * [Models](https://docs.djangoproject.com/en/4.0/topics/db/models/)
 * [Fields](https://docs.djangoproject.com/en/4.0/topics/db/models/#fields)
 * [Field types](https://docs.djangoproject.com/en/4.0/ref/models/fields/#field-types)
@@ -9,11 +10,13 @@
 * [`makemigrations`](https://docs.djangoproject.com/en/4.1/ref/django-admin/#makemigrations)
 * [`migrate`](https://docs.djangoproject.com/en/4.1/ref/django-admin/#migrate)
 
-## Tag meanings for this guide:
+## Tag meanings for this guide
+
 * "**ACTION:**" tags are performing code or environment changes.
 * "**INFO:**" tags are providing info or testing and not necessarily functional or code changes.
 
-## Process:
+## Process
+
 1. **ACTION:** Create a [`model`](https://docs.djangoproject.com/en/4.0/topics/db/models/) `AwesomeCat` in [`the_app/models.py`](../the_app/models.py):
     * Import `models` from `django.db`
     * Model attribute field name: `name`
@@ -118,7 +121,7 @@
         </details>
 
 1. Open internet browser to Django Admin Interface URL:
-    * http://localhost:8000/admin/
+    * <http://localhost:8000/admin/>
 
 1. Log in to the Django Admin Interface using credentials provided above.
 
@@ -126,5 +129,6 @@
 
 1. Proceed to [Add List View](./04_add_list_view.md).
 
-## Navigation links:
+## Navigation links
+
 * Back to [Home Page with String](./02_home_page_with_string.md)

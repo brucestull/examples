@@ -1,24 +1,26 @@
 # 01 - Create Django Project
+
 * This project's directory: [`reverse/`](./../)
 
-## Resources:
+## Resources
+
 * [Writing your first Django app, part 1 - docs.djangoproject.com](https://docs.djangoproject.com/en/4.0/intro/tutorial01/#writing-your-first-django-app-part-1)
 * [Django Tutorial Part 2: Creating a skeleton website - developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/skeleton_website)
 
+## Code Examples Repository links
 
-## Code Examples Repository links:
 * [Code Examples Repository - README.md](../../../README.md)
-    * [`examples/`](../../../)
+  * [`examples/`](../../../)
 * [Django Code Examples - README.md](../../README.md)
-    * [`examples/django/`](../../)
+  * [`examples/django/`](../../)
 
+## Tag meanings for this guide
 
-## Tag meanings for this guide:
 * "**ACTION:**" tags are performing code or environment changes.
 * "**INFO:**" tags are providing info or testing and not necessarily functional or code changes.
 
+## Process
 
-## Process:
 1. **ACTION:** Start in project root, where the `pipenv` configuration files (`Pipfile`, `Pipfile.lock`) are located:
     * Sample location:
         * `C:\Users\Bruce\Programming\examples\django\reverse\`
@@ -91,7 +93,6 @@
     * Note line with `Path`:
         * `Path : C:\Users\Bruce\.virtualenvs\reverse-gikyn-XH\Scripts\python.exe`
         * This is the current python interpreter `python.exe`. The interpreter is located inside the virtual environment's directory.
-
 
 1. **INFO:** Examine the directory structure before we create the Django Project directory and files:
     * `tree /f /a`
@@ -189,7 +190,7 @@
         </details>
 
 1. **ACTION:** Open internet browser to server root:
-    * http://localhost:8000/
+    * <http://localhost:8000/>
 
 1. **INFO:** Verify Django Green Rocket and associated success text:
     * Semple associated success text:
@@ -202,5 +203,6 @@
 
 1. Proceed to [Create Django Application](./02_create_django_application.md)
 
-## Repository Links:
+## Repository Links
+
 * Back to [Create a `pipenv` Virtual Environment](./00_create_pipenv.md)

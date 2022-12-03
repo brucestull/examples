@@ -9,6 +9,7 @@ def index(request):
         print("Do 'POST' logic here.")
         # Use `HttpResponseRedirect` so user does not submit same form
         #     multiple times.
+        print("After this 'POST', there will be a 'GET' request due to 'HttpResponseRedirect'.")
         return HttpResponseRedirect(reverse('the_app_name:index_view_name'))
     # If request.method is not `POST` it will probably be `GET`.
     else:

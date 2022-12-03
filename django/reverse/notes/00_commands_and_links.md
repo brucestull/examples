@@ -1,16 +1,19 @@
 # Useful Commands and Links
 
-## Commands:
+## Commands
 
-### `pipenv`:
+### `pipenv`
+
 * `pipenv install`
 * `pipenv install django==4.1`
 * `pipenv shell`
 
-### `pip`:
+### `pip`
+
 * `pip list`
 
-### Django:
+### Django
+
 * `django-admin startproject the_project .`
 * `python .\manage.py startapp the_app`
 * `python .\manage.py runserver`
@@ -20,22 +23,24 @@
 * `python .\manage.py createsuperuser --email admin@email.app --username admin`
 * `python .\manage.py runserver`
 
+### PowerShell
 
-### PowerShell:
 * `Get-Command python | Format-List *`
 
-### Misc:
+### Misc
+
 * `tree /f /a`
 
-## Development server web links:
+## Development server web links
+
 * Server Root:
-    * http://localhost:8000/
+  * <http://localhost:8000/>
 * Django Admin:
-    * http://localhost:8000/admin/
-    * http://localhost:8000/admin/auth/user/
+  * <http://localhost:8000/admin/>
+  * <http://localhost:8000/admin/auth/user/>
 * Django Admin Documentation:
-    * http://localhost:8000/admin/doc/
-    * http://localhost:8000/admin/doc/tags/
-    * http://localhost:8000/admin/doc/filters/
-    * http://localhost:8000/admin/doc/models/
-    * http://localhost:8000/admin/doc/models/auth.user/
+  * <http://localhost:8000/admin/doc/>
+  * <http://localhost:8000/admin/doc/tags/>
+  * <http://localhost:8000/admin/doc/filters/>
+  * <http://localhost:8000/admin/doc/models/>
+  * <http://localhost:8000/admin/doc/models/auth.user/>

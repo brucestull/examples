@@ -20,6 +20,7 @@
 ### Django
 
 * `python .\manage.py makemigrations accounts`
+* `python .\manage.py makemigrations users`
 * `python .\manage.py makemigrations`
 * `python .\manage.py migrate`
 * `python .\manage.py createsuperuser`
@@ -67,7 +68,6 @@
 * Server Root:
   * <http://localhost:8000/>
 * App links:
-  * <http://localhost:8000/the-app-route/index-view-route/>
 * Django Admin:
   * <http://localhost:8000/admin/>
 * Django Admin Documentation:

@@ -1,39 +1,46 @@
 # Create `pipenv` Virtual Environment for a Django Project
 
-## Resources:
+## Resources
+
 * [Pipenv: Python Development Workflow for Humans - pypi.org](https://pypi.org/project/pipenv/)
 * [Installing Pipenv - python-guide.org](https://docs.python-guide.org/dev/virtualenvs/#installing-pipenv)
 * [Pipenv: A Guide to the New Python Packaging Tool - realpython.com](https://realpython.com/pipenv-guide/)
 * [Pipenv: Python Dev Workflow for Humans - pipenv.pypa.io](https://pipenv.pypa.io/en/latest/)
 * [Why use `pipenv`?](https://pipenv.pypa.io/en/latest/#pipenv-features)
 
-## Code Examples Repository links:
+## Code Examples Repository links
+
 * [Examples Repository](../../../README.md)
 * [Create `pipenv` virtual environment for a Django project - `README.me`](../README.md)
 
-## Things user should know how to do before doing this activity:
-* **TODO:** 
+## Things user should know how to do before doing this activity
 
-## Things user will learn from this activity:
+* **TODO:**
+
+## Things user will learn from this activity
+
 * **TODO:** Need to describe what a `pipenv` virtual environment is. May actually just add a link to some great description when I find it.
 
-## Things user will do during this activity:
+## Things user will do during this activity
+
 1. Create `pipenv` virtual environment for their Django project.
 1. Install `django` package in the virtual environment.
 1. Activate the `pipenv` virtual environment so their Django app uses the appropriate Django version.
 1. Create basic Django skeleton.
 1. Test out development server.
 
-## Assumptions and Requirements:
+## Assumptions and Requirements
+
 * User has functioning `pipenv` install.
 * User has functioning `python` install.
 * These commands should work for most terminal environments. The author is using PowerShell.
 
-## Tag meanings for this guide:
+## Tag meanings for this guide
+
 * "**ACTION:**" tags are performing code or environment changes.
 * "**INFO:**" tags are providing info and not necessarily functional or code changes.
 
-## Process:
+## Process
 
 1. **ACTION:** Open terminal in the parent directory which will contain the directory for our Django app:
     * Sample location:
@@ -121,7 +128,7 @@
             Shell for C:\Users\Bruce\.virtualenvs\django_pipenv_setup-KgMRvH_5 already activated.
             No action taken to avoid nested environments.
             PS C:\Users\Bruce\Programming\examples\django\django_pipenv_setup>
-        </details>        
+        </details>
 
 1. **INFO:** List installed packages of the virtual environment:
     * `pip list`
@@ -218,7 +225,7 @@
             Quit the server with CTRL-BREAK.
         </details>
     1. Open web browser:
-        * http://localhost:8000/
+        * <http://localhost:8000/>
     1. Verify the Django Green Rocket is visible and following text shows:
         * `The install worked successfully! Congratulations!`
 

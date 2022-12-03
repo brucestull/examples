@@ -1,6 +1,13 @@
-# Code Built from Will Vincent's `Django Login and Logout Tutorial`
+# Will Vincent Login, Logout, Signup, Reset Password Tutorial - **UNDER CONSTRUCTION**
 
-## Resources:
+* Code Built from Will Vincent's `Django Login and Logout Tutorial`
+
+## **TODO**
+
+* Add `email` to signup form.
+
+## Resources
+
 * [Django - pypi.org](https://pypi.org/project/Django/)
 * [Django Login and Logout Tutorial - learndjango.com](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
 * [Django Signup Tutorial - learndjango.com](https://learndjango.com/tutorials/django-signup-tutorial)

@@ -1,22 +1,27 @@
 # 00 - Create a `pipenv` Virtual Environment
+
 * This project's directory: [`reverse/`](./../)
 
-## Resources:
+## Resources
+
 * [Installing Pipenv - python-guide.org](https://docs.python-guide.org/dev/virtualenvs/#installing-pipenv)
 * [Pipenv: Python Dev Workflow for Humans - pipenv.pypa.io](https://pipenv.pypa.io/en/latest/)
 * [`pipenv` - pypi.org](https://pypi.org/project/pipenv/)
 
-## Code Examples Repository links:
-* [Code Examples Repository - README.md](../../../README.md)
-    * [`examples/`](../../../)
-* [Django Code Examples - README.md](../../README.md)
-    * [`examples/django/`](../../)
+## Code Examples Repository links
 
-## Tag meanings for this guide:
+* [Code Examples Repository - README.md](../../../README.md)
+  * [`examples/`](../../../)
+* [Django Code Examples - README.md](../../README.md)
+  * [`examples/django/`](../../)
+
+## Tag meanings for this guide
+
 * "**ACTION:**" tags are performing code or environment changes.
 * "**INFO:**" tags are providing info or testing and not necessarily functional or code changes.
 
-## Process:
+## Process
+
 1. **ACTION:** Start in the directory which will be the root of the project:
     * Sample location:
         * `C:\Users\Bruce\Programming\examples\django\reverse\`
@@ -212,4 +217,3 @@
 1. **INFO:** We now have a functioning `pipenv` virtual environment. We can use it to build out our Django Project.
 
 1. Proceed to [Create Django Project](./01_create_django_project.md).
-

@@ -1,14 +1,17 @@
 # Home Page with String
 
-## Resources:
+## Resources
+
 * [URL namespaces and included URLconfs](https://docs.djangoproject.com/en/4.0/topics/http/urls/#url-namespaces-and-included-urlconfs)
 * [Writing views](https://docs.djangoproject.com/en/4.0/topics/http/views/#writing-views)
 
-## Tag meanings for this guide:
+## Tag meanings for this guide
+
 * "**ACTION:**" tags are performing code or environment changes.
 * "**INFO:**" tags are providing info or testing and not necessarily functional or code changes.
 
-## Process:
+## Process
+
 1. **ACTION:** Add a `urlpattern` for the app `the_app` to `urlpatterns` in [`the_project/urls.py`](../the_project/urls.py):
     <details>
     <summary>Sample <code>the_project/urls.py</code> contents:</summary>
@@ -67,7 +70,7 @@
     * `python .\manage.py runserver`
 
 1. **INFO:** Open internet browser to the app `the_app`'s home page URL:
-    * http://localhost:8000/the-app/home/
+    * <http://localhost:8000/the-app/home/>
 
 1. **INFO:** Verify text displays on home page:
     * Sample text:
@@ -75,5 +78,6 @@
 
 1. Proceed to [Add Model Functionality](./03_add_model_functionality.md)
 
-## Navigation links:
+## Navigation links
+
 * Back to [Create Basic Django Application](./01_create_basic_django_application.md)

@@ -1,31 +1,33 @@
 # 03 - Create Index View
+
 * This project's directory: [`reverse/`](./../)
 
-## Resources:
+## Resources
+
 * [django.urls](https://docs.djangoproject.com/en/4.1/ref/urlresolvers/#module-django.urls)
-    * [`path()`](https://docs.djangoproject.com/en/4.1/ref/urls/#path)
-    * [`include()`](https://docs.djangoproject.com/en/4.1/ref/urls/#include)
+  * [`path()`](https://docs.djangoproject.com/en/4.1/ref/urls/#path)
+  * [`include()`](https://docs.djangoproject.com/en/4.1/ref/urls/#include)
 * [`django.shortcuts`](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#module-django.shortcuts)
-    * [`render()`](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render)
+  * [`render()`](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render)
 * [`django.http`](https://docs.djangoproject.com/en/4.1/ref/request-response/#module-django.http)
-    * [`HttpResponse`](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpResponse)
+  * [`HttpResponse`](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpResponse)
 
+## Code Examples Repository links
 
-## Code Examples Repository links:
 * [Code Examples Repository - README.md](../../../README.md)
-    * [`examples/`](../../../)
+  * [`examples/`](../../../)
 * [Django Code Examples - README.md](../../README.md)
-    * [`examples/django/`](../../)
+  * [`examples/django/`](../../)
 
+## Tag meanings for this guide
 
-## Tag meanings for this guide:
 * "**ACTION:**" tags are performing code or environment changes.
 * "**INFO:**" tags are providing info or testing and not necessarily functional or code changes.
 
+## Process
 
-## Process:
+### Add Application Route to Project URL Configuration File
 
-### Add Application Route to Project URL Configuration File:
 1. **ACTION:** Add a route for the application `the_app` to the Django Project `the_project`:
     * Add a [`path()`](https://docs.djangoproject.com/en/4.1/ref/urls/#path) to the `urlpatterns` attribute of project URL configuration file [`the_project/urls.py`](../the_project/urls.py):
         * We will import [`include`](https://docs.djangoproject.com/en/4.1/ref/urls/#include) from `django.urls`.
@@ -49,8 +51,8 @@
         ]
     </details>
 
+### Add URL Mapping
 
-### Add URL Mapping:
 1. **ACTION:** Create a application URL configuration file [`the_app/urls.py`](../the_app/urls.py):
     1. Import [`path`](https://docs.djangoproject.com/en/4.1/ref/urls/#path) from `django.urls`.
     1. Import [`views`](../the_app/views.py) from `.`.
@@ -81,8 +83,8 @@
     * We will create the view function in the next section.
     * **TODO:** Add explanation for how the HTTP request to the server root is handled.
 
+### Add View Function
 
-### Add View Function:
 1. Add a view function `index` to [`the_app/views.py`](../the_app/views.py):
     1. Verify import of [`render`](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render) from [`django.shortcuts`](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#module-django.shortcuts).
     1. Add `index` view function:
@@ -100,10 +102,10 @@
         
         def index(request):
             return render(request, 'index.html')
-    </details> 
+    </details>
 
+### Add Application Template
 
-### Add Application Template:
 1. **ACTION:** Create a [`templates`](../the_app/templates/) directory in [`the_app/`](../the_app/) directory.
 1. **ACTION:** Add a template [`index.html`](../the_app/templates/index.html) to the [`templates`](../the_app/templates/) directory:
     <details>
@@ -112,7 +114,8 @@
         <h1>Goodbuy, World! Enjoy the Sale!</h1>
     </details>
 
-### Test the Application's `index` View:
+### Test the Application's `index` View
+
 1. Start the development server:
     * `python .\manage.py runserver`
         <details>
@@ -133,7 +136,7 @@
         </details>
 
 1. Open internet browser to application URL (the server root URL):
-    * http://localhost:8000/
+    * <http://localhost:8000/>
 
 1. Verify webpage displays the string we included in [`index.html`](../the_app/templates/index.html):
     * Sample webpage display contents:
@@ -141,5 +144,6 @@
 
 1. **INFO:** Proceed to [Use Django's `reverse` Function](./04_use_djangos_reverse_function.md)
 
-## Repository Links:
+## Repository Links
+
 * Back to [Create Django Application](./02_create_django_application.md)

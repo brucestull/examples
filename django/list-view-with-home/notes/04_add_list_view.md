@@ -1,16 +1,20 @@
 # Add List View
+
 * Modify `home` page so it displays a list of our `AwesomeCat` objects.
 
-## Resources:
+## Resources
+
 * [`Model.objects`](https://docs.djangoproject.com/en/4.0/ref/models/class/#django.db.models.Model.objects)
 * [`QuerySet` API reference](https://docs.djangoproject.com/en/4.0/ref/models/querysets/#queryset-api-reference)
 * Template [Variables](https://docs.djangoproject.com/en/4.0/ref/templates/language/#variables)
 
-## Tag meanings for this guide:
+## Tag meanings for this guide
+
 * "**ACTION:**" tags are performing code or environment changes.
 * "**INFO:**" tags are providing info or testing and not necessarily functional or code changes.
 
-## Process:
+## Process
+
 1. We will use the same URL configuration for named URL `home`.
 
 1. Edit the view function `home` in [`the_app/views.py`](../the_app/views.py) to see if we can get the database values and print them to console:
@@ -31,7 +35,7 @@
     * `python .\manage.py runserver`
 
 1. Open internet browser to application `home` URL:
-    * http://localhost:8000/the-app/home/
+    * <http://localhost:8000/the-app/home/>
 
 1. Note output of console:
     <details>
@@ -82,7 +86,7 @@
     * `python .\manage.py runserver`
 
 1. Open internet browser to application `home` URL:
-    * http://localhost:8000/the-app/home/
+    * <http://localhost:8000/the-app/home/>
         <details>
         <summary>Sample browser display contents:</summary>
 
@@ -116,7 +120,7 @@
     * `python .\manage.py runserver`
 
 1. Open internet browser to application `home` URL:
-    * http://localhost:8000/the-app/home/
+    * <http://localhost:8000/the-app/home/>
         <details>
         <summary>Sample browser display contents:</summary>
 
@@ -126,5 +130,6 @@
 
 1. We now have a List View on display. The user can now add styling to their preferences.
 
-## Navigation links:
+## Navigation links
+
 * Back to [Add Model Functionality](./03_add_model_functionality.md)

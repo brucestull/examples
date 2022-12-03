@@ -10,7 +10,7 @@
 <a href={% url 'the_users_app:logout' %}>Log me OUT, PLEASE!</a>
 <br>
 {% else %}
-<p>You're a Nobody!</p>
+<p>You're a Nobody: {{ user }}!</p>
 <a href={% url 'the_users_app:login' %}>Login Page, PLEASE!</a>
 <br>
 <a href={% url 'the_users_app:signup' %}>Sigunup Page, PLEASE!</a>

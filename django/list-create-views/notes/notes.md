@@ -1,22 +1,26 @@
 # Create Django Project with List View First
+
 * The intent is to show that it can be useful to create the Django List View first so user can see the models presented on the page and then add links to the other pages, templates, and views.
     1. Might expand this later to use `if request.method==POST` and `if request.method==GET` somewhere.
     1. For now, create a simple template with a list as a `home` or `list` page.
 
-## Resources:
+## Resources
+
 * **TODO**: LINK_TO_PIPENV_EXAMPLE_DOCUMENTATION
 
-## Code Examples Repository links:
+## Code Examples Repository links
+
 * [Examples Repository](../../../README.md)
 * [Create Django Project with List View First - `README.me`](../README.md)
 
-## Tag meanings for this guide:
+## Tag meanings for this guide
+
 * "**ACTION:**" tags are performing code or environment changes.
 * "**INFO:**" tags are providing info or testing and not necessarily functional or code changes.
 
-## Process:
+## Process
 
-### Create Django skeleton:
+### Create Django skeleton
 
 1. **ACTION:** Start in the directory which will contain our Django project:
     * Sample directory location:
@@ -133,7 +137,7 @@
     * Development server can be stopped by using Ctrl+C in terminal.
 
 1. **INFO:** Open internet browser to development server address:
-    * http://localhost:8000/
+    * <http://localhost:8000/>
 
 1. **INFO:** Verify the Django Green Rocket is visible and the following text shows:
     * `The install worked successfully! Congratulations!`
@@ -199,7 +203,8 @@
             ]
         </details>
 
-### Add URL route for the app:
+### Add URL route for the app
+
 1. **ACTION:** Add entry to `urlpatterns` list in [`the_project/urls.py`](../the_project/urls.py) for `the_app`:
     * Import `include` from [`django.urls`](https://docs.djangoproject.com/en/4.0/ref/urls/).
     * Confirm we have import `path` from [`django.urls`](https://docs.djangoproject.com/en/4.0/ref/urls/).
@@ -225,8 +230,7 @@
             ...
         </details>
 
-
-### Return an `HttpResponse` from request to `the-app/index-url/`:
+### Return an `HttpResponse` from request to `the-app/index-url/`
 
 1. **ACTION:** Create [`the_app/urls.py`](../the_app/urls.py) and add URL route for the `index_view` view to it:
     * Import `path` from `django.urls`.
@@ -274,18 +278,18 @@
 
 1. **INFO:** Open internet browser to application URL:
     * Server address:
-        * http://localhost:8000/
+        * <http://localhost:8000/>
     * URL route to index view:
         * `the-app/index-url/`
     * So the browser URL we use is:
-        * http://localhost:8000/the-app/index-url/
+        * <http://localhost:8000/the-app/index-url/>
 
 1. **INFO:** Verify internet browser displays `the_return_string` in [`the_app/views.py`](../the_app/views.py):
     * `Goodbuy, World! Enjoy the sail!`
 
 1. **INFO:** Our app URL route `the-app/index-url/` now calls the view function `index_view` which returns an `HttpResponse`. We can proceed to build our model and modify view function to return data from the database rather than returning a `HttpResponse` which contains a hard-coded string.
 
-### Display database contents on an `index` page:
+### Display database contents on an `index` page
 
 1. **INFO:** We will use the same URL path `the-app/index-url/` which calls the function-based view function `index_view`. But, first, we need to create a model and database to provide information to display on the index page.
 
@@ -371,7 +375,7 @@
     * `python .\manage.py runserver`
 
 1. **INFO:** Open internet browser to Django admin interface:
-    * http://localhost:8000/admin
+    * <http://localhost:8000/admin>
 
 1. **INFO:** Django admin interface functions but we forgot to add the model to [`the_app/admin.py`](../the_app/admin.py).
 
@@ -390,7 +394,7 @@
     </details>
 
 1. **INFO:** Open internet browser to Django admin interface:
-    * http://localhost:8000/admin
+    * <http://localhost:8000/admin>
 
 1. **ACTION:** Add a couple `AwesomeCat`s to the database.
     * The only attribute in the database is the `name` of the model `AwesomeCat`.
@@ -413,7 +417,7 @@
     </details>
 
 1. **ACTION:** Open internet browser to our app URL and check the output of the view function in console:
-    * http://localhost:8000/the-app/index-url/
+    * <http://localhost:8000/the-app/index-url/>
         <details>
         <summary>Sample console output</summary>
 
@@ -453,7 +457,7 @@
     * `python .\manage.py runserver`
 
 1. **INFO:** Open internet browser to application URL:
-    * http://localhost:8000/the-app/index-url/
+    * <http://localhost:8000/the-app/index-url/>
 
 1. **INFO:** Sample webpage content:
     * `<QuerySet [<AwesomeCat: 1 : Dezzi>, <AwesomeCat: 2 : Bunbun>]>`
@@ -474,7 +478,7 @@
 
 1. **INFO:** Start development server and test webpage:
     1. `python .\manage.py runserver`
-    1. http://localhost:8000/the-app/index-url/
+    1. <http://localhost:8000/the-app/index-url/>
         <details>
         <summary>Sample webpage contents</summary>
 
@@ -489,10 +493,12 @@
 
 1. **INFO:** We now have a Django list view displaying on a webpage. Let's start to build out a create view so the end user can add `AwesomeCat` objects using the application GUI we create rather than the Django Admin Interface.
 
-### **NOTE**: The list view is completed.
+### **NOTE**: The list view is completed
+
 * The user can add their own functionality to the list view or continue the guide below to add a create view.
 
 ### Build out a create view for our application
+
 * **INFO:** For this exercise we will add the `form` which is used for user input to our current `the-app/index_template.html` template. There are other solutions to this but we will leave those to other guides.
 * In the below steps we will do the following:
     1. Add a `form` element to the template.
@@ -509,6 +515,7 @@
 
 1. **ACTION:** Add `form` element to `the_app/index_template.html`:
     * Sample current implementation:
+
         ```
             <form></form>
         ```
@@ -518,6 +525,7 @@
         * `the_app` is our app name specified by `app_name = 'the_app'` in the urls configuration [`the_app/urls.py`](../the_app/urls.py)
         * `create` is the url name we will specify by `name='create'` in the `path` list item in the `urlpatterns` variable located in [`the_app\urls.py`](../the_app/urls.py)
     * Sample current implementation:
+
         ```
             <form action="{% url 'the_app:create_url_name"></form>
         ```
@@ -527,12 +535,14 @@
     * Reference:
         * [HTML \<form\> method Attribute - w3schools.com](https://www.w3schools.com/tags/att_form_method.asp)
     * Sample current implementation:
+
         ```
             <form action="{% url 'the_app:create' %}" method="post">
         ```
 
 1. **ACTION:** Add a [`{% csrf_token %}`](https://docs.djangoproject.com/en/4.1/howto/csrf/#how-to-use-django-s-csrf-protection) template tag to the `form` element:
     * Sample current implementation:
+
         ```
             <form action="{% url 'the_app:create' %}" method="post">
                 {% csrf_token %}
@@ -541,6 +551,7 @@
 
 1. **ACTION:** Add an HTML `input` element (for user text input) to the `form` element:
     * Sample current implementation:
+
         ```
             <form action="{% url 'the_app:create' %}" method="post">
                 {% csrf_token %}
@@ -550,6 +561,7 @@
 
 1. **ACTION:** Add a `type` attribute `text` to the user text `input` element tag:
     * Sample current implementation:
+
         ```
             <form action="{% url 'the_app:create' %}" method="post">
                 {% csrf_token %}
@@ -559,6 +571,7 @@
 
 1. **ACTION:** Add a `name` attribute `text_the_user_provided` to the user text `input` element tag:
     * Sample current implementation:
+
         ```
             <form action="{% url 'the_app:create' %}" method="post">
                 {% csrf_token %}
@@ -568,6 +581,7 @@
 
 1. **ACTION:** Add an HTML `input` element (for the submit button) to the `form` element:
     * Sample current implementation:
+
         ```
             <form action="{% url 'the_app:create' %}" method="post">
                 {% csrf_token %}
@@ -578,6 +592,7 @@
 
 1. **ACTION:** Add a `type` attribute `submit` to the submit button `input` element tag:
     * Sample current implementation:
+
         ```
             <form action="{% url 'the_app:create' %}" method="post">
                 {% csrf_token %}
@@ -588,6 +603,7 @@
 
 1. **ACTION:** Add a `value` attribute `Send input box text to view function?` to the submit button `input` element tag:
     * Sample current implementation:
+
         ```
             <form action="{% url 'the_app:create' %}" method="post">
                 {% csrf_token %}
@@ -612,6 +628,7 @@
     * The `path` function we are going to add, with arguments:
         * `path('create/', views.create, name='create')`
     * Sample current [`the_app/urls.py`](../the_app/urls.py) implementation:
+
         ```
             from django.urls import path
 
@@ -634,6 +651,7 @@
     * Concepts used here:
         * Import of [`HTTPResponse`](https://docs.djangoproject.com/en/4.0/ref/request-response/#httpresponse-objects) from `django.http`.
     * Sample current implementation:
+
         ```
             from django.http import HttpResponse
 
@@ -652,6 +670,7 @@
 1. **ACTION:** But, first, we will check the dunder string and the `type` of the `request` object.
     * Add two print statements to the `create` view function.
         * Sample current implementation:
+
             ```
                 def create(request):
                     ...
@@ -663,10 +682,11 @@
 
 1. **INFO:** Start the development server and go to the URL which will take us to THE_PLACE_WE_GO.
     1. `python .\manage.py runserver`
-    1. http://localhost:8000/the-app/index-url/
+    1. <http://localhost:8000/the-app/index-url/>
 
 1. **INFO:** Click the `Send input box text to view function?` button without anything provided in the text box.
     * Relavent sample console output:
+
         ```
             request: <WSGIRequest: POST '/the-app/create/'>
             type(request): <class 'django.core.handlers.wsgi.WSGIRequest'>
@@ -675,6 +695,7 @@
 1. **ACTION:** There is a specific part of the `request` object which we are interested in. That part is the `request.POST`.
     * Change the two print statements we created above to print `request.POST` instead of `request`.
         * Sample current implementation:
+
             ```
                 def create(request):
                     ...
@@ -686,10 +707,11 @@
 
 1. **INFO:** Start the development server and go to the URL which will take us to THE_PLACE_WE_GO.
     1. `python .\manage.py runserver`
-    1. http://localhost:8000/the-app/index-url/
+    1. <http://localhost:8000/the-app/index-url/>
 
 1. **INFO:** Click the `Send input box text to view function?` button without anything provided in the text box.
     * Relavent sample console output:
+
         ```
             request.POST:  <QueryDict: {
                 'csrfmiddlewaretoken': ['kndozbWMqCwp4f6DWMwz7t91yKCLf1Smy2Bf1UaEFZ8cxowrDJiNQMvEFMGn9kuW'],
@@ -703,7 +725,7 @@
 
 1. **INFO:** Start the development server and go to the URL which will take us to THE_PLACE_WE_GO.
     1. `python .\manage.py runserver`
-    1. http://localhost:8000/the-app/index-url/
+    1. <http://localhost:8000/the-app/index-url/>
 
 1. **INFO:** Let's now add some text to the text box and click the `Send input box text to view function?` button.
 
@@ -711,6 +733,7 @@
     * Sample text: `Super Kat!`
 
 1. Sample console output:
+
     ```
         request.POST:  <QueryDict: {
             'csrfmiddlewaretoken': ['tGop19JieHBTYPaVHLrl3npn9OCC2t7lHlMgtSXat4dGrYAJoIdzMGL0gQGeWMJV'],
@@ -719,4 +742,4 @@
     ```
 
 1. Let's look again at [`the_app/index_template.html`](../the_app/templates/the_app/index_template.html) and note some things:
-    * 
+    *

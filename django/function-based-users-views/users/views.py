@@ -93,7 +93,7 @@ def edit(request):
         password_in_view = request.POST.get('password_in_form')
         password_confirm_in_view = request.POST.get('password_confirm_in_form')
         print('POST!!!')
-        return HttpResponseRedirect(reverse('the_users_app:edit'))
+        return HttpResponseRedirect(reverse('the_users_app:home'))
 
     return render(request, 'registration/edit.html')
     
