@@ -35,6 +35,16 @@
             csrf_token: '',
         },
         methods: {
+            getAThingsNotAuthenticated: function() {
+                axios({
+                    method: 'get',
+                    url: '/api/v1/a-things/',
+                }).then(response => {
+                    console.log(response.data)
+                }).catch(error => {
+                    console.log(error)
+                })
+            },
 
         },
         computed: {
