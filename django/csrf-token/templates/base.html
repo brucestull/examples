@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}
+            This stuff will probably never be seen displayed on webpage
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+    <main>
+        <div>
+            <h2>Development Links</h2>
+            <nav>
+                <p>
+                    <a
+                    href={% url 'admin:index' %}
+                    target='_blank'
+                    >
+                    Django Admin Interface
+                    </a>
+                </p>
+                <a href={% url 'home' %}>Home</a><br>
+                <a href={% url 'signup' %}>Sign Up</a><br>
+                <a href={% url 'login' %}>Login</a><br>
+                <a href={% url 'logout' %}>Logout</a><br>
+            </nav>
+        </div>
+        
+        <div>
+            <h2>User Status</h2>
+            {% if user.is_authenticated %}
+                Greetings, {{ user.username | capfirst }}!
+            {% else %}
+                <p>We don't know you!</p>
+                <p><a href="{% url 'login' %}">Log In</a></p>
+            {% endif %}
+        </div>
+    
+        {% block content %}
+        {% endblock content %}
+    </main>
+</body>
+
+</html>
