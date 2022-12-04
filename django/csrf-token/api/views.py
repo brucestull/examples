@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from django_app.models import AThing
+from api.serializers import AThingSerializer
+
+
+class AThingViewSet(viewsets.ModelViewSet):
+    queryset = AThing.objects.all()
+    serializer_class = AThingSerializer
+

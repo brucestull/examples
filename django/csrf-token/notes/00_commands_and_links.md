@@ -25,6 +25,8 @@ accounts
   * <http://localhost:8000/>
   * <http://localhost:8000/persons/login/>
   * <http://localhost:8000/persons/signup/>
+* Django REST:
+  * <http://localhost:8000/api/v1/>
 * Django Admin:
   * <http://localhost:8000/admin/>
   * <http://localhost:8000/admin/auth/user/>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Django App - Home{% endblock title %}
+
+{% block content %}
+<h2>Django App - Home</h2>
+
+{% if things %}
+<p>We might have 'things'?</p>
+<ul>
+{% for thing in things %}
+    <li>{{ thing }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>Nothing to see here.</p>
+{% endif %}
+
+{% endblock content %}
