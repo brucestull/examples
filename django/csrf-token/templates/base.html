@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         {% block title %}
             This stuff will probably never be seen displayed on webpage
@@ -11,7 +13,7 @@
 </head>
 
 <body>
-    <main>
+    <header>
         <div>
             <h2>Development Links</h2>
             <nav>
@@ -21,6 +23,13 @@
                     target='_blank'
                     >
                     Django Admin Interface
+                    </a>
+                    <br>
+                    <a
+                    href={% url 'admin:auth_user_changelist' %}
+                    target='_blank'
+                    >
+                    Django Admin Interface - Users
                     </a>
                 </p>
                 <a href={% url 'home' %}>Home</a><br>
@@ -39,10 +48,13 @@
                 <p><a href="{% url 'login' %}">Log In</a></p>
             {% endif %}
         </div>
+    </header>
     
-        {% block content %}
-        {% endblock content %}
-    </main>
+    {% block content %}
+    {% endblock content %}
+
+    {% block scripts %}
+    {% endblock scripts %}
 </body>
 
 </html>
