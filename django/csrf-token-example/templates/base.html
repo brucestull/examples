@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <title>{% block title %}This stuff will probably never be displayed{% endblock title %}</title>
+</head>
+<body>
+    <nav>
+        <a href={% url 'home' %}>Home</a><br>
+        <a href={% url 'admin:index' %} target='_blank'>Django Admin Interface</a><br>
+        {% comment %} <a href={% url 'api' %}>Django Browsable API</a><br> {% endcomment %}
+        <a href='/api/v1/' target='_blank'>Django Browsable API</a><br>
+    </nav>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
