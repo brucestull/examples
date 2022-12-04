@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Things - Vanilla Django List View{% endblock title %}
+
+{% block content %}
+    <h1>Things</h1>
+
+    {% if things %}
+        <ul>
+            {% for thing in things %}
+                <li>{{ thing.name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>We have no <code>Thing</code>s to display.</p>
+    {% endif %}
+
+    <h2>Raw QuerySet</h2>
+    {{ things }}
+
+{% endblock content %}
