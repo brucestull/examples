@@ -22,6 +22,8 @@
     router.register('thingsss', views.ThingViewSet, basename='things')
     #...
     ```
+    
+    ![image](https://user-images.githubusercontent.com/47562501/205686663-102cc2c5-07d3-4a80-8e25-13002f10829f.png)
 
 ## TODO
 
