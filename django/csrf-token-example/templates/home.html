@@ -20,7 +20,9 @@
     <main id='app'>
         <h2>[[ name ]]</h2>
         
-        <button v-on:click="getSomeThings">Get Some Things</button>
+        <button v-on:click="getSomeThingsWithoutCsrf">Get Some Things - WITHOUT CSRF</button><br>
+        <button v-on:click="getSomeThingsWithCsrf">Get Some Things - WITH CSRF</button><br>
+        <button v-on:click="addAThing">Add A Thing</button><br>
 
         <h2><code>Thing</code>s</h2>
         <div v-if="things">
@@ -57,16 +59,51 @@
                 csrf_token: '',
                 thingsUrl: '/api/v1/things/',
                 things: '',
+                aThing: '',
+                hardCodedThing: {
+                    name: 'Hard Coded Thing',
+                },
             },
             methods: {
-                getSomeThings: function() {
-                    console.log('Getting some things...')
+                getSomeThingsWithoutCsrf: function() {
+                    console.log('Getting some things, no CSRF...')
                     axios({
+                        // The CSRF token is NOT required for this to work.
                         method: 'get',
                         url: this.thingsUrl,
                     }).then(response => {
-                        console.log(response)
+                        console.log("response from 'getSomeThingsWithoutCsrf': ", response)
                         this.things = response.data
+                    })
+                },
+                getSomeThingsWithCsrf: function() {
+                    console.log('Getting some things, include CSRF...')
+                    axios({
+                        // The CSRF token is NOT required for this to work.
+                        method: 'get',
+                        url: this.thingsUrl,
+                        headers: {
+                            'X-CSRFToken': this.csrf_token,
+                        },
+                    }).then(response => {
+                        console.log("response from 'getSomeThingsWithCsrf': ", response)
+                        this.things = response.data
+                    })
+                },
+                addAThing: function() {
+                    console.log('Adding a thing...')
+                    axios({
+                        // The CSRF token is required for this to work.
+                        method: 'post',
+                        url: this.thingsUrl,
+                        headers: {
+                            'X-CSRFToken': this.csrf_token,
+                        },
+                        data: this.hardCodedThing,
+                    }).then(response => {
+                        console.log("response from 'addAThing': ", response)
+                        this.aThing = response.data
+                        this.getSomeThingsWithoutCsrf()
                     })
                 },
 
