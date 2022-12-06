@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}User Detail{% endblock title %}
+
+{% block content %}
+
+    <h1>User Detail</h1>
+    Username: {{ custom_user.username }}<br>
+    Is Recruiter: {{ custom_user.is_recruiter }}<br>
+    Is Candidate: {{ custom_user.is_candidate }}<br>
+
+{% endblock content %}

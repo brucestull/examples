@@ -36,6 +36,10 @@
         Django Documentation
     </a>
     <br>
+    <a href={% url 'edit_user' 1 %}>User Edit '1'</a><br>
+    <a href={% url 'user_detail' 1 %}>User Detail '1'</a><br>
+    <a href={% url 'edit_user' 2 %}>User Edit '2'</a><br>
+    <a href={% url 'user_detail' 2 %}>User Detail '2'</a><br>
     </nav>
     {% block content %}
     {% endblock content %}
