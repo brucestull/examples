@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+Greetings, {{ user.username | capfirst }}!
+<p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+<p>You are not logged in... unfortunately.</p>
+<a href="{% url 'login' %}">Log In</a> |
+<a href="{% url 'signup' %}">Sign Up</a>
+{% endif %}
+
+{% csrf_token %}
+
+<main id='app'>
+    <h1>[[ name ]]</h1>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    // Start server:
+    // python -m http.server 8000
+    const vm = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data: {
+            name: 'Django User Admin Example',
+            csrf_token: '',
+        },
+        methods: {
+
+        },
+        computed: {
+
+        },
+        beforeCreate: function() {
+            console.log("About to Create!")
+        },
+        created: function() {
+            console.log("Created")
+        },
+        beforeMount: function() {
+            console.log("About to Mount!")
+        },
+        mounted: function() {
+            console.log("Mounted")
+            this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value
+        },
+        beforeUpdate: function() {
+            console.log("About to Update!")
+        },
+        updated: function() {
+            console.log("Updated")
+        },
+        beforeDestroy: function() {
+            console.log("About to Destroy!")
+        },
+        destroyed: function() {
+            console.log("Destroyed")
+        },
+    })
+</script>
+
+{% endblock content %}

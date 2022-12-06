@@ -4,7 +4,7 @@
 
 ## Lessons Learned
 
-* Django Admin Interface - User Change
+* Django Admin Interface - Custom User List View
   * Django URL Tag:
 
     ```html
