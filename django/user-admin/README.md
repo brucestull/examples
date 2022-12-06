@@ -19,7 +19,7 @@
 
   * Django Documentation View:
 
-    ![image](https://user-images.githubusercontent.com/47562501/205813493-04bc1d7b-0e18-45b8-8759-4a72cf7eaa31.png)
+    ![image](https://user-images.githubusercontent.com/47562501/205814751-12be824d-26fd-4922-9518-2f5c9288f658.png)
 
 ## TODO
 
