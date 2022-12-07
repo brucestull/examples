@@ -3,10 +3,13 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
+<a href={% url 'user_list' %}>User List - Django View</a>
+<br>
 
 {% if not user.is_authenticated %}
-    <a href="{% url 'login' %}">Log In</a> |
-    <a href="{% url 'signup' %}">Sign Up</a>
+    <br>
+    <a href="{% url 'login' %}">Log In</a><br>
+    <a href="{% url 'signup' %}">Sign Up</a><br>
 {% endif %}
 
 {% csrf_token %}

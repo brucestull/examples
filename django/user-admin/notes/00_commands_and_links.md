@@ -31,7 +31,8 @@ accounts
 * Server Root:
   * <http://localhost:8000/>
 * Application Routes:
-
+* Django REST:
+  * <http://localhost:8000/api/v1/>
 * Django Admin:
   * <http://localhost:8000/admin/>
   * <http://localhost:8000/admin/auth/user/>

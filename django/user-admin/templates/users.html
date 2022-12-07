@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Users List - Django View{% endblock title %}
+
+{% block content %}
+<a href={% url 'home' %}>Home</a>
+
+<h2>Users List - Django View</h2>
+
+{% if users %}
+
+    <h3>Raw <code>CustomUser</code>s <code>QuerySet</code></h3>
+    {{ users }}
+
+    <h3><code>CustomUser</code>s List</h3>
+    <p>{{ users|length }} users found.</p>
+    <ul>
+        {% for user in users %}
+            <li>
+                Username: {{ user.username }}<br>
+                ID: {{ user.id }}<br>
+                Is Superuser: {{ user.is_superuser }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% else %}
+
+    <p>No users found.</p>
+
+{% endif %}
+
+
+
+{% endblock content %}
