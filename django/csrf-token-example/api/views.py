@@ -7,6 +7,6 @@ from api.serializers import ThingSerializer
 
 
 class ThingViewSet(viewsets.ModelViewSet):
-    queryset = Thing.objects.all()
+    queryset = Thing.objects.all().order_by('-id')
     serializer_class = ThingSerializer
     permission_classes = [IsAuthenticated]

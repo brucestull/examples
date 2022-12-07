@@ -25,4 +25,5 @@ urlpatterns = [
     path('users/', include('django.contrib.auth.urls')),
     path('', RedirectView.as_view(url='/things/'), name='home'),
     path('api/v1/', include('api.urls')),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

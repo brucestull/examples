@@ -20,12 +20,24 @@
     <main id='app'>
         <h2>[[ name ]]</h2>
         
-        <button v-on:click="getSomeThingsWithoutCsrf">Get Some Things - WITHOUT CSRF</button><br>
         <button v-on:click="getSomeThingsWithCsrf">Get Some Things - WITH CSRF</button><br>
-        <button v-on:click="addAThing">Add A Thing</button><br>
+        <button v-on:click="getSomeThingsWithoutCsrf">Get Some Things - WITHOUT CSRF</button><br>
+        <button v-on:click="addAThingWithCsrf">Add A Thing - WITH CSRF</button><br>
+        <button v-on:click="addAThingWithoutCsrf">Add A Thing - WITHOUT CSRF</button><br>
 
         <h2><code>Thing</code>s</h2>
         <div v-if="things">
+
+            <h3>Delete a Single Thing?</h3>
+            <label for="thing-id">Thing ID:</label>
+            <input
+                type="text"
+                id="thing-id"
+                v-model="idToDelete"
+                placeholder="'ID' of 'Thing' to delete"
+                >
+            <button v-on:click="deleteAThingWithCsrf">Delete A Thing - WITH CSRF</button><button v-on:click="deleteAThingWithoutCsrf">Delete A Thing - WITHOUT CSRF</button><br>
+
             <h3><code>Thing</code>s List</h3>
             <ul>
                 <li v-for="thing in things">
@@ -37,8 +49,10 @@
                     <br>
                 </li>
             </ul>
+
             <h3>Raw <code>things</code> Object - Formatted</h3>
             <pre>[[ things ]]</pre>
+
             <h3>Raw <code>things</code> Object - NOT Formatted</h3>
             [[ things ]]
         </div>
@@ -58,24 +72,17 @@
                 name: 'Vue Application!',
                 csrf_token: '',
                 thingsUrl: '/api/v1/things/',
+
                 things: '',
                 aThing: '',
+
                 hardCodedThing: {
                     name: 'Hard Coded Thing',
                 },
+                idToDelete: '',
+                
             },
             methods: {
-                getSomeThingsWithoutCsrf: function() {
-                    console.log('Getting some things, no CSRF...')
-                    axios({
-                        // The CSRF token is NOT required for this to work.
-                        method: 'get',
-                        url: this.thingsUrl,
-                    }).then(response => {
-                        console.log("response from 'getSomeThingsWithoutCsrf': ", response)
-                        this.things = response.data
-                    })
-                },
                 getSomeThingsWithCsrf: function() {
                     console.log('Getting some things, include CSRF...')
                     axios({
@@ -90,7 +97,18 @@
                         this.things = response.data
                     })
                 },
-                addAThing: function() {
+                getSomeThingsWithoutCsrf: function() {
+                    console.log('Getting some things, no CSRF...')
+                    axios({
+                        // The CSRF token is NOT required for this to work.
+                        method: 'get',
+                        url: this.thingsUrl,
+                    }).then(response => {
+                        console.log("response from 'getSomeThingsWithoutCsrf': ", response)
+                        this.things = response.data
+                    })
+                },
+                addAThingWithCsrf: function() {
                     console.log('Adding a thing...')
                     axios({
                         // The CSRF token is required for this to work.
@@ -101,10 +119,64 @@
                         },
                         data: this.hardCodedThing,
                     }).then(response => {
-                        console.log("response from 'addAThing': ", response)
+                        console.log("response from 'addAThingWithCsrf': ", response)
                         this.aThing = response.data
                         this.getSomeThingsWithoutCsrf()
                     })
+                },
+                addAThingWithoutCsrf: function() {
+                    console.log('Adding a thing...')
+                    axios({
+                        // The CSRF token is required for this to work.
+                        method: 'post',
+                        url: this.thingsUrl,
+                        data: this.hardCodedThing,
+                    }).then(response => {
+                        console.log("response from 'addAThingWithoutCsrf': ", response)
+                        this.aThing = response.data
+                        this.getSomeThingsWithoutCsrf()
+                    })
+                },
+                deleteAThingWithCsrf: function() {
+                    console.log(`Deleting a thing: ${this.idToDelete}...`)
+                    // If no input for ID, exit the function (return).
+                    if (this.idToDelete === '') {
+                        console.log('No ID to delete.')
+                        return
+                    }
+                    axios({
+                        // The CSRF token is required for this to work.
+                        method: 'delete',
+                        url: this.thingsUrl + this.idToDelete,
+                        headers: {
+                            'X-CSRFToken': this.csrf_token,
+                        },
+                    }).then(response => {
+                        console.log("response from 'deleteAThingWithCsrf': ", response)
+                        this.idToDelete = ''
+                        this.getSomeThingsWithoutCsrf()
+                    })
+                },
+                deleteAThingWithoutCsrf: function() {
+                    console.log(`Deleting a thing: ${this.idToDelete}...`)
+                    // If no input for ID, exit the function (return).
+                    // if (this.idToDelete === '') {
+                    //         console.log('No ID to delete.')
+                    //         return
+                    // }
+                    axios({
+                        // The CSRF token is required for this to work.
+                        method: 'delete',
+                        url: this.thingsUrl + this.idToDelete,
+                    }).then(response => {
+                        console.log("response from 'deleteAThingWithoutCsrf': ", response)
+                        this.idToDelete = ''
+                        this.getSomeThingsWithoutCsrf()
+                    }).catch(error => {
+                        console.log('error.response: ', error.response)
+                        console.log('error.response.data: ', error.response.data)
+                    })
+
                 },
 
             },
