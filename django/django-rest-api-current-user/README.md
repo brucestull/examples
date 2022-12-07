@@ -1,4 +1,4 @@
-# Django User Admin Example
+# Django REST Current User API
 
 ## Resources
 
