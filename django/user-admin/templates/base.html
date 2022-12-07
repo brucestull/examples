@@ -10,12 +10,6 @@
     <header>
         <nav>
             <a
-                href="{% url 'home' %}"
-                >
-                Home
-            </a>
-            <br>
-            <a
                 href={% url 'admin:index' %}
                 target='_blank'
                 >
@@ -43,8 +37,6 @@
                 <p><a href="{% url 'logout' %}">Log Out</a></p>
             {% else %}
                 <p>You are not logged in... unfortunately.</p>
-                <a href="{% url 'login' %}">Log In</a> |
-                <a href="{% url 'signup' %}">Sign Up</a>
             {% endif %}
         </div>
     </header>

@@ -4,6 +4,14 @@
 
 {% block content %}
 
+    <a
+        href="{% url 'home' %}"
+        >
+        Home
+    </a>
+    <br>
+    <a href="{% url 'signup' %}">Sign Up</a>
+    <br>
     <h2>Log In</h2>
     <form method="post">
         {% csrf_token %}
