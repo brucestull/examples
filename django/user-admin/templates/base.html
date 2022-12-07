@@ -4,46 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}This probaly will never display{% endblock title %}</title>
+    <title>{% block title %}This probably won't ever be seen on the page{% endblock %}</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <a
-                href={% url 'admin:index' %}
-                target='_blank'
-                >
-                Django Admin Interface
-            </a>
-            <br>
-            <a
-                href={% url 'admin:accounts_customuser_changelist' %}
-                target='_blank'
-                >
-                Django Admin Interface - Users
-            </a>
-            <br>
-            <a
-                href={% url 'django-admindocs-docroot' %}
-                target='_blank'
-                >
-                Django Documentation
-            </a>
-            <br>
-            <a href="/api/v1/" target='_blank'>Django Browsable API</a><br>
-            <br>
-        </nav>
-        <div>
-            {% if user.is_authenticated %}
-                Greetings, {{ user.username | capfirst }}!
-                <p><a href="{% url 'logout' %}">Log Out</a></p>
-            {% else %}
-                <p>You are not logged in... unfortunately.</p>
-            {% endif %}
-        </div>
-    </header>
-
-    {% block content %}
-    {% endblock content %}
+    <main>
+        <a href="/api/v1/" target="_blank">Django Browsable API</a><br>
+        <a href={% url 'admin:index' %} target="_blank">Django Admin Interface</a><br>
+        {% block content %}
+        {% endblock %}
+    </main>
 </body>
 </html>

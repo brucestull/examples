@@ -18,6 +18,7 @@ accounts
 * `django-admin startproject the_project .`
 * `django-admin startproject config .`
 * `django-admin startapp app_name`
+* `django-admin startapp api`
 * `tree /f /a`
 * `python .\manage.py runserver`
 * `python .\manage.py makemigrations`
