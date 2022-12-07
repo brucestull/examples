@@ -5,8 +5,11 @@
 {% block content %}
 
     <h1>User Detail</h1>
+    ID: {{ custom_user.id }}<br>
     Username: {{ custom_user.username }}<br>
-    Is Recruiter: {{ custom_user.is_recruiter }}<br>
     Is Candidate: {{ custom_user.is_candidate }}<br>
+    Is Recruiter: {{ custom_user.is_recruiter }}<br>
+    Is Candidate: {{ custom_user.is_manager }}<br>
+    Is Candidate: {{ custom_user.is_whatever }}<br>
 
 {% endblock content %}

@@ -15,6 +15,8 @@ class CustomUserAdmin(UserAdmin):
         'username',
         'is_candidate',
         'is_recruiter',
+        'is_manager',
+        'is_whatever',
     ]
 
 admin.site.register(CustomUser, CustomUserAdmin)

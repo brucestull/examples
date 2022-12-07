@@ -6,6 +6,8 @@ from django.urls import reverse
 class CustomUser(AbstractUser):
     is_candidate = models.BooleanField(default=False)
     is_recruiter = models.BooleanField(default=False)
+    is_manager = models.BooleanField(default=False)
+    is_whatever = models.BooleanField(default=False)
     
     pass
     # add additional fields in here

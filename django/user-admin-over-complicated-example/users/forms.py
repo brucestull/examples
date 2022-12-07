@@ -11,8 +11,6 @@ class CustomUserCreationForm(UserCreationForm):
         fields = (
             'username',
             'email',
-            'is_candidate',
-            'is_recruiter',
         )
 
 
