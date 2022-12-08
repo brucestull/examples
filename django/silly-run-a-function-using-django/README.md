@@ -29,6 +29,9 @@
 
 ## Sample Images
 
+* `python some_python_file_with_main.py`:
+* `python some_python_file.py`:
+
 * `pipenv install`:
   * ![image](https://user-images.githubusercontent.com/47562501/206470430-50861c67-6b85-4be9-a22f-80e3e3fab627.png)
 * `pipenv shell`
