@@ -1,5 +1,8 @@
 # Silly Run a Function Using Django - **UNDER CONSTRUCTION**
 
+1. [Commands to Run the Included Python Scripts](./README.md#commands-to-run-the-included-python-scripts)
+1. [Commands to Run the Application after Cloning the Repository](./README.md#commands-to-run-the-application-after-cloning-the-repository)
+
 ## Commands to Run the Included Python Scripts
 
 * NOTE: These commands are run in project root directory. That is where the python scripts are located.
