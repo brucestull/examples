@@ -39,6 +39,9 @@
   * ![image](https://user-images.githubusercontent.com/47562501/206470662-11fb88c1-d30a-4dad-909c-b7fdf334103c.png)
 * `python manage.py runserver`:
   * ![image](https://user-images.githubusercontent.com/47562501/206469247-571317c7-e23e-4b86-b07f-c44417b32eca.png)
+* <http://localhost:8000/silly-app/url-for-silly-view/>:
+  * Internet browser display:
+  * Condole output:
 
 ## Resources
 
