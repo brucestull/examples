@@ -41,7 +41,9 @@
   * ![image](https://user-images.githubusercontent.com/47562501/206469247-571317c7-e23e-4b86-b07f-c44417b32eca.png)
 * <http://localhost:8000/silly-app/url-for-silly-view/>:
   * Internet browser display:
-  * Condole output:
+    * ![image](https://user-images.githubusercontent.com/47562501/206473049-b338fac0-88c1-4383-816b-bd44b6bab1d1.png)
+  * Console output:
+    * ![image](https://user-images.githubusercontent.com/47562501/206473494-6a8f488c-b71f-4368-ab5b-e3bedef938d5.png)
 
 ## Resources
 
