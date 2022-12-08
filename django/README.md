@@ -24,6 +24,7 @@
 * [Pipenv Setup - **UNDER CONSTRUCTION**](./pipenv-setup/README.md)
 * [`POST` and `GET` - **UNDER CONSTRUCTION**](./POST-and-GET/README.md)
 * [`reverse()` - **UNDER CONSTRUCTION**](./reverse/README.md)
+* [Silly Run a Function Using Django - **UNDER CONSTRUCTION**](./silly-run-a-function-using-django/README.md)
 * [ToDo Tracker - **UNDER CONSTRUCTION**](./to-do-tracker/README.md)
 * [User Admin Over Complicated Example - **UNDER CONSTRUCTION**](./user-admin-over-complicated-example/README.md)
 * [Will Vincent Login, Logout, Signup, Reset Password Tutorial - **UNDER CONSTRUCTION**](./wv-login-logout-signup-reset-tutorial/README.md)
