@@ -1,4 +1,4 @@
-# Django REST Current User API
+# Django REST API Current User - **APP IS COMPLETE : NEED TO CREATE DOCUMENTATION**
 
 ## Resources
 

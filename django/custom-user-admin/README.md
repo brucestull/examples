@@ -1,4 +1,4 @@
-# Django User Admin Example
+# Django User Admin Example - **UNDER CONSTRUCTION**
 
 ## Resources
 

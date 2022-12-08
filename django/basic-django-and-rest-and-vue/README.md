@@ -1,4 +1,4 @@
-# CSRF Token
+# Basic Django and REST and Vue - **UNDER CONSTRUCTION**
 
 * Simple Django app to generate a CSRF token for a given session ID.
 

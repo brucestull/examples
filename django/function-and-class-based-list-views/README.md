@@ -1,4 +1,4 @@
-# Function and Class-Based List Views
+# Function and Class-Based List Views - **APP IS COMPLETE : NEED TO REFINE DOCUMENTATION**
 
 * Example of Five (5) Different Types of Django Views
 

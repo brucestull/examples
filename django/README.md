@@ -1,11 +1,24 @@
 # Django Code Examples
 
-* [Django Starter](./django-starter/README.md)
-* [Examples of Five (5) Different Types of Django Views](./function-and-class-based-list-views/README.md)
-* [Create `pipenv` virtual environment for a Django project](./pipenv-setup/README.md)
-* [Create Django Project with List View First](./list-create-views/README.md)
-* [List View with Home](./list-view-with-home/README.md)
-* [Demonstrate `reverse()` Method](./reverse/README.md)
+* [Anonymous User Example - **UNDER CONSTRUCTION**](./anonymous-user/README.md)
+* [Basic Django and REST and Vue - **UNDER CONSTRUCTION**](./basic-django-and-rest-and-vue/README.md)
+* [CSRF Token Example - **UNDER CONSTRUCTION**](./csrf-token-example/README.md)
+* [Custom Form for User Creation - **UNDER CONSTRUCTION**](./custom-form-for-user-creation/README.md)
+* [Django User Admin Example - **UNDER CONSTRUCTION**](./custom-user-admin/README.md)
+* [Django Default - **UNDER CONSTRUCTION**](./django-default/README.md)
+* [Django REST API Current User - **APP IS COMPLETE : NEED TO CREATE DOCUMENTATION**](./django-rest-api-current-user/README.md)
+* [File Upload - **APP IS COMPLETE : NEED TO CREATE DOCUMENTATION**](./file-upload/README.md)
+* [Function and Class-Based List Views - **APP IS COMPLETE : NEED TO REFINE DOCUMENTATION**](./function-and-class-based-list-views/README.md)
+* [Function-Based Users Views - **UNDER CONSTRUCTION**](./function-based-users-views/README.md)
+* [List Create Views - **UNDER CONSTRUCTION**](./list-create-views/README.md)
+* [List View with Home - **UNDER CONSTRUCTION**](./list-view-with-home/README.md)
+* [Useful Commands and Links - **UNDER CONSTRUCTION**](./notes/00_commands_and_links.md)
+* [Pipenv Setup - **UNDER CONSTRUCTION**](./pipenv-setup/README.md)
+* [`POST` and `GET` - **UNDER CONSTRUCTION**](./POST-and-GET/README.md)
+* [`reverse()` - **UNDER CONSTRUCTION**](./reverse/README.md)
+* [ToDo Tracker - **UNDER CONSTRUCTION**](./to-do-tracker/README.md)
+* [User Admin Over Complicated Example - **UNDER CONSTRUCTION**](./user-admin-over-complicated-example/README.md)
+* [Will Vincent Login, Logout, Signup, Reset Password Tutorial - **UNDER CONSTRUCTION**](./wv-login-logout-signup-reset-tutorial/README.md)
 
 ## Code Examples Repository links
 

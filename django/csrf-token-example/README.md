@@ -1,4 +1,4 @@
-# CSRF Token Example
+# CSRF Token Example - **UNDER CONSTRUCTION**
 
 * Simple Django app to demonstrate use of a CSRF token for a given session ID.
 
@@ -20,14 +20,14 @@
   * `IsAuthenticated`:
     | Logged In | CSRF Token | Method | Result |
     | --- | --- | --- | --- |
-    | No | No | GET | 403 |
-    | No | No | POST | 403 |
-    | No | Yes | GET | 200 |
-    | No | Yes | POST | 403 |
-    | Yes | No | GET | 200 |
-    | Yes | No | POST | 403 |
-    | Yes | Yes | GET | 200 |
-    | Yes | Yes | POST | 200 |
+    | No | No | REQUEST_METHOD | RESPONSE_STATUS |
+    | No | No | REQUEST_METHOD | RESPONSE_STATUS |
+    | No | Yes | REQUEST_METHOD | RESPONSE_STATUS |
+    | No | Yes | REQUEST_METHOD | RESPONSE_STATUS |
+    | Yes | No | REQUEST_METHOD | RESPONSE_STATUS |
+    | Yes | No | REQUEST_METHOD | RESPONSE_STATUS |
+    | Yes | Yes | REQUEST_METHOD | RESPONSE_STATUS |
+    | Yes | Yes | REQUEST_METHOD | RESPONSE_STATUS |
 
 * API URL routes:
 

@@ -1,4 +1,4 @@
-# Django Default
+# Django Default - **UNDER CONSTRUCTION**
 
 * Simple Django app created from the following:
   * `django-admin startproject config .`
