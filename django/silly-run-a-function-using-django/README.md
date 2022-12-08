@@ -29,12 +29,12 @@
 
 ## Sample Images
 
-* `python manage.py runserver`:
-  * ![image](https://user-images.githubusercontent.com/47562501/206469247-571317c7-e23e-4b86-b07f-c44417b32eca.png)
 * `pipenv install`:
   * ![image](https://user-images.githubusercontent.com/47562501/206470430-50861c67-6b85-4be9-a22f-80e3e3fab627.png)
 * `pipenv shell`
   * ![image](https://user-images.githubusercontent.com/47562501/206470662-11fb88c1-d30a-4dad-909c-b7fdf334103c.png)
+* `python manage.py runserver`:
+  * ![image](https://user-images.githubusercontent.com/47562501/206469247-571317c7-e23e-4b86-b07f-c44417b32eca.png)
 
 ## Resources
 
