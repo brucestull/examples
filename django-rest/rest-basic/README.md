@@ -1,4 +1,4 @@
-# Django REST - Basic
+# Django REST : Basic - **UNDER CONSTRUCTION**
 
 * Basic Django REST implementation.
 

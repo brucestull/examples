@@ -1,14 +1,22 @@
 # Django Code Examples
 
+## Examples **APP IS COMPLETE : NEED TO REFINE DOCUMENTATION**
+
+* [Function and Class-Based List Views - **APP IS COMPLETE : NEED TO REFINE DOCUMENTATION**](./function-and-class-based-list-views/README.md)
+
+## Examples **APP IS COMPLETE : NEED TO CREATE DOCUMENTATION**
+
+* [Django REST API Current User - **APP IS COMPLETE : NEED TO CREATE DOCUMENTATION**](./django-rest-api-current-user/README.md)
+* [File Upload - **APP IS COMPLETE : NEED TO CREATE DOCUMENTATION**](./file-upload/README.md)
+
+## Examples **UNDER CONSTRUCTION**
+
 * [Anonymous User Example - **UNDER CONSTRUCTION**](./anonymous-user/README.md)
 * [Basic Django and REST and Vue - **UNDER CONSTRUCTION**](./basic-django-and-rest-and-vue/README.md)
 * [CSRF Token Example - **UNDER CONSTRUCTION**](./csrf-token-example/README.md)
 * [Custom Form for User Creation - **UNDER CONSTRUCTION**](./custom-form-for-user-creation/README.md)
 * [Django User Admin Example - **UNDER CONSTRUCTION**](./custom-user-admin/README.md)
 * [Django Default - **UNDER CONSTRUCTION**](./django-default/README.md)
-* [Django REST API Current User - **APP IS COMPLETE : NEED TO CREATE DOCUMENTATION**](./django-rest-api-current-user/README.md)
-* [File Upload - **APP IS COMPLETE : NEED TO CREATE DOCUMENTATION**](./file-upload/README.md)
-* [Function and Class-Based List Views - **APP IS COMPLETE : NEED TO REFINE DOCUMENTATION**](./function-and-class-based-list-views/README.md)
 * [Function-Based Users Views - **UNDER CONSTRUCTION**](./function-based-users-views/README.md)
 * [List Create Views - **UNDER CONSTRUCTION**](./list-create-views/README.md)
 * [List View with Home - **UNDER CONSTRUCTION**](./list-view-with-home/README.md)
