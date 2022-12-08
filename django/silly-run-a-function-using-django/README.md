@@ -30,7 +30,7 @@
 ## Sample Images
 
 * `python manage.py runserver`:
-    * ![image](https://user-images.githubusercontent.com/47562501/206469247-571317c7-e23e-4b86-b07f-c44417b32eca.png)
+  * ![image](https://user-images.githubusercontent.com/47562501/206469247-571317c7-e23e-4b86-b07f-c44417b32eca.png)
 * `pipenv install`:
 * `pipenv shell`
 
