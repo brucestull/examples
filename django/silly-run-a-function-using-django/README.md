@@ -30,8 +30,9 @@
 ## Sample Images
 
 * `python some_python_file_with_main.py`:
+  * ![image](https://user-images.githubusercontent.com/47562501/206471650-0ed3abca-318c-49d9-ab20-d606a1542a09.png)
 * `python some_python_file.py`:
-
+  * ![image](https://user-images.githubusercontent.com/47562501/206471830-91ebe605-3ac3-457d-bbe6-b97eea3316bd.png)
 * `pipenv install`:
   * ![image](https://user-images.githubusercontent.com/47562501/206470430-50861c67-6b85-4be9-a22f-80e3e3fab627.png)
 * `pipenv shell`
