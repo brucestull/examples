@@ -1,0 +1,19 @@
+<h1><code>Thing</code>s <code>get_queryset()</code> Example</h1>
+
+<h2><code>ThingListView</code></h2>
+<pre>
+    class ThingListView(ListView):
+        model = Thing
+        template_name = 'things/things_list.html'
+
+        def get_queryset(self):
+            return Thing.objects.all().filter(name__contains='car')
+</pre>
+
+<h2><code>object_list</code></h2>
+{{ object_list }}<br>
+<br>
+
+<h2><code>thing_list</code></h2>
+{{ thing_list }}<br>
+<br>
