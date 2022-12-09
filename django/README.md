@@ -1,12 +1,13 @@
 # Django Code Examples
 
+## Examples
+
 ## Examples **APP IS COMPLETE : NEED TO REFINE DOCUMENTATION**
 
 * [Function and Class-Based List Views - **APP IS COMPLETE : NEED TO REFINE DOCUMENTATION**](./function-and-class-based-list-views/README.md)
 
 ## Examples **APP IS COMPLETE : NEED TO CREATE DOCUMENTATION**
 
-* [Django REST API Current User - **APP IS COMPLETE : NEED TO CREATE DOCUMENTATION**](./django-rest-api-current-user/README.md)
 * [File Upload - **APP IS COMPLETE : NEED TO CREATE DOCUMENTATION**](./file-upload/README.md)
 
 ## Examples **UNDER CONSTRUCTION**
