@@ -1,0 +1,23 @@
+<title>Home</title>
+
+<nav>
+    <a href="{% url 'home' %}">Home</a>
+    <br>
+    <a href="{% url 'admin:index' %}">Django Admin Interface</a>
+    <br>
+</nav>
+
+<h1>Home</h1>
+
+<dl>
+    <dt><code>user</code></dt>
+    <dd>{{ user }}</dd>
+    <dt><code>user.is_authenticated</code></dt>
+    <dd>{{ user.is_authenticated }}</dd>
+    <dt><code>user.username</code></dt>
+    <dd>{{ user.username }}</dd>
+    <dt><code>user.id</code></dt>
+    <dd>{{ user.id }}</dd>
+    <dt><code>user.email</code></dt>
+    <dd>{{ user.email }}</dd>
+</dl>

@@ -1,5 +1,8 @@
 # Commands and Links
 
+users
+accounts
+
 ## Commands
 
 * `pipenv install`
@@ -7,8 +10,6 @@
 * `pipenv install django==4.1.3`
 * `pipenv install docutils`
 * `pipenv install docutils==0.19`
-  * `django.contrib.admindocs`
-  * `path('admin/doc/', include('django.contrib.admindocs.urls'))`
 * `pipenv install djangorestframework`
 * `pipenv install djangorestframework==3.14.0`
 * `pipenv install django==4.1.3 djangorestframework==3.14.0 docutils==0.19`
@@ -19,12 +20,12 @@
 * `django-admin startapp app_name`
 * `django-admin startapp api`
 * `tree /f /a`
-* `python manage.py runserver`
-* `python manage.py makemigrations`
-* `python manage.py migrate`
-* `python manage.py createsuperuser`
+* `python .\manage.py runserver`
+* `python .\manage.py makemigrations`
+* `python .\manage.py migrate`
+* `python .\manage.py createsuperuser`
 * `python manage.py createsuperuser --email admin@email.app --username admin`
-* `python manage.py runserver`
+* `python .\manage.py runserver`
 
 ## Development server web links
 
