@@ -22,6 +22,16 @@
     <span>
         This link opens the Django Admin Interface in a new tab.
     </span>
+    <br>
+    <a
+        href={% url 'django-admindocs-docroot' %}
+        target='_blank'
+        >
+        Django Documentation
+    </a>
+    <span>
+        This link opens the Django Documentation in a new tab.
+    </span>
 </nav>
 
 <nav>
@@ -32,19 +42,13 @@
         >
         The Django admin documentation generator
     </a>
-    <a
-        href=""
-        >
-        Admin Documentation
-
-    </a>
 </nav>
 
 <h1>Home</h1>
 
 <h2>
     {% if user.is_authenticated%}
-        `user` IS authenticated (Logged in).
+        `user` IS authenticated (IS Logged in).
     {% else %}
         `user` IS NOT authenticated (IS NOT Logged in).
     {% endif %}
