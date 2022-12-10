@@ -1,23 +1,76 @@
 <title>Home</title>
 
+<h1>Django <code>AnonymousUser</code> Example</h1>
+
 <nav>
-    <a href="{% url 'home' %}">Home</a>
+    <h2>Application Links</h2>
+    <a
+        href="{% url 'home' %}"
+        >
+        Home
+    </a>
+    <span>
+        We are already at a view rendered by this URL so this link shouldn't change our view.
+    </span>
     <br>
-    <a href="{% url 'admin:index' %}">Django Admin Interface</a>
-    <br>
+    <a
+        href="{% url 'admin:index' %}"
+        target="_blank"
+        >
+        Django Admin Interface
+    </a>
+    <span>
+        This link opens the Django Admin Interface in a new tab.
+    </span>
+</nav>
+
+<nav>
+    <h2>Django Documentation</h2>
+    <a
+        href="https://docs.djangoproject.com/en/4.1/ref/contrib/admin/admindocs/#module-django.contrib.admindocs"
+        target="_blank"
+        >
+        The Django admin documentation generator
+    </a>
+    <a
+        href=""
+        >
+        Admin Documentation
+
+    </a>
 </nav>
 
 <h1>Home</h1>
 
+<h2>
+    {% if user.is_authenticated%}
+        `user` IS authenticated (Logged in).
+    {% else %}
+        `user` IS NOT authenticated (IS NOT Logged in).
+    {% endif %}
+</h2>
+
+{% if user.is_authenticated %}
+    <a href={% url 'admin:logout' %}>Logout</a>
+{% else %}
+    <a href="{% url 'admin:login' %}?next={% url 'home' %}">Login</a>
+{% endif %}
+
 <dl>
-    <dt><code>user</code></dt>
+    <dt><code>__str__(user)</code></dt>
     <dd>{{ user }}</dd>
     <dt><code>user.is_authenticated</code></dt>
     <dd>{{ user.is_authenticated }}</dd>
+    <dt><code>user.is_anonymous</code></dt>
+    <dd>{{ user.is_anonymous }}</dd>
     <dt><code>user.username</code></dt>
     <dd>{{ user.username }}</dd>
     <dt><code>user.id</code></dt>
     <dd>{{ user.id }}</dd>
     <dt><code>user.email</code></dt>
     <dd>{{ user.email }}</dd>
+    <dt><code>user.date_joined</code></dt>
+    <dd>{{ user.date_joined }}</dd>
+    <dt><code>user.last_login</code></dt>
+    <dd>{{ user.last_login }}</dd>
 </dl>
