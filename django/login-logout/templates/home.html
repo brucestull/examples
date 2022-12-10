@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Login-Logout Example - Home{% endblock %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        Greetings, {{ user.username | capfirst }}!
+        <p><a href="{% url 'logout' %}">Log Out</a></p>
+    {% else %}
+        <p>You are not authenticated (you are not logged in).</p>
+        <p><a href="{% url 'login' %}">Log In</a></p>
+    {% endif %}
+
+{% endblock %}
