@@ -2,9 +2,9 @@
 
 ## Resources
 
-* [`CASCADE`](https://docs.djangoproject.com/en/4.0/ref/models/fields/#django.db.models.CASCADE)
-* [`django.views.generic.list.ListView`](https://docs.djangoproject.com/en/4.1/ref/class-based-views/generic-display/#django.views.generic.list.ListView)
-* [How to manage static files (e.g. images, JavaScript, CSS)](https://docs.djangoproject.com/en/4.1/howto/static-files/#how-to-manage-static-files-e-g-images-javascript-css)
+* [`CASCADE` - docs.djangoproject.com](https://docs.djangoproject.com/en/4.0/ref/models/fields/#django.db.models.CASCADE)
+* [`django.views.generic.list.ListView` - docs.djangoproject.com](https://docs.djangoproject.com/en/4.1/ref/class-based-views/generic-display/#django.views.generic.list.ListView)
+* [How to manage static files (e.g. images, JavaScript, CSS) - docs.djangoproject.com](https://docs.djangoproject.com/en/4.1/howto/static-files/#how-to-manage-static-files-e-g-images-javascript-css)
 
 ## Related Code Snippets
 
