@@ -75,6 +75,11 @@
 
 ## Directory Structure
 
+## Repository Links
+
+* [Django Code Examples](../README.md)
+* [Code Examples Repository](../../README.md)
+
 ## Tags
 
 * cascade
@@ -84,8 +89,3 @@
 * staticfiles
 * STATICFILES_DIRS
 * ListView
-
-## Repository Links
-
-* [Django Code Examples](../README.md)
-* [Code Examples Repository](../../README.md)
