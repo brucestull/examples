@@ -1,11 +1,5 @@
 # `related_name` - **UNDER CONSTRUCTION**
 
-## Resources
-
-* [`CASCADE` - docs.djangoproject.com](https://docs.djangoproject.com/en/4.0/ref/models/fields/#django.db.models.CASCADE)
-* [`django.views.generic.list.ListView` - docs.djangoproject.com](https://docs.djangoproject.com/en/4.1/ref/class-based-views/generic-display/#django.views.generic.list.ListView)
-* [How to manage static files (e.g. images, JavaScript, CSS) - docs.djangoproject.com](https://docs.djangoproject.com/en/4.1/howto/static-files/#how-to-manage-static-files-e-g-images-javascript-css)
-
 ## Related Code Snippets
 
 * [`things/models.py`](./things/models.py):
@@ -56,6 +50,12 @@
 * Model: `things.Thing`:
   * ![things_thing_theme_dark](https://user-images.githubusercontent.com/47562501/206894868-fcdad77f-fa94-425c-8fd9-2271511762a3.png)
   * ![things_thing_theme_light](https://user-images.githubusercontent.com/47562501/206894869-86354760-ed93-4361-b120-22fc0a323124.png)
+
+## Resources
+
+* [`CASCADE` - docs.djangoproject.com](https://docs.djangoproject.com/en/4.0/ref/models/fields/#django.db.models.CASCADE)
+* [`django.views.generic.list.ListView` - docs.djangoproject.com](https://docs.djangoproject.com/en/4.1/ref/class-based-views/generic-display/#django.views.generic.list.ListView)
+* [How to manage static files (e.g. images, JavaScript, CSS) - docs.djangoproject.com](https://docs.djangoproject.com/en/4.1/howto/static-files/#how-to-manage-static-files-e-g-images-javascript-css)
 
 ## Lessons Learned
 
