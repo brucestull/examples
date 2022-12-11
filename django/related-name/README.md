@@ -6,6 +6,46 @@
 * [`django.views.generic.list.ListView`](https://docs.djangoproject.com/en/4.1/ref/class-based-views/generic-display/#django.views.generic.list.ListView)
 * [How to manage static files (e.g. images, JavaScript, CSS)](https://docs.djangoproject.com/en/4.1/howto/static-files/#how-to-manage-static-files-e-g-images-javascript-css)
 
+## Related Code Snippets
+
+* [`things/models.py`](./things/models.py):
+
+  ```python
+  class Thing(models.Model):
+      #...
+      owner = models.ForeignKey(
+          #...
+          related_name='owner_related_name_for_things',
+          #...
+      )
+          #...
+  ```
+
+* [`api/serializers.py`](./api/serializers.py):
+
+  ```python
+  class UserSerializerWithThings(serializers.ModelSerializer):
+      things = NestedThingSerializer(
+          #...
+          source='owner_related_name_for_things',
+          #...
+      )
+        
+          class Meta:
+              #...
+              fields = (
+                  #...
+                  'things',
+                  #...
+              )
+  ```
+
+* [`templates/home.html`](./templates/home.html):
+
+  ```html
+  <p>{{ user.owner_related_name_for_things.all }}</p>
+  ```
+
 ## Lessons Learned
 
 * File load order is determined by the order of HTTP requests:

@@ -33,7 +33,11 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class UserSerializerWithThings(serializers.ModelSerializer):
-    things = NestedThingSerializer(many=True, read_only=True, source='owner_related_name_for_things')
+    things = NestedThingSerializer(
+        many=True,
+        read_only=True,
+        source='owner_related_name_for_things',
+    )
 
     class Meta:
         model = get_user_model()
