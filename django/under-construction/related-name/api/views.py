@@ -18,3 +18,12 @@ class UserViewSet(viewsets.ModelViewSet):
 class UserWithThingsViewSet(viewsets.ModelViewSet):
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializerWithThings
+
+
+class CurrentUserViewSet(viewsets.ModelViewSet):
+    serializer_class = UserSerializerWithThings
+
+    def get_queryset(self):
+        return get_user_model().objects.filter(id=self.request.user.id)
+
+
