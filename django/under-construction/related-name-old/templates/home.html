@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Related Name - Home{% endblock %}
+
+{% block content %}
+
+<ul>
+{% for a_single_item in user.things.all %}
+    <li>{{ a_single_item.name }}</li>
+{% endfor %}
+</ul>
+
+{{ user.things.all }}
+
+{% endblock content %}

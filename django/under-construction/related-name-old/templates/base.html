@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Probably will never be seen on webpage tab{% endblock title %}</title>
+</head>
+<body>
+    <nav>
+        <p>
+            <a
+            href={% url 'admin:index' %}
+            target="_blank"
+            >
+                Django Admin Interface
+            </a>
+        </p>
+    </nav>
+    <main>
+        <div>
+            {% if user.is_authenticated %}
+                Greetings, {{ user.username | capfirst }}!
+                <p><a href="{% url 'logout' %}">Log Out</a></p>
+            {% else %}
+                <p>You are not authenticated (you are not logged in).</p>
+                <a href="{% url 'login' %}">Log In</a>
+                |
+                <a href="{% url 'signup' %}">Sign Up</a>
+            {% endif %}
+        </div>
+        {% block content %}
+        {% endblock content %}
+      </main>
+</body>
+</html>

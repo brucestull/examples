@@ -1,4 +1,4 @@
-# `related_name` - **UNDER CONSTRUCTION**
+# `models.Model` : `related_name` - **UNDER CONSTRUCTION**
 
 ## Resources
 
