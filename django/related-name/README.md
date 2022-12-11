@@ -57,10 +57,9 @@
   * ![things_thing_theme_dark](https://user-images.githubusercontent.com/47562501/206894868-fcdad77f-fa94-425c-8fd9-2271511762a3.png)
   * ![things_thing_theme_light](https://user-images.githubusercontent.com/47562501/206894869-86354760-ed93-4361-b120-22fc0a323124.png)
 
-
 ## Lessons Learned
 
-* File load order is determined by the order of HTTP requests:
+* File load order is related to order of HTTP requests:
 
   ```console
   [11/Dec/2022 03:10:13] "GET /things/ HTTP/1.1" 200 1250
