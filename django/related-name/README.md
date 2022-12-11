@@ -46,6 +46,8 @@
   <p>{{ user.owner_related_name_for_things.all }}</p>
   ```
 
+## Related Django Admin Images
+
 ## Lessons Learned
 
 * File load order is determined by the order of HTTP requests:
