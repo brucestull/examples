@@ -1,0 +1,36 @@
+{% load static %}
+
+<h1>Home</h1>
+<p><a href={% url 'admin:index' %}>Django Admin Page</a></p>
+<p><a href='/admin/doc/models/auth.user/'>Django Admin Doc Page - Model: <code>auth.User</code></a></p>
+<img
+    src={% static 'images/auth_user_theme_dark.png' %}
+    style='width: 100%;'
+    >
+<img
+    src={% static 'images/auth_user_theme_light.png' %}
+    style='width: 100%;'
+    >
+    <p><a href='/admin/doc/models/things.thing/'>Django Admin Doc Page - Model: <code>things.thing</code></a></p>
+<img
+    src={% static 'images/things_thing_theme_dark.png' %}
+    style='width: 100%;'
+    >
+<img
+    src={% static 'images/things_thing_theme_light.png' %}
+    style='width: 100%;'
+    >
+<p><a href='/api/v1/' target='_blank' >Django Browsable API</a></p>
+
+<h2><code>user</code></h2>
+<p>{{ user }}</p>
+
+<h2><code>users</code></h2>
+<p>{{ users }}</p>
+
+<h2><code>user.owner_related_name_for_things.all</code></h2>
+<p>{{ user.owner_related_name_for_things.all }}</p>
+
+<h2><code>things</code></h2>
+<p>{{ things }}</p>
+
