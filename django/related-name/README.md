@@ -77,8 +77,8 @@
 
 ## Repository Links
 
-* [Django Code Examples](../README.md)
-* [Code Examples Repository](../../README.md)
+* [Django Code Examples](../)
+* [Code Examples Repository](../../)
 
 ## Tags
 
