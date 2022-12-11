@@ -1,13 +1,14 @@
-# Notes:
+# Notes
 
 ## `git stash`
+
 * `git stash`
 * `git stash show`
 * `git stash pop`
 
-## Code Examples:
+## Code Examples
 
-### Goal: Stash changes to `notes.md` and add those changes to branch `main`.
+### Goal: Stash changes to `notes.md` and add those changes to branch `main`
 
 1. `git status`
     * Sample output:
@@ -154,7 +155,7 @@
 
 1. **SUMMARY:** Should not have used `git rm .\notes.md` above. Need to understand what the output above that step meant.
     * Need to understand the following:
-    
+
             Unmerged paths:
                 (use "git restore --staged <file>..." to unstage)
                 (use "git add/rm <file>..." as appropriate to mark resolution)

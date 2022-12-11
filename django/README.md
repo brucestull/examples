@@ -24,6 +24,7 @@
 * [Useful Commands and Links - **UNDER CONSTRUCTION**](./notes/00_commands_and_links.md)
 * [Pipenv Setup - **UNDER CONSTRUCTION**](./pipenv-setup/README.md)
 * [`POST` and `GET` - **UNDER CONSTRUCTION**](./POST-and-GET/README.md)
+* [`related_name` - **UNDER CONSTRUCTION**](./related-name/README.md)
 * [`reverse()` - **UNDER CONSTRUCTION**](./reverse/README.md)
 * [Silly Run a Function Using Django - **UNDER CONSTRUCTION**](./silly-run-a-function-using-django/README.md)
 * [ToDo Tracker - **UNDER CONSTRUCTION**](./to-do-tracker/README.md)

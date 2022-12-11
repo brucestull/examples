@@ -4,6 +4,10 @@
 
 ## Lessons Learned
 
+## Related Code Snippets
+
+## Related Django Admin Images
+
 ## TODO
 
 ## Notes
