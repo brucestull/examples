@@ -19,7 +19,3 @@ Examples of various coding languages and markup languages.
   * [Create Empty Pipenv Virtual Environment](./pipenv/create-empty-pipenv/README.md)
 
 ### Markdown
-
-## In-progress example branches
-
-* [Field Choices Example](https://github.com/brucestull/examples/tree/4-document-how-choices-works-in-django/django/field_choices)
