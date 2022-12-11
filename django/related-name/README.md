@@ -43,10 +43,20 @@
 * [`templates/home.html`](./templates/home.html):
 
   ```html
+  <!--  -->
   <p>{{ user.owner_related_name_for_things.all }}</p>
+  <!--  -->
   ```
 
 ## Related Django Admin Images
+
+* Model: `auth.User`:
+  * ![auth_user_theme_dark](https://user-images.githubusercontent.com/47562501/206894866-f7827cd7-7482-4cc3-a37d-1aeaba667dba.png)
+  * ![auth_user_theme_light](https://user-images.githubusercontent.com/47562501/206894867-b709ca4c-226b-40f4-8b7c-694c451fe617.png)
+* Model: `things.Thing`:
+  * ![things_thing_theme_dark](https://user-images.githubusercontent.com/47562501/206894868-fcdad77f-fa94-425c-8fd9-2271511762a3.png)
+  * ![things_thing_theme_light](https://user-images.githubusercontent.com/47562501/206894869-86354760-ed93-4361-b120-22fc0a323124.png)
+
 
 ## Lessons Learned
 
