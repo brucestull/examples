@@ -78,7 +78,7 @@
 ## Repository Links
 
 * [Django Code Examples](../)
-* [Code Examples Repository](../../)
+* [Code Examples Repository](https://github.com/brucestull/examples)
 
 ## Tags
 
