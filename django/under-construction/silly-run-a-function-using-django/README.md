@@ -9,7 +9,7 @@
 * `python some_python_file_with_main.py`
 * `python some_python_file.py`
 
-## Commands to Run the Application after Cloning the Repository
+## Commands to Run the Application
 
 1. Create a pipenv virtual environment (the given `Pipfile` specifies Python 3.11):
     * `pipenv install`
