@@ -5,22 +5,6 @@
 <h1>Django <code>related_name</code> Example</h1>
 
 <section style="border:solid black .25em; padding:.5em">
-    <h2>Repository and Application Links</h2>
-    <a
-        href='https://github.com/brucestull/examples/tree/main/django/under-construction/related-name'
-        target='_blank'
-        >
-            GitHub Example <code>related_name</code> Repository
-    </a>
-    <br>
-    <a
-        href={% url 'admin:index' %}
-        >
-            Django Admin Page
-    </a>
-</section>
-<br>
-<section style="border:solid black .25em; padding:.5em">
     <a
         href='/admin/doc/models/auth.user/'
         >
@@ -47,15 +31,13 @@
 
 
             class Thing(models.Model):
-                name = models.CharField(max_length=100)
+                #...
                 owner = models.ForeignKey(
-                    'auth.User',
+                    #...
                     related_name='owner_related_name_for_things',
-                    on_delete=models.CASCADE,
-                )
-            
-                def __str__(self):
-                    return str(self.id) + ' : ' + self.name + ' : ' + self.owner.username
+                    #...
+                    )
+                #...
         </code>
     </pre>
 </section>
@@ -65,15 +47,11 @@
     <h2><code>templates/home.html</code>:</h2>
     <pre>
         <code>
-            &ltsection style="border:solid black .25em; padding:.5em"&gt
-                &lth2&gt&ltcode&gtuser.owner_related_name_for_things.all&lt/code&gt for current user&lt/h2&gt
-                &ltp&gt&#123&#123 user.owner_related_name_for_things.all &#125&#125&lt/p&gt
-            
-                &lth2&gt&ltcode&gtowner_related_name_for_things.all&lt/code&gt for each of the users&lt/h2&gt
-                &#123% for single_user in user_list %&#125
-                    &ltp&gt&#123&#123 single_user.username &#125&#125 : &#123&#123 single_user.owner_related_name_for_things.all &#125&#125&lt/p&gt
-                &#123% endfor %&#125
-            &ltsection&gt
+            &ltp&gt&#123&#123 user.owner_related_name_for_things.all &#125&#125&lt/p&gt
+        
+            &#123% for single_user in user_list %&#125
+                &ltp&gt&#123&#123 single_user.username &#125&#125 : &#123&#123 single_user.owner_related_name_for_things.all &#125&#125&lt/p&gt
+            &#123% endfor %&#125
         </code>
     </pre>
 </section>
@@ -87,4 +65,23 @@
     {% for single_user in user_list %}
         <p>{{ single_user.username }} : {{ single_user.owner_related_name_for_things.all }}</p>
     {% endfor %}
-<section>
+</section>
+<br>
+
+<nav style="border:solid black .25em; padding:.5em">
+    <h2>Repository and Application Links</h2>
+    <a
+        href='https://github.com/brucestull/examples/tree/main/django/related-name'
+        target='_blank'
+        >
+            GitHub Example <code>related_name</code> Repository
+    </a>
+    <br>
+    <a
+        href={% url 'admin:index' %}
+        >
+            Django Admin Page
+    </a>
+</nav>
+<br>
+    
