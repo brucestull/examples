@@ -40,6 +40,10 @@
   <!--  -->
   <p>{{ user.owner_related_name_for_things.all }}</p>
   <!--  -->
+  {% for single_user in user_list %}
+      <p>{{ single_user.username }} : {{ single_user.owner_related_name_for_things.all }}</p>
+  {% endfor %}
+  <!--  -->
   ```
 
 ## Related Django Admin Images
@@ -47,9 +51,6 @@
 * Model: `auth.User`:
   * ![auth_user_theme_dark](./static/images/auth_user_theme_dark.png)
   * ![auth_user_theme_light](./static/images/auth_user_theme_light.png)
-* Model: `things.Thing`:
-  * ![things_thing_theme_dark](./static/images/things_thing_theme_dark.png)
-  * ![things_thing_theme_light](./static/images/things_thing_theme_light.png)
 
 ## Resources
 

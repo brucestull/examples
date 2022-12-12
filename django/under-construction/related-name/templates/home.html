@@ -3,16 +3,31 @@
 <title>Django related_name Example</title>
 
 <h1>Django <code>related_name</code> Example</h1>
-<p>
-    <a
-    href=''
+
+<h2>Repository and Application Links</h2>
+<a
+    href='https://github.com/brucestull/examples/tree/main/django/under-construction/related-name'
     target='_blank'
     >
-    GitHub Example Repository
-    </a>
-</p>
-<p><a href={% url 'admin:index' %}>Django Admin Page</a></p>
-<p><a href='/admin/doc/models/auth.user/'>Django Admin Doc Page - Model: <code>auth.User</code></a></p>
+        GitHub Example <code>related_name</code> Repository
+</a>
+<br>
+<a
+    href={% url 'admin:index' %}
+    >
+        Django Admin Page
+</a>
+<br>
+<br>
+<br>
+
+<a
+    href='/admin/doc/models/auth.user/'
+    >
+        Django Admin Doc Page - Model: <code>auth.User</code>
+</a>
+<br>
+<br>
 <img
     src={% static 'images/auth_user_theme_dark.png' %}
     style='width: 75%;'
@@ -21,20 +36,11 @@
     src={% static 'images/auth_user_theme_light.png' %}
     style='width: 75%;'
     >
-    <p><a href='/admin/doc/models/things.thing/'>Django Admin Doc Page - Model: <code>things.Thing</code></a></p>
-<img
-    src={% static 'images/things_thing_theme_dark.png' %}
-    style='width: 75%;'
-    >
-<img
-    src={% static 'images/things_thing_theme_light.png' %}
-    style='width: 75%;'
-    >
 
 <h2><code>user.owner_related_name_for_things.all</code> for current user</h2>
 <p>{{ user.owner_related_name_for_things.all }}</p>
 
-<h2><code>owner_related_name_for_things</code> for each of the users</h2>
+<h2><code>owner_related_name_for_things.all</code> for each of the users</h2>
 {% for single_user in user_list %}
     <p>{{ single_user.username }} : {{ single_user.owner_related_name_for_things.all }}</p>
 {% endfor %}
