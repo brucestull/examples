@@ -1,4 +1,4 @@
-# `related_name` - **UNDER CONSTRUCTION**
+# `related_name`
 
 ## Related Code Snippets
 
@@ -57,7 +57,7 @@
 
 ## Repository Links
 
-* [Django Code Examples](../)
+* [Django Code Examples](../README.md)
 * [Code Examples Repository](https://github.com/brucestull/examples)
 
 ## Tags

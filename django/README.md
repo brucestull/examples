@@ -2,6 +2,9 @@
 
 ## Examples
 
+* [`related_name`](./related-name/README.md)
+  * [`related_name` - Directory](./related-name/)
+
 ## Examples **APP IS COMPLETE : NEED TO REFINE DOCUMENTATION**
 
 * [Function and Class-Based List Views - **APP IS COMPLETE : NEED TO REFINE DOCUMENTATION**](./function-and-class-based-list-views/README.md)
