@@ -12,26 +12,7 @@
           related_name='owner_related_name_for_things',
           #...
       )
-          #...
-  ```
-
-* [`api/serializers.py`](./api/serializers.py):
-
-  ```python
-  class UserSerializerWithThings(serializers.ModelSerializer):
-      things = NestedThingSerializer(
-          #...
-          source='owner_related_name_for_things',
-          #...
-      )
-        
-          class Meta:
-              #...
-              fields = (
-                  #...
-                  'things',
-                  #...
-              )
+      #...
   ```
 
 * [`templates/home.html`](./templates/home.html):
