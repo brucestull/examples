@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 
+# from some_python_file import some_python_function
 from some_python_file_with_main import some_python_function
 
 

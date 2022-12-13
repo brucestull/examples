@@ -38,11 +38,16 @@
             getAThingsNotAuthenticated: function() {
                 axios({
                     method: 'get',
-                    url: '/api/v1/a-things/',
+                    url: '/api/v1/a-thingss/',
                 }).then(response => {
-                    console.log(response.data)
+                    console.log('response.data: ', response.data)
                 }).catch(error => {
                     console.log(error)
+                    console.log('error.response: ', error.response)
+                    console.log('error.response.status: ', error.response.status)
+                    console.log('error.response.statusText: ', error.response.statusText)
+                    // Produces an HTML response:
+                    console.log('error.response.data: ', error.response.data)
                 })
             },
 

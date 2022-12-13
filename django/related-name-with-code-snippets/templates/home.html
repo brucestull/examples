@@ -50,7 +50,11 @@
             &ltp&gt&#123&#123 user.owner_related_name_for_things.all &#125&#125&lt/p&gt
         
             &#123% for single_user in user_list %&#125
-                &ltp&gt&#123&#123 single_user.username &#125&#125 : &#123&#123 single_user.owner_related_name_for_things.all &#125&#125&lt/p&gt
+            
+                &ltp&gt&#123&#123 single_user.username &#125&#125&lt/p&gt
+                :
+                &ltp&gt&#123&#123 single_user.owner_related_name_for_things.all&#125&#125&lt/p&gt
+                
             &#123% endfor %&#125
         </code>
     </pre>
