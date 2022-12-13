@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Fundamentals 02</title>
+    <title>01 - Component Tag Name</title>
 </head>
 <body>
     <nav>
@@ -12,9 +12,7 @@
     </nav>
     <main id='app1'>
 
-        <the-component-name
-            v-bind:props-variable-in-component="globalVariableAttribute"
-        ></the-component-name>
+        <the-component-tag-name></the-component-tag-name>
 
     </main>
 
@@ -26,22 +24,16 @@
         // Start server:
         // python -m http.server 8000
 
-        Vue.component('the-component-name', {
-            props: {
-                propsVariableInComponent: String,
-            },
+        Vue.component('the-component-tag-name', {
             template: `
             <p>
-                {{ propsVariableInComponent }}
+            Big STRING in Vue component!
             </p>
             `
         })
 
         const app1 = new Vue({
-            el: '#app1',
-            data: {
-                globalVariableAttribute: 'Global Attribute String HERE!!!',
-            }
+            el: '#app1'
         })
 
     </script>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Fundamentals 05</title>
+    <title>05 - Emit Variable from Child to Root Component</title>
 </head>
 <body>
     <nav>
@@ -35,11 +35,13 @@
             },
             template: `
             <div>
-            {{ propVariableInComponent.id }}
-            :
-            {{ propVariableInComponent.description }}
-            <br>
-            <button @click="$emit('do-something-big', propVariableInComponent)">Do Something, BIG!</button>
+                {{ propVariableInComponent.id }}
+                :
+                {{ propVariableInComponent.description }}
+                <br>
+                <button @click="$emit('do-something-big', propVariableInComponent)">Do Something, BIG! {{ propVariableInComponent.description }}</button>
+                <br>
+                <br>
             </div>
             `,
         })
@@ -55,8 +57,8 @@
             ],
             },
             methods: {
-                doSomethingBigInMainMethods: function(theThing) {
-                    console.log("We're trying to do something BIG:", theThing.description)
+                doSomethingBigInMainMethods: function(localVariableToThisMethod) {
+                    console.log("We're trying to do something BIG:", localVariableToThisMethod.description)
                 }
             }
         })

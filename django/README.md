@@ -2,8 +2,8 @@
 
 ## Examples
 
-* [`related_name` - `README.md`](./related-name/README.md)
-  * [`related_name` - Directory](./related-name/)
+* [`related_name` - `README.md`](./related-name-with-code-snippets/README.md)
+  * [`related_name` - Directory](./related-name-with-code-snippets/)
 
 ## Examples **APP IS COMPLETE : NEED TO REFINE DOCUMENTATION**
 

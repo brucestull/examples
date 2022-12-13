@@ -1,7 +1,8 @@
-# Pass Array of Strings from Vue Object to Vue Component
+# Pass Array of Strings from Root to Child Component
 
 * JavaScript:
-    ```
+
+    ```javascript
     const app1 = new Vue({
         ...
         data: {
@@ -16,18 +17,22 @@
         ...
     })
     ```
-    * `globalVariableAttribute`
+
+  * `globalVariableAttribute`
 
 * HTML:
-    ```
+
+    ```html
     <the-component-name
         v-bind:props-variable-in-component="globalVariableAttribute"
     ></the-component-name>
     ```
-    * `props-variable-in-component` ==> `propsVariableInComponent`
+
+  * `props-variable-in-component` ==> `propsVariableInComponent`
 
 * JavaScript:
-    ```
+
+    ```javascript
     Vue.component('the-component-name', {
         ...
         props: {
@@ -36,7 +41,8 @@
         ...
     })
     ```
-    ```
+
+    ```javascript
     Vue.component('the-component-name', {
         ...
         template: `
@@ -47,5 +53,3 @@
         ...
     })
     ```
-
-

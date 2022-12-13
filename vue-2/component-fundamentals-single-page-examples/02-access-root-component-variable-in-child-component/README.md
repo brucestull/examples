@@ -1,7 +1,8 @@
-# Display the Value of a Vue Model Variable in Component
+# Access Root Component Variable in Child Component
 
 * JavaScript:
-    ```
+
+    ```javascript
     const app1 = new Vue({
         ...
         data: {
@@ -12,21 +13,26 @@
         ...
     })
     ```
-    * `globalVariableAttribute`
+
+  * `globalVariableAttribute`
 * HTML:
-    ```
+
+    ```html
     <the-component-name
         v-bind:props-variable-in-component="globalVariableAttribute"
     ></the-component-name>
     ```
-    * `props-variable-in-component` ==> `propsVariableInComponent`
+
+  * `props-variable-in-component` ==> `propsVariableInComponent`
 * JavaScript:
-    ```
+
+    ```javascript
     props: {
         propsVariableInComponent: String,
     },
     ```
-    ```
+
+    ```javascript
     template: `
     <p>
     {{ propsVariableInComponent }}

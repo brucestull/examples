@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Fundamentals 01</title>
+    <title>02 - Access Root Component Variable in Child Component</title>
 </head>
 <body>
     <nav>
@@ -12,7 +12,9 @@
     </nav>
     <main id='app1'>
 
-        <the-component-name></the-component-name>
+        <the-component-name
+            v-bind:props-variable-in-component="globalVariableAttribute"
+        ></the-component-name>
 
     </main>
 
@@ -25,15 +27,21 @@
         // python -m http.server 8000
 
         Vue.component('the-component-name', {
+            props: {
+                propsVariableInComponent: String,
+            },
             template: `
             <p>
-            Big STRING in Vue component!
+                {{ propsVariableInComponent }}
             </p>
             `
         })
 
         const app1 = new Vue({
-            el: '#app1'
+            el: '#app1',
+            data: {
+                globalVariableAttribute: 'Global Attribute String HERE!!!',
+            }
         })
 
     </script>

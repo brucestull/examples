@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Fundamentals 04</title>
+    <title>04 - Pass an Array of Objects from Root to Child Component</title>
 </head>
 <body>
     <nav>
@@ -33,9 +33,13 @@
                 propsVariableInComponent: Object,
             },
             template: `
-            <p>
-            {{ propsVariableInComponent.id }} : {{ propsVariableInComponent.description }}
-            </p>
+            <div>
+                {{ propsVariableInComponent }}
+                <br>
+                {{ propsVariableInComponent.id }} : {{ propsVariableInComponent.description }}
+                <br>
+                <br>
+            </div>
             `
         })
 

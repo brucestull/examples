@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Fundamentals 06</title>
+    <title>06 - Use Child Component to Add New Item to Root Component Array</title>
 </head>
 <body>
     <nav>
@@ -44,6 +44,8 @@
                 <h2>Gonna add something here!</h2>
                 <input type="text" placeholder="Input one here" v-model="description" @keyup.enter="addItemComponentFunction">
                 <button @click="addItemComponentFunction">Add One?</button>
+                <br>
+                <br>
             </div>
             `,
             methods: {
@@ -65,11 +67,13 @@
             },
             template: `
             <div>
-            {{ propVariableInComponent.id }}
-            :
-            {{ propVariableInComponent.description }}
-            <br>
-            <button @click="$emit('do-something-big', propVariableInComponent)">Do Something: {{ propVariableInComponent.description }}</button>
+                {{ propVariableInComponent.id }}
+                :
+                {{ propVariableInComponent.description }}
+                <br>
+                <button @click="$emit('do-something-big', propVariableInComponent)">Do Something: {{ propVariableInComponent.description }}</button>
+                <br>
+                <br>
             </div>
             `,
         })
