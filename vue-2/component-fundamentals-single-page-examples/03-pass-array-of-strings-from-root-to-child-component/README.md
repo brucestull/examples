@@ -1,5 +1,7 @@
 # Pass Array of Strings from Root to Child Component
 
+* [Vue 2 Component Fundamentals : Single-Page Examples](../README.md)
+
 * JavaScript:
 
     ```javascript

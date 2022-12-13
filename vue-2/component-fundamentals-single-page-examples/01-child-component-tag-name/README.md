@@ -1,5 +1,7 @@
 # Component Tag Name
 
+* [Vue 2 Component Fundamentals : Single-Page Examples](../README.md)
+
 * Component name:
   * Component name used for the HTML tag matches the component name provided to the Vue component constructor.
   * `the-component-tag-name`

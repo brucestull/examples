@@ -1,5 +1,7 @@
 # Access Root Component Variable in Child Component
 
+* [Vue 2 Component Fundamentals : Single-Page Examples](../README.md)
+
 * JavaScript:
 
     ```javascript
