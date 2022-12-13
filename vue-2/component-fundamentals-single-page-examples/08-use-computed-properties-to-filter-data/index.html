@@ -93,15 +93,19 @@
                     {{ propVariableInComponent.theStatus }}
                 </h3>
                 <button
-                    @click="$emit('do-something-big',
-                    propVariableInComponent)"
+                    @click="$emit(
+                        'do-something-big',
+                        propVariableInComponent
+                        )"
                     >
                         Do Something:
                         {{ propVariableInComponent.description }}
                 </button>
                 <button
-                    @click="$emit('toggle-the-status',
-                    propVariableInComponent)"
+                    @click="$emit(
+                        'toggle-the-status',
+                        propVariableInComponent
+                        )"
                     >
                         Toggle
                         {{ propVariableInComponent.description }}

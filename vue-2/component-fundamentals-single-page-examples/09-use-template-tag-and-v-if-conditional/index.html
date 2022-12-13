@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Fundamentals 06</title>
+    <title>09 - Use Template Tag and v-if Conditional</title>
 </head>
 <body>
     <nav>
@@ -105,8 +105,8 @@
                         propVariableInComponent
                         )"
                     >
-                    Do Something:
-                    {{ propVariableInComponent.description }}
+                        Do Something:
+                        {{ propVariableInComponent.description }}
                 </button>
                 <button
                     @click="$emit(
@@ -114,11 +114,11 @@
                         propVariableInComponent
                         )"
                     >
-                    Toggle
-                    {{ propVariableInComponent.description }}
-                    to
-                    {{ !propVariableInComponent.theStatus }}
-                    ?
+                        Toggle
+                        {{ propVariableInComponent.description }}
+                        to
+                        {{ !propVariableInComponent.theStatus }}
+                        ?
                 </button>
             </div>
             `,
