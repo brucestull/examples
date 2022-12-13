@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Fundamentals 06</title>
+    <title>10 - Use Child Component Button to Delete the Array Item in Root Component</title>
 </head>
 <body>
     <nav>
@@ -35,26 +35,12 @@
 
             <template v-if="theTruthees.length">
                 <h2>Computed Property: <code>theTruthees</code></h2>
-                <component-for-each-item-in-array
-                v-for="iteratingVariableForItem in theTruthees"
-                v-bind:prop-variable-in-component="iteratingVariableForItem"
-                v-bind:key="iteratingVariableForItem.id"
-                @do-something-big="doSomethingBigAppLevelFunction"
-                @toggle-the-status="toggleStatusAppLevelFunction"
-                @rid-us-of-this-thing="deleteItemAppLevelFunction"
-                ></component-for-each-item-in-array>
+                {{ theTruthees }}
             </template>
 
             <template v-if="theFalsees.length">
                 <h2>Computed Property: <code>theFalsees</code></h2>
-                <component-for-each-item-in-array
-                v-for="iteratingVariableForItem in theFalsees"
-                v-bind:prop-variable-in-component="iteratingVariableForItem"
-                v-bind:key="iteratingVariableForItem.id"
-                @do-something-big="doSomethingBigAppLevelFunction"
-                @toggle-the-status="toggleStatusAppLevelFunction"
-                @rid-us-of-this-thing="deleteItemAppLevelFunction"
-                ></component-for-each-item-in-array>
+                {{ theFalsees }}
             </template>
 
         </div>
@@ -71,7 +57,7 @@
         Vue.component('component-to-add-item', {
             data: function() {
                 return {
-                    id: 100,
+                    id: 6,
                     description: '',
                 }
             },
@@ -102,11 +88,6 @@
         })
 
         Vue.component('component-for-each-item-in-array', {
-            data: function() {
-                return {
-                    makingSomeChanges: false,
-                }
-            },
             props: {
                 propVariableInComponent: Object,
             },
@@ -115,49 +96,30 @@
                 <h3>
                     {{ propVariableInComponent.id }}
                     :
-
-                    <template
-                        v-if="makingSomeChanges"
-                        >
-                        <input
-                            type="text"
-                            v-model="propVariableInComponent.description"
-                            >
-                    </template>
-                    <template v-else>
-                        {{ propVariableInComponent.description }}
-                    </template>
+                    {{ propVariableInComponent.description }}
                     :
                     {{ propVariableInComponent.theStatus }}
                 </h3>
-                <template
-                    v-if="makingSomeChanges"
-                    >
-                    <button @click="makingSomeChanges = false">Finish Edit</button>
-                </template>
-                <template v-else>
-                    <button @click="makingSomeChanges = true">Edit The Thing</button>
-                </template>
                 <button
                     @click="$emit(
                         'do-something-big',
                         propVariableInComponent
                         )"
                     >
-                    Do Something Big!
+                    Do Something:
+                    {{ propVariableInComponent.description }}
                 </button>
-                <input
-                    type="checkbox"
-                    v-model="propVariableInComponent.theStatus"
-                    >
                 <button
                     @click="$emit(
                         'toggle-the-status',
                         propVariableInComponent
                         )"
                     >
-                    Toggle to
-                    {{ propVariableInComponent.theStatus ? 'FALSE' : 'TRUE' }}?
+                    Toggle
+                    {{ propVariableInComponent.description }}
+                    to
+                    {{ !propVariableInComponent.theStatus }}
+                    ?
                 </button>
                 <button
                     @click="$emit(
@@ -165,9 +127,9 @@
                         propVariableInComponent
                         )"
                     >
-                    🗶
-                    ✘
-                    ❌
+                    Rid us of 
+                    {{ propVariableInComponent.description }}
+                    ?
                 </button>
             </div>
             `,
