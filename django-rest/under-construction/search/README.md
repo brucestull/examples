@@ -14,4 +14,6 @@
 
 ## Notes
 
+* [Code Samples](./notes/code_samples.md)
+
 ## Directory Structure
