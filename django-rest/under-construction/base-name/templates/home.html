@@ -1,0 +1,36 @@
+<a
+    href={% url 'api-root' %}
+    >
+        Django Browsable API Root
+</a>
+<br>
+<a
+    href={% url 'the-thing-api-viewname-list' %}
+    >
+        Django Browsable API 'Thing' Endpoint
+</a>
+<br>
+<a
+    href={% url 'the-user-api-viewname-list' %}
+    >
+        Django Browsable API 'User' Endpoint
+</a>
+<br>
+<a
+    href={% url 'the-user-api-viewname-detail' 1 %}
+    >
+        Django Browsable API 'User' '1' Endpoint
+</a>
+<br>
+<a
+    href={% url 'the-current-user-list-api-viewname-list' %}
+    >
+        Django Browsable API Current 'User' Endpoint [List]
+</a>
+<br>
+<a
+    href={% url 'the-current-user-api-viewname' %}
+    >
+        Django Browsable API Current 'User' Endpoint [non-list]
+</a>
+<br>

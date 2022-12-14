@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Counter 01</title>
+</head>
+<body>
+    <nav>
+
+    </nav>
+    <main id='app1'>
+
+        <the-component-tag-name></the-component-tag-name>
+
+    </main>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- My JS -->
+    <script>
+
+        // Start server:
+        // python -m http.server 8000
+
+        Vue.component('the-component-tag-name', {
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            template: `
+            <button v-on:click="count++">You clicked me {{ count }} times?!!</button>
+            `
+        })
+
+        const app1 = new Vue({
+            el: '#app1'
+        })
+
+    </script>
+</body>
+</html>

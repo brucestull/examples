@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 - Component Tag Name</title>
+</head>
+<body>
+
+    <nav>
+    </nav>
+
+    <main id='app1'>
+
+        <the-component-tag-name></the-component-tag-name>
+
+    </main>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- My JS -->
+    <script>
+
+        // Start server:
+        // python -m http.server 8000
+
+        Vue.component('the-component-tag-name', {
+            template: `
+            <p>
+            Big STRING in Vue component!
+            </p>
+            `
+        })
+
+        const app1 = new Vue({
+            el: '#app1'
+        })
+
+    </script>
+</body>
+</html>
