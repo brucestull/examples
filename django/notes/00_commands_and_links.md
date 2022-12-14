@@ -30,12 +30,20 @@
 * `python manage.py createsuperuser --email admin@email.app --username admin`
 * `python manage.py runserver`
 
+## pypi
+
+* <https://pypi.org/project/django/>
+* <https://pypi.org/project/djangorestframework/>
+* <https://pypi.org/project/docutils/>
+
 ## Development server web links
 
 * Server Root:
   * <http://localhost:8000/>
+* Django REST Root:
+  * <http://localhost:8000/api/v1/>
 * Application Routes:
-
+  * <http://localhost:8000/>
 * Django Admin:
   * <http://localhost:8000/admin/>
   * <http://localhost:8000/admin/auth/user/>
