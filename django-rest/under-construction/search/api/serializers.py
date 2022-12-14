@@ -7,7 +7,14 @@ from things import models
 class ThingSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Thing
-        fields = '__all__'
+        fields = [
+            'id',
+            'name',
+            'description',
+            'owner',
+            'created',
+            'updated',
+        ]
 
 class UserSerializer(serializers.ModelSerializer):
     things = ThingSerializer(many=True, read_only=True)
