@@ -68,16 +68,8 @@
 * Server Root:
   * <http://localhost:8000/>
 * Django REST Endpoints:
-  * <http://localhost:8000/api/v1/>
-  * <http://localhost:8000/api/v1/users/>
-  * <http://localhost:8000/api/v1/groups/>
 
 * Accounts:
-  * <http://localhost:8000/accounts/signup/>
-  * <http://localhost:8000/accounts/login/>
-  * <http://localhost:8000/accounts/logout/>
-  * <http://localhost:8000/accounts/password_reset/>
-  * <http://localhost:8000/accounts/reset/Mg/set-password/>
 
 * Django Admin:
   * <http://localhost:8000/admin/>
