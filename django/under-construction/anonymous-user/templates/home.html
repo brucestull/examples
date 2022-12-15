@@ -1,5 +1,16 @@
 <title>Home</title>
 
+<style>
+    code {
+        font-size: 2em;
+        color: #654321;
+    }
+    dd {
+        font-size: 2em;
+        color: #8B0000;
+    }
+</style>
+
 <h1>Django <code>AnonymousUser</code> Example</h1>
 
 <nav>
@@ -40,8 +51,16 @@
         href="https://docs.djangoproject.com/en/4.1/ref/contrib/admin/admindocs/#module-django.contrib.admindocs"
         target="_blank"
         >
-        The Django admin documentation generator
+        The Django admin documentation generator - <code>django.contrib.admindocs</code> - docs.djangoproject.com
     </a>
+    <br>
+    <a
+        href="https://docs.djangoproject.com/en/4.1/ref/contrib/auth/#django.contrib.auth.models.AnonymousUser"
+        target="_blank"
+        >
+        <code>django.contrib.auth.models.AnonymousUser</code> - docs.djangoproject.com
+    </a>
+    <br>
 </nav>
 
 <h1>Home</h1>
@@ -63,12 +82,18 @@
 <dl>
     <dt><code>__str__(user)</code></dt>
     <dd>{{ user }}</dd>
-    <dt><code>user.is_authenticated</code></dt>
-    <dd>{{ user.is_authenticated }}</dd>
     <dt><code>user.is_anonymous</code></dt>
     <dd>{{ user.is_anonymous }}</dd>
     <dt><code>user.username</code></dt>
     <dd>{{ user.username }}</dd>
+    <dt><code>user.is_authenticated</code></dt>
+    <dd>{{ user.is_authenticated }}</dd>
+    <dt><code>user.is_active</code></dt>
+    <dd>{{ user.is_active }}</dd>
+    <dt><code>user.is_staff</code></dt>
+    <dd>{{ user.is_staff }}</dd>
+    <dt><code>user.is_superuser</code></dt>
+    <dd>{{ user.is_superuser }}</dd>
     <dt><code>user.id</code></dt>
     <dd>{{ user.id }}</dd>
     <dt><code>user.email</code></dt>
