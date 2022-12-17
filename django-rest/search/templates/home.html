@@ -21,6 +21,7 @@
             <br>
             <a
                 href={% url 'api-root' %}
+                target='_blank'
                 >
                 {% url 'api-root' %}
             </a>
@@ -29,6 +30,7 @@
             <br>
             <a
                 href={% url 'the-thing-api-viewname-list' %}
+                target='_blank'
                 >
                 {% url 'the-thing-api-viewname-list' %}
             </a>
@@ -36,6 +38,7 @@
             <br>
             <a
                 href={% url 'the-user-api-viewname-list' %}
+                target='_blank'
                 >
                 {% url 'the-user-api-viewname-list' %}
             </a>
@@ -44,6 +47,7 @@
             <br>
             <a
                 href={% url 'the-user-api-viewname-detail' 1 %}
+                target='_blank'
                 >
                 {% url 'the-user-api-viewname-detail' 1 %}
             </a>
@@ -52,6 +56,7 @@
             <br>
             <a
                 href={% url 'the-current-user-list-api-viewname-list' %}
+                target='_blank'
                 >
                 {% url 'the-current-user-list-api-viewname-list' %}
             </a>
@@ -59,6 +64,7 @@
             <br>
             <a
                 href={% url 'the-current-user-api-viewname' %}
+                target='_blank'
                 >
                 {% url 'the-current-user-api-viewname' %}
             </a>
@@ -127,6 +133,13 @@
                 target='_blank'
                 >
                 /api/v1/things/name/?search=itt
+            </a>
+            <br>
+            <a
+                href="/api/v1/things-github/name/?search=itt"
+                target='_blank'
+                >
+                /api/v1/things-github/name/?search=itt
             </a>
             <br>
             <a

@@ -44,11 +44,17 @@ class CurrentUserView(generics.RetrieveAPIView):
 
 
 # # GitHub suggestion:
-# class ThingSearchView(generics.ListAPIView):
-#     serializer_class = serializers.ThingSerializer
+class ThingGithubNameSearchView(generics.ListAPIView):
+    serializer_class = serializers.ThingSerializer
 
-#     def get_queryset(self):
-#         return models.Thing.objects.filter(name__icontains=self.request.query_params.get('q', ''))
+    def get_queryset(self):
+        search_word = self.request.query_params.get('search', None)
+        return models.Thing.objects.filter(name__icontains=search_word)
+        
+        return models.Thing.objects.filter(name__icontains=self.request.query_params.get('search', None))
+
+        # Doesn't work:
+        # return models.Thing.objects.filter(name__icontains=self.kwargs.get('search',''))
 
 class ThingDescriptionSearchView(generics.ListAPIView):
     """

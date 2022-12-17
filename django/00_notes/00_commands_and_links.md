@@ -46,6 +46,7 @@
   * <http://localhost:8000/>
 * Django Admin:
   * <http://localhost:8000/admin/>
+  * <http://localhost:8000/admin/doc/models/>
   * <http://localhost:8000/admin/auth/user/>
 * Django Admin Documentation:
   * <http://localhost:8000/admin/doc/>

@@ -12,5 +12,6 @@ router.register('current-user-list', views.CurrentUserViewSet, basename='the-cur
 urlpatterns = [
     path('current-user/', views.CurrentUserView.as_view(), name='the-current-user-api-viewname'),
     path('things/description/', views.ThingDescriptionSearchView.as_view()),
-    path('things/name/', views.ThingNameSearchView.as_view()),
+    path('things/name/', views.ThingNameSearchView.as_view(), name='name-search'),
+    path('things-github/name/', views.ThingGithubNameSearchView.as_view()),
 ] + router.urls
