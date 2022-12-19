@@ -30,6 +30,16 @@
 * `python manage.py createsuperuser --email admin@email.app --username admin`
 * `python manage.py runserver`
 
+## Django
+
+* <https://docs.djangoproject.com/en/4.1/>
+* <https://docs.djangoproject.com/en/4.1/intro/tutorial01/>
+* <https://github.com/django/django/tree/main/django>
+* <https://github.com/django/django/tree/main/django/contrib>
+* <https://github.com/django/django/tree/main/django/contrib/auth>
+* <https://github.com/django/django/blob/main/django/contrib/auth/models.py>
+* <https://github.com/django/django/blob/main/django/views/generic/base.py>
+
 ## pypi
 
 * <https://pypi.org/project/django/>
