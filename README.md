@@ -15,7 +15,4 @@ Examples of various coding languages and markup languages.
 
 ### Pipenv
 
-* [Pipenv Examples](./pipenv/)
-  * [Create Empty Pipenv Virtual Environment](./pipenv/create-empty-pipenv/README.md)
-
 ### Markdown
