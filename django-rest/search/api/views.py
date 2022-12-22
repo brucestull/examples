@@ -45,24 +45,28 @@ class CurrentUserView(generics.RetrieveAPIView):
 
 # # GitHub suggestion:
 class ThingGithubNameSearchView(generics.ListAPIView):
+    """
+    ListAPIView, suggested by GitHub Copilot, for a list of things, filtered by name.
+    """
     serializer_class = serializers.ThingSerializer
 
     def get_queryset(self):
         search_word = self.request.query_params.get('search', None)
-        return models.Thing.objects.filter(name__icontains=search_word)
-        
-        return models.Thing.objects.filter(name__icontains=self.request.query_params.get('search', None))
+        print('The search word (search_word) is: ', search_word)
+        return models.Thing.objects.filter(name__icontains=search_word)  # Functions as needed, but 'get_queryset' runs twice.
+        return models.Thing.objects.filter(name__icontains=self.request.query_params.get('search', None))   # Functions as needed, but 'get_queryset' runs twice.
 
         # Doesn't work:
         # return models.Thing.objects.filter(name__icontains=self.kwargs.get('search',''))
 
-class ThingDescriptionSearchView(generics.ListAPIView):
+
+class UserUsernameSearchView(generics.ListAPIView):
     """
-    ListAPIView for a list of things, filtered by description.
+    ListAPIView for a list of users, filtered by username.
     """
-    queryset = models.Thing.objects.all()
-    serializer_class = serializers.ThingSerializer
-    search_fields = ['description']
+    queryset = DjangoUser.objects.all()
+    serializer_class = serializers.UserSerializer
+    search_fields = ['username']
     filter_backends = [
         filters.SearchFilter
     ]
@@ -80,3 +84,13 @@ class ThingNameSearchView(generics.ListAPIView):
     ]
 
 
+class ThingDescriptionSearchView(generics.ListAPIView):
+    """
+    ListAPIView for a list of things, filtered by description.
+    """
+    queryset = models.Thing.objects.all()
+    serializer_class = serializers.ThingSerializer
+    search_fields = ['description']
+    filter_backends = [
+        filters.SearchFilter
+    ]

@@ -5,6 +5,9 @@ from things import models
 
 
 class ThingSerializer(serializers.ModelSerializer):
+    """
+    Serializer for a single thing.
+    """
     class Meta:
         model = models.Thing
         fields = [
@@ -17,6 +20,9 @@ class ThingSerializer(serializers.ModelSerializer):
         ]
 
 class UserSerializer(serializers.ModelSerializer):
+    """
+    Serializer for a single user. Includes all things owned by the user.
+    """
     things = ThingSerializer(many=True, read_only=True)
 
     class Meta:
@@ -24,5 +30,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'username',
+            'email',
             'things',
         ]

@@ -77,7 +77,7 @@
             >
             <br>
             <h2>Example Search URLs</h2>
-            <h3>Search by description</h3>
+            <h3>Search <code>Thing</code>s by description</h3>
             <a
                 href="/api/v1/things/description/?search=My"
                 target='_blank'
@@ -127,7 +127,7 @@
             v-if="showNameSearchLinks"
             >
 
-            <h3>Search by name</h3>
+            <h3>Search <code>Thing</code>s by name</h3>
             <a
                 href="/api/v1/things/name/?search=itt"
                 target='_blank'
@@ -150,6 +150,25 @@
             </a>
             <br>
         </nav>
+
+        <nav
+            v-if="showUsernameSearchLinks"
+            >
+            <h3>Search <code>User</code>s by username</h3>
+            <a
+                href="/api/v1/users/username/?search=min"
+                target='_blank'
+                >
+                /api/v1/users/username/?search=min
+            </a>
+            <br>
+            <a
+                href="/api/v1/users/username/?search=not"
+                target='_blank'
+                >
+                /api/v1/users/username/?search=not
+            </a>
+            <br>
     </main>
 
     <!--JavaScript at end of body for optimized loading-->
@@ -165,6 +184,7 @@
                 showApplicationLinks: true,
                 showDescriptionSearchLinks: true,
                 showNameSearchLinks: true,
+                showUsernameSearchLinks: true,
             },
             methods: {
 
