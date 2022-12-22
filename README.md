@@ -14,6 +14,22 @@ Examples of various coding languages and markup languages.
 * [Django with Django REST Examples](./django-django-rest/)
 * [Django REST Examples](./django-rest/)
 
+### Flask
+
+* [Flask Code Examples](./flask/)
+
+### JavaScript
+
+* [JavaScript Code Examples](./javascript/)
+
+### Python
+
+* [Python Code Examples](./python/)
+
+### Vue 2
+
+* [Vue 2 Code Examples](./vue-2/)
+
 ### Pipenv
 
 ### Markdown
