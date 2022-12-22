@@ -2,12 +2,6 @@
 
 ## Examples
 
-### Examples **APP IS COMPLETE : NEED TO REFINE DOCUMENTATION**
-
-### Examples **APP IS COMPLETE : NEED TO CREATE DOCUMENTATION**
-
-### Examples **UNDER CONSTRUCTION**
-
 ## Code Examples Repository links
 
 ## **IMPORTANT**
