@@ -53,8 +53,12 @@ class ThingGithubNameSearchView(generics.ListAPIView):
     def get_queryset(self):
         search_word = self.request.query_params.get('search', None)
         print('The search word (search_word) is: ', search_word)
-        return models.Thing.objects.filter(name__icontains=search_word)  # Functions as needed, but 'get_queryset' runs twice.
-        return models.Thing.objects.filter(name__icontains=self.request.query_params.get('search', None))   # Functions as needed, but 'get_queryset' runs twice.
+
+        # Functions as needed, but 'get_queryset' runs twice.
+        return models.Thing.objects.filter(name__icontains=search_word)
+
+        # Functions as needed, but 'get_queryset' runs twice.
+        return models.Thing.objects.filter(name__icontains=self.request.query_params.get('search', None))
 
         # Doesn't work:
         # return models.Thing.objects.filter(name__icontains=self.kwargs.get('search',''))
