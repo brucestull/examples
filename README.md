@@ -10,7 +10,8 @@ Examples of various coding languages and markup languages.
 
 ### Django
 
-* [Django Code Examples](./django/):
+* [Django Code Examples](./django/)
+* [Django with Django REST Examples](./django-django-rest/)
 * [Django REST Examples](./django-rest/)
 
 ### Pipenv
