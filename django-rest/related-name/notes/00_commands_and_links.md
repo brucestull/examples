@@ -20,12 +20,12 @@ accounts
 * `django-admin startapp app_name`
 * `django-admin startapp api`
 * `tree /f /a`
-* `python .\manage.py runserver`
-* `python .\manage.py makemigrations`
-* `python .\manage.py migrate`
-* `python .\manage.py createsuperuser`
+* `python manage.py runserver`
+* `python manage.py makemigrations`
+* `python manage.py migrate`
+* `python manage.py createsuperuser`
 * `python manage.py createsuperuser --email admin@email.app --username admin`
-* `python .\manage.py runserver`
+* `python manage.py runserver`
 
 ## Development server web links
 
