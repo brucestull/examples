@@ -26,6 +26,10 @@ Examples of various coding languages and markup languages.
 
 * [Python Code Examples](./python/)
 
+### React
+
+* [React Code Examples](./react/)
+
 ### Vue 2
 
 * [Vue 2 Code Examples](./vue-2/)

@@ -146,3 +146,55 @@
     * NOTES:
         * `<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />`
         * The `<body>` tag includes a `<div>` with an `id` of `root`
+
+1. Remove all files except the following from the [`my-app/src`](./my-app/src) directory:
+    * `index.css`
+    * `index.js`
+
+1. Edit [`my-app/src/index.js`](./my-app/src/index.js) to match the following:
+
+    ```js
+    import React from 'react';
+    import ReactDOM from 'react-dom/client';
+    import './index.css';
+
+    class ShoppingList extends React.Component {
+        render() {
+            return (
+                <div className="shopping-list">
+                    <h1>Shopping List for {this.props.name}:</h1>
+                    <ul>
+                        <li>Kat Fud, Of course!</li>
+                        <li>Scrubbing</li>
+                        <li>Catnip</li>
+                    </ul>
+                </div>
+            );
+        }
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+        <React.StrictMode>
+            <ShoppingList name="Dezzi" />
+        </React.StrictMode>
+    );
+    ```
+
+1. Open app in browser to <http://localhost:3000>:
+    * Sample browser image:
+        ![React App Shopping List Image](./images/react-app-shopping-list.png)
+
+1. We now have a simple React app.
+
+1. Stop the React app:
+    * `Ctrl+C`
+    * Sample console output:
+
+        ```console
+        Terminate batch job (Y/N)? y
+        PS C:\Users\FlynntKnapp\Programming\examples\react\shopping-list\my-app>
+        ```
+
+1. TODO:
+    1. Add some documentation explaining the code.
