@@ -1,0 +1,173 @@
+# Goodbuy, World
+
+## Resources
+
+* <https://reactjs.org/docs/hello-world.html>
+
+## Process
+
+1. Start in root of project:
+    * `Get-Location`:
+
+        ```console
+        PS C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world> Get-Location      
+
+        Path
+        ----
+        C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world
+
+        PS C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world>
+        ```
+
+1. List current directory contents:
+    * `Get-Childitem`:
+
+        ```console
+        PS C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world> Get-Childitem     
+
+            Directory: C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world
+
+        Mode                 LastWriteTime         Length Name
+        ----                 -------------         ------ ----
+        -a---          12/26/2022  2:58 AM            468 README.md
+
+        PS C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world>
+        ```
+
+1. Make directory for 'images':
+    * `New-Item -ItemType 'directory' -Name images`:
+
+        ```console
+        PS C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world> New-Item -ItemType 'directory' -Name images        
+
+            Directory: C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world
+
+        Mode                 LastWriteTime         Length Name
+        ----                 -------------         ------ ----
+        d----          12/26/2022  3:04 AM                images
+
+        PS C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world>
+        ```
+
+1. List current directory contents:
+    * `Get-Childitem`:
+
+        ```console
+        PS C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world> Get-Childitem     
+
+            Directory: C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world
+
+        Mode                 LastWriteTime         Length Name
+        ----                 -------------         ------ ----
+        d----          12/26/2022  3:04 AM                images
+        -a---          12/26/2022  2:58 AM            468 README.md
+
+        PS C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world>
+        ```
+
+1. Create new React app:
+    * `npx create-react-app my-app`:
+
+        ```console
+        PS C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world> npx create-react-app my-app
+        Need to install the following packages:
+          create-react-app@5.0.1
+        Ok to proceed? (y) y
+        npm WARN deprecated tar@2.2.2: This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.
+
+        Creating a new React app in C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world\my-app.
+
+        Installing packages. This might take a couple of minutes.
+        Installing react, react-dom, and react-scripts with cra-template...
+
+
+        added 1397 packages in 31s
+
+        214 packages are looking for funding
+          run `npm fund` for details
+
+        Installing template dependencies using npm...
+
+        added 71 packages in 4s
+
+        226 packages are looking for funding
+          run `npm fund` for details
+        Removing template package using npm...
+
+
+        removed 1 package, and audited 1468 packages in 2s
+
+        226 packages are looking for funding
+          run `npm fund` for details
+
+        6 high severity vulnerabilities
+
+        To address all issues (including breaking changes), run:
+          npm audit fix --force
+
+        Run `npm audit` for details.
+
+        Success! Created my-app at C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world\my-app
+        Inside that directory, you can run several commands:
+
+          npm start
+            Starts the development server.
+
+          npm run build
+            Bundles the app into static files for production.
+
+          npm test
+            Starts the test runner.
+
+          npm run eject
+            Removes this tool and copies build dependencies, configuration files
+            and scripts into the app directory. If you do this, you can’t go back!
+
+        We suggest that you begin by typing:
+
+          cd my-app
+          npm start
+
+        Happy hacking!
+        PS C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world>
+        ```
+
+1. Change directory to 'my-app':
+    * `Set-Location -Path .\my-app\`:
+
+        ```console
+        PS C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world> Set-Location -Path .\my-app\
+        PS C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world\my-app>
+        ```
+
+1. Test development server:
+    * `npm start`:
+
+        ```console
+        PS C:\Users\FlynntKnapp\Programming\examples\react\00-goodbuy-world\my-app> npm start
+
+        > my-app@0.1.0 start
+        > react-scripts start
+
+        (node:6780) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+        (Use `node --trace-deprecation ...` to show where the warning was created)
+        (node:6780) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+        Starting the development server...
+        Compiled successfully!
+
+        You can now view my-app in the browser.
+
+          Local:            http://localhost:3000
+          On Your Network:  http://192.168.0.8:3000
+
+        Note that the development build is not optimized.
+        To create a production build, use npm run build.
+
+        webpack compiled successfully
+        ```
+
+1. Examine browser:
+    * <http://localhost:3000>:
+
+        ![React App](./images/success-create-react-app.png)
+
