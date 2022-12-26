@@ -3,6 +3,8 @@
 ## Resources
 
 * <https://reactjs.org/docs/hello-world.html>
+* [Hello World](https://codepen.io/gaearon/pen/MjrdWg?editors=1010)
+* [Hello World](https://codepen.io/gaearon/pen/MjrdWg)
 
 ## Process
 
