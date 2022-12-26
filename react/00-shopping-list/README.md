@@ -198,3 +198,9 @@
 
 1. TODO:
     1. Add some documentation explaining the code.
+
+## Notes
+
+* To run the app after cloning the repo:
+  1. `npm install`
+  1. `npm start`
