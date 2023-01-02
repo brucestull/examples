@@ -162,7 +162,7 @@
 1. Remove all files from [`src/`](../my-react-app/src/) directory except the following:
     * `index.js`
 
-1. Replace existing contents of [`index.html`](../my-react-app/public/index.html) with the following:
+1. Replace existing content of [`index.html`](../my-react-app/public/index.html) with the following:
 
     ```html
     <!DOCTYPE html>
@@ -182,7 +182,7 @@
     </html>
     ```
 
-1. Replace existing contents of [`index.js`](../my-react-app/src/index.js) with the following:
+1. Replace existing content of [`index.js`](../my-react-app/src/index.js) with the following:
 
     ```javascript
     import React from 'react';
